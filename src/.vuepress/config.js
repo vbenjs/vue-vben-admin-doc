@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Vue vben admin',
-  description: 'Vue vben admin docs',
+  description: 'Vue vben admin docs  文档正在逐步编写中，请耐心等候！',
   dest: './src/.vuepress/dist',
   updatePopup: true,
   //  不转义成es5下
@@ -14,11 +14,34 @@ module.exports = {
     lineNumbers: true,
   },
   themeConfig: {
+    logo: '/img/logo.png',
     nav: [
-      { text: '首页', link: '/' },
-      { text: '快速开始', link: '/guide/' },
+      { text: '指南', link: '/guide/' },
       { text: 'github', link: 'https://github.com/anncwb/vue-vben-admin' },
     ],
+    sidebar: {
+      '/guide/': [
+        {
+          title: '介绍',
+          collapsable: false,
+          children: [{ title: '项目介绍', path: '/guide/Introduction/' }],
+        },
+        {
+          title: '环境准备',
+          collapsable: false,
+          children: [{ title: '开发环境', path: '/guide/env/' }],
+        },
+        {
+          title: '项目配置',
+          collapsable: false,
+          children: [
+            { title: '环境配置', path: '/guide/setting/' },
+            { title: '项目配置', path: '/guide/setting/project' },
+            { title: '动态配置', path: '/guide/setting/window' },
+          ],
+        },
+      ],
+    },
   },
   plugins: [
     '@vuepress/active-header-links',
