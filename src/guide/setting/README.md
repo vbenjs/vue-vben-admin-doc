@@ -48,9 +48,6 @@ GLOB_APP_SHORT_NAME=vben-admin
 **.env.development 开发环境适用**
 
 ```bash
-# 将import转化成require，提高热加载速度
-VUE_CLI_BABEL_TRANSPILE_MODULES=true
-
 # 项目路径
 VUE_APP_PUBLIC_PATH=/
 

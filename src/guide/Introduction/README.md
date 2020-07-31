@@ -1,6 +1,3 @@
-## 介绍
-
-[vue-vben-admin](https://github.com/anncwb/vue-vben-admin) 是一个基于 [vue-composition-api](https://github.com/vuejs/composition-api)，[ant-design-vue](https://www.antdv.com/docs/vue/introduce-cn/),`typescript`的后台解决方案，适合中大型项目，提供现成的开箱解决方案。项目中提供了多个封装的组件（包含二次封装）,hooks,utils,国际化方案,权限校验，动态路由，动态菜单等功能，她是基于`vue-cli4`的脚手架进行开发的，更多的功能可以详细看代码实现，相信能对学习 vue3 有一定的帮助！
 
 ## 准备
 
@@ -24,6 +21,11 @@ npm install
 yarn serve
 
 ```
+**首次安装**
+
+首次执行`yarn serve`会再次执行一次yarn install，以后每次运行项目的时候都会判断依赖是否跟本地保持一致，不一致则会先行安装依赖后在自动运行！
+
+
 
 ## 目录结构
 
@@ -84,5 +86,5 @@ yarn serve
 支持现代浏览器及 IE10+
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| :-: | :-: | :-: | :-: |
-| IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                IE10, IE11, Edge                                                                                                 |                                                                                                  last 2 versions                                                                                                  |                                                                                                last 2 versions                                                                                                |                                                                                                last 2 versions                                                                                                |

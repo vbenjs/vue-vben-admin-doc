@@ -1,6 +1,6 @@
 ## 项目配置
 
-::: tip 温馨提醒
+::: warning 注意
 
 项目配置用于配置项目内展示的内容/布局/文本等效果，存于`localStorage`中,在代码内更改之后需要清空`localStorage`缓存
 
@@ -81,5 +81,8 @@
 
   // 使用error-handler-plugin
   useErrorHandle: isProdMode(),
+
+  // 路由切换动画
+  routerTransition:'zoom-fade'
 
 ```

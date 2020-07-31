@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/docs/',
   title: 'Vue vben admin',
   description: 'Vue vben admin docs  文档正在逐步编写中，请耐心等候！',
   dest: './src/.vuepress/dist',
@@ -17,27 +18,64 @@ module.exports = {
     logo: '/img/logo.png',
     nav: [
       { text: '指南', link: '/guide/' },
+      { text: '组件', link: '/comp/' },
+      { text: '预览', link: 'https://vvbin.cn' },
       { text: 'github', link: 'https://github.com/anncwb/vue-vben-admin' },
     ],
     sidebar: {
       '/guide/': [
         {
           title: '介绍',
+          path: '/guide/',
           collapsable: false,
           children: [{ title: '项目介绍', path: '/guide/Introduction/' }],
         },
         {
           title: '环境准备',
-          collapsable: false,
+          collapsable: true,
           children: [{ title: '开发环境', path: '/guide/env/' }],
         },
         {
           title: '项目配置',
-          collapsable: false,
+          collapsable: true,
           children: [
             { title: '环境配置', path: '/guide/setting/' },
             { title: '项目配置', path: '/guide/setting/project' },
             { title: '动态配置', path: '/guide/setting/window' },
+          ],
+        },
+        {
+          title: '图标相关',
+          collapsable: true,
+          children: [{ title: '基础说明', path: '/guide/icon/' }],
+        },
+        {
+          title: '路由相关',
+          collapsable: true,
+          children: [
+            { title: '基础说明', path: '/guide/router/base' },
+            { title: '配置介绍', path: '/guide/router/config' },
+            { title: 'META配置', path: '/guide/router/meta' },
+
+            { title: '新增路由', path: '/guide/router/new' },
+            { title: '刷新路由', path: '/guide/router/redo' },
+          ],
+        },
+        {
+          title: '菜单相关',
+          collapsable: true,
+          children: [{ title: '基础说明', path: '/guide/router/base' }],
+        },
+      ],
+
+      '/comp/': [
+        {
+          title: '图标组件',
+          path: '/comp/',
+          collapsable: false,
+          children: [
+            { title: 'Icon组件', path: '/comp/icon/' },
+            { title: 'SvgIcon组件', path: '/comp/icon/svg' },
           ],
         },
       ],
