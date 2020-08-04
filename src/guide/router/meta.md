@@ -57,6 +57,10 @@ const IFrame = () => createAsyncComponent(import('@/views/sys/iframe/FrameBlank.
   },
 ```
 
+## affix 固定
+
+在开启了多标签页的时候当在声明路由是 添加了`affix`属性，则当前 tab 会被固定在 标签页上方，并且不能删除。
+
 ## icon 配置说明
 
 这里的 icon 配置，会同步到 **菜单** 及 **多标签页**的图标

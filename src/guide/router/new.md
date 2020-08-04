@@ -52,7 +52,7 @@ export default {
 
 :::
 
-2. 到这里你路由已经添加完成，不需要手动引入，放在**src/router/routes/modules**那的文件会自动被加载
+2. 到这里你路由已经添加完成，不需要手动引入，放在**src/router/routes/modules**内的文件会自动被加载
 
 ::: tip 温馨提醒
 
