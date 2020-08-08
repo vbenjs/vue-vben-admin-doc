@@ -92,6 +92,20 @@ module.exports = {
             { title: 'SvgIcon组件', path: '/comp/icon/svg' },
           ],
         },
+        {
+          title: '上传下载',
+          // path: '/comp/',
+          collapsable: false,
+          children: [
+            { title: '上传组件', path: '/comp/file/upload' },
+            { title: '下载组件', path: '/comp/file/download' },
+          ],
+        },
+        {
+          title: '富文本编辑',
+          path: '/comp/tinymce/',
+          // collapsable: false,
+        },
       ],
       '/hooks/': [
         { title: '介绍', path: '/hooks/' },
