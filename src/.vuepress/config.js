@@ -21,7 +21,7 @@ module.exports = {
       { text: '进阶指南', link: '/advanced/' },
       { text: '组件文档', link: '/comp/' },
       { text: 'hooks', link: '/hooks/' },
-      // { text: 'plugins', link: '/plugins/' },
+      { text: '插件/功能', link: '/plugins/' },
       {
         text: '更新日志',
         link: 'https://github.com/anncwb/vue-vben-admin/blob/master/CHANGELOG.md',
@@ -299,7 +299,20 @@ module.exports = {
             { title: 'useCharts', path: '/hooks/function/useCharts' },
             { title: 'useContextMenu', path: '/hooks/function/useContextMenu' },
             { title: 'useDriver', path: '/hooks/function/useDriver' },
+            { title: 'useWatermark', path: '/hooks/function/useWatermark' },
           ],
+        },
+      ],
+      '/plugins/': [
+        { title: '介绍', path: '/plugins/' },
+
+        {
+          title: '持久化插件',
+          path: '/plugins/cache',
+        },
+        {
+          title: '打印插件',
+          path: '/plugins/print',
         },
       ],
     },

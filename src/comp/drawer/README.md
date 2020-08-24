@@ -118,3 +118,11 @@ setDrawerProps(props);
 | visibleChange | `function(e)` | 弹窗打开关闭时触发 |
 | visibleChange | `function(e)` | 弹窗打开关闭时触发 |
 | ok            | `function(e)` | 点击确定回调       |
+
+## 函数
+
+| 名称          | 回调参数               | 说明                |
+| ------------- | ---------------------- | ------------------- |
+| scrollBottom  | `() => void`           | 滚动到底部          |
+| scrollTo      | `(to:number) => void`  | 滚动到指定位置      |
+| getScrollWrap | `() => Element | null` | 获取 drawer 容器 el |
