@@ -18,9 +18,9 @@ export default defineComponent({
 });
 ```
 
-## 事件
+## 函数
 
-| 事件          | 回调参数                             | 说明            |
+| 名称          | 回调参数                             | 说明            |
 | ------------- | ------------------------------------ | --------------- |
 | getScrollWrap | `Function`                           | 获取滚动容器 el |
 | scrollBottom  | `Function`                           | 滚动到底部      |

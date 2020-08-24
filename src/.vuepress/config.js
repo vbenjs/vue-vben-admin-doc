@@ -146,7 +146,7 @@ module.exports = {
 
       '/comp/': [
         {
-          title: 'Button组件',
+          title: '按钮组件',
           path: '/comp/button',
         },
         {
@@ -182,34 +182,63 @@ module.exports = {
           path: '/comp/authority/',
         },
         {
-          title: 'form组件',
+          title: '表单组件',
           path: '/comp/form/',
           collapsable: false,
         },
         {
-          title: 'table组件',
+          title: '表格组件',
           path: '/comp/table/',
           collapsable: false,
         },
         {
-          title: 'modal组件',
-          path: '/comp/modal/',
+          title: '树组件',
+          path: '/comp/tree',
           collapsable: false,
         },
         {
-          title: 'drawer组件',
+          title: '弹窗组件',
+          path: '/comp/modal/',
+        },
+        {
+          title: '抽屉组件',
           path: '/comp/drawer/',
-          collapsable: false,
+        },
+        {
+          title: 'virtual-scroll组件',
+          path: '/comp/virtual-scroll',
+        },
+        {
+          title: '验证码组件',
+          collapsable: true,
+          children: [
+            { title: '拖动校验', path: '/comp/verify/base' },
+            { title: '图片还原校验', path: '/comp/verify/img' },
+          ],
+        },
+        {
+          title: '二维码组件',
+          path: '/comp/qrcode',
+        },
+        {
+          title: '密码强度校验组件',
+          path: '/comp/strengthMeter',
+        },
+        {
+          title: '动画组件',
+          path: '/comp/transition',
+        },
+        {
+          title: 'parallax组件',
+          path: '/comp/parallax',
         },
         {
           title: 'click-out-side组件',
           path: '/comp/click-out-side',
-          collapsable: false,
         },
         {
           title: '富文本编辑',
           path: '/comp/tinymce/',
-          collapsable: false,
         },
         {
           title: '上传下载',
