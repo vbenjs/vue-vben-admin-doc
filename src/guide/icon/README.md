@@ -28,6 +28,12 @@ export { default as ShrinkOutline } from '@ant-design/icons/lib/outline/ShrinkOu
 
 :::
 
+### 改变颜色
+
+`svg-icon` 默认会读取其父级的 `color fill: currentColor`;
+
+你可以改变父级的 color 或者直接改变 fill 的颜色即可。
+
 ### 如何使用
 
 请查看 [svg 组件使用](/comp/icon/svg)

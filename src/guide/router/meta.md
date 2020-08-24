@@ -11,7 +11,7 @@ export interface Meta {
   ignoreAuth?: boolean;
   // 角色权限
   roles?: RoleEnum[];
-  // 是否不缓存
+  // 为true不缓存
   noKeepAlive?: boolean;
   // 是否固定在tab上
   affix?: boolean;

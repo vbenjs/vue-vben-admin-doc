@@ -1,7 +1,7 @@
 module.exports = {
   base: '/docs/',
   title: 'Vue vben admin',
-  description: 'Vue vben admin docs  文档正在逐步编写中，请耐心等候！',
+  description: 'Vue vben admin docs',
   dest: './src/.vuepress/dist',
   updatePopup: true,
   //  不转义成es5下
@@ -17,10 +17,15 @@ module.exports = {
   themeConfig: {
     logo: '/img/logo.png',
     nav: [
-      { text: '指南', link: '/guide/' },
-      { text: '组件', link: '/comp/' },
+      { text: '基础指南', link: '/guide/' },
+      { text: '进阶指南', link: '/advanced/' },
+      { text: '组件文档', link: '/comp/' },
       { text: 'hooks', link: '/hooks/' },
-      { text: 'plugins', link: '/plugins/' },
+      // { text: 'plugins', link: '/plugins/' },
+      {
+        text: '更新日志',
+        link: 'https://github.com/anncwb/vue-vben-admin/blob/master/CHANGELOG.md',
+      },
       { text: '预览', link: 'https://vvbin.cn' },
       { text: 'github', link: 'https://github.com/anncwb/vue-vben-admin' },
     ],
@@ -30,16 +35,19 @@ module.exports = {
           title: '介绍',
           path: '/guide/',
           collapsable: false,
-          children: [{ title: '项目介绍', path: '/guide/Introduction/' }],
+          children: [
+            { title: '项目介绍', path: '/guide/Introduction/' },
+            { title: '配色修改', path: '/guide/Introduction/theme' },
+          ],
         },
         {
           title: '环境准备',
-          collapsable: true,
+          collapsable: false,
           children: [{ title: '开发环境', path: '/guide/env/' }],
         },
         {
           title: '项目配置',
-          collapsable: true,
+          collapsable: false,
           children: [
             { title: '环境配置', path: '/guide/setting/' },
             { title: '项目配置', path: '/guide/setting/project' },
@@ -48,12 +56,12 @@ module.exports = {
         },
         {
           title: '图标相关',
-          collapsable: true,
+          collapsable: false,
           children: [{ title: '基础说明', path: '/guide/icon/' }],
         },
         {
           title: '路由相关',
-          collapsable: true,
+          collapsable: false,
           children: [
             { title: '基础说明', path: '/guide/router/base' },
             { title: '配置介绍', path: '/guide/router/config' },
@@ -66,7 +74,7 @@ module.exports = {
         },
         {
           title: '菜单相关',
-          collapsable: true,
+          collapsable: false,
           children: [
             { title: '基础结构', path: '/guide/menu/' },
             { title: '新增菜单', path: '/guide/menu/new' },
@@ -74,37 +82,142 @@ module.exports = {
         },
         {
           title: '权限相关',
-          collapsable: true,
+          collapsable: false,
           children: [
             { title: '基础', path: '/guide/perm/' },
             { title: '基于角色权限', path: '/guide/perm/role' },
+            { title: '后台动态获取菜单', path: '/guide/perm/back' },
           ],
+        },
+        {
+          title: '样式相关',
+          collapsable: false,
+          path: '/guide/style/',
+        },
+        {
+          title: '服务端交互',
+          collapsable: false,
+          children: [
+            { title: '接口地址修改', path: '/guide/api/mutual' },
+            { title: '接口请求', path: '/guide/api/axios' },
+            { title: 'mock服务', path: '/guide/api/mock' },
+          ],
+        },
+        {
+          title: '项目构建',
+          path: '/guide/build/',
+        },
+      ],
+      '/advanced': [
+        {
+          title: '跨域问题',
+          path: '/advanced/',
+          collapsable: false,
+        },
+        {
+          title: 'nginx配置',
+          collapsable: false,
+          path: '/advanced/nginx',
+        },
+        {
+          title: 'Lint',
+          collapsable: true,
+          path: '/advanced/lint/',
+          children: [
+            { title: 'Eslint', path: '/advanced/lint/eslint' },
+            { title: 'LsLint', path: '/advanced/lint/ls-lint' },
+            { title: 'CommitLint', path: '/advanced/lint/commitlint' },
+            { title: 'StyleLint', path: '/advanced/lint/stylelint' },
+            { title: 'Prettier', path: '/advanced/lint/prettier' },
+            { title: 'GitHook', path: '/advanced/lint/git-hook' },
+          ],
+        },
+        {
+          title: '国际化',
+          collapsable: false,
+          path: '/advanced/i18n/',
+        },
+        {
+          title: '常见问题',
+          collapsable: false,
+          path: '/advanced/qa/',
         },
       ],
 
       '/comp/': [
         {
+          title: 'Button组件',
+          path: '/comp/button',
+        },
+        {
           title: '图标组件',
-          path: '/comp/',
-          collapsable: false,
+          collapsable: true,
           children: [
             { title: 'Icon组件', path: '/comp/icon/' },
             { title: 'SvgIcon组件', path: '/comp/icon/svg' },
           ],
         },
         {
-          title: '上传下载',
-          // path: '/comp/',
-          collapsable: false,
+          title: '小组件',
+          collapsable: true,
           children: [
-            { title: '上传组件', path: '/comp/file/upload' },
-            { title: '下载组件', path: '/comp/file/download' },
+            { title: 'Title组件', path: '/comp/base/title' },
+            { title: 'Arrow组件', path: '/comp/base/arrow' },
+            { title: 'Help组件', path: '/comp/base/help' },
           ],
+        },
+        {
+          title: '容器组件',
+          collapsable: true,
+          children: [
+            { title: 'collapse折叠容器', path: '/comp/wrap/collapse' },
+            { title: 'lazy延时加载容器', path: '/comp/wrap/lazy' },
+            { title: 'scroll滚动容器', path: '/comp/wrap/scroll' },
+          ],
+        },
+
+        {
+          title: '权限组件',
+          collapsable: false,
+          path: '/comp/authority/',
+        },
+        {
+          title: 'form组件',
+          path: '/comp/form/',
+          collapsable: false,
+        },
+        {
+          title: 'table组件',
+          path: '/comp/table/',
+          collapsable: false,
+        },
+        {
+          title: 'modal组件',
+          path: '/comp/modal/',
+          collapsable: false,
+        },
+        {
+          title: 'drawer组件',
+          path: '/comp/drawer/',
+          collapsable: false,
+        },
+        {
+          title: 'click-out-side组件',
+          path: '/comp/click-out-side',
+          collapsable: false,
         },
         {
           title: '富文本编辑',
           path: '/comp/tinymce/',
-          // collapsable: false,
+          collapsable: false,
+        },
+        {
+          title: '上传下载',
+          collapsable: true,
+          children: [
+            { title: '上传组件', path: '/comp/file/upload' },
+            { title: '下载组件', path: '/comp/file/download' },
+          ],
         },
       ],
       '/hooks/': [

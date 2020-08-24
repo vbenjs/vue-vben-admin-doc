@@ -6,6 +6,10 @@
 
 :::
 
+## 路径
+
+**src/settings/projectSetting.ts**
+
 ## 配置说明
 
 ```js
@@ -33,6 +37,16 @@
     show: true,
     // 头部主题
     theme: MenuThemeEnum.LIGHT,
+    // 是否固定header
+    fixed: true,
+    // 开启锁屏功能
+    useLockPage: isProdMode(),
+    // 显示刷新按钮
+    showRedo: true,
+    // 显示全屏按钮
+    showFullScreen: true,
+    // 显示文档按钮
+    showDoc: true,
   },
   // 菜单类型
   menuSetting: {
@@ -84,5 +98,18 @@
 
   // 路由切换动画
   routerTransition:'zoom-fade'
+
+
+  // 是否开启登陆安全校验
+  openLoginVerify: true,
+
+  // 是否监听网络变化
+  listenNetWork: true,
+
+  // 是否开启页面切换loading
+  openPageLoading: true,
+
+  // 是否开启回到顶部
+  useOpenBackTop: true,
 
 ```

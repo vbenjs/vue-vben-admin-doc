@@ -28,7 +28,7 @@ export const useRedo = () => {
 
 重定向回到原先页面
 
-```js
+```tsx
 import { defineComponent, onBeforeMount } from 'compatible-vue';
 
 export default defineComponent({

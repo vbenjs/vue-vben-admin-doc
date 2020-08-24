@@ -6,7 +6,7 @@
 
 ## 使用
 
-```js
+```tsx
    import { defineComponent } from 'compatible-vue';
   import { Alert } from 'ant-design-vue';
   import { downloadByUrl, downloadByData } from '@/components/file/index';
@@ -31,8 +31,10 @@
             class="my-4"
             onClick={() => {
               downloadByUrl(
-                'https://codeload.github.com/anncwb/vue-vben-admin-doc/zip/master',
-                '_self'
+               {
+                 url: 'https://codeload.github.com/anncwb/vue-vben-admin-doc/zip/master',
+                 target:  '_self'
+               }
               );
             }}
           >

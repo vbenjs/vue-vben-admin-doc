@@ -6,7 +6,7 @@
 
 ## 使用
 
-```js
+```tsx
   import { defineComponent, ref, unref } from 'compatible-vue';
   import { Tinymce, TinymceActionType } from '@/components/tinymce/index';
   import { Switch } from 'ant-design-vue';
@@ -31,25 +31,10 @@
       }
       return () => (
         <div class="m-4">
-          <div class="mb-4">
-            <div class="mb-4">
-              <label class="mr-2">是否显示上传按钮:</label>
-              <Switch
-                checked-children="是"
-                un-checked-children="否"
-                default-checked
-                onChange={handleChangeUpload}
-              />
-            </div>
-
-            <a-button onClick={handleSetContent}>设置值</a-button>
-            <p class="mt-4"> {unref(tinymceContent)}</p>
-          </div>
           <Tinymce
             ref={tinymceElRef}
             value={defaultValue}
             onChange={handleChange}
-            showUploadImage={unref(showUploadImageRef)}
             maxSize={1}
             maxNumber={3}
           />
@@ -61,15 +46,15 @@
 
 ## Props
 
-| 属性            | 类型            | 默认值                                                                | 说明                               |
-| --------------- | --------------- | --------------------------------------------------------------------- | ---------------------------------- |
-| id              | `string`        | `tinymce-${new Date().getTime()}${(Math.random() * 1000).toFixed(0)}` | tinymce的唯一标示                  |
-| options         | `Settings`      | null                                                                  | tinymce的配置项                    |
-| menubar         | `string`        | 'file edit insert view format table'                                  | tinymce的menubar                   |
-| value           | `string`        | -                                                                     | 用于设置初始值，用于集成到form组件 |
-| height          | `number|string` | 400                                                                   | 高度                               |
-| width           | `number|string` | auto                                                                  | 宽度                               |
-| showUploadImage | `boolean`       | true                                                                  | 是否显示上传按钮                   |
+| 属性            | 类型            | 默认值                               | 说明                               |
+| --------------- | --------------- | ------------------------------------ | ---------------------------------- |
+| id              | `string`        | 随机值                               | tinymce的唯一标示                  |
+| options         | `Settings`      | null                                 | tinymce的配置项                    |
+| menubar         | `string`        | 'file edit insert view format table' | tinymce的menubar                   |
+| value           | `string`        | -                                    | 用于设置初始值，用于集成到form组件 |
+| height          | `number|string` | 400                                  | 高度                               |
+| width           | `number|string` | auto                                 | 宽度                               |
+| showUploadImage | `boolean`       | true                                 | 是否显示上传按钮                   |
 
 
 ## 事件

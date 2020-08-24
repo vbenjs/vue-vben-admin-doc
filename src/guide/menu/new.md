@@ -4,7 +4,7 @@
 
 **新增 test 模块菜单**
 
-```js
+```tsx
 
 import { NormMenuItem } from '@/router/types';
 export default {

@@ -51,8 +51,17 @@ GLOB_APP_SHORT_NAME=vben-admin
 # 项目路径
 VUE_APP_PUBLIC_PATH=/
 
+# 接口地址
+GLOB_API_URL=/app
+
 # 本地开发代理，可以解决跨域及多地址代理
-VUE_APP_PROXY=[["/app","http://localhost:3000"]]
+# 如果接口地址匹配到，则会转发到http://localhost:3000，防止本地出现跨域问题
+# 可以有多个
+VUE_APP_PROXY=[["/app","http://localhost:3000"],["api1","http://localhost:3001"]]
+
+# 接口地址前缀，有些系统所有接口地址都有前缀，可以在这里统一加，方便切换
+GLOB_API_URL_PREFIX=/v1.0
+# GLOB_API_URL_PREFIX=   不需要的情况
 
 # 是否使用hardSsource cache
 VUE_APP_USE_CACHE=FALSE
@@ -64,17 +73,12 @@ VUE_APP_SUPPORT_IE=TRUE
 VUE_APP_USE_MOCK=TRUE
 
 # 是否开启主题切换
+# 本地开发最好关掉，会造成热更新速度慢1-2s，一般主题切换本地比较少用，
 VUE_APP_USE_THEME_REPLACER=TRUE
-
-# 接口地址
-GLOB_API_URL=/app
-
-# 接口地址前缀
-GLOB_API_URL_PREFIX=/v1.0
 
 ```
 
-**..env.production 生产环境适用**
+**.env.production 生产环境适用**
 
 ```bash
 # 打包是否删除console.log
@@ -87,25 +91,30 @@ VUE_APP_PUBLIC_PATH=./
 VUE_APP_USE_CACHE=TRUE
 
 # 是否开启gzip压缩
+# 需要服务器nginx开启 gzip_static: on
+# 开启后打包速度会慢2倍左右
 BUILD_ON_GZIP=FALSE
 
 # 是否需要兼容ie
 VUE_APP_SUPPORT_IE=TRUE
 
 # 是否开启主题切换
+# 同上
 VUE_APP_USE_THEME_REPLACER=TRUE
 
 # 是否使用mock
+# 同上
 VUE_APP_USE_MOCK=TRUE
 
 # 是否使用cdn，目前只用于站点部署
 VUE_APP_USE_CDN=FALSE
 
 # 接口地址
+# 同上
 GLOB_API_URL=/app
 
 # 接口地址前缀
+# 同上
 GLOB_API_URL_PREFIX=/v1.0
-
 
 ```

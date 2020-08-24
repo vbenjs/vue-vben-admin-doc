@@ -6,7 +6,7 @@
 
 ## 使用
 
-```js
+```tsx
   import { defineComponent } from 'compatible-vue';
   import { Alert } from 'ant-design-vue';
   import { UploadContainer } from '@/components/file/index';
@@ -15,11 +15,9 @@
     name: 'UploadImageDemo',
     setup() {
       function handleImgChange(fileList) {
-        console.log('---img----');
         console.log(fileList);
       }
       function handleFileChange(fileList) {
-        console.log('---file----');
         console.log(fileList);
       }
       return () => (

@@ -6,7 +6,7 @@
 
 ## 使用
 
-```js
+```tsx
 import { SvgIcon } from '@/components/icon';
 import { defineComponent } from 'compatible-vue';
 

@@ -1,4 +1,3 @@
-
 ## 准备
 
 项目难度可能不适合新入手的开发者，需要有一定的基础，对 [es6](https://es6.ruanyifeng.com/),[Typescript](https://www.runoob.com/typescript/ts-tutorial.html),[ant-design-vue](https://www.antdv.com/docs/vue/introduce-cn/),[vue-cli4](https://cli.vuejs.org/),[vue-composition-api](https://github.com/vuejs/composition-api),[vue-router](https://router.vuejs.org/zh/),[vuex](https://vuex.vuejs.org/zh/),`Tsx`有一定的使用经验，如果以上技术没有问题，您将很快理解该项目开发，对您学习该项目有很大的帮助,如果你未掌握上述的技能，您可以边看文档边学习。
@@ -21,11 +20,6 @@ npm install
 yarn serve
 
 ```
-**首次安装**
-
-首次执行`yarn serve`会再次执行一次yarn install，以后每次运行项目的时候都会判断依赖是否跟本地保持一致，不一致则会先行安装依赖后在自动运行！
-
-
 
 ## 目录结构
 
@@ -86,5 +80,5 @@ yarn serve
 支持现代浏览器及 IE10+
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                IE10, IE11, Edge                                                                                                 |                                                                                                  last 2 versions                                                                                                  |                                                                                                last 2 versions                                                                                                |                                                                                                last 2 versions                                                                                                |
+| :-: | :-: | :-: | :-: |
+| IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions |
