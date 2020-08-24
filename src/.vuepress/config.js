@@ -187,6 +187,10 @@ module.exports = {
           collapsable: false,
         },
         {
+          title: '详情组件',
+          path: '/comp/desc',
+        },
+        {
           title: '表格组件',
           path: '/comp/table/',
           collapsable: false,
@@ -313,6 +317,14 @@ module.exports = {
         {
           title: '打印插件',
           path: '/plugins/print',
+        },
+        {
+          title: 'excel插件',
+          collapsable: true,
+          children: [
+            { title: '导出到excel', path: '/plugins/excel/export2excel' },
+            { title: 'excel导入到table', path: '/plugins/excel/importFromExcel' },
+          ],
         },
       ],
     },
