@@ -217,6 +217,7 @@ getPaginationRef: () => void
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
 | --- | --- | --- | --- | --- |
 | showSummary | `boolean` | false | - | 是否显示合计行 |
+| emptyDataIsShowTable | `boolean` | true | - | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格 |
 | summaryFunc | `(...arg) => any[]` | - | - | 计算合计行的方法 |
 | canRowDrag | `boolean` | false | - | 是否可拖拽行排序 |
 | canColDrag | `boolean` | false | - | 是否可拖拽列 |
