@@ -2,7 +2,9 @@
 node_modules
 dist
 /build/.cache
-
+/dist
+/**/dist
+/src/.vuepress/dist
 .local
 # local env files
 .env.local

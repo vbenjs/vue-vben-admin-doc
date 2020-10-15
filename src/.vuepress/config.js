@@ -1,7 +1,7 @@
 module.exports = {
   base: '/docs/',
   title: 'Vue vben admin',
-  description: 'Vue vben admin docs',
+  description: '该文档为1.0版本,不适用与2.0，2.0文档将很快发布。',
   dest: './src/.vuepress/dist',
   updatePopup: true,
   //  不转义成es5下

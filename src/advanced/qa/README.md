@@ -6,6 +6,18 @@
 
 :::
 
+## 依赖安装问题
+
+如果依赖安装出现问题，可以尝试 `yarn reinstall` 或者`npm run reinstall` 进行依赖重装
+
+改操作会删除 `node_modules`和`yarn.lock`文件,速度较慢，请耐心等待。
+
+## 关于打包文件过大
+
+[vue-vben-admin](https://github.com/anncwb/vue-vben-admin)主要是集中展示一些 demo 和组件用法，不建议在这上面直接开发，可以使用精简版的模版[vue-vben-admin-thin](https://github.com/anncwb/vue-vben-admin-thin) 内部已经删除了一些不必要的模块。有需要可以自行安装
+
+同时也建议开启`gizp`,加大大减小加载的体积
+
 ## 如何修改全局 loading 和一些全局样式
 
 全局 loading 及全局的表格空字符默认显示,全局组件国际化 locale，可以在`src/setup/main/App.vue`内配置
