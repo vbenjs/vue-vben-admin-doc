@@ -10,11 +10,17 @@
     "build": "vuepress build src"
   },
   "devDependencies": {
-    "@vuepress/plugin-active-header-links": "^1.5.2",
-    "@vuepress/plugin-back-to-top": "^1.5.2",
-    "@vuepress/plugin-medium-zoom": "^1.5.2",
-    "@vuepress/plugin-nprogress": "^1.5.2",
-    "prettier": "^2.0.5",
-    "vuepress": "^1.5.2"
+    "@vuepress/plugin-active-header-links": "^1.7.0",
+    "@vuepress/plugin-back-to-top": "^1.7.0",
+    "@vuepress/plugin-medium-zoom": "^1.7.0",
+    "@vuepress/plugin-nprogress": "^1.7.0",
+    "prettier": "^2.1.2",
+    "vuepress": "^1.7.0",
+    "vuepress-plugin-smooth-scroll": "^0.0.10",
+    "vuepress-plugin-typescript": "^0.3.1",
+    "vuepress-plugin-zooming": "^1.1.8"
+  },
+  "dependencies": {
+    "vuepress-plugin-table-of-contents": "^1.1.7"
   }
 }
