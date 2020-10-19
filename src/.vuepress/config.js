@@ -1,8 +1,8 @@
 module.exports = {
-  base: '/doc-next/',
+  base: '/vue-vben-admin-doc/',
   title: 'Vue vben admin 2.0',
   description: 'Vue Vben Admin 开发文档,持续更新中....',
-  dest: './src/.vuepress/dist',
+  dest: './dist',
   updatePopup: true,
   //  不转义成es5下
   evergreen: true,
