@@ -15,7 +15,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons-vue';
 
 2. 使用`Iconify`（推荐）
 
-使用方式请参考 [Icon组件](/comp/glob/icon)
+使用方式请参考 [Icon组件](../../comp/glob/icon.md)
 
 
 ## 如何在vite内引入iconify组件

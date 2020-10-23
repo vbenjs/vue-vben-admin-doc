@@ -1,5 +1,6 @@
 # 介绍
 
+
 该项目的组件大部分没有进行全局注册。采用了哪里使用哪里注册的方式,如下
 
 ```vue
@@ -65,3 +66,19 @@ export function registerGlobComp(app: App<Element>) {
   });
 }
 ```
+
+
+
+::: tip 如果需要全局注册
+  在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
+
+  ```ts
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+
+export function setupAntd(app: App<Element>) {
+  app.use(Antd);
+}
+
+  ```
+:::

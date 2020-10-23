@@ -1,6 +1,6 @@
-# 按钮
+# button 按钮
 
-保持 [anvt button](https://2x.antdv.com/components/button-cn/) 原有功能的情况下扩展以下属性
+**保持** [anvt button](https://2x.antdv.com/components/button-cn/) **原有功能**的情况下扩展以下属性
 
 ::: tip
 1. 按钮不需要 import ,已经全局注册，直接使用 a-button 标签即可

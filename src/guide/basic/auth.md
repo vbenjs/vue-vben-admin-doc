@@ -20,7 +20,7 @@
 
 ### 实现流程
 
-1. 在[项目配置](/guide/setting.md#项目配置)将系统内权限模式改为 ROLE模式
+1. 在[项目配置](./setting.md#项目配置)将系统内权限模式改为 ROLE模式
 
 ```ts
 
@@ -169,7 +169,7 @@ import { RoleEnum } from '/@/enums/roleEnum';
 
 **组件方式**
 
-具体查看[权限组件使用](/comp/auth)
+具体查看[权限组件使用](../../comp/auth.md)
 
 
 **指令方式**
@@ -307,7 +307,7 @@ import { RoleEnum } from '/@/enums/roleEnum';
 ```
 **组件方式**
 
-具体查看[权限组件使用](/comp/auth)
+具体查看[权限组件使用](../../comp/auth.md)
 
 **指令方式**
 

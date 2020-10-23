@@ -1,27 +1,29 @@
-# 权限组件
+# Authority 权限组件
 
 用于项目权限的组件，一般用于按钮级等细粒度权限管理
 
 ## 使用
 
-```tsx
+```vue
+<template>
+ <div>
+    <Authority :value="RoleEnum.ADMIN">
+      <a-button type="primary" block>
+        只有admin角色可见
+      </a-button>
+    </Authority>
+ </div>
+</template>
+<script>
 import  Authority from '/@/components/Authority/index';
-import { defineComponent } from 'compatible-vue';
+import { defineComponent } from 'vue';
 export default defineComponent({
+  components: { Authority },
   setup() {
-    return () => {
-      return (
-        <div>
-          <Authority value={RoleEnum.ADMIN}>
-            <Button type="primary" block>
-              只有admin角色可见
-            </Button>
-          </Authority>
-        </div>
-      );
-    };
+    return {};
   },
 });
+</script>
 ```
 
 ## Props

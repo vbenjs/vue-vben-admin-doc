@@ -112,7 +112,7 @@ VITE_PROXY=[["/app","http://localhost:3000"],["api1","http://localhost:3001"]]
 
 ```
 
-**.env.development 生产环境适用**
+**.env.production 生产环境适用**
 
 ```bash
 # 是否开启mock
@@ -250,11 +250,15 @@ const setting: ProjectConfig = {
     showDoc: true,
     //  是否显示github
     showGithub: true,
+    // 显示消息中心按钮
+    showNotice: true,
   },
   // 菜单配置
   menuSetting: {
     // 菜单折叠
     collapsed: false,
+    // 折叠菜单时候是否显示菜单名
+    collapsedShowTitle: false,
     // 是否可拖拽
     hasDrag: true,
     // 是否显示
@@ -301,7 +305,8 @@ const setting: ProjectConfig = {
   lockTime: 0,
   // 显示面包屑
   showBreadCrumb: true,
-
+  // 显示面包屑图标
+  showBreadCrumbIcon: false,
   //  开启页面切换动画
   openRouterTransition: true,
 

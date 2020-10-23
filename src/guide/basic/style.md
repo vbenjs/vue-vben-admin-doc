@@ -110,7 +110,6 @@
 ```
 ### scss
 ```vue
-<style scoped lang="less">
   <style scoped lang="scss">
   .a {
     ::v-deep .b{

@@ -1,4 +1,4 @@
-# 图标组件
+# icon 图标组件
 
 用于项目内组件的展示,基本支持所有图标库
 
@@ -16,7 +16,7 @@ icon的值可以在[Iconify](https://iconify.design) 上面查询
 ```vue
 
 <template>
-<icon icon="gg:loadbar-doc"></icon>
+  <icon icon="gg:loadbar-doc"></icon>
 </template>
 ```
 

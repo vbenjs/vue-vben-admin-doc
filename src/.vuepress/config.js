@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/vue-vben-admin-doc/',
+  base: '/doc-next/',
   title: 'Vue vben admin 2.0',
   description: 'Vue Vben Admin 开发文档,持续更新中....',
   dest: './dist',
@@ -20,11 +20,11 @@ module.exports = {
       title: 'Vue vben admin 2.0',
       description: 'Vue Vben Admin 2.0项目文档，持续更新中....',
     },
-    '/en/': {
-      lang: 'en-US',
-      title: 'Vue vben admin 2.0',
-      description: 'Vue Vben Admin Docs',
-    },
+    // '/en/': {
+    //   lang: 'en-US',
+    //   title: 'Vue vben admin 2.0',
+    //   description: 'Vue Vben Admin Docs',
+    // },
   },
   themeConfig: {
     logo: '/img/logo.png',
@@ -37,7 +37,7 @@ module.exports = {
         nav: [
           { text: '指南', link: '/guide/' },
           {
-            text: '组件/Hook',
+            text: '组件/Hook(更新中...)',
             items: [
               {
                 text: '组件',
@@ -79,17 +79,17 @@ module.exports = {
         sidebar: {
           '/guide/': [
             {
-              title: '基础',
+              title: '基础(更新中...)',
               collapsable: false,
               children: getGuide(),
             },
             {
-              title: '深入',
+              title: '深入(更新中...)',
               collapsable: false,
               children: getDeps(),
             },
             {
-              title: '其他',
+              title: '其他(更新中...)',
               collapsable: false,
               children: ['/guide/qa/'],
             },
@@ -154,6 +154,18 @@ function getGlobComp(type = '') {
 }
 
 function getComp(type = '') {
-  const arr = ['/comp/auth'];
+  const arr = [
+    '/comp/basic',
+    '/comp/auth',
+    '/comp/modal',
+    '/comp/click-out-side',
+    '/comp/rich-editor',
+    '/comp/strengthMeter',
+    '/comp/qrcode',
+    '/comp/verify',
+    '/comp/markdown',
+    '/comp/virtual-scroll',
+    '/comp/count-to',
+  ];
   return arr.map((item) => type + item);
 }

@@ -1,4 +1,4 @@
-# 常见问题(持续更新)
+# 常见问题
 
 ::: tip
 列举了一些常见的问题。有问题可以先来这里寻找，如果没有在进行提问。
@@ -39,6 +39,74 @@ registry = https://registry.npm.taobao.org
 ```
 然后重新执行`yarn run reinstall`等待安装完成即可
 
+## 如何保证我的代码能更新到最新代码
+
+如果你使用了该项目进行项目开发。开发之中想同步最新的代码。你可以设置多个源的方式
+
+1. 克隆代码
+
+``` bash
+git clone https://github.com/anncwb/vben-admin-thin-next.git
+```
+
+2. 添加自己的公司git源地址
+
+```bash
+# up 为源名称,可以随意设置
+# gitUrl为公司的git地址
+git remote add up  gitUrl;
+```
+
+3. 提交代码到自己公司git
+
+```bash
+# 提交代码到自己公司
+# master为分支名 需要自行根据情况修改
+git push up master
+
+# 同步公司的代码
+# master为分支名 需要自行根据情况修改
+git pull up master
+```
+
+4. 如何同步开源最新代码
+
+```bash
+git pull origin main
+```
+::: tip
+同步代码的时候会出现冲突。只需要把冲突解决即可
+:::
+
+
+## 关于 Transition mode的问题
+
+如果Transition不加mode，页面切换会有明显的从下到上替换的过程。
+
+```vue
+<Transition mode="out-in"></Transition>
+```
+
+目前加了这个 mode 会造成页面切换后整个页面渲染失效或者错误。
+
+如何解决:
+
+1. 如果希望自己的页面有动画。在路由对应的component组件的`<template>`内就不能存在多个根组件。只能有一个根组件。类似与vue2.6
+2. 加了mode不能后组件也不能有多个根组件。外层最好用`div`嵌套。
+3. 不能在根组件使用`<></>`,这点是对于tsx文件的。
+
+该问题可能是`vue3.0`的问题。后续持续跟进该问题
+
+
+## 关于为什么删除Tailwind CSS
+
+目前 vite跟Tailwind CSS配合在本地开发的时候。控制台会出现假死状态，严重影响开发效率。
+
+**补充**
+
+谷歌浏览器下一个版本修复。如果需要使用，请使用(chrome canary)[https://www.google.com/intl/zh-CN/chrome/canary/]进行开发
+
+
 ## Vite别名问题
 
 vite引入模块的时候 如果不是以`./`或者`/`开头的会被视为依赖，在前面加上`/@modules/xxx`来进行请求
@@ -51,9 +119,23 @@ vite别名在`vite.config.ts`内配置,需要以 `/`开头
   },
 ```
 
+## 启动慢
+
+很多人运行项目可能会发现，第一次运行vite也不是想象中那么快。这是因为vite第一次启动的时候，会将package.json内的依赖项`dependencies`及`vite.config.ts`内的`optimizeDeps.includes`所包含的包编译一次。依赖越多，第一次启动就越慢。
+再次启动如果
+
+
 ## 打包文件过大
 
 建议开启 gzip，使用之后体积会只有原先 1/3 左右。
+
+gzip可以由服务器直接开启。如果是这样，前端不需要构建`.gz`格式的文件
+
+如果前端构建了`.gz`文件,以nginx为例,nginx需要开启`gzip_static: on`这个选项。
+
+**注意**
+
+gzip_static: 这个模块需要nginx另外安装,默认的nginx没有安装这个模块。
 
 ## 运行错误
 
@@ -62,6 +144,15 @@ vite别名在`vite.config.ts`内配置,需要以 `/`开头
 ```ts
 [vite] Failed to resolve module import "ant-design-vue/dist/antd.css-vben-adminode_modulesant-design-vuedistantd.css". (imported by /@/setup/ant-design-vue/index.ts)
 ```
+
+## 本地开发卡顿
+
+本地开发建议在`Chrome`浏览器上面进行开发。vite是需要用到文件的时候才会去加载js 和css等文件资源。所以有时候本地点击后要稍微等待一会才能跳转。这是因为你第一次请求这些文件，浏览器还未对这些文件进行缓存。所以需要一些时间来加载。下次进行请求的时候会从缓存直接取，速度很变快。**注意：浏览器控制台->NetWork->Disable cache不要勾选**否则没有缓存每次加载都会很慢
+
+目前在火狐浏览器本地开发会有一些卡顿，还未找到是哪方面的原因。知道的也可以跟我说一声。
+
+
+
 ## 修改代码/样式无作用
 
 1. 当修改了 [/@/design](https://github.com/anncwb/vue-vben-admin/tree/main/src/design)内的样式。有时候会出现样式不起作用
@@ -85,7 +176,7 @@ vite别名在`vite.config.ts`内配置,需要以 `/`开头
 
 如果看到控制台有如下警告,且页面**能正常打开** 可以忽略该警告。
 
-后续`vue-router`可能会提供配置项项来关闭警告
+后续`vue-router`可能会提供配置项来关闭警告
 
 ```ts
 [Vue Router warn]: No match found for location with path "xxxx"
@@ -133,6 +224,17 @@ Prefer importing directly from the module entry:
      'echarts/map/js/china'
     ],
   },
+```
+
+## 启动报错
+
+当出现以下错误信息时，请检查你的nodejs版本号是否符合项目
+
+```bash
+TypeError: str.matchAll is not a function
+at Object.extractor (vue-vben-admin-main\node_modules@purge-icons\core\dist\index.js:146:27)
+at Extract (vue-vben-admin-main\node_modules@purge-icons\core\dist\index.js:173:54)
+
 ```
 
 ## 页面报错
@@ -197,6 +299,89 @@ proxy代理不成功,没有代理到实际地址？
 
 目前项目暂时无法在开发环境代理到Https接口,后续查询解决方案。可以先用http方式进行处理。
 
+
+## 组件注册机制问题
+
+::: tip 如果需要全局注册
+  在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
+
+  ```ts
+import Antd from 'ant-design-vue';
+import 'ant-design-vue/dist/antd.css';
+
+export function setupAntd(app: App<Element>) {
+  app.use(Antd);
+}
+
+  ```
+:::
+
+
+
+目前全局有两个地方注册了全局组件
+
+1. [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)
+
+可以看到只注册了两个,一个是Form和Input。因为登录用到了这两个组件。
+
+2. [/@/layouts/default/index.tsx](https://github.com/anncwb/vue-vben-admin/tree/main/src/layouts/default/index.tsx)
+
+可以看到这里全局注册了用户自己写的组件,在这里注册而不在`main.ts`内注册的原因是不想让这里注册的全局组件跟首屏入口打包文件打包在一起。这样可以减少首屏js加载体积。
+
+```ts
+import { registerGlobComp } from '/@/components/registerGlobComp';
+
+import './index.less';
+export default defineComponent({
+  name: 'DefaultLayout',
+  setup() {
+    // ! 在这里才注册全局组件
+    // ! 可以减少首屏代码体积
+    // default layout是在登录后才加载的。所以不会打包到首屏去
+    registerGlobComp();
+})
+```
+
+其余地方项目采用的是哪里需要哪里注册
+
+**在Vue文件中注册**
+
+```vue
+<template>
+  <Menu>
+    <SubMenu></SubMenu>
+  <Menu>
+</template>
+<script>
+import { Menu } from 'ant-design-vue';
+export default defineComponent({
+  components: {
+    Menu: Menu,
+    SubMenu: Menu.SubMenu
+  },
+})
+</script>
+```
+
+**在tsx文件内直接使用即可**
+
+```tsx
+import { Menu } from 'ant-design-vue';
+
+export default defineComponent({
+  setup(){
+    return ()=>(
+      <Menu>
+        <Menu.SubMenu></Menu.SubMenu>
+      </Menu>
+    )
+  }
+})
+```
+
+## 组件库问题
+
+跟组件库相关的问题可以查看[常见问题](https://2x.antdv.com/docs/vue/faq-cn/)
 
 ## 最后
 
