@@ -104,7 +104,7 @@ git pull origin main
 
 **补充**
 
-谷歌浏览器下一个版本修复。如果需要使用，请使用(chrome canary)[https://www.google.com/intl/zh-CN/chrome/canary/]进行开发
+谷歌浏览器下一个版本修复。如果需要使用，请使用[chrome canary](https://www.google.com/intl/zh-CN/chrome/canary/)进行开发
 
 
 ## Vite别名问题

@@ -105,6 +105,11 @@ module.exports = {
               collapsable: false,
               children: getComp(),
             },
+            {
+              title: '函数化组件',
+              collapsable: false,
+              children: getFnComp(),
+            },
           ],
         },
       },
@@ -153,11 +158,25 @@ function getGlobComp(type = '') {
   return arr.map((item) => type + item);
 }
 
+function getFnComp(type = '') {
+  const arr = ['/comp/fn/preview', '/comp/fn/context-menu'];
+  return arr.map((item) => type + item);
+}
+
 function getComp(type = '') {
   const arr = [
     '/comp/basic',
     '/comp/auth',
+    '/comp/form',
+    '/comp/table',
     '/comp/modal',
+    '/comp/drawer',
+    '/comp/desc',
+    '/comp/tree',
+    '/comp/ScrollContainer',
+    '/comp/CollapseContainer',
+    '/comp/LazyContainer',
+    '/comp/transition',
     '/comp/click-out-side',
     '/comp/rich-editor',
     '/comp/strengthMeter',
