@@ -2,9 +2,7 @@
 
 ## 说明
 
-项目路由配置存放于[src/router/routes](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes) 下面。
-[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块,在该文件下内的文件会自动注册为[src/router/routes/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/index.ts)内的`RootRoute`的子路由
-
+项目路由配置存放于[src/router/routes](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes) 下面。 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块,在该文件下内的文件会自动注册为[src/router/routes/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/index.ts)内的`RootRoute`的子路由
 
 ## 路由配置
 
@@ -46,11 +44,9 @@ export default {
     },
   ],
 } as AppRouteModule;
-
 ```
 
 **上面的模块生成路由结构为**
-
 
 ```ts
 {
@@ -77,10 +73,10 @@ export default {
 
 **项目中是放弃多级路由的**
 
-项目中所有的多级路由会被转化为二级路由,原因是为了配置KeepAlive进行缓存。如果你没有这方面的需求。可以自行处理多级路由，可能需要对项目进行改造。
-
+项目中所有的多级路由会被转化为二级路由,原因是为了配置 KeepAlive 进行缓存。如果你没有这方面的需求。可以自行处理多级路由，可能需要对项目进行改造。
 
 **示例**
+
 ```ts
 import type { AppRouteModule } from '/@/router/types';
 import { PAGE_LAYOUT_COMPONENT } from '/@/router/constant';
@@ -99,7 +95,7 @@ export default {
     {
       path: '/echarts',
       name: 'Echarts',
-       // 多级路由这里不需要写component
+      // 多级路由这里不需要写component
       meta: {
         title: 'Echarts',
       },
@@ -114,14 +110,12 @@ export default {
           },
         },
       ],
-    }
+    },
   ],
 } as AppRouteModule;
-
 ```
 
 上面的路由会转化成以下结构
-
 
 ```ts
 [
@@ -134,24 +128,16 @@ export default {
     },
   },
 ];
-
-
 ```
-
 
 ::: tip 注意
 
-1. routes内如果有children，需要注意子路由的路径,如果子路由path以`/开头`,vue-router不会拼接父级路径。这可能会与菜单不起配。一般子路由不能以`/`开头。如果需要，需要注意修改菜单地址。
-2. 所有路由的`Name`不能重复
-:::
+1. routes 内如果有 children，需要注意子路由的路径,如果子路由 path 以`/开头`,vue-router 不会拼接父级路径。这可能会与菜单不起配。一般子路由不能以`/`开头。如果需要，需要注意修改菜单地址。
+2. 所有路由的`Name`不能重复 :::
 
-
-
-
-## Meta配置说明
+## Meta 配置说明
 
 ```ts
-
 export interface RouteMeta {
   // 路由title  一般必填
   title: string;
@@ -180,15 +166,11 @@ export interface RouteMeta {
   // 如果该路由会携带参数，且需要在tab页上面显示。则需要设置为true
   carryParam?: boolean;
 }
-
 ```
-
-
-
 
 ### 外部页面嵌套
 
-只需要将frameSrc设置为需要跳转的地址即可
+只需要将 frameSrc 设置为需要跳转的地址即可
 
 ```ts
 {
@@ -204,7 +186,7 @@ export interface RouteMeta {
 
 ### 外链
 
-只需要将externalLink设置为需要跳转的地址即可
+只需要将 externalLink 设置为需要跳转的地址即可
 
 ```ts
 const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
@@ -223,17 +205,15 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 
 这里的 icon 配置，会同步到 **菜单** 及**多标签页**的图标
 
-icon的值可以查看
-
+icon 的值可以查看
 
 ## 新增路由
 
-  ### 如何新增一个路由模块
+### 如何新增一个路由模块
 
-  1. 在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)内新增一个模块文件
+1. 在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)内新增一个模块文件
 
-  示例,在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)下新增test.ts文件
-
+示例,在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)下新增 test.ts 文件
 
 ```ts
 import type { AppRouteModule } from '/@/router/types';
@@ -267,8 +247,7 @@ export default {
 
 ::: tip 注意
 
-路由添加完成需要手动触发一次热更新。可以在你 `main.js`内按保存可以触发热更新。
-:::
+菜单添加完成需要手动触发一次热更新。可以在你 `main.ts`内按保存或者重新运行项目(vite 重新运行项目很快)可以触发热更新。 :::
 
 到这里你路由已经添加完成，不需要手动引入，放在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)内的文件会自动被加载
 
@@ -276,32 +255,27 @@ export default {
 
 您可以尝试访问 **ip:端口/test/basic**出现对应组件内容即代表成功
 
-
 ## 路由刷新
-
 
 项目中采用的是**重定向**方式
 
 ### 具体实现
 
 ```ts
-
 import { useRedo } from '/@/hooks/web/usePage';
 import { defineComponent } from 'vue';
 export default defineComponent({
-
-  setup(){
-    const redo = useRedo()
+  setup() {
+    const redo = useRedo();
 
     // 执行刷新
-    redo()
-    return {}
-  }
-})
-
+    redo();
+    return {};
+  },
+});
 ```
-### useRedo实现
 
+### useRedo 实现
 
 ```ts
 export const useRedo = () => {
@@ -313,29 +287,29 @@ export const useRedo = () => {
   }
   return redo;
 };
-
 ```
 
 ### Redirect
 
 [src/views/sys/redirect/index.vue](https://github.com/anncwb/vue-vben-admin/tree/main/src/views/sys/redirect/index.vue)
+
 ```ts
-  import { defineComponent, unref } from 'vue';
-  import { useRouter } from 'vue-router';
-  export default defineComponent({
-    name: 'Redirect',
-    setup() {
-      const { currentRoute, replace } = useRouter();
-      const { params, query } = unref(currentRoute);
-      const { path } = params;
-      const _path = Array.isArray(path) ? path.join('/') : path;
-      replace({
-        path: '/' + _path,
-        query,
-      });
-      return {};
-    },
-  });
+import { defineComponent, unref } from 'vue';
+import { useRouter } from 'vue-router';
+export default defineComponent({
+  name: 'Redirect',
+  setup() {
+    const { currentRoute, replace } = useRouter();
+    const { params, query } = unref(currentRoute);
+    const { path } = params;
+    const _path = Array.isArray(path) ? path.join('/') : path;
+    replace({
+      path: '/' + _path,
+      query,
+    });
+    return {};
+  },
+});
 ```
 
 ## 页面跳转
@@ -345,31 +319,28 @@ export const useRedo = () => {
 ### 具体方式
 
 ```ts
-
 import { useGo } from '/@/hooks/web/usePage';
 import { defineComponent } from 'vue';
 export default defineComponent({
-
-  setup(){
-    const go = useGo()
+  setup() {
+    const go = useGo();
 
     // 执行刷新
-    go()
-    go(PageEnum.Home)
-    return {}
-  }
-})
-
+    go();
+    go(PageEnum.Home);
+    return {};
+  },
+});
 ```
+
 ## 多标签页
 
 标签页使用的是` keep-alive` 和 `router-view` 实现，实现切换 tab 后还能保存切换之前的状态
 
-
 ### 如何开启页面缓存
 
 1. 在[项目配置](./setting.md#项目配置)内将 `openKeepAlive`设置为`true`.
-2. 路由及对应的组件的name值需要保持一致
+2. 路由及对应的组件的 name 值需要保持一致
 
 ```ts
  {
@@ -390,13 +361,11 @@ export default defineComponent({
 
 :::tip 注意
 
-keep-alive生效的前提是
+keep-alive 生效的前提是
 
 **include - 字符串或正则表达式。只有名称匹配的组件会被缓存。**
 
-所以需要将路由的name属性及对应的页面的name设置成一样
-:::
-
+所以需要将路由的 name 属性及对应的页面的 name 设置成一样 :::
 
 ### 如何让某个页面不缓存
 
@@ -405,12 +374,10 @@ keep-alive生效的前提是
 可以将 `ignoreKeepAlive`配置成`true`即可关闭缓存。
 
 ```ts
-
 export interface RouteMeta {
   // 是否忽略KeepAlive缓存
   ignoreKeepAlive?: boolean;
 }
-
 ```
 
 ### 如何操作多标签页

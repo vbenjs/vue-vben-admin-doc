@@ -4,7 +4,7 @@
 
 默认全局主题色配置位于[build/config/glob/lessModifyVars.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/glob/lessModifyVars.ts)内
 
-只需要修改primaryColor为您需要的配色，然后重新执行`yarn serve`即可
+只需要修改 primaryColor 为您需要的配色，然后重新执行`yarn serve`即可
 
 ```js
 /**
@@ -33,15 +33,13 @@ const modifyVars = {
 //}
 
 export { modifyVars, primaryColor };
-
-
 ```
 
 ## 环境变量配置
 
 项目的环境变量配置位于 项目根目录 [.env](https://github.com/anncwb/vue-vben-admin/blob/main/.env)、[.env.development](https://github.com/anncwb/vue-vben-admin/blob/main/.env)、[.env.production](https://github.com/anncwb/vue-vben-admin/blob/main/.env)
 
-具体可以参考[Vite介绍](https://github.com/vitejs/vite#modes-and-environment-variables)
+具体可以参考[Vite 介绍](https://github.com/vitejs/vite#modes-and-environment-variables)
 
 ```bash
 .env                # 在所有的环境中被载入
@@ -53,26 +51,25 @@ export { modifyVars, primaryColor };
 
 ::: tip 温馨提醒
 
-只有以 *VITE_* 开头的变量会被嵌入到客户端侧的包中。你可以在应用的代码中这样访问它们：
+只有以 \_VITE\_\_ 开头的变量会被嵌入到客户端侧的包中。你可以在应用的代码中这样访问它们：
 
 ```js
 console.log(import.meta.env.VITE_PROT);
 ```
 
-
 :::
 
 ::: tip 温馨提醒
 
-以 `VITE_GLOB_*` 开头的的变量，在打包的时候，会被加入[_app.config.js](#生产环境动态配置)配置文件当中.
+以 `VITE_GLOB_*` 开头的的变量，在打包的时候，会被加入[\_app.config.js](#生产环境动态配置)配置文件当中.
 
 :::
+
 ### 变量说明
 
-### .env文件
+### .env 文件
 
 所有环境适用
-
 
 ```bash
 # 端口号
@@ -84,7 +81,6 @@ VITE_GLOB_APP_TITLE=vben admin
 # 简称，用于配置文件名字 不要出现空格等特殊字符
 VITE_GLOB_APP_SHORT_NAME=vben_admin
 ```
-
 
 **.env.development 开发环境适用**
 
@@ -133,8 +129,10 @@ VITE_PUBLIC_PATH=./
 # 打包是否输出gz文件
 VITE_BUILD_GZIP = false
 
-```
+# 打包是否开启pwa功能
+VITE_USE_PWA = false
 
+```
 
 ## 生产环境动态配置
 
@@ -197,21 +195,17 @@ export const useSetting = (): SettingWrap => {
 
 ```
 
-
 ## 项目配置
 
 ::: tip
 
 项目配置用于配置项目内展示的内容/布局/文本等效果，存于`localStorage`中,在代码内更改之后需要清空`localStorage`缓存
 
-如果更改了项目配置,需要手动清空`localStorage`缓存刷新重新登录后方可生效
-:::
-
+如果更改了项目配置,需要手动清空`localStorage`缓存刷新重新登录后方可生效 :::
 
 ### 配置文件路径
 
 [src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/projectSetting.ts)
-
 
 ### 说明
 
@@ -338,6 +332,4 @@ const setting: ProjectConfig = {
   // 如果开启,想对单独接口覆盖。可以在单独接口设置
   removeAllHttpPending: true,
 };
-
-
 ```
