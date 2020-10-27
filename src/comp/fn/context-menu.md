@@ -1,6 +1,6 @@
 # ContextMenu 右键菜单组件
 
-函数式创建右键菜单组件。 只要能拿到dom的event对象就能为其创建右键菜单
+函数式创建右键菜单组件。 只要能拿到 dom 的 event 对象就能为其创建右键菜单
 
 ## 使用
 
@@ -49,12 +49,12 @@
 </script>
 ```
 
-## createContextMenu参数说明
+## createContextMenu 参数说明
 
-| 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
-| event | `Event` | - | - | 需要创建的dom的Event对象 |
-| items | `ContextMenuItem` | - | - | 右键菜单列表 |
+| 属性  | 类型              | 默认值 | 可选值 | 说明                         |
+| ----- | ----------------- | ------ | ------ | ---------------------------- |
+| event | `Event`           | -      | -      | 需要创建的 dom 的 Event 对象 |
+| items | `ContextMenuItem` | -      | -      | 右键菜单列表                 |
 
 ### ContextMenuItem
 
@@ -69,7 +69,6 @@
 说明: 图标,参考图标组件
 
 类型: `string`
-
 
 **disabled**
 

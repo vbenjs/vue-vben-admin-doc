@@ -9,23 +9,23 @@
   <div>
     <ClickOutSide @clickOutside="() => (showRef.value = false)">
       <div class="click-out-side-demo-content" @click="() => (showRef.value = true)">
-        {{showRef ? '鼠标点击那部（点击边框外可以恢复）' : '点击该区域状态(初始状态)'}}
+        {{ showRef ? '鼠标点击那部（点击边框外可以恢复）' : '点击该区域状态(初始状态)' }}
       </div>
     </ClickOutSide>
   </div>
 </template>
 <script>
-import { defineComponent, ref } from 'vue';
-import { ClickOutSide } from '@/components/ClickOutSide/index.vue';
-export default defineComponent({
-  components:{ClickOutSide},
-  setup() {
-    const showRef = ref(false);
-    return  {
-      showRef
-    };
-  },
-});
+  import { defineComponent, ref } from 'vue';
+  import { ClickOutSide } from '@/components/ClickOutSide/index.vue';
+  export default defineComponent({
+    components: { ClickOutSide },
+    setup() {
+      const showRef = ref(false);
+      return {
+        showRef,
+      };
+    },
+  });
 </script>
 ```
 

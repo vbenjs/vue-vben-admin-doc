@@ -8,13 +8,11 @@ icon 组件位于 [/@/components/Icon](https://github.com/anncwb/vue-vben-admin/
 
 ::: tip
 
-icon的值可以在[Iconify](https://iconify.design) 上面查询
-:::
+icon 的值可以在[Iconify](https://iconify.design) 上面查询 :::
 
 ## 使用
 
 ```vue
-
 <template>
   <icon icon="gg:loadbar-doc"></icon>
 </template>
@@ -22,6 +20,6 @@ icon的值可以在[Iconify](https://iconify.design) 上面查询
 
 ## Props
 
-| 属性  | 类型      | 默认值 | 说明                                           |
-| ----- | --------- | ------ | ---------------------------------------------- |
-| icon  | `string`  | -      | 图标名 |
+| 属性 | 类型     | 默认值 | 说明   |
+| ---- | -------- | ------ | ------ |
+| icon | `string` | -      | 图标名 |

@@ -1,10 +1,9 @@
 # QrCode 二维码组件
 
- 用于生成二维码的组件
+用于生成二维码的组件
 
- ```vue
-
- <template>
+```vue
+<template>
   <div class="p-4 flex flex-wrap">
     <CollapseContainer title="基础示例" :canExpan="true" class="text-center mb-6 qrcode-demo-item">
       <QrCode :value="qrCodeUrl" />
@@ -91,19 +90,17 @@
     margin-right: 1%;
   }
 </style>
+```
 
-
-
- ```
 ## Props
 
-| 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
-| value | `string` | - | - | 二维码地址 |
-| options | `QRCodeRenderersOptions` | - | - | 二维码配置 ,见 QRCodeRenderersOptions |
-| width | `number` | 2-- | - | 宽度 |
-| logo | `string｜LogoType` | - | - | 中间 logo 配置，见 LogoType |
-| tag | `渲染标签` | canvas | `canvas|img` | img 不支持内嵌 logo |
+| 属性    | 类型                     | 默认值 | 可选值  | 说明                                  |
+| ------- | ------------------------ | ------ | ------- | ------------------------------------- |
+| value   | `string`                 | -      | -       | 二维码地址                            |
+| options | `QRCodeRenderersOptions` | -      | -       | 二维码配置 ,见 QRCodeRenderersOptions |
+| width   | `number`                 | 2--    | -       | 宽度                                  |
+| logo    | `string｜LogoType`       | -      | -       | 中间 logo 配置，见 LogoType           |
+| tag     | `渲染标签`               | canvas | `canvas | img`                                  | img 不支持内嵌 logo |
 
 **QRCodeRenderersOptions**
 

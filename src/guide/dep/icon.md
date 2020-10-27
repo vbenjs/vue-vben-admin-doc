@@ -15,15 +15,13 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons-vue';
 
 2. 使用`Iconify`（推荐）
 
-使用方式请参考 [Icon组件](../../comp/glob/icon.md)
+使用方式请参考 [Icon 组件](../../comp/glob/icon.md)
 
-
-## 如何在vite内引入iconify组件
+## 如何在 vite 内引入 iconify 组件
 
 项目中使用到的是`vite-plugin-purge-icons`这个插件来进行图标实现。
 
 1. 安装依赖
-
 
 ```bash
 
@@ -39,11 +37,11 @@ yarn add @iconify/json @purge-icons/generated -D
 import PurgeIcons from 'vite-plugin-purge-icons';
 
 export default {
-   plugins: [PurgeIcons()],
-}
+  plugins: [PurgeIcons()],
+};
 ```
 
-3. 编写Icon组件
+3. 编写 Icon 组件
 
 完整代码 [/@/components/Icon/index.tsx](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Icon/index.tsx)
 

@@ -2,19 +2,19 @@
 
 对`antv`的 form 组件进行封装，扩展一些常用的功能
 
-
 ## 基本使用
+
 下面是一个使用简单表单的示例，只有一个输入框
 
 ```vue
 <template>
   <div class="m-4">
-      <BasicForm
-        :labelWidth="100"
-        :schemas="schemas"
-        :actionColOptions="{ span: 24 }"
-        @submit="handleSubmit"
-      />
+    <BasicForm
+      :labelWidth="100"
+      :schemas="schemas"
+      :actionColOptions="{ span: 24 }"
+      @submit="handleSubmit"
+    />
   </div>
 </template>
 <script lang="ts">
@@ -53,10 +53,9 @@
     },
   });
 </script>
-
-
 ```
-## 使用ref调用内部函数
+
+## 使用 ref 调用内部函数
 
 所有可调用函数见下方`Methods`说明
 
@@ -97,15 +96,13 @@
 </script>
 ```
 
-
-
 ## useForm
 
-form组件还提供了useForm，方便调用函数内部方法
+form 组件还提供了 useForm，方便调用函数内部方法
 
 ### 使用示例
-```vue
 
+```vue
 <template>
   <BasicForm @register="register" @submit="handleSubmit" />
 </template>
@@ -153,12 +150,9 @@ form组件还提供了useForm，方便调用函数内部方法
     },
   });
 </script>
-
-
 ```
 
-
-## useForm说明
+## useForm 说明
 
 ```ts
 //
@@ -215,7 +209,6 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 
 说明: 滚动到对应字段位置
 
-
 **clearValidate**
 
 类型: `(name?: string | string[]) => void`
@@ -228,8 +221,7 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 
 设置表单的 props 可以直接在标签上传递，也可以使用 setProps，或者初始化直接写 useForm(props)
 
-:::
-类型: `(formProps: Partial<FormProps>) => void`
+::: 类型: `(formProps: Partial<FormProps>) => void`
 
 说明: 设置表单 Props
 
@@ -263,8 +255,8 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 | --- | --- | --- | --- | --- |
 | schemas | `Schema[]` | - | - | 表单配置，见下方 FormSchema 配置 |
 | submitOnReset | `boolean` | - | - | 重置时是否提交表单 |
-| labelCol | `Partial<ColEx>` | - | - | 整个表单通用LabelCol配置 |
-| wrapperCol | `Partial<ColEx>` | - | - | 整个表单通用wrapperCol配置 |
+| labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |
+| wrapperCol | `Partial<ColEx>` | - | - | 整个表单通用 wrapperCol 配置 |
 | baseColProps | `Partial<ColEx>` | - | - | 配置所有选子项的 ColProps，不需要逐个配置，子项也可单独配置优先与全局 |
 | labelWidth | `number | string` | - | - | 扩展 form 组件，增加 label 宽度，表单内所有组件适用，可以单独在某个项覆盖或者禁用 |
 | compact | `boolean` | false | true/false | 紧凑类型表单，减少 margin-bottom |
@@ -273,7 +265,7 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 | autoSetPlaceHolder | `boolean` | true | true/false | 自动设置表单内组件的 placeholder，自定义组件需自行实现 |
 | rulesMessageJoinLabel | `boolean` | false | true/false | 如果表单项有校验，会自动生成校验信息，该参数控制是否将字段中文名字拼接到自动生成的信息后方 |
 | showAdvancedButton | `boolean` | false | true/false | 是否显示收起展开按钮 |
-| emptySpan | `number|Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |
+| emptySpan | `number | Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |
 | autoAdvancedLine | `number` | 3 | - | 如果 showAdvancedButton 为 true，超过指定行数行默认折叠 |
 | showActionButtonGroup | `boolean` | true | true/false | 是否显示操作按钮(重置/提交) |
 | actionColOptions | `Partial<ColEx>` | - | - | 操作按钮外层 Col 组件配置，如果开启 showAdvancedButton，则不用设置，具体见下方 actionColOptions |
@@ -292,6 +284,7 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 **ActionButtonOption**
 
 [BasicButtonProps](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Button/types.ts)
+
 ```ts
 export interface ButtonProps extends BasicButtonProps {
   text?: string;
@@ -334,8 +327,8 @@ export interface ButtonProps extends BasicButtonProps {
 | field | `string` | - | - | 字段名 |
 | label | `string` | - | - | 标签名 |
 | changeEvent | `string` | - | - | 表单更新事件名称 |
-| helpMessage | `string|string[]` | - | - | 标签名右侧温馨提示 |
-| helpComponentProps | `HelpComponentProps` | - | - | 标签名右侧温馨提示组件 props,见下方HelpComponentProps |
+| helpMessage | `string | string[]` | - | - | 标签名右侧温馨提示 |
+| helpComponentProps | `HelpComponentProps` | - | - | 标签名右侧温馨提示组件 props,见下方 HelpComponentProps |
 | labelWidth | `string | number` | - | - | 覆盖统一设置的 labelWidth |
 | disabledLabelWidth | `boolean` | false | true/false | 禁用 form 全局设置的 labelWidth,自己手动设置 labelCol 和 wrapperCol |
 | component | `string` | - | - | 组件类型，见下方 ComponentType |
@@ -350,15 +343,14 @@ export interface ButtonProps extends BasicButtonProps {
 | renderComponentContent | `(renderCallbackParams: RenderCallbackParams) => any` | - | - | 自定义渲染组内部的 slot |
 | slot | `string` | - | - | 自定义 slot，渲染组件 |
 | colSlot | `string` | - | - | 自定义 slot，渲染组件 （需要自行包含 formItem） |
-| show |` boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,css控制，不会删除dom |
-| ifShow |` boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,js控制，会删除dom |
-| dynamicDisabled | `boolean | ((renderCallbackParams: RenderCallbackParams) => boolean) `| - | - | 动态判断当前组件是否禁用 |
+| show | ` boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,css 控制，不会删除 dom |
+| ifShow | ` boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,js 控制，会删除 dom |
+| dynamicDisabled | `boolean | ((renderCallbackParams: RenderCallbackParams) => boolean) ` | - | - | 动态判断当前组件是否禁用 |
 | dynamicRules | `boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判返当前组件你校验规则 |
 
 **RenderCallbackParams**
 
 ```ts
-
 export interface RenderCallbackParams {
   schema: FormSchema;
   values: any;
@@ -366,7 +358,6 @@ export interface RenderCallbackParams {
   field: string;
 }
 ```
-
 
 **HelpComponentProps**
 
@@ -457,9 +448,9 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 自定义渲染内容
 
 ```vue
- <template>
+<template>
   <div class="m-4">
-      <BasicForm @register="register" @submit="handleSubmit" />
+    <BasicForm @register="register" @submit="handleSubmit" />
   </div>
 </template>
 <script lang="ts">
@@ -523,7 +514,6 @@ useComponentRegister('StrengthMeter', StrengthMeter);
     },
   });
 </script>
-
 ```
 
 **slot**
@@ -531,15 +521,15 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 自定义渲染内容
 
 ```vue
- <template>
+<template>
   <div class="m-4">
-      <BasicForm @register="register">
-        <input slot="customSlot">
-      </BasicForm>
+    <BasicForm @register="register">
+      <input slot="customSlot" />
+    </BasicForm>
   </div>
 </template>
 <script lang="ts">
- import { defineComponent } from 'compatible-vue';
+  import { defineComponent } from 'compatible-vue';
   import { BasicForm, useForm } from '@/components/Form/index';
   import { BasicModal } from '@/components/modal/index';
   export default defineComponent({
@@ -552,19 +542,18 @@ useComponentRegister('StrengthMeter', StrengthMeter);
         },
         schemas: [
           {
-          field: 'field1',
-          label: '字段1',
-          slot:"customSlot"
-          }
+            field: 'field1',
+            label: '字段1',
+            slot: 'customSlot',
+          },
         ],
       });
       return {
-        register
+        register,
       };
     },
   });
 </script>
-
 ```
 
 **ifShow/show/dynamicDisabled**
@@ -574,7 +563,7 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 ```vue
 <template>
   <div class="m-4">
-      <BasicForm @register="register" />
+    <BasicForm @register="register" />
   </div>
 </template>
 <script lang="ts">
@@ -619,10 +608,7 @@ useComponentRegister('StrengthMeter', StrengthMeter);
   export default defineComponent({
     components: { BasicForm },
     setup() {
-      const [
-        register,
-        { setProps },
-      ] = useForm({
+      const [register, { setProps }] = useForm({
         labelWidth: 120,
         schemas,
         actionColOptions: {
@@ -637,21 +623,18 @@ useComponentRegister('StrengthMeter', StrengthMeter);
     },
   });
 </script>
-
-
 ```
+
 **ValidationRule**
 
 见[antv form](https://2x.antdv.com/components/form-cn/#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99)
 
-
-
 ## Slots
 
-| 名称           | 说明         |
-| -------------- | ------------ |
+| 名称          | 说明         |
+| ------------- | ------------ |
 | formFooter    | 表单底部区域 |
-| formHeader   | 表单顶部区域 |
+| formHeader    | 表单顶部区域 |
 | advanceBefore | 展开按钮前   |
 | resetBefore   | 重置按钮前   |
 | submitBefore  | 提交按钮前   |

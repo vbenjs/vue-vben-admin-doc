@@ -1,6 +1,6 @@
 # ScrollContainer 滚动容器
 
-基于`element-ui`的el-scrollbar组件
+基于`element-ui`的 el-scrollbar 组件
 
 滚动容器组件
 
@@ -63,7 +63,6 @@
     background: #fff;
   }
 </style>
-
 ```
 
 ## 函数

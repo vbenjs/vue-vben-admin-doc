@@ -2,7 +2,6 @@
 
 对`antv`的 drawer 组件进行封装，扩展拖拽，全屏，自适应高度等功能
 
-
 ## 使用
 
 **由于 drawer 内部代码一般独立成单独文件，我也推荐独立成组件来进行开发，所以示例都是以独立的文件来进行说明**
@@ -23,7 +22,6 @@
     },
   });
 </script>
-
 ```
 
 **页面引用弹窗**
@@ -41,7 +39,7 @@
   import Drawer from './Drawer.vue';
 
   export default defineComponent({
-    components: {Drawer},
+    components: { Drawer },
     setup() {
       const [register, { openDrawer }] = useDrawer();
       return {
@@ -51,7 +49,6 @@
     },
   });
 </script>
-
 ```
 
 ## useDrawer 说明
@@ -76,8 +73,7 @@ register 用于注册 useDrawer，如果需要使用`useDrawer`提供的 api，�
 
 **transferDrawerData**
 
-用于向内部组件发送数据
-**openDrawer**
+用于向内部组件发送数据 **openDrawer**
 
 用于打开/关闭弹窗
 
@@ -96,9 +92,9 @@ props 内容可以见下方
 setDrawerProps(props);
 ```
 
-## useDrawerInner  说明
+## useDrawerInner 说明
 
-用于独立的Drawer内部调用
+用于独立的 Drawer 内部调用
 
 ### 使用
 
@@ -139,19 +135,20 @@ closeDrawer();
 
 **receiveDrawerDataRef**
 
-用于接收外部组件通过`transferDrawerData`发送的数据，值为Ref类型
+用于接收外部组件通过`transferDrawerData`发送的数据，值为 Ref 类型
 
 **changeOkLoading**
 
-用于修改确认按钮的loading状态
+用于修改确认按钮的 loading 状态
 
 ```tsx
 // true or false
 changeOkLoading(true);
 ```
+
 **changeLoading**
 
-用于修改modal的loading状态
+用于修改 modal 的 loading 状态
 
 ```tsx
 // true or false
@@ -164,7 +161,6 @@ changeLoading(true);
 
 props 内容可以见下方
 
-
 ## Props
 
 ::: tip 温馨提醒
@@ -173,17 +169,17 @@ props 内容可以见下方
 
 :::
 
-| 属性           | 类型         | 默认值 | 可选值 | 说明                                     |
-| -------------- | ------------ | ------ | ------ | ---------------------------------------- |
-| isDetail     | `boolean` | false     | -      | 是否为详情模式                            |
-| loading        | `boolean`    | false  | -      | loading 状态                             |
-| showDetailBack | `boolean`    | true   | -      | isDetail=true 状态下是否显示返回按钮 |
-| closeFunc      | `() => Promise<void>`   | -      | -      | 自定义关闭函数                           |
+| 属性           | 类型                  | 默认值 | 可选值 | 说明                                 |
+| -------------- | --------------------- | ------ | ------ | ------------------------------------ |
+| isDetail       | `boolean`             | false  | -      | 是否为详情模式                       |
+| loading        | `boolean`             | false  | -      | loading 状态                         |
+| showDetailBack | `boolean`             | true   | -      | isDetail=true 状态下是否显示返回按钮 |
+| closeFunc      | `() => Promise<void>` | -      | -      | 自定义关闭函数                       |
 
 ## Events
 
-| 事件          | 回调参数      | 说明               |
-| ------------- | ------------- | ------------------ |
-| close         | `(e)=>void` | 点击关闭回调       |
+| 事件           | 回调参数                  | 说明               |
+| -------------- | ------------------------- | ------------------ |
+| close          | `(e)=>void`               | 点击关闭回调       |
 | visible-change | `(visible:boolean)=>void` | 弹窗打开关闭时触发 |
-| ok            | `(e)=>void` | 点击确定回调       |
+| ok             | `(e)=>void`               | 点击确定回调       |

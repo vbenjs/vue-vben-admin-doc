@@ -10,36 +10,35 @@
 
 ```vue
 <template>
- <div>
+  <div>
     <BasicTitle helpMessage="提示1">标题</BasicTitle>
-    <BasicTitle :helpMessage="['提示1','提示2']">标题</BasicTitle>
- </div>
+    <BasicTitle :helpMessage="['提示1', '提示2']">标题</BasicTitle>
+  </div>
 </template>
 <script>
-import  { BasicTitle } from '/@/components/Baisc/index';
-import { defineComponent } from 'vue';
-export default defineComponent({
-  components: { BasicTitle },
-  setup() {
-    return {};
-  },
-});
+  import { BasicTitle } from '/@/components/Baisc/index';
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    components: { BasicTitle },
+    setup() {
+      return {};
+    },
+  });
 </script>
 ```
 
 ### Props
 
-| 属性     | 类型                   | 默认值            | 说明                                                         |
-| -------- | ---------------------- | ----------------- | ------------------------------------------------------------ |
-| helpMessage    | `string｜string[]` | -                 | 标题右侧帮助按钮信息
-| showSpan    | `boolean` | `true`               | 是否显示标题左侧蓝色色块
+| 属性        | 类型               | 默认值 | 说明                     |
+| ----------- | ------------------ | ------ | ------------------------ |
+| helpMessage | `string｜string[]` | -      | 标题右侧帮助按钮信息     |
+| showSpan    | `boolean`          | `true` | 是否显示标题左侧蓝色色块 |
 
 ### Slots
 
 | 名称    | 说明     |
 | ------- | -------- |
 | default | 标题文本 |
-
 
 ## BasicArrow
 
@@ -49,27 +48,27 @@ export default defineComponent({
 
 ```vue
 <template>
- <div>
-    <BasicArrow :expand="false"/>
- </div>
+  <div>
+    <BasicArrow :expand="false" />
+  </div>
 </template>
 <script>
-import  { BaseArrow } from '/@/components/Baisc/index';
-import { defineComponent } from 'vue';
-export default defineComponent({
-  components: { BasicArrow },
-  setup() {
-    return {};
-  },
-});
+  import { BaseArrow } from '/@/components/Baisc/index';
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    components: { BasicArrow },
+    setup() {
+      return {};
+    },
+  });
 </script>
 ```
 
 ### Props
 
-| 属性     | 类型                   | 默认值            | 说明                                                         |
-| -------- | ---------------------- | ----------------- | ------------------------------------------------------------ |
-| expand    | `boolean` | `true`               | 箭头展开状态
+| 属性   | 类型      | 默认值 | 说明         |
+| ------ | --------- | ------ | ------------ |
+| expand | `boolean` | `true` | 箭头展开状态 |
 
 ## BasicHelp
 
@@ -79,24 +78,25 @@ export default defineComponent({
 
 ```vue
 <template>
- <div>
+  <div>
     <BaseHelp text="['提示1', '提示2']" />
     <BaseHelp text="提示" />
- </div>
+  </div>
 </template>
 <script>
-import  { BasicHelp } from '/@/components/Baisc/index';
-import { defineComponent } from 'vue';
-export default defineComponent({
-  components: { BasicHelp },
-  setup() {
-    return {};
-  },
-});
+  import { BasicHelp } from '/@/components/Baisc/index';
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    components: { BasicHelp },
+    setup() {
+      return {};
+    },
+  });
 </script>
 ```
 
 ### Props
+
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
 | --- | --- | --- | --- | --- |
 | fontSize | `string` | `14px` | - | 字体大小 |

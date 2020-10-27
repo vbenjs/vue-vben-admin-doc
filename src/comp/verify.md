@@ -1,10 +1,11 @@
 # BasicDragVerify 验证码组件
 
-::: tip tsx函数调用示例
-对于调用tsx组件的ref。需要取ref值的 $ 属性获取
+::: tip tsx 函数调用示例对于调用 tsx 组件的 ref。需要取 ref 值的 \$ 属性获取
+
 ```ts
- elRef.$.resume();
+elRef.$.resume();
 ```
+
 :::
 
 ## 拖拽验证组件
@@ -14,7 +15,7 @@
 ```vue
 <template>
   <div class="p-10">
-      <BasicDragVerify  @success="handleSuccess" />
+    <BasicDragVerify @success="handleSuccess" />
   </div>
 </template>
 <script lang="ts">
@@ -53,15 +54,13 @@
 
 ### Methods
 
-| 名称   | 回调参数   | 说明       |
-| ------ | ---------- | ---------- |
+| 名称   | 回调参数 | 说明       |
+| ------ | -------- | ---------- |
 | resume | `()=>{}` | 还原初始值 |
-
 
 ## 图片还原校验
 
 图片还原正方向校验组件
-
 
 ### 使用
 
@@ -89,7 +88,6 @@
     },
   });
 </script>
-
 ```
 
 ### props

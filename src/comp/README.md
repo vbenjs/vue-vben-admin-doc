@@ -1,11 +1,10 @@
 # 介绍
 
-
 该项目的组件大部分没有进行全局注册。采用了哪里使用哪里注册的方式,如下
 
 ```vue
 <template>
-  <ConfigProvider  >
+  <ConfigProvider>
     <router-view />
   </ConfigProvider>
 </template>
@@ -21,18 +20,15 @@
     },
   });
 </script>
-
-
 ```
 
 **注册了部分使用频率较高的组件为全局组件**
 
 目前项目全局注册的全局组件有两个地方。
 
-1. ant-design-vue组件库部分全局注册
+1. ant-design-vue 组件库部分全局注册
 
 代码地址：[/@/components/registerGlobComp.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)
-
 
 ```ts
 import type { App } from 'vue';
@@ -67,18 +63,15 @@ export function registerGlobComp(app: App<Element>) {
 }
 ```
 
+::: tip 如果需要全局注册 在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
 
-
-::: tip 如果需要全局注册
-  在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
-
-  ```ts
+```ts
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
 export function setupAntd(app: App<Element>) {
   app.use(Antd);
 }
+```
 
-  ```
 :::

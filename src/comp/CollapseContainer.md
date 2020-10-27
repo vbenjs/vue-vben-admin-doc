@@ -7,14 +7,12 @@
 ```vue
 <template>
   <div class="m-4">
-    <CollapseContainer title="Antv Icon使用 (直接按需引入相应组件即可)">
-    </CollapseContainer>
+    <CollapseContainer title="Antv Icon使用 (直接按需引入相应组件即可)"> </CollapseContainer>
   </div>
 </template>
 <script lang="ts">
   import { defineComponent } from 'vue';
   import { CollapseContainer } from '/@/components/Container/index';
-
 
   export default defineComponent({
     components: {
@@ -25,7 +23,6 @@
     },
   });
 </script>
-
 ```
 
 ## Props 说明
@@ -40,8 +37,8 @@
 
 ## slots
 
-| 名称         | 说明               |
-| ------------ | ------------------ |
-| title        | 自定义标题         |
-| action       | 自定义右侧操作按钮 |
-| default      | 默认区域           |
+| 名称    | 说明               |
+| ------- | ------------------ |
+| title   | 自定义标题         |
+| action  | 自定义右侧操作按钮 |
+| default | 默认区域           |

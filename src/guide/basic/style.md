@@ -1,6 +1,7 @@
 # 样式
 
 ## 介绍
+
 主要针对如何在项目中使用和规划样式文件进行介绍，如果想获取基础的 CSS 知识或查阅属性，可以参考 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)。
 
 默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下[Less](http://lesscss.org/) 的相关特性
@@ -31,14 +32,10 @@
 没有加 scoped 属性，默认会编译成全局样式，可能会造成全局污染
 
 ```vue
-<style>
-</style>
-<style scoped>
-</style>
+<style></style> <style scoped></style>
 ```
 
-::: tip 温馨提醒
-使用 scoped 后，父组件的样式将不会渗透到子组件中。不过一个子组件的根节点会同时受其父组件的 scoped CSS 和子组件的 scoped CSS 的影响。这样设计是为了让父组件可以从布局的角度出发，调整其子组件根元素的样式。
+::: tip 温馨提醒使用 scoped 后，父组件的样式将不会渗透到子组件中。不过一个子组件的根节点会同时受其父组件的 scoped CSS 和子组件的 scoped CSS 的影响。这样设计是为了让父组件可以从布局的角度出发，调整其子组件根元素的样式。
 
 :::
 
@@ -46,26 +43,25 @@
 
 有时我们可能想明确地制定一个针对子组件的规则。
 
-最初，我们支持>>>组合器使选择器“变深”。但是，某些CSS预处理器（例如SASS）在解析它时会遇到问题，因为这不是官方的CSS组合器。
+最初，我们支持>>>组合器使选择器“变深”。但是，某些 CSS 预处理器（例如 SASS）在解析它时会遇到问题，因为这不是官方的 CSS 组合器。
 
-后来/deep/，我们切换到，这曾经是CSS的实际建议添加（甚至是Chrome本身提供的），但后来删除了。这引起了一些用户的困惑，因为他们担心/deep/在Vue SFC中使用它们会导致在删除该功能的浏览器中不支持其代码。但是，就像一样>>>，/deep/仅被Vue的SFC编译器用作编译时提示以重写选择器，并在最终CSS中被删除。
+后来/deep/，我们切换到，这曾经是 CSS 的实际建议添加（甚至是 Chrome 本身提供的），但后来删除了。这引起了一些用户的困惑，因为他们担心/deep/在 Vue SFC 中使用它们会导致在删除该功能的浏览器中不支持其代码。但是，就像一样>>>，/deep/仅被 Vue 的 SFC 编译器用作编译时提示以重写选择器，并在最终 CSS 中被删除。
 
-为避免混淆的/deep/组合器，我们引入了另一个自定义组合器，::v-deep这次更明确地说明这是Vue特定的扩展，并使用伪元素语法，因此任何预处理器都应能够解析它。
+为避免混淆的/deep/组合器，我们引入了另一个自定义组合器，::v-deep 这次更明确地说明这是 Vue 特定的扩展，并使用伪元素语法，因此任何预处理器都应能够解析它。
 
 详情可以查看[scoped-styles-changes](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0023-scoped-styles-changes.md)
 
 因为使用 scoped 后，父组件的样式将不会渗透到子组件中，所以可以使用以下方式解决
 
-
-
 ### Css
 
 ```vue
 <style scoped>
-  .a ::v-deep(.b){
+  .a ::v-deep(.b) {
   }
 </style>
 ```
+
 以上内容编译为
 
 ```vue
@@ -77,48 +73,50 @@
 ```vue
 ::v-slotted(.foo) {}
 ```
+
 以上内容会被编译为
+
 ```vue
 .foo[v-data-xxxxxxx-s] {}
 ```
 
-请注意-s后缀，该后缀使其仅针对插槽内容
-
+请注意-s 后缀，该后缀使其仅针对插槽内容
 
 新的伪元素::v-global()可用于在`<style scoped>`块内应用全局规则：
 
 ```vue
 ::v-global(.foo) {}
 ```
+
 以上内容会被编译为
+
 ```vue
 .foo {}
 ```
-
-
 
 ### less
 
 ```vue
 <style scoped lang="less">
   .a {
-    /deep/ .b{
-     // ...
-    }
-  }
-</style>
-```
-### scss
-```vue
-  <style scoped lang="scss">
-  .a {
-    ::v-deep .b{
-     // ...
+    /deep/ .b {
+      // ...
     }
   }
 </style>
 ```
 
+### scss
+
+```vue
+<style scoped lang="scss">
+  .a {
+    ::v-deep .b {
+      // ...
+    }
+  }
+</style>
+```
 
 ## CSS Modules
 
@@ -132,36 +130,34 @@
 </template>
 
 <script>
-import { useCSSModule } from 'vue';
+  import { useCSSModule } from 'vue';
 
-export default {
-  setup(props, context) {
-    const $style = useCSSModule();
-    const moduleAStyle = useCSSModule('moduleA');
-    return {
-      $style,
-      moduleAStyle
-    };
-  }
-};
+  export default {
+    setup(props, context) {
+      const $style = useCSSModule();
+      const moduleAStyle = useCSSModule('moduleA');
+      return {
+        $style,
+        moduleAStyle,
+      };
+    },
+  };
 </script>
 
 <style lang="less" module>
-.span1 {
-  color: green;
-  font-size: 30px;
-}
+  .span1 {
+    color: green;
+    font-size: 30px;
+  }
 </style>
 
 <style lang="less" module="moduleA">
-.span1 {
-  color: green;
-  font-size: 30px;
-}
+  .span1 {
+    color: green;
+    font-size: 30px;
+  }
 </style>
 ```
-
-
 
 ## 常用全局 css 类
 
@@ -187,7 +183,6 @@ export default {
 
 
 ```
-
 
 ## 页面使用
 

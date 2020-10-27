@@ -1,12 +1,10 @@
-# Mock与联调
+# Mock 与联调
 
 ## 本地开发环境接口地址修改
-
 
 本地开发时候,接口地址在项目根目录下
 
 [.env.development](https://github.com/anncwb/vue-vben-admin/tree/main/.env.development)文件配置
-
 
 ```bash
 # Vite本地跨域代理
@@ -14,9 +12,8 @@ VITE_PROXY=[["/api","http://localhost:3000"]]
 # 接口地址
 VITE_GLOB_API_URL=/api
 ```
-::: tip
-.env 文件如果是字符串 不需要加引号,默认全部为字符串
-:::
+
+::: tip .env 文件如果是字符串 不需要加引号,默认全部为字符串 :::
 
 **这里还区分是否跨域**
 
@@ -31,7 +28,7 @@ VITE_GLOB_API_URL=http://localhost:3000
 
 下方的 接口地址设置为`/api`,当请求发出的时候会经过 Vite 的 proxy 代理
 
-匹配到了我们设置的 **VITE_PROXY** 规则，将`/api`转化为http://localhost:3000进行请求
+匹配到了我们设置的 **VITE_PROXY** 规则，将`/api`转化为 http://localhost:3000 进行请求
 
 ```bash
 # 例如接口地址为 http://localhost:3000 则
@@ -45,15 +42,13 @@ VITE_GLOB_API_URL=/api
 
 如果你在**src/api/**下面的接口为下方代码，且 **.env.development**文件配置如下注释
 
-则在控制台看到的地址为http://localhost:3100/api/login
+则在控制台看到的地址为 http://localhost:3100/api/login
 
 由于 /app 匹配到了我们设置的 VUE_APP_PROXY
 
-所以上方的请求实际是请求http://localhost:3100/login,这样同时也解决了跨域问题
+所以上方的请求实际是请求 http://localhost:3100/login,这样同时也解决了跨域问题
 
-::: tip
-3100 为项目端口号
-:::
+::: tip 3100 为项目端口号 :::
 
 ```ts
 // .env.development
@@ -74,23 +69,19 @@ export function loginApi(params: LoginParams) {
     params,
   });
 }
-
 ```
 
 ## 正式环境接口地址修改
 
-正式环境接口地址在项目根目录下 [.env.production文件配置](https://github.com/anncwb/vue-vben-admin/tree/main/.env.production文件配置)文件配置
+正式环境接口地址在项目根目录下 [.env.production 文件配置](https://github.com/anncwb/vue-vben-admin/tree/main/.env.production文件配置)文件配置
 
 正式环境接口地址值需要修改**VITE_GLOB_API_URL**即可，如果出现跨域问题，可以使用 nginx 或者后台开启 cors 进行处理
 
+::: tip 打包后如何进行地址修改
 
-::: tip  打包后如何进行地址修改
+**VITE*GLOB*\***开头的变量会在打包的时候注入`_app.config.js`文件内
 
-**VITE_GLOB_\***开头的变量会在打包的时候注入`_app.config.js`文件内
-
-只需要在`dist/_app.config.js`修改相应的接口地址然后刷新页面即可，不需要在根据不同环境打包多次,一次打包，可以用于多个不同接口环境的部署
-:::
-
+只需要在`dist/_app.config.js`修改相应的接口地址然后刷新页面即可，不需要在根据不同环境打包多次,一次打包，可以用于多个不同接口环境的部署 :::
 
 ## 接口请求
 
@@ -120,10 +111,7 @@ export function loginApi(params: LoginParams) {
 
 ```ts
 import { defHttp } from '/@/utils/http/axios';
-import {
-  LoginParams,
-  LoginResultModel,
-} from './model/userModel';
+import { LoginParams, LoginResultModel } from './model/userModel';
 
 enum Api {
   Login = '/login',
@@ -144,13 +132,11 @@ export function loginApi(params: LoginParams) {
     }
   );
 }
-
 ```
 
 ### axios 请求封装及配置
 
 **axios** 请求封装存放于[/@/utils/http/axios](https://github.com/anncwb/vue-vben-admin/tree/main/src/utils/http/axios)文件夹内部
-
 
 除 `index.ts`文件内容需要根据项目自行修改外，其余文件无需修改
 
@@ -328,8 +314,7 @@ const transform: AxiosTransform = {
 
 项目中往往用到了不只一个接口地址。该项目也考虑到了这点。
 
-当项目中需要用到多个接口地址时,
-可以在 [/@/utils/http/axios/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/utils/http/axios/index.ts)导出多个axios实例
+当项目中需要用到多个接口地址时, 可以在 [/@/utils/http/axios/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/utils/http/axios/index.ts)导出多个 axios 实例
 
 ```ts
 // 目前只导出一个默认实例，接口地址对应的是环境变量中的 VITE_GLOB_API_URL 接口地址
@@ -345,19 +330,15 @@ export const otherHttp = createAxios({
 });
 ```
 
-## Mock服务
+## Mock 服务
 
 Mock 数据是前端开发过程中必不可少的一环，是分离前后端开发的关键链路。通过预先跟服务器端约定好的接口，模拟请求数据甚至逻辑，能够让前端开发独立自主，不会被服务端的开发所阻塞。
 
-项目中使用到了[Vite-Plugin-Mock](https://github.com/anncwb/vite-plugin-mock)来进行mock数据处理。该插件也由我一起维护，会跟该项目同时进行。
+项目中使用到了[Vite-Plugin-Mock](https://github.com/anncwb/vite-plugin-mock)来进行 mock 数据处理。该插件也由我一起维护，会跟该项目同时进行。
 
+::: tip 项目内 mock 服务分本地和线上 :::
 
-::: tip
-项目内 mock 服务分本地和线上
-:::
-
-
-## 本地Mock
+## 本地 Mock
 
 本地 mock 采用 Koa 中间件进行参数拦截。(本地不采用 mock.js 的原因是本地开发看不到请求参数和响应结果)
 
@@ -369,14 +350,11 @@ Mock 数据是前端开发过程中必不可少的一环，是分离前后端开
 
 ::: tip
 
-文件新增后会自动更新，不需要手动重启，可以在代码控制台查看日志信息
-mock 文件夹内会自动注册，排除以_开头的文件夹及文件
-:::
+文件新增后会自动更新，不需要手动重启，可以在代码控制台查看日志信息 mock 文件夹内会自动注册，排除以\_开头的文件夹及文件 :::
 
 例:
 
 ```ts
-
 import { MockMethod } from 'vite-plugin-mock';
 import { resultPageSuccess } from '../_util';
 
@@ -408,9 +386,8 @@ export default [
   },
 ] as MockMethod[];
 ```
-::: tip
-mock的值可以直接使用[mockjs](https://github.com/nuysoft/Mock/wiki)的语法。
-:::
+
+::: tip mock 的值可以直接使用[mockjs](https://github.com/nuysoft/Mock/wiki)的语法。 :::
 
 ### 接口格式
 
@@ -426,10 +403,10 @@ mock的值可以直接使用[mockjs](https://github.com/nuysoft/Mock/wiki)的语
 }
 ```
 
-* url: mock接口地址
-* method: 请求方式
-* timeout: 延时时间
-* response: 响应结果
+- url: mock 接口地址
+- method: 请求方式
+- timeout: 延时时间
+- response: 响应结果
 
 ### 参数获取
 
@@ -437,14 +414,9 @@ mock的值可以直接使用[mockjs](https://github.com/nuysoft/Mock/wiki)的语
 
 **POST 接口：**` ({ body }) => { }`
 
-### util说明
+### util 说明
 
-可以在 [代码](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_util.ts)查看代码
-::: tip
-util只作为服务处理结果数据使用。可以不用或者自行封装
-如果需要使用，需要将对应的字段改为对应接口的返回字段结构
-:::
-
+可以在 [代码](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_util.ts)查看代码 ::: tip util 只作为服务处理结果数据使用。可以不用或者自行封装如果需要使用，需要将对应的字段改为对应接口的返回字段结构 :::
 
 ### 匹配
 
@@ -452,10 +424,7 @@ util只作为服务处理结果数据使用。可以不用或者自行封装
 
 ```ts
 import { defHttp } from '/@/utils/http/axios';
-import {
-  LoginParams,
-  LoginResultModel,
-} from './model/userModel';
+import { LoginParams, LoginResultModel } from './model/userModel';
 
 enum Api {
   Login = '/login',
@@ -493,7 +462,7 @@ export default [
 
 当后台接口已经开发完成之后，只需要将相应的 mock 函数去掉即可
 
-以上方接口为例，假如后台接口login已经开发完成
+以上方接口为例，假如后台接口 login 已经开发完成
 
 则只需要删除/注释掉下方代码即可
 
@@ -520,13 +489,13 @@ export default [
 
 ### 线上如何开启 mock
 
-1. 修改 .env.production文件内的VITE_USE_MOCK的值为true
+1. 修改 .env.production 文件内的 VITE_USE_MOCK 的值为 true
+
 ```ts
-
 VITE_USE_MOCK = true;
-
 ```
-2. 在[mock/_createProductionServer.ts](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_createProductionServer.ts)目录下引入需要的mock文件
+
+2. 在[mock/\_createProductionServer.ts](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_createProductionServer.ts)目录下引入需要的 mock 文件
 
 ```ts
 import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer';
@@ -543,13 +512,12 @@ export function setupProdMockServer() {
 
 ```ts
 import { setupProdMockServer } from '../mock/_createProductionServer';
-import {  isProdMode, isUseMock } from '/@/utils/env';
+import { isProdMode, isUseMock } from '/@/utils/env';
 if (isProdMode() && isUseMock()) {
   setupProdMockServer();
 }
-
 ```
 
-到这里线上mock就配置完成了。
+到这里线上 mock 就配置完成了。
 
 线上与本地差异不大，比较大的区别是线上在控制台内看不到接口请求日志

@@ -28,7 +28,6 @@ lint 不是必须的，但是很有必要，一个项目做大了以后或者参
 
 :::
 
-
 ## ESLint
 
 ESLint 是一个代码规范和错误检查工具，有以下几个特性
@@ -48,7 +47,6 @@ ESLint 是一个代码规范和错误检查工具，有以下几个特性
 同时项目内也自带了 vscode eslint 配置，具体在`.vscode/setting.json`文件夹内部
 
 只要使用 vscode 开发就可以不用任何设置即可使用
-
 
 ## CommitLint
 
@@ -85,7 +83,6 @@ commit-lint 的配置位于项目根目录下**commitlint.config.js**
 git commit -m 'feat(home): add home page'
 
 ```
-
 
 ## Ls-Lint
 
@@ -135,7 +132,6 @@ npm run ls-lint
 
 ```
 
-
 ## Stylelint
 
 stylelint 用于校验项目内部 css 的风格,加上编辑器的自动修复，可以很好的统一项目内部 css 风格
@@ -167,7 +163,6 @@ prettier 配置文件位于项目根目录下**prettier.config.js**
 **插件**
 
 [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-
 
 ## Git Hook
 

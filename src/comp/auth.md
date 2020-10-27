@@ -6,28 +6,26 @@
 
 ```vue
 <template>
- <div>
+  <div>
     <Authority :value="RoleEnum.ADMIN">
-      <a-button type="primary" block>
-        只有admin角色可见
-      </a-button>
+      <a-button type="primary" block> 只有admin角色可见 </a-button>
     </Authority>
- </div>
+  </div>
 </template>
 <script>
-import  Authority from '/@/components/Authority/index';
-import { defineComponent } from 'vue';
-export default defineComponent({
-  components: { Authority },
-  setup() {
-    return {};
-  },
-});
+  import Authority from '/@/components/Authority/index';
+  import { defineComponent } from 'vue';
+  export default defineComponent({
+    components: { Authority },
+    setup() {
+      return {};
+    },
+  });
 </script>
 ```
 
 ## Props
 
-| 属性     | 类型                   | 默认值            | 说明                                                         |
-| -------- | ---------------------- | ----------------- | ------------------------------------------------------------ |
-| value    | `RoleEnum | RoleEnum[] |string |string[]` | -                 | 角色信息或者权限编码。会自动区分权限模式
+| 属性  | 类型      | 默认值     | 说明   |
+| ----- | --------- | ---------- | ------ |
+| value | `RoleEnum | RoleEnum[] | string | string[]` | - | 角色信息或者权限编码。会自动区分权限模式 |

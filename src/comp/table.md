@@ -19,9 +19,7 @@
       :pagination="{ pageSize: 20 }"
     >
       <template #toolbar>
-        <a-button type="primary">
-          操作按钮
-        </a-button>
+        <a-button type="primary"> 操作按钮 </a-button>
       </template>
     </BasicTable>
   </div>
@@ -41,12 +39,11 @@
     },
   });
 </script>
-
 ```
-## 使用ref调用内部函数
+
+## 使用 ref 调用内部函数
 
 所有可调用函数见下方`Methods`说明
-
 
 ```vue
 <template>
@@ -95,8 +92,6 @@
     },
   });
 </script>
-
-
 ```
 
 ## useTable
@@ -106,7 +101,7 @@
 下面是一个使用简单表格的示例，
 
 ```vue
- <template>
+<template>
   <div class="p-4">
     <BasicTable @register="registerTable" />
   </div>
@@ -143,7 +138,6 @@
     },
   });
 </script>
-
 ```
 
 ## useTable
@@ -164,6 +158,7 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
   <BasicTable @register="register" />
 </template>
 ```
+
 ### methods
 
 **setProps**
@@ -171,7 +166,6 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 类型：`(props: Partial<BasicTableProps>) => void`
 
 说明: 用于设置表格参数
-
 
 **reload**
 
@@ -199,7 +193,6 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 说明: 获取表格数据
 
-
 **getColumns**
 
 类型：`(opt?: GetColumnsParams) => BasicColumn[]`
@@ -208,26 +201,21 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 **setColumns**
 
-
 类型：`(columns: BasicColumn[] | string[]) => void`
 
 说明: 设置表头数据
 
 **setTableData**
 
-
 类型：`(values: any[]) => void`
 
 说明: 设置表格数据
 
-
 **setPagination**
-
 
 类型：` (info: Partial<PaginationProps>) => void`
 
 说明: 设置分页信息
-
 
 **deleteSelectRowByKey**
 
@@ -261,11 +249,9 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 **getPaginationRef**
 
-
 类型：`() => PaginationProps | boolean`
 
 说明: 获取当前分页信息
-
 
 ## Props
 
@@ -279,9 +265,9 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | --- | --- | --- | --- | --- |
 | sortFn | `(sortInfo: SorterResult<any>) => any` | - | - | 自定义排序方法。见下方全局配置说明 |
 | showTableSetting | `boolean` | false | - | 显示表格设置工具 |
-| tableSetting | `TableSetting` | - | - | 表格设置工具配置，见下方TableSetting |
+| tableSetting | `TableSetting` | - | - | 表格设置工具配置，见下方 TableSetting |
 | striped | `boolean` | true | - | 斑马纹 |
-| autoCreateKey | `boolean` | true | - | 是否自动生成key |
+| autoCreateKey | `boolean` | true | - | 是否自动生成 key |
 | showSummary | `boolean` | false | - | 是否显示合计行 |
 | emptyDataIsShowTable | `boolean` | true | - | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格 |
 | summaryFunc | `(...arg) => any[]` | - | - | 计算合计行的方法 |
@@ -327,10 +313,10 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 :::
 
-| 事件            | 回调参数                  | 说明               |
-| --------------- | ------------------------- | ------------------ |
-| fetch-success   | `Function({items,total})` | 接口请求成功后触发 |
-| fetch-error     | `Function(error)`         | 错误信息           |
+| 事件             | 回调参数                  | 说明               |
+| ---------------- | ------------------------- | ------------------ |
+| fetch-success    | `Function({items,total})` | 接口请求成功后触发 |
+| fetch-error      | `Function(error)`         | 错误信息           |
 | selection-change | `Function({keys，rows})`  | 勾选事件触发       |
 
 ## Slots
@@ -349,10 +335,9 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 ## Form-Slots
 
-当开启form表单后。以`form-xxxx`为前缀的slot会被视为form的slot
+当开启 form 表单后。以`form-xxxx`为前缀的 slot 会被视为 form 的 slot
 
-xxxx为form组件的slot。具体参考[form组件文档](./form.md#Slots)
-
+xxxx 为 form 组件的 slot。具体参考[form 组件文档](./form.md#Slots)
 
 ## 表格内置组件（只能用于表格内部）
 
@@ -408,11 +393,9 @@ export interface PopConfirm {
 | imgList | `string[]` | -      | -      | 图片地址列表 |
 | size    | `number`   | -      | -      | 图片大小     |
 
-
 ## 全局配置
 
-
-在[@/components/Table/src/const.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Table/src/const.ts) 可以配置全局参数。用于统一整个项目的风格。可以通过props传值覆盖
+在[@/components/Table/src/const.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Table/src/const.ts) 可以配置全局参数。用于统一整个项目的风格。可以通过 props 传值覆盖
 
 ```ts
 // 可选的每页显示条数
@@ -444,6 +427,4 @@ export function DEFAULT_SORT_FN(sortInfo: SorterResult<any>) {
     order,
   };
 }
-
-
 ```

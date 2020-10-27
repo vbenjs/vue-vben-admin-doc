@@ -1,20 +1,16 @@
 # Modal 弹窗
 
-对antv的 modal 组件进行封装，扩展拖拽，全屏，自适应高度等功能
+对 antv 的 modal 组件进行封装，扩展拖拽，全屏，自适应高度等功能
 
 代码路径[@/components/Modal](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Modal)
-
 
 ## 使用
 
 **由于弹窗内部代码一般独立成单独文件，也推荐独立成组件来进行开发，所以示例都是以独立的文件来进行说明**
 
-
 **独立组件代码，用于写组件内部的内容**
 
-::: tip 注意
-`v-bind="$attrs"`记得写
-:::
+::: tip 注意 `v-bind="$attrs"`记得写 :::
 
 ```vue
 // Modal.vue
@@ -33,10 +29,10 @@
     },
   });
 </script>
-
 ```
 
 **页面引用弹窗**
+
 ```vue
 // Page.vue
 <template>
@@ -70,6 +66,7 @@
 ```ts
 const [register, { openModal, setModalProps }] = useModal();
 ```
+
 **register**
 
 register 用于注册 useModal，如果需要使用`useModal`提供的 api，必须将 register 传入组件的 onRegister
@@ -83,6 +80,7 @@ register 用于注册 useModal，如果需要使用`useModal`提供的 api，必
   <BasicModal v-bind="$attrs"></BasicModal>
 </template>
 ```
+
 **openModal**
 
 用于打开/关闭弹窗
@@ -106,9 +104,9 @@ props 内容可以见下方
 setModalProps(props);
 ```
 
-## useModalInner  说明
+## useModalInner 说明
 
-用于独立的Modal内部调用
+用于独立的 Modal 内部调用
 
 ### 使用
 
@@ -142,7 +140,6 @@ setModalProps(props);
     },
   });
 </script>
-
 ```
 
 **useModalInner**用于操作独立组件
@@ -162,20 +159,20 @@ closeModal();
 
 **receiveDrawerDataRef**
 
-
-用于接收外部组件通过`transferDrawerData`发送的数据，值为Ref类型
+用于接收外部组件通过`transferDrawerData`发送的数据，值为 Ref 类型
 
 **changeOkLoading**
 
-用于修改确认按钮的loading状态
+用于修改确认按钮的 loading 状态
 
 ```tsx
 // true or false
 changeOkLoading(true);
 ```
+
 **changeLoading**
 
-用于修改modal的loading状态
+用于修改 modal 的 loading 状态
 
 ```tsx
 // true or false
@@ -188,7 +185,6 @@ changeLoading(true);
 
 props 内容可以见下方
 
-
 ## Props
 
 ::: tip
@@ -196,7 +192,6 @@ props 内容可以见下方
 除以下参数外，组件库文档内的 props 也都支持，具体可以参考 [antv modal](https://2x.antdv.com/components/modal-cn/#API)
 
 :::
-
 
 :::
 
@@ -210,7 +205,7 @@ props 内容可以见下方
 | loading | `boolean` | false | true/false | modal loading 状态 |
 | showCancelBtn | `boolean` | true | true/false | 显示关闭按钮 |
 | showOkBtn | `boolean` | true | true/false | 显示确认按钮 |
-| helpMessage | `string|string[]` | - | - | 标题右侧提示文本 |
+| helpMessage | `string | string[]` | - | - | 标题右侧提示文本 |
 | centered | `boolean` | false | true/false | 是否居中弹窗 |
 | cancelText | `string` | '关闭' | - | 关闭按钮文本 |
 | okText | `string` | '保存' | - | 确认按钮文本 |
@@ -218,8 +213,8 @@ props 内容可以见下方
 
 ## Events
 
-| 事件 | 回调参数      | 说明         |
-| ---- | ------------- | ------------ |
-| ok   | `function(e)` | 点击确定回调 |
-| cancel   | `function(e)` | 点击取消回调 |
-| visible-change   | `(visible:boolean)=>{}` | 打开或者关闭触发 |
+| 事件           | 回调参数                | 说明             |
+| -------------- | ----------------------- | ---------------- |
+| ok             | `function(e)`           | 点击确定回调     |
+| cancel         | `function(e)`           | 点击取消回调     |
+| visible-change | `(visible:boolean)=>{}` | 打开或者关闭触发 |

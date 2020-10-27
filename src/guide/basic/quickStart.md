@@ -8,27 +8,22 @@
 
 本文会帮助你从头启动项目。
 
-
 ## 工具配置
 
-如果您使用的IDE是[vscode](https://code.visualstudio.com/)的话,可以安装以下工具来提高开发效率就代码格式化
+如果您使用的 IDE 是[vscode](https://code.visualstudio.com/)的话,可以安装以下工具来提高开发效率就代码格式化
 
-- [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Iconify图标插件
+- [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Iconify 图标插件
 - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue 开发必备
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 脚本代码检查
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
 - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css 格式化
 - [DotNev](https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv) - .env 文件 高亮
 
-
-
 ## 代码获取
 
-::: tip 注意
-存放代码的目录及所有父级目录不能存在中文、韩文、日文。否则安装依赖后启动会出错。
-:::
+::: tip 注意存放代码的目录及所有父级目录不能存在中文、韩文、日文。否则安装依赖后启动会出错。 :::
 
-### 从github获取代码
+### 从 github 获取代码
 
 ```bash
 # clone 代码
@@ -36,9 +31,9 @@ git clone https://github.com/anncwb/vue-vben-admin
 
 ```
 
-### 从gitee获取代码
+### 从 gitee 获取代码
 
-如果从 github clone代码较慢的话，可以尝试用gitee同步代码到自己的仓库，在clone下来即可。
+如果从 github clone 代码较慢的话，可以尝试用 gitee 同步代码到自己的仓库，在 clone 下来即可。
 
 也可以通过下方地址进行 clone
 
@@ -48,17 +43,16 @@ git clone https://gitee.com/annsion/vue-vben-admin-next
 
 ::: tip 注意
 
-[vue-vben-admin-next](https://gitee.com/annsion/vue-vben-admin-next)在gitee的代码可能不是最新的
-:::
-
+[vue-vben-admin-next](https://gitee.com/annsion/vue-vben-admin-next)在 gitee 的代码可能不是最新的 :::
 
 ## 安装
 
-### 安装Node.js
+### 安装 Node.js
 
 如果您电脑未安装[Node.js](https://nodejs.org/en/)，请安装它。
 
 **验证**
+
 ```bash
 # 出现相应npm版本即可
 npm -v
@@ -68,11 +62,11 @@ node -v
 
 ```
 
-如果你需要同时存在多个node版本，可以使用[Nvm](https://github.com/nvm-sh/nvm)或者其他工具进行Node.js进行版本管理。
+如果你需要同时存在多个 node 版本，可以使用[Nvm](https://github.com/nvm-sh/nvm)或者其他工具进行 Node.js 进行版本管理。
 
 ### 安装依赖
 
-**yarn安装**
+**yarn 安装**
 
 推荐使用 [Yarn](https://github.com/yarnpkg/yarn)进行依赖安装。
 
@@ -119,7 +113,7 @@ yarn build
 
 **打包项目部署站点**
 
-用于Vue Vben Admni 打包部署预览使用
+用于 Vue Vben Admni 打包部署预览使用
 
 ```bash
 yarn build:site
@@ -146,18 +140,17 @@ yarn report
 有两个选项:
 
 1. Preview after packaging: 先打包在进行预览
-2. No packaging, preview directly (need to have dist file after packaging): 直接预览本地dist文件目录
+2. No packaging, preview directly (need to have dist file after packaging): 直接预览本地 dist 文件目录
 
 ```bash
 yarn preview
 ```
 
-**生成ChangeLog**
+**生成 ChangeLog**
 
 ```bash
 yarn log
 ```
-
 
 **删除缓存**
 
@@ -165,7 +158,7 @@ yarn log
 yarn clean:cache
 ```
 
-**删除node_modules**
+**删除 node_modules**
 
 `window`系统手动删除该目录较慢，可以使用该命令来进行删除
 
@@ -182,6 +175,5 @@ yarn clean:lib
 ```bash
 yarn reinstall
 ```
-
 
 接下来你可以修改代码进行业务开发了，我们内建了模拟数据、HMR 实时预览、状态管理、国际化、全局路由等等各种实用的功能辅助开发，你可以继续阅读其他文档进行了解。

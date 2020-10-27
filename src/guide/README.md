@@ -1,12 +1,10 @@
 # 介绍
 
-[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)是一个基于[Vue3.0](https://github.com/vuejs/vue-next)、[Vite](https://github.com/vitejs/vite)、
-[Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/)、[TypeScript](https://www.typescriptlang.org/)的后台解决方案，目标是为中大型项目开发,提供现成的开箱解决方案，二次封装组件、utils、hooks、动态菜单、权限校验、按钮级别权限控制等功能。项目所使用的技术都是前端较新的技术栈，可以用来作为项目的启动模版，可以帮助你快速搭建企业级中后台产品原型。也可以作为一个示例，用于学习`vue3`，`vite`，`ts`等等主流技术。尽管还有很多使用到的技术处于`beta`|`rc`状态，但是该项目会一直持续跟进,将最新的东西应用与项目之中。
+[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)是一个基于[Vue3.0](https://github.com/vuejs/vue-next)、[Vite](https://github.com/vitejs/vite)、 [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/)、[TypeScript](https://www.typescriptlang.org/)的后台解决方案，目标是为中大型项目开发,提供现成的开箱解决方案，二次封装组件、utils、hooks、动态菜单、权限校验、按钮级别权限控制等功能。项目所使用的技术都是前端较新的技术栈，可以用来作为项目的启动模版，可以帮助你快速搭建企业级中后台产品原型。也可以作为一个示例，用于学习`vue3`，`vite`，`ts`等等主流技术。尽管还有很多使用到的技术处于`beta`|`rc`状态，但是该项目会一直持续跟进,将最新的东西应用与项目之中。
 
+::: tip 为什么是 Vite
 
-::: tip 为什么是Vite
-
-很多人都觉得用[Vite](https://github.com/vitejs/vite)可能是感觉她的速度快。确实，速度跟webpack项目相比快了很多。同时我自己也是比较喜欢尝试新的技术，虽然她还不成熟。很多插件生态都需要完善，但是该项目会尽量将vue-cli的功能迁移过来。
+很多人都觉得用[Vite](https://github.com/vitejs/vite)可能是感觉她的速度快。确实，速度跟 webpack 项目相比快了很多。同时我自己也是比较喜欢尝试新的技术，虽然她还不成熟。很多插件生态都需要完善，但是该项目会尽量将 vue-cli 的功能迁移过来。
 
 :::
 
@@ -16,11 +14,11 @@
 
 整个项目需要一定基础才能理解，所以在开发前可以先学一下以下内容,方便对项目的理解,提前了解和学习这些知识会非常有帮助:
 
-- [Vue3文档](https://v3.cn.vuejs.org/guide/installation.html#%E4%BD%BF%E7%94%A8-cdn-%E6%88%96%E6%B2%A1%E6%9C%89%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7)
+- [Vue3 文档](https://v3.cn.vuejs.org/guide/installation.html#%E4%BD%BF%E7%94%A8-cdn-%E6%88%96%E6%B2%A1%E6%9C%89%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7)
 
 - [Vue-RFCS](https://github.com/vuejs/rfcs)
 
-- [Vue2迁移到3](https://v3.cn.vuejs.org/guide/migration/introduction.html#%E6%A6%82%E8%A7%88)
+- [Vue2 迁移到 3](https://v3.cn.vuejs.org/guide/migration/introduction.html#%E6%A6%82%E8%A7%88)
 
 - [TypeScript](https://www.typescriptlang.org/)
 
@@ -34,12 +32,11 @@
 
 - [Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)
 
-该版本主要是提供一些Demo示例及插件的使用集成方式，主要用于参考。如果对项目不是很熟悉，不建议在这基础上进行开发，可以使用下方提供的精简版本。
+该版本主要是提供一些 Demo 示例及插件的使用集成方式，主要用于参考。如果对项目不是很熟悉，不建议在这基础上进行开发，可以使用下方提供的精简版本。
 
 - [Vue-Vben-Admin-Thin-Next](https://github.com/anncwb/vben-admin-thin-next)
 
 `Vue-Vben-Admin`精简版本。删除了相关示例，无用文件及功能、依赖。可以根据自身要求安装对应的依赖。因为使用的是`vite`，依赖删除不会导致相关组件或者`hook`发出及警告。只在需要的时候安装对应的库即可。
-
 
 ## 功能
 
@@ -98,8 +95,6 @@
 
 更多组件/功能/建议/bug/欢迎提交 pr 或者 issue
 
-
-
 ## 目录结构
 
 ```bash
@@ -134,7 +129,6 @@
 └── yarn.lock
 ```
 
-
 ## 浏览器支持
 
 本地开发推荐使用`Chrome`浏览器,在火狐浏览器进行开发相对卡顿。
@@ -146,7 +140,6 @@
 | not support | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 更多浏览器可以查看 [Can I Use Es Module](https://caniuse.com/?search=ES%20Module)
-
 
 ## 加入
 

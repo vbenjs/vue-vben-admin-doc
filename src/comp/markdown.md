@@ -1,9 +1,8 @@
-# Vditor Markdown编辑器
+# Vditor Markdown 编辑器
 
-基于[Vditor](https://github.com/Vanessa219/vditor)的MarkDown编辑器
+基于[Vditor](https://github.com/Vanessa219/vditor)的 MarkDown 编辑器
 
 ## 使用
-
 
 ```vue
 <template>
@@ -39,24 +38,19 @@
     },
   });
 </script>
-
-
 ```
 
 ## Props
 
-::: tip
-  除以下两个外,props还可以传入vidtor的所有属性。可用  v-bind 统一绑定
-:::
+::: tip 除以下两个外,props 还可以传入 vidtor 的所有属性。可用 v-bind 统一绑定 :::
 
-| 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
-| v-model | `string` | - | - | 双向绑定文本值 |
-| height    | `number` | -      | -      | 高度               |
-
+| 属性    | 类型     | 默认值 | 可选值 | 说明           |
+| ------- | -------- | ------ | ------ | -------------- |
+| v-model | `string` | -      | -      | 双向绑定文本值 |
+| height  | `number` | -      | -      | 高度           |
 
 ### Methods
 
-| 名称   | 回调参数   | 说明       |
-| ------ | ---------- | ---------- |
-| getVditor| `Function` | 获取vditor实例 |
+| 名称      | 回调参数   | 说明             |
+| --------- | ---------- | ---------------- |
+| getVditor | `Function` | 获取 vditor 实例 |

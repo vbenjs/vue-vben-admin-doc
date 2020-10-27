@@ -3,10 +3,9 @@
 对`antv`的 tree 组件进行封装
 
 ```vue
-
 <template>
   <div class="flex p-4">
-      <BasicTree :treeData="treeData" />
+    <BasicTree :treeData="treeData" />
   </div>
 </template>
 <script lang="ts">
@@ -16,42 +15,42 @@
   import { CollapseContainer } from '/@/components/Container/index';
   import { TreeItem } from '/@/components/Tree/index';
 
-export const treeData: TreeItem[] = [
-  {
-    title: 'parent 1',
-    key: '0-0',
-    icon: 'home|svg',
-    children: [
-      { title: 'leaf', key: '0-0-0' },
-      {
-        title: 'leaf',
-        key: '0-0-1',
-        children: [
-          { title: 'leaf', key: '0-0-0-0' },
-          { title: 'leaf', key: '0-0-0-1' },
-        ],
-      },
-    ],
-  },
-  {
-    title: 'parent 2',
-    key: '1-1',
-    icon: 'home|svg',
-    children: [
-      { title: 'leaf', key: '1-1-0' },
-      { title: 'leaf', key: '1-1-1' },
-    ],
-  },
-  {
-    title: 'parent 3',
-    key: '2-2',
-    icon: 'home|svg',
-    children: [
-      { title: 'leaf', key: '2-2-0' },
-      { title: 'leaf', key: '2-2-1' },
-    ],
-  },
-];
+  export const treeData: TreeItem[] = [
+    {
+      title: 'parent 1',
+      key: '0-0',
+      icon: 'home|svg',
+      children: [
+        { title: 'leaf', key: '0-0-0' },
+        {
+          title: 'leaf',
+          key: '0-0-1',
+          children: [
+            { title: 'leaf', key: '0-0-0-0' },
+            { title: 'leaf', key: '0-0-0-1' },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'parent 2',
+      key: '1-1',
+      icon: 'home|svg',
+      children: [
+        { title: 'leaf', key: '1-1-0' },
+        { title: 'leaf', key: '1-1-1' },
+      ],
+    },
+    {
+      title: 'parent 3',
+      key: '2-2',
+      icon: 'home|svg',
+      children: [
+        { title: 'leaf', key: '2-2-0' },
+        { title: 'leaf', key: '2-2-1' },
+      ],
+    },
+  ];
   export default defineComponent({
     components: { BasicTree, CollapseContainer },
     setup() {
@@ -115,9 +114,7 @@ export const treeData: TreeItem[] = [
 
 ::: tip
 
-由于该组件是tsx格式。所以调用函数 需要去 ref示例的$ 属性
-具体代码可以参考[Tree Action](https://github.com/anncwb/vue-vben-admin/blob/main/src/views/demo/tree/ActionTree.vue)
-:::
+由于该组件是 tsx 格式。所以调用函数 需要去 ref 示例的\$ 属性具体代码可以参考[Tree Action](https://github.com/anncwb/vue-vben-admin/blob/main/src/views/demo/tree/ActionTree.vue) :::
 
 | 名称            | 回调参数                                             | 说明                   |
 | --------------- | ---------------------------------------------------- | ---------------------- |
