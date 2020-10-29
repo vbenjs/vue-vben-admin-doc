@@ -133,7 +133,9 @@ export default {
 ::: tip 注意
 
 1. routes 内如果有 children，需要注意子路由的路径,如果子路由 path 以`/开头`,vue-router 不会拼接父级路径。这可能会与菜单不起配。一般子路由不能以`/`开头。如果需要，需要注意修改菜单地址。
-2. 所有路由的`Name`不能重复 :::
+2. 所有路由的`Name`不能重复
+
+:::
 
 ## Meta 配置说明
 
@@ -247,7 +249,9 @@ export default {
 
 ::: tip 注意
 
-菜单添加完成需要手动触发一次热更新。可以在你 `main.ts`内按保存或者重新运行项目(vite 重新运行项目很快)可以触发热更新。 :::
+菜单添加完成需要手动触发一次热更新。可以在你 `main.ts`内按保存或者重新运行项目(vite 重新运行项目很快)可以触发热更新。
+
+:::
 
 到这里你路由已经添加完成，不需要手动引入，放在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)内的文件会自动被加载
 
@@ -365,7 +369,9 @@ keep-alive 生效的前提是
 
 **include - 字符串或正则表达式。只有名称匹配的组件会被缓存。**
 
-所以需要将路由的 name 属性及对应的页面的 name 设置成一样 :::
+所以需要将路由的 name 属性及对应的页面的 name 设置成一样
+
+:::
 
 ### 如何让某个页面不缓存
 

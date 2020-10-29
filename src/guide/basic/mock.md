@@ -13,7 +13,11 @@ VITE_PROXY=[["/api","http://localhost:3000"]]
 VITE_GLOB_API_URL=/api
 ```
 
-::: tip .env 文件如果是字符串 不需要加引号,默认全部为字符串 :::
+::: tip
+
+.env 文件如果是字符串 不需要加引号,默认全部为字符串
+
+:::
 
 **这里还区分是否跨域**
 
@@ -48,7 +52,11 @@ VITE_GLOB_API_URL=/api
 
 所以上方的请求实际是请求 http://localhost:3100/login,这样同时也解决了跨域问题
 
-::: tip 3100 为项目端口号 :::
+::: tip
+
+3100 为项目端口号
+
+:::
 
 ```ts
 // .env.development
@@ -77,11 +85,15 @@ export function loginApi(params: LoginParams) {
 
 正式环境接口地址值需要修改**VITE_GLOB_API_URL**即可，如果出现跨域问题，可以使用 nginx 或者后台开启 cors 进行处理
 
-::: tip 打包后如何进行地址修改
+::: tip
+
+打包后如何进行地址修改
 
 **VITE*GLOB*\***开头的变量会在打包的时候注入`_app.config.js`文件内
 
-只需要在`dist/_app.config.js`修改相应的接口地址然后刷新页面即可，不需要在根据不同环境打包多次,一次打包，可以用于多个不同接口环境的部署 :::
+只需要在`dist/_app.config.js`修改相应的接口地址然后刷新页面即可，不需要在根据不同环境打包多次,一次打包，可以用于多个不同接口环境的部署
+
+:::
 
 ## 接口请求
 
@@ -336,7 +348,11 @@ Mock 数据是前端开发过程中必不可少的一环，是分离前后端开
 
 项目中使用到了[Vite-Plugin-Mock](https://github.com/anncwb/vite-plugin-mock)来进行 mock 数据处理。该插件也由我一起维护，会跟该项目同时进行。
 
-::: tip 项目内 mock 服务分本地和线上 :::
+::: tip
+
+项目内 mock 服务分本地和线上
+
+:::
 
 ## 本地 Mock
 
@@ -350,7 +366,9 @@ Mock 数据是前端开发过程中必不可少的一环，是分离前后端开
 
 ::: tip
 
-文件新增后会自动更新，不需要手动重启，可以在代码控制台查看日志信息 mock 文件夹内会自动注册，排除以\_开头的文件夹及文件 :::
+文件新增后会自动更新，不需要手动重启，可以在代码控制台查看日志信息 mock 文件夹内会自动注册，排除以\_开头的文件夹及文件
+
+:::
 
 例:
 
@@ -387,7 +405,11 @@ export default [
 ] as MockMethod[];
 ```
 
-::: tip mock 的值可以直接使用[mockjs](https://github.com/nuysoft/Mock/wiki)的语法。 :::
+::: tip
+
+mock 的值可以直接使用[mockjs](https://github.com/nuysoft/Mock/wiki)的语法。
+
+:::
 
 ### 接口格式
 
@@ -416,7 +438,13 @@ export default [
 
 ### util 说明
 
-可以在 [代码](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_util.ts)查看代码 ::: tip util 只作为服务处理结果数据使用。可以不用或者自行封装如果需要使用，需要将对应的字段改为对应接口的返回字段结构 :::
+可以在 [代码](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_util.ts)查看代码
+
+::: tip
+
+util 只作为服务处理结果数据使用。可以不用或者自行封装如果需要使用，需要将对应的字段改为对应接口的返回字段结构
+
+:::
 
 ### 匹配
 

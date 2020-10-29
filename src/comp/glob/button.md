@@ -5,7 +5,9 @@
 ::: tip
 
 1. 按钮不需要 import ,已经全局注册，直接使用 a-button 标签即可
-2. 如果是 Tsx 文件,需要手动 import :::
+2. 如果是 Tsx 文件,需要手动 import
+
+:::
 
 ## 使用
 

@@ -201,7 +201,9 @@ export const useSetting = (): SettingWrap => {
 
 项目配置用于配置项目内展示的内容/布局/文本等效果，存于`localStorage`中,在代码内更改之后需要清空`localStorage`缓存
 
-如果更改了项目配置,需要手动清空`localStorage`缓存刷新重新登录后方可生效 :::
+如果更改了项目配置,需要手动清空`localStorage`缓存刷新重新登录后方可生效
+
+:::
 
 ### 配置文件路径
 

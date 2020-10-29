@@ -114,7 +114,9 @@
 
 ::: tip
 
-由于该组件是 tsx 格式。所以调用函数 需要去 ref 示例的\$ 属性具体代码可以参考[Tree Action](https://github.com/anncwb/vue-vben-admin/blob/main/src/views/demo/tree/ActionTree.vue) :::
+由于该组件是 tsx 格式。所以调用函数 需要去 ref 示例的\$ 属性具体代码可以参考[Tree Action](https://github.com/anncwb/vue-vben-admin/blob/main/src/views/demo/tree/ActionTree.vue)
+
+:::
 
 | 名称            | 回调参数                                             | 说明                   |
 | --------------- | ---------------------------------------------------- | ---------------------- |

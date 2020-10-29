@@ -21,7 +21,11 @@
 
 ## 代码获取
 
-::: tip 注意存放代码的目录及所有父级目录不能存在中文、韩文、日文。否则安装依赖后启动会出错。 :::
+::: tip
+
+注意存放代码的目录及所有父级目录不能存在中文、韩文、日文。否则安装依赖后启动会出错。
+
+:::
 
 ### 从 github 获取代码
 
@@ -43,7 +47,9 @@ git clone https://gitee.com/annsion/vue-vben-admin-next
 
 ::: tip 注意
 
-[vue-vben-admin-next](https://gitee.com/annsion/vue-vben-admin-next)在 gitee 的代码可能不是最新的 :::
+[vue-vben-admin-next](https://gitee.com/annsion/vue-vben-admin-next)在 gitee 的代码可能不是最新的
+
+:::
 
 ## 安装
 
@@ -137,13 +143,12 @@ yarn report
 
 **预览打包后的内容**
 
-有两个选项:
-
-1. Preview after packaging: 先打包在进行预览
-2. No packaging, preview directly (need to have dist file after packaging): 直接预览本地 dist 文件目录
-
 ```bash
+# 先打包在进行预览
 yarn preview
+
+# 直接预览本地 dist 文件目录
+yarn preview:dist
 ```
 
 **生成 ChangeLog**

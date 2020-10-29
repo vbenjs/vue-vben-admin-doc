@@ -221,7 +221,9 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 
 设置表单的 props 可以直接在标签上传递，也可以使用 setProps，或者初始化直接写 useForm(props)
 
-::: 类型: `(formProps: Partial<FormProps>) => void`
+:::
+
+类型: `(formProps: Partial<FormProps>) => void`
 
 说明: 设置表单 Props
 

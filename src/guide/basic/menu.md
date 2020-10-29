@@ -83,7 +83,9 @@ export default menu;
 
 ::: tip 注意
 
-菜单添加完成需要手动触发一次热更新。可以在你 `main.ts`内按保存或者重新运行项目(vite 重新运行项目很快)可以触发热更新。 :::
+菜单添加完成需要手动触发一次热更新。可以在你 `main.ts`内按保存或者重新运行项目(vite 重新运行项目很快)可以触发热更新。
+
+:::
 
 到这里你菜单已经添加完成，不需要手动引入，放在[src/router/routes/menus/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus/modules)内的文件会自动被加载
 

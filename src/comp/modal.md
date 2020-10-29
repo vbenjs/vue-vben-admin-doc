@@ -10,7 +10,11 @@
 
 **独立组件代码，用于写组件内部的内容**
 
-::: tip 注意 `v-bind="$attrs"`记得写 :::
+::: tip
+
+注意 `v-bind="$attrs"`记得写
+
+:::
 
 ```vue
 // Modal.vue

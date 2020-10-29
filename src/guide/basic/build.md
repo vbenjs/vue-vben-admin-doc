@@ -49,16 +49,13 @@ live-server --port 9000
 
 ```bash
 
+# 先打包在进行预览
 yarn preview
-# or
-npm run preview
+
+# 直接预览本地 dist 文件目录
+yarn preview:dist
 
 ```
-
-命令执行后会出现两个选项
-
-1. **Preview after packaging**: 先打包，打包后在开启预览
-2. **No packaging, preview directly (need to have dist file after packaging)**: 不需要打包，直接使用本地 dist 打包后的资源进行预览
 
 ## 开启 gzip
 

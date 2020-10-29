@@ -59,6 +59,10 @@ import { china } from 'echarts';
 }
 ```
 
-::: tip optimizeDeps 是用于优化依赖配置。
+::: tip
 
-如果你发现你使用的依赖在 vite 报错，可以往`optimizeDeps.include`添加相应的包即可 :::
+optimizeDeps 是用于优化依赖配置。
+
+如果你发现你使用的依赖在 vite 报错，可以往`optimizeDeps.include`添加相应的包即可
+
+:::

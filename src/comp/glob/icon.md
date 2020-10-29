@@ -8,7 +8,9 @@ icon 组件位于 [/@/components/Icon](https://github.com/anncwb/vue-vben-admin/
 
 ::: tip
 
-icon 的值可以在[Iconify](https://iconify.design) 上面查询 :::
+icon 的值可以在[Iconify](https://iconify.design) 上面查询
+
+:::
 
 ## 使用
 

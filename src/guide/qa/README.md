@@ -1,6 +1,10 @@
 # 常见问题
 
-::: tip 列举了一些常见的问题。有问题可以先来这里寻找，如果没有在进行提问。 :::
+::: tip
+
+列举了一些常见的问题。有问题可以先来这里寻找，如果没有在进行提问。
+
+:::
 
 ## 是否可以在生产环境中使用
 
@@ -72,7 +76,11 @@ git pull up master
 git pull origin main
 ```
 
-::: tip 同步代码的时候会出现冲突。只需要把冲突解决即可 :::
+::: tip
+
+同步代码的时候会出现冲突。只需要把冲突解决即可
+
+:::
 
 ## 关于 Transition mode 的问题
 
@@ -114,7 +122,7 @@ vite 别名在`vite.config.ts`内配置,需要以 `/`开头
 
 ## 启动慢
 
-很多人运行项目可能会发现，第一次运行 vite 也不是想象中那么快。这是因为 vite 第一次启动的时候，会将 package.json 内的依赖项`dependencies`及`vite.config.ts`内的`optimizeDeps.includes`所包含的包编译一次。依赖越多，第一次启动就越慢。再次启动如果
+很多人运行项目可能会发现，第一次运行 vite 也不是想象中那么快。这是因为 vite 第一次启动的时候，会将 package.json 内的依赖项`dependencies`及`vite.config.ts`内的`optimizeDeps.includes`所包含的包编译一次。依赖越多，第一次启动就越慢。第一次启动后后面启动就会很快，注意 **在依赖有变化的时候会重新执行编译**。
 
 ## 打包文件过大
 
@@ -291,7 +299,9 @@ proxy 代理不成功,没有代理到实际地址？
 
 ## 组件注册机制问题
 
-::: tip 如果需要全局注册 在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
+::: tip 如果需要全局注册
+
+在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
 
 ```ts
 import Antd from 'ant-design-vue';
