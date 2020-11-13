@@ -7,7 +7,7 @@
 ```vue
 <template>
   <div class="m-4">
-    <CollapseContainer title="Antv Icon使用 (直接按需引入相应组件即可)"> </CollapseContainer>
+    <CollapseContainer> content </CollapseContainer>
   </div>
 </template>
 <script lang="ts">

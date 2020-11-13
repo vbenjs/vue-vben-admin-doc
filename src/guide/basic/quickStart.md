@@ -2,7 +2,7 @@
 
 ::: tip 前提条件
 
-[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)需要 [Node.js](https://nodejs.org/en/)版本>=`10.16`
+[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)需要 [Node.js](https://nodejs.org/en/)版本>=`12`
 
 :::
 
@@ -23,7 +23,7 @@
 
 ::: tip
 
-注意存放代码的目录及所有父级目录不能存在中文、韩文、日文。否则安装依赖后启动会出错。
+注意存放代码的目录及所有父级目录不能存在中文、韩文、日文以及空格。否则安装依赖后启动会出错。
 
 :::
 

@@ -71,15 +71,19 @@ register 用于注册 useDrawer，如果需要使用`useDrawer`提供的 api，�
 <BasicDrawer v-bind="$attrs"> Drawer Info. </BasicDrawer>
 ```
 
-**transferDrawerData**
+**transferDrawerData(已不推荐)**
 
-用于向内部组件发送数据 **openDrawer**
+用于向内部组件发送数据
+
+**openDrawer**
 
 用于打开/关闭弹窗
 
+第二个参数与`transferDrawerData`作用一样
+
 ```tsx
 // true or false
-openDrawer(true);
+openDrawer(true, data);
 ```
 
 **setDrawerProps**
@@ -121,7 +125,19 @@ setDrawerProps(props);
 **useModalInner**用于操作独立组件
 
 ```ts
-const [register, { closeModal, setModalProps }] = useModal();
+const [register, { closeModal, setModalProps }] = useModal(callback);
+```
+
+**callback**
+
+type: `(data:any)=>void`
+
+回调函数用于接收 openDrawer 第二个参数传递的值
+
+```tsx
+openDrawer((data: any) => {
+  consoloe.log(data);
+});
 ```
 
 **closeDrawer**
@@ -133,7 +149,7 @@ const [register, { closeModal, setModalProps }] = useModal();
 closeDrawer();
 ```
 
-**receiveDrawerDataRef**
+**receiveDrawerDataRef（已不推荐）**
 
 用于接收外部组件通过`transferDrawerData`发送的数据，值为 Ref 类型
 

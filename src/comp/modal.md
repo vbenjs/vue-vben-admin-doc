@@ -89,12 +89,14 @@ register 用于注册 useModal，如果需要使用`useModal`提供的 api，必
 
 用于打开/关闭弹窗
 
+第二个参数与`transferDrawerData`作用一样
+
 ```tsx
 // true or false
-openDrawer(true);
+openDrawer(true, data);
 ```
 
-**transferDrawerData**
+**transferDrawerData(已不推荐)**
 
 用于向内部组件发送数据
 
@@ -149,7 +151,19 @@ setModalProps(props);
 **useModalInner**用于操作独立组件
 
 ```ts
-const [register, { closeModal, setModalProps }] = useModal();
+const [register, { closeModal, setModalProps }] = useModal(callback);
+```
+
+**callback**
+
+type: `(data:any)=>void`
+
+回调函数用于接收 openModal 第二个参数传递的值
+
+```tsx
+useModal((data: any) => {
+  consoloe.log(data);
+});
 ```
 
 **closeModal**
@@ -161,7 +175,7 @@ const [register, { closeModal, setModalProps }] = useModal();
 closeModal();
 ```
 
-**receiveDrawerDataRef**
+**receiveDrawerDataRef(已不推荐)**
 
 用于接收外部组件通过`transferDrawerData`发送的数据，值为 Ref 类型
 

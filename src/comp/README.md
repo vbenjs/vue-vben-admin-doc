@@ -31,21 +31,31 @@
 代码地址：[/@/components/registerGlobComp.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)
 
 ```ts
+// Load on demand
+
 import type { App } from 'vue';
 
-import { Form, Input, Button } from 'ant-design-vue';
+import {
+  // need
+  Form,
+  Input,
+  Row,
+  Col,
+  Spin,
+} from 'ant-design-vue';
+
+import './spin';
 
 export function setupAntd(app: App<Element>) {
-  // 因为button使用了自己覆盖的AButton.
-  app.component(Button.Group.name, Button.Group);
-  // 登录页就使用到
-  app.use(Form);
-  // 登录页就使用到
-  app.use(Input);
+  // need
+  // Here are the components required before registering and logging in
+  app.use(Form).use(Input).use(Row).use(Col).use(Spin);
 }
 ```
 
 2. 自定义组件全局注册
+
+该文件登录后在加载，所有首页没必要用的的全局组件可以注册在这里
 
 代码地址：[/@/components/registerGlobComp.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/registerGlobComp.ts)
 
@@ -62,16 +72,3 @@ export function registerGlobComp(app: App<Element>) {
   });
 }
 ```
-
-::: tip 如果需要全局注册 在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
-
-```ts
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
-
-export function setupAntd(app: App<Element>) {
-  app.use(Antd);
-}
-```
-
-:::

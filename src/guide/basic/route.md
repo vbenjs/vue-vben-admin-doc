@@ -12,6 +12,8 @@
 
 一个路由模块包含以下结构
 
+### 结构 1
+
 **layout**: 为该路由模块的统一布局,一般是 `PAGE_LAYOUT_COMPONENT`
 
 **routes**: 为路由列表。语法与[Vue-Router-Next](https://next.router.vuejs.org/)保持一致
@@ -47,6 +49,31 @@ export default {
 ```
 
 **上面的模块生成路由结构为**
+
+```ts
+{
+  path: '/dashboard',
+  component: PAGE_LAYOUT_COMPONENT,
+  redirect: '/dashboard/welcome',
+  meta: {
+    title: 'Dashboard',
+    icon: 'ant-design:home-outlined',
+  },
+  children:[{
+    path: '/welcome',
+    name: 'Welcome',
+    component: () => import('/@/views/dashboard/welcome/index.vue'),
+    meta: {
+      title: '首页',
+    },
+  }]
+}
+
+```
+
+## 结构 2
+
+结构 2 跟原生类似，但是会先转成结构 1 在生成路由表，保证最多只包含 2 层路由
 
 ```ts
 {

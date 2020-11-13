@@ -23,7 +23,7 @@
 
 如果出现依赖安装报错,启动报错等。先检查电脑环境有没有安装齐全。
 
-- Node 版本必须大于`10.16.0` 推荐 12 版本。
+- Node 版本必须大于`12.0.0` 推荐 12 版本。
 - Git
 - Yarn 最新版
 
@@ -165,7 +165,7 @@ gzip_static: 这个模块需要 nginx 另外安装,默认的 nginx 没有安装�
 
 ## 为什么是 moment.js
 
-很多人问为什么不用`dayjs`.在项目依赖中可以看到。依赖列表是没有这个的。他是来自[Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/)内部自带的。
+很多人问为什么不用`dayjs`.在项目依赖中可以看到。他是来自[Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/)内部自带的。
 
 目前还没有基于 Vite 的 dayjs 替换 momentjs 方案,webpack 已经有了。等以后出现了在进行替换。
 
@@ -292,88 +292,6 @@ const getCountRef = computed(() => 0);
 proxy 代理不成功,没有代理到实际地址？
 
 代理只是服务请求代理，这个地址是不会变的。 原理可以简单的理解为，在本地启了一个服务，你先请求了本地的服务，本地的服务转发了你的请求到实际服务器。所以你在浏览器上看到的请求地址还是`http://localhost:8000/xxx` 。以服务端是否收到请求为准
-
-## 本地代理到 Https 问题
-
-目前项目暂时无法在开发环境代理到 Https 接口,后续查询解决方案。可以先用 http 方式进行处理。
-
-## 组件注册机制问题
-
-::: tip 如果需要全局注册
-
-在 [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)内将代码改成如下即可
-
-```ts
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
-
-export function setupAntd(app: App<Element>) {
-  app.use(Antd);
-}
-```
-
-:::
-
-目前全局有两个地方注册了全局组件
-
-1. [/@/setup/ant-design-vue/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/setup/ant-design-vue/index.ts)
-
-可以看到只注册了两个,一个是 Form 和 Input。因为登录用到了这两个组件。
-
-2. [/@/layouts/default/index.tsx](https://github.com/anncwb/vue-vben-admin/tree/main/src/layouts/default/index.tsx)
-
-可以看到这里全局注册了用户自己写的组件,在这里注册而不在`main.ts`内注册的原因是不想让这里注册的全局组件跟首屏入口打包文件打包在一起。这样可以减少首屏 js 加载体积。
-
-```ts
-import { registerGlobComp } from '/@/components/registerGlobComp';
-
-import './index.less';
-export default defineComponent({
-  name: 'DefaultLayout',
-  setup() {
-    // ! 在这里才注册全局组件
-    // ! 可以减少首屏代码体积
-    // default layout是在登录后才加载的。所以不会打包到首屏去
-    registerGlobComp();
-})
-```
-
-其余地方项目采用的是哪里需要哪里注册
-
-**在 Vue 文件中注册**
-
-```vue
-<template>
-  <Menu>
-    <SubMenu></SubMenu>
-  <Menu>
-</template>
-<script>
-import { Menu } from 'ant-design-vue';
-export default defineComponent({
-  components: {
-    Menu: Menu,
-    SubMenu: Menu.SubMenu
-  },
-})
-</script>
-```
-
-**在 tsx 文件内直接使用即可**
-
-```tsx
-import { Menu } from 'ant-design-vue';
-
-export default defineComponent({
-  setup() {
-    return () => (
-      <Menu>
-        <Menu.SubMenu></Menu.SubMenu>
-      </Menu>
-    );
-  },
-});
-```
 
 ## 组件库问题
 

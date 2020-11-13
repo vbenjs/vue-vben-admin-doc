@@ -80,6 +80,10 @@ VITE_GLOB_APP_TITLE=vben admin
 
 # 简称，用于配置文件名字 不要出现空格等特殊字符
 VITE_GLOB_APP_SHORT_NAME=vben_admin
+
+# 是否开启动态引入。开启后src/views所有`.vue`和`.tsx`文件都会被打包
+VITE_DYNAMIC_IMPORT=true
+
 ```
 
 **.env.development 开发环境适用**
@@ -273,6 +277,10 @@ const setting: ProjectConfig = {
     split: false,
     // 顶部菜单布局
     topMenuAlign: 'start',
+    // 折叠菜单时候隐藏搜索框
+    collapsedShowSearch: false,
+    // 折叠触发器的位置
+    trigger: TriggerEnum.HEADER,
   },
   // 消息配置
   messageSetting: {

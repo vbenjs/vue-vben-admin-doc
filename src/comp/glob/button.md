@@ -21,10 +21,8 @@
 
 ## props
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| color | `'error' | 'warning' | 'success'` | - | 按钮的颜色场景状态颜色， |
-| throttle | `throttle｜debounce` | - | 按钮的防抖节流状态,应用于全部按钮，控制所有按钮，可以解决重复点击问题 |
-| throttleTime | `number` | - | 防抖节流时间 |
-| preIcon | `string` | - | 按钮文本前图标,[参考 Icon 组件](./icon.md) |
-| postIcon | `string` | - | 按钮文本后图标，[参考 Icon 组件](./icon.md) |
+| 属性     | 类型     | 默认值    | 说明                                        |
+| -------- | -------- | --------- | ------------------------------------------- |
+| color    | `'error' | 'warning' | 'success'`                                  | - | 按钮的颜色场景状态颜色， |
+| preIcon  | `string` | -         | 按钮文本前图标,[参考 Icon 组件](./icon.md)  |
+| postIcon | `string` | -         | 按钮文本后图标，[参考 Icon 组件](./icon.md) |

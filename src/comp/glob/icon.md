@@ -16,7 +16,7 @@ icon 的值可以在[Iconify](https://iconify.design) 上面查询
 
 ```vue
 <template>
-  <icon icon="gg:loadbar-doc"></icon>
+  <g-icon icon="gg:loadbar-doc"></g-icon>
 </template>
 ```
 

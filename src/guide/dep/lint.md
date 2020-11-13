@@ -54,6 +54,14 @@ ESLint 是一个代码规范和错误检查工具，有以下几个特性
 
 commitlint 主要用于校验 git 提交信息规范
 
+### 如何关闭
+
+在`package.json`内删除以下代码即可
+
+```bash
+ "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+```
+
 ### 配置
 
 commit-lint 的配置位于项目根目录下**commitlint.config.js**
@@ -87,6 +95,14 @@ git commit -m 'feat(home): add home page'
 ## Ls-Lint
 
 ls-lint 用于校验项目内文件及文件夹的命名风格，可以统一项目文件命名风格
+
+### 如何关闭
+
+在`package.json`内删除以下代码即可
+
+```bash
+ls-lint &&
+```
 
 ### 配置
 

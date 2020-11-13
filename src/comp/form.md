@@ -334,15 +334,16 @@ export interface ButtonProps extends BasicButtonProps {
 | labelWidth | `string | number` | - | - | 覆盖统一设置的 labelWidth |
 | disabledLabelWidth | `boolean` | false | true/false | 禁用 form 全局设置的 labelWidth,自己手动设置 labelCol 和 wrapperCol |
 | component | `string` | - | - | 组件类型，见下方 ComponentType |
-| componentProps | `any` | - | - | 所渲染的组件的 props |
+| componentProps | `any｜()=>{}` | - | - | 所渲染的组件的 props |
 | rules | `ValidationRule[]` | - | - | 校验规则,见下方 ValidationRule |
+| required | `boolean` | - | - | 简化 rules 配置，为 true 则转化成 [{required:true}] |
 | rulesMessageJoinLabel | `boolean` | false | - | 校验信息是否加入 label |
 | itemProps | `any` | - | - | 参考下方 FormItem |
 | colProps | `ColEx` | - | - | 参考上方 actionColOptions |
 | defaultValue | `object` | - | - | 所渲渲染组件的初始值 |
 | render | `(renderCallbackParams: RenderCallbackParams) => VNode | VNode[] | string` | - | - | 自定义渲染组件 |
 | renderColContent | `(renderCallbackParams: RenderCallbackParams) => VNode | VNode[] | string` | - | - | 自定义渲染组件（需要自行包含 formItem） |
-| renderComponentContent | `(renderCallbackParams: RenderCallbackParams) => any` | - | - | 自定义渲染组内部的 slot |
+| renderComponentContent | `(renderCallbackParams: RenderCallbackParams) => any ｜ string` | - | - | 自定义渲染组内部的 slot |
 | slot | `string` | - | - | 自定义 slot，渲染组件 |
 | colSlot | `string` | - | - | 自定义 slot，渲染组件 （需要自行包含 formItem） |
 | show | ` boolean | ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,css 控制，不会删除 dom |
@@ -358,6 +359,40 @@ export interface RenderCallbackParams {
   values: any;
   model: any;
   field: string;
+}
+```
+
+**componentProps**
+
+- 当值为对象类型时,该对象将作为`component`所对应组件的的 props 传入组件
+
+- 当值为一个函数时候
+
+参数有 4 个
+
+`schema`: 表单的整个 schemas
+
+`formActionType`: 操作表单的函数。与 useForm 返回的操作函数一致
+
+`formModel`: 表单的双向绑定对象，这个值是响应式的。所以可以方便处理很多操作
+
+`tableAction`: 操作表格的函数，与 useTable 返回的操作函数一致。注意该参数只在表格内开启搜索表单的时候有值，其余情况为`null`,
+
+```tsx
+{
+  // 简单例子，值改变的时候操作表格或者修改表单内其他元素的值
+  component:'Input',
+  componentProps: ({ schema, tableAction, formActionType, formModel }) => {
+    return {
+      // xxxx props
+      onChange:(e)=>{
+        const {reload}=tableAction
+        reload()
+        // or
+        formModel.xxx='123'
+      }
+    };
+  };
 }
 ```
 
@@ -395,12 +430,7 @@ export type ComponentType =
   | 'InputNumber'
   | 'InputCountDown'
   | 'Select'
-  | 'DictSelect'
-  | 'SelectOptGroup'
-  | 'SelectOption'
   | 'TreeSelect'
-  | 'Transfer'
-  | 'Radio'
   | 'RadioButton'
   | 'RadioGroup'
   | 'Checkbox'
@@ -526,7 +556,9 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 <template>
   <div class="m-4">
     <BasicForm @register="register">
-      <input slot="customSlot" />
+      <template #customSlot="{ model, field }">
+        <a-input v-model:value="model[field]" />
+      </template>
     </BasicForm>
   </div>
 </template>

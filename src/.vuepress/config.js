@@ -139,6 +139,7 @@ function getGuide(type = '') {
     '/guide/basic/style',
     '/guide/basic/build',
     '/guide/basic/lib',
+    '/guide/basic/comp',
   ];
   return arr.map((item) => type + item);
 }
