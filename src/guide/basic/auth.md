@@ -236,7 +236,7 @@ if (permissionMode === PermissionModeEnum.BACK) {
 
 返回值是有多个路由模块所组成
 
-有以下两种结构可选
+有以下两种结构可选·
 
 ### 结构 1
 
@@ -256,7 +256,7 @@ if (permissionMode === PermissionModeEnum.BACK) {
     {
       path: '/welcome',
       name: 'Welcome',
-      component: '/dashboard/welcome/index.vue',
+      component: '/dashboard/welcome/index',
       meta: {
         title: '欢迎页',
         affix: true,
@@ -282,7 +282,7 @@ if (permissionMode === PermissionModeEnum.BACK) {
     {
       path: '/welcome',
       name: 'Welcome',
-      component: '/dashboard/welcome/index.vue',
+      component: '/dashboard/welcome/index',
       meta: {
         title: '欢迎页',
         affix: true,

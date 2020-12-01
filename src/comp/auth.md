@@ -17,9 +17,6 @@
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: { Authority },
-    setup() {
-      return {};
-    },
   });
 </script>
 ```
