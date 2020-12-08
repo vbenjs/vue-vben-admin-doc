@@ -25,6 +25,12 @@ export interface Menu {
 
 ## 菜单模块
 
+::: tip 注意
+
+children 的 path 字段不需要以`/`开头
+
+:::
+
 ```ts
 import type { MenuModule } from '/@/router/types.d';
 const menu: MenuModule = {
@@ -61,15 +67,15 @@ export default menu;
   name: 'Tree',
   children: [
     {
-      path: '/tree/basic',
+      path: 'tree/basic',
       name: '基础示例',
     },
     {
-      path: '/tree/editTree',
+      path: 'tree/editTree',
       name: '右键示例',
     },
     {
-      path: '/tree/actionTree',
+      path: 'tree/actionTree',
       name: '函数操作示例',
     },
   ],
@@ -83,7 +89,8 @@ export default menu;
 
 ::: tip 注意
 
-菜单添加完成需要手动触发一次热更新。可以在你 `main.ts`内按保存或者重新运行项目(vite 重新运行项目很快)可以触发热更新。
+- 菜单添加完成需要刷新页面或者重新运行项目(vite 重新运行项目很快)可以触发热更新。
+- 自动导入的模块在删除后必须重新运行
 
 :::
 

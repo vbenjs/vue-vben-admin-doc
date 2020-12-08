@@ -37,51 +37,94 @@ const setting: ProjectConfig = {
 ```ts
 import type { AppRouteModule } from '/@/router/types';
 
-import { PAGE_LAYOUT_COMPONENT } from '/@/router/constant';
+import { getParentLayout, LAYOUT } from '/@/router/constant';
 import { RoleEnum } from '/@/enums/roleEnum';
 
-export default {
-  layout: {
-    path: '/permission',
-    name: 'Permission',
-    component: PAGE_LAYOUT_COMPONENT,
-    redirect: '/permission/front/page',
-    meta: {
-      icon: 'carbon:user-role',
-      title: '权限管理',
-    },
+const permission: AppRouteModule = {
+  path: '/permission',
+  name: 'Permission',
+  component: LAYOUT,
+  redirect: '/permission/front/page',
+  meta: {
+    icon: 'carbon:user-role',
+    title: 'routes.demo.permission.permission',
   },
 
-  routes: [
+  children: [
     {
-      path: '/front',
+      path: 'front',
       name: 'PermissionFrontDemo',
+      component: getParentLayout('PermissionFrontDemo'),
       meta: {
-        title: '基于前端权限',
+        title: 'routes.demo.permission.front',
       },
       children: [
         {
+          path: 'page',
+          name: 'FrontPageAuth',
+          component: () => import('/@/views/demo/permission/front/index.vue'),
+          meta: {
+            title: 'routes.demo.permission.frontPage',
+          },
+        },
+        {
+          path: 'btn',
+          name: 'FrontBtnAuth',
+          component: () => import('/@/views/demo/permission/front/Btn.vue'),
+          meta: {
+            title: 'routes.demo.permission.frontBtn',
+          },
+        },
+        {
           path: 'auth-pageA',
+          name: 'FrontAuthPageA',
           component: () => import('/@/views/demo/permission/front/AuthPageA.vue'),
           meta: {
-            title: '权限测试页A',
-            // 这里可以配置哪些角色可以访问
+            title: 'routes.demo.permission.frontTestA',
             roles: [RoleEnum.SUPER],
           },
         },
         {
           path: 'auth-pageB',
+          name: 'FrontAuthPageB',
           component: () => import('/@/views/demo/permission/front/AuthPageB.vue'),
           meta: {
-            title: '权限测试页B',
-            // 这里可以配置哪些角色可以访问
+            title: 'routes.demo.permission.frontTestB',
             roles: [RoleEnum.TEST],
           },
         },
       ],
     },
+    {
+      path: 'back',
+      name: 'PermissionBackDemo',
+      component: getParentLayout('PermissionBackDemo'),
+      meta: {
+        title: 'routes.demo.permission.back',
+      },
+      children: [
+        {
+          path: 'page',
+          name: 'BackAuthPage',
+          component: () => import('/@/views/demo/permission/back/index.vue'),
+          meta: {
+            title: 'routes.demo.permission.backPage',
+          },
+        },
+        {
+          path: 'btn',
+          name: 'BackAuthBtn',
+          component: () => import('/@/views/demo/permission/back/Btn.vue'),
+          meta: {
+            title: 'routes.demo.permission.backBtn',
+          },
+        },
+      ],
+    },
   ],
-} as AppRouteModule;
+};
+
+export default permission;
 ```
 
 3. 在路由钩子内动态判断
@@ -236,60 +279,57 @@ if (permissionMode === PermissionModeEnum.BACK) {
 
 返回值是有多个路由模块所组成
 
-有以下两种结构可选·
-
-### 结构 1
-
 ```ts
-[{
-  layout: {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: 'PAGE_LAYOUT',
-    redirect: '/dashboard/welcome',
+[
+  {
+    path: '/home',
+    name: 'Home',
+    component: '/dashboard/welcome/index',
     meta: {
+      title: 'routes.dashboard.welcome',
+      affix: true,
       icon: 'ant-design:home-outlined',
-      title: 'Dashboard',
     },
   },
-  routes: [
-    {
-      path: '/welcome',
-      name: 'Welcome',
-      component: '/dashboard/welcome/index',
-      meta: {
-        title: '欢迎页',
-        affix: true,
-      },
-    },
-  ],
-};]
-```
-
-### 结构 2
-
-```ts
-[{
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: 'PAGE_LAYOUT',
-    redirect: '/dashboard/welcome',
+  {
+    path: '/permission',
+    name: 'Permission',
+    component: 'LAYOUT',
+    redirect: '/permission/front/page',
     meta: {
-      icon: 'ant-design:home-outlined',
-      title: 'Dashboard',
+      icon: 'carbon:user-role',
+      title: 'routes.demo.permission.permission',
     },
-  children: [
-    {
-      path: '/welcome',
-      name: 'Welcome',
-      component: '/dashboard/welcome/index',
-      meta: {
-        title: '欢迎页',
-        affix: true,
+    children: [
+      {
+        path: 'back',
+        name: 'PermissionBackDemo',
+        meta: {
+          title: 'routes.demo.permission.back',
+        },
+
+        children: [
+          {
+            path: 'page',
+            name: 'BackAuthPage',
+            component: '/demo/permission/back/index',
+            meta: {
+              title: 'routes.demo.permission.backPage',
+            },
+          },
+          {
+            path: 'btn',
+            name: 'BackAuthBtn',
+            component: '/demo/permission/back/Btn',
+            meta: {
+              title: 'routes.demo.permission.backBtn',
+            },
+          },
+        ],
       },
-    },
-  ],
-};]
+    ],
+  },
+];
 ```
 
 ### 动态更换菜单

@@ -32,7 +32,7 @@
 | 属性        | 类型               | 默认值  | 说明                     |
 | ----------- | ------------------ | ------- | ------------------------ |
 | helpMessage | `string｜string[]` | -       | 标题右侧帮助按钮信息     |
-| showSpan    | `boolean`          | `false` | 是否显示标题左侧蓝色色块 |
+| span        | `boolean`          | `false` | 是否显示标题左侧蓝色色块 |
 
 ### Slots
 
@@ -66,9 +66,12 @@
 
 ### Props
 
-| 属性   | 类型      | 默认值 | 说明         |
-| ------ | --------- | ------ | ------------ |
-| expand | `boolean` | `true` | 箭头展开状态 |
+| 属性   | 类型      | 默认值  | 说明                          |
+| ------ | --------- | ------- | ----------------------------- |
+| expand | `boolean` | `true`  | 箭头展开状态                  |
+| top    | `boolean` | `false` | 箭头默认向上                  |
+| bottom | `boolean` | `false` | 箭头默认向下                  |
+| inset  | `boolean` | `false` | 取消 padding/margin，用于内嵌 |
 
 ## BasicHelp
 

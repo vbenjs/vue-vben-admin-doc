@@ -96,10 +96,6 @@ register 用于注册 useModal，如果需要使用`useModal`提供的 api，必
 openDrawer(true, data);
 ```
 
-**transferDrawerData(已不推荐)**
-
-用于向内部组件发送数据
-
 **setModalProps**
 
 用于更改 modal 的 props 参数因为 modal 内容独立成组件，如果在外部页面需要更改 props 可能比较麻烦，所以提供**setModalProps** 方便更改内部 modal 的 props
@@ -175,10 +171,6 @@ useModal((data: any) => {
 closeModal();
 ```
 
-**receiveDrawerDataRef(已不推荐)**
-
-用于接收外部组件通过`transferDrawerData`发送的数据，值为 Ref 类型
-
 **changeOkLoading**
 
 用于修改确认按钮的 loading 状态
@@ -208,8 +200,6 @@ props 内容可以见下方
 ::: tip
 
 除以下参数外，组件库文档内的 props 也都支持，具体可以参考 [antv modal](https://2x.antdv.com/components/modal-cn/#API)
-
-:::
 
 :::
 

@@ -2,7 +2,7 @@
 
 ## 说明
 
-项目路由配置存放于[src/router/routes](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes) 下面。 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块,在该文件下内的文件会自动注册为[src/router/routes/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/index.ts)内的`RootRoute`的子路由
+项目路由配置存放于[src/router/routes](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes) 下面。 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块,在该文件下内的文件会自动注册
 
 ## 路由配置
 
@@ -12,157 +12,121 @@
 
 一个路由模块包含以下结构
 
-### 结构 1
-
-**layout**: 为该路由模块的统一布局,一般是 `PAGE_LAYOUT_COMPONENT`
-
-**routes**: 为路由列表。语法与[Vue-Router-Next](https://next.router.vuejs.org/)保持一致
-
 ```ts
 import type { AppRouteModule } from '/@/router/types';
 
-import { PAGE_LAYOUT_COMPONENT } from '/@/router/constant';
+import { LAYOUT } from '/@/router/constant';
 
-export default {
-  layout: {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: PAGE_LAYOUT_COMPONENT,
-    redirect: '/dashboard/welcome',
-    meta: {
-      icon: 'ant-design:home-outlined',
-      title: 'Dashboard',
-    },
+const dashboard: AppRouteModule = {
+  path: '/home',
+  name: 'Home',
+  component: LAYOUT,
+  redirect: '/home/welcome',
+  meta: {
+    icon: 'ant-design:home-outlined',
+    title: 'routes.dashboard.welcome',
   },
-
-  routes: [
+  children: [
     {
-      path: '/welcome',
+      path: 'welcome',
       name: 'Welcome',
       component: () => import('/@/views/dashboard/welcome/index.vue'),
       meta: {
-        title: '首页',
+        title: 'routes.dashboard.welcome',
+        affix: true,
+        icon: 'ant-design:home-outlined',
       },
     },
   ],
-} as AppRouteModule;
-```
+};
 
-**上面的模块生成路由结构为**
-
-```ts
-{
-  path: '/dashboard',
-  component: PAGE_LAYOUT_COMPONENT,
-  redirect: '/dashboard/welcome',
-  meta: {
-    title: 'Dashboard',
-    icon: 'ant-design:home-outlined',
-  },
-  children:[{
-    path: '/welcome',
-    name: 'Welcome',
-    component: () => import('/@/views/dashboard/welcome/index.vue'),
-    meta: {
-      title: '首页',
-    },
-  }]
-}
-
-```
-
-## 结构 2
-
-结构 2 跟原生类似，但是会先转成结构 1 在生成路由表，保证最多只包含 2 层路由
-
-```ts
-{
-  path: '/dashboard',
-  component: PAGE_LAYOUT_COMPONENT,
-  redirect: '/dashboard/welcome',
-  meta: {
-    title: 'Dashboard',
-    icon: 'ant-design:home-outlined',
-  },
-  children:[{
-    path: '/welcome',
-    name: 'Welcome',
-    component: () => import('/@/views/dashboard/welcome/index.vue'),
-    meta: {
-      title: '首页',
-    },
-  }]
-}
-
+export default dashboard;
 ```
 
 ### 多级路由
 
 **项目中是放弃多级路由的**
 
-项目中所有的多级路由会被转化为二级路由,原因是为了配置 KeepAlive 进行缓存。如果你没有这方面的需求。可以自行处理多级路由，可能需要对项目进行改造。
+多级路由通过跟 ParentLayout 来实现
+
+::: tip 注意事项
+
+- 整个项目所有路由 name 不能重复，包括 `getParentLayout`的参数
+
+- `getParentLayout(name:string)`的 name 必须与当前路由项的`name`保持一致
+
+- 除了 layout 对应的 path 前面需要加 `/`，其余子路由都不要以`/`开头
+
+:::
 
 **示例**
 
 ```ts
 import type { AppRouteModule } from '/@/router/types';
-import { PAGE_LAYOUT_COMPONENT } from '/@/router/constant';
-export default {
-  layout: {
-    path: '/charts',
-    name: 'Charts',
-    component: PAGE_LAYOUT_COMPONENT,
-    redirect: '/charts/apexChart',
-    meta: {
-      icon: 'ant-design:area-chart-outlined',
-      title: '图表库',
-    },
+
+import { getParentLayout, LAYOUT } from '/@/router/constant';
+
+const level: AppRouteModule = {
+  path: '/level',
+  name: 'Level',
+  component: LAYOUT,
+  redirect: '/level/menu1/menu1-1',
+  meta: {
+    icon: 'carbon:user-role',
+    title: 'routes.demo.level.level',
   },
-  routes: [
+
+  children: [
     {
-      path: '/echarts',
-      name: 'Echarts',
-      // 多级路由这里不需要写component
+      path: 'menu1',
+      name: 'Menu1Demo',
+      component: getParentLayout('Menu1Demo'),
       meta: {
-        title: 'Echarts',
+        title: 'Menu1',
       },
       children: [
         {
-          // 子路由不加 /  会自动拼接父级路径
-          path: 'map',
-          name: 'Map',
-          component: () => import('/@/views/demo/echarts/Map.vue'),
+          path: 'menu1-1',
+          name: 'Menu11Demo',
+          component: getParentLayout('Menu11Demo'),
           meta: {
-            title: '地图',
+            title: 'Menu1-1',
+          },
+          children: [
+            {
+              path: 'menu1-1-1',
+              name: 'Menu111Demo',
+              component: () => import('/@/views/demo/level/Menu111.vue'),
+              meta: {
+                title: 'Menu111',
+              },
+            },
+          ],
+        },
+        {
+          path: 'menu1-2',
+          name: 'Menu12Demo',
+          component: () => import('/@/views/demo/level/Menu12.vue'),
+          meta: {
+            title: 'Menu1-2',
           },
         },
       ],
     },
-  ],
-} as AppRouteModule;
-```
-
-上面的路由会转化成以下结构
-
-```ts
-[
-  {
-    path: '/echarts/map',
-    name: 'Map',
-    component: () => import('/@/views/demo/echarts/Map.vue'),
-    meta: {
-      title: '地图',
+    {
+      path: 'menu2',
+      name: 'Menu2Demo',
+      component: () => import('/@/views/demo/level/Menu2.vue'),
+      meta: {
+        title: 'Menu2',
+        // ignoreKeepAlive: true,
+      },
     },
-  },
-];
+  ],
+};
+
+export default level;
 ```
-
-::: tip 注意
-
-1. routes 内如果有 children，需要注意子路由的路径,如果子路由 path 以`/开头`,vue-router 不会拼接父级路径。这可能会与菜单不起配。一般子路由不能以`/`开头。如果需要，需要注意修改菜单地址。
-2. 所有路由的`Name`不能重复
-
-:::
 
 ## Meta 配置说明
 
@@ -182,16 +146,14 @@ export interface RouteMeta {
   icon?: string;
   // 内嵌iframe的地址
   frameSrc?: string;
-  // 外部连接地址
-  externalLink?: string;
+  // 标记是否为外部链接，为true则会跳转path对应的地址
+  externalLink?: boolean;
   // 指定该路由切换的动画名
   transitionName?: string;
   // 隐藏该路由在面包屑上面的显示
   hideBreadcrumb?: boolean;
   // 禁止在面包屑点击跳转
   disabledRedirect?: boolean;
-  // 如果有多个页面都用到同一个文件，则需要设置为true。防止页面切换后loading没有关闭
-  afterCloseLoading?: boolean;
   // 如果该路由会携带参数，且需要在tab页上面显示。则需要设置为true
   carryParam?: boolean;
 }
@@ -220,11 +182,11 @@ export interface RouteMeta {
 ```ts
 const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 {
-    path: '/docExternal',
+    path: 'https://vvbin.cn/docs/',
     name: 'DocExternal',
     component: IFrame,
     meta: {
-      externalLink: 'https://vvbin.cn/docs/',
+      externalLink: true,
       title: '项目文档(外链)',
     },
   },
@@ -232,7 +194,7 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 
 ### icon 配置说明
 
-这里的 icon 配置，会同步到 **菜单** 及**多标签页**的图标
+这里的 icon 配置，会同步到 **菜单**
 
 icon 的值可以查看
 
@@ -246,24 +208,20 @@ icon 的值可以查看
 
 ```ts
 import type { AppRouteModule } from '/@/router/types';
+import { LAYOUT } from '/@/router/constant';
 
-import { PAGE_LAYOUT_COMPONENT } from '/@/router/constant';
-
-export default {
-  layout: {
-    path: '/test',
-    name: 'TestDemo',
-    component: PAGE_LAYOUT_COMPONENT,
-    redirect: '/table/basic',
-    meta: {
-      icon: 'ant-design:table-outlined',
-      title: 'Table',
-    },
+const test: AppRouteModule = {
+  path: '/test',
+  name: 'TestDemo',
+  component: LAYOUT,
+  redirect: '/table/basic',
+  meta: {
+    icon: 'ant-design:table-outlined',
+    title: 'Table',
   },
-
-  routes: [
+  children: [
     {
-      path: '/basic',
+      path: 'basic',
       name: 'TableBasicDemo',
       component: () => import('/@/views/demo/table/Basic.vue'),
       meta: {
@@ -271,12 +229,14 @@ export default {
       },
     },
   ],
-} as AppRouteModule;
+};
+export default test;
 ```
 
 ::: tip 注意
 
-菜单添加完成需要手动触发一次热更新。可以在你 `main.ts`内按保存或者重新运行项目(vite 重新运行项目很快)可以触发热更新。
+- 菜单添加完成需要刷新页面或者重新运行项目(vite 重新运行项目很快)可以触发热更新。
+- 自动引入的模块在删除必须重新运行
 
 :::
 
@@ -298,26 +258,11 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   setup() {
     const redo = useRedo();
-
     // 执行刷新
     redo();
     return {};
   },
 });
-```
-
-### useRedo 实现
-
-```ts
-export const useRedo = () => {
-  const { push, currentRoute } = useRouter();
-  function redo() {
-    push({
-      path: '/redirect' + unref(currentRoute).fullPath,
-    });
-  }
-  return redo;
-};
 ```
 
 ### Redirect
@@ -370,8 +315,11 @@ export default defineComponent({
 
 ### 如何开启页面缓存
 
-1. 在[项目配置](./setting.md#项目配置)内将 `openKeepAlive`设置为`true`.
-2. 路由及对应的组件的 name 值需要保持一致
+开启缓存有 3 个条件
+
+1. 在[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/projectSetting.ts)内将`openKeepAlive`设置为`true`
+2. 路由设置 name,且**不能重复**
+3. 路由对应的组件加上 name,与路由设置的 name 保持一致
 
 ```ts
  {

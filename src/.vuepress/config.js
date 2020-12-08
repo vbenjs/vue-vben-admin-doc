@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/vue-vben-admin-doc/',
+  base: '/doc-next/',
   title: 'Vue vben admin 2.0',
   description: 'Vue Vben Admin 开发文档,持续更新中....',
   dest: './dist',
@@ -37,11 +37,15 @@ module.exports = {
         nav: [
           { text: '指南', link: '/guide/' },
           {
-            text: '组件/Hook(更新中...)',
+            text: '组件/函数(更新中...)',
             items: [
               {
                 text: '组件',
                 link: '/comp/',
+              },
+              {
+                text: '指令',
+                link: '/directives/',
               },
             ],
           },
@@ -111,6 +115,18 @@ module.exports = {
               children: getFnComp(),
             },
           ],
+          '/directives/': [
+            {
+              title: '全局指令',
+              collapsable: false,
+              children: getGlobDirectives(),
+            },
+            {
+              title: '基础指令',
+              collapsable: false,
+              children: getBasicDirectives(),
+            },
+          ],
         },
       },
     },
@@ -144,6 +160,15 @@ function getGuide(type = '') {
   return arr.map((item) => type + item);
 }
 
+function getGlobDirectives(type = '') {
+  const arr = ['/directives/', '/directives/glob/auth', '/directives/glob/loading'];
+  return arr.map((item) => type + item);
+}
+function getBasicDirectives(type = '') {
+  const arr = ['/directives/repeatClick'];
+  return arr.map((item) => type + item);
+}
+
 function getDeps(type = '') {
   const arr = [
     '/guide/dep/cors',
@@ -160,7 +185,7 @@ function getGlobComp(type = '') {
 }
 
 function getFnComp(type = '') {
-  const arr = ['/comp/fn/preview', '/comp/fn/context-menu'];
+  const arr = ['/comp/fn/preview', '/comp/fn/context-menu', '/comp/fn/loading'];
   return arr.map((item) => type + item);
 }
 
@@ -173,7 +198,10 @@ function getComp(type = '') {
     '/comp/modal',
     '/comp/drawer',
     '/comp/desc',
+    '/comp/upload',
     '/comp/tree',
+    '/comp/loading',
+    '/comp/excel',
     '/comp/ScrollContainer',
     '/comp/CollapseContainer',
     '/comp/LazyContainer',

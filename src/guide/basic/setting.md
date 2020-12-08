@@ -35,6 +35,72 @@ const modifyVars = {
 export { modifyVars, primaryColor };
 ```
 
+## 样式配置
+
+### css 前缀设置
+
+1. css 在 [/@/settings/designSetting.ts](https://github.com/anncwb/vue-vben-admin/blob/main/src/settings/designSetting.ts)内配置
+
+```ts
+export default {
+  prefixCls: 'vben',
+};
+```
+
+2. 在[/@/design/var/index.less](https://github.com/anncwb/vue-vben-admin/blob/main/src/design/var/index.less)配置 css 前缀
+
+```less
+@namespace: vben;
+```
+
+### 前缀使用
+
+**在 css 内**
+
+```css
+
+<style lang="less" scoped>
+  @import (reference) '../../../design/index.less';
+  @prefix-cls: ~'@{namespace}-app-logo';
+  .@{prefix-cls} {
+    width: 100%
+  }
+</style>
+
+```
+
+**在 js 内**
+
+```ts
+import { useDesign } from '/@/hooks/web/useDesign';
+
+const { prefixCls } = useDesign('app-logo');
+
+// prefixCls => vben-app-logo
+```
+
+## 缓存配置
+
+在[/@/settings/encryptionSetting.ts](https://github.com/anncwb/vue-vben-admin/blob/main/src/settings/encryptionSetting.ts)内可以配置 localStorage 及 sessionStorage 缓存信息
+
+**前提** 使用项目自带的缓存工具类 [/@/utils/cache](https://github.com/anncwb/vue-vben-admin/blob/main/src/utils/cache)来进行缓存操作
+
+```ts
+import { isDevMode } from '/@/utils/env';
+
+// 缓存默认过期时间
+export const DEFAULT_CACHE_TIME = 60 * 60 * 24 * 7;
+
+// 开启缓存加密后，加密密钥。采用aes加密
+export const cacheCipher = {
+  key: '_12345678901234@',
+  iv: '@12345678901234_',
+};
+
+// 是否加密缓存，默认生产环境加密
+export const enableStorageEncryption = !isDevMode();
+```
+
 ## 环境变量配置
 
 项目的环境变量配置位于 项目根目录 [.env](https://github.com/anncwb/vue-vben-admin/blob/main/.env)、[.env.development](https://github.com/anncwb/vue-vben-admin/blob/main/.env)、[.env.production](https://github.com/anncwb/vue-vben-admin/blob/main/.env)
@@ -84,6 +150,7 @@ VITE_GLOB_APP_SHORT_NAME=vben_admin
 # 是否开启动态引入。开启后src/views所有`.vue`和`.tsx`文件都会被打包
 VITE_DYNAMIC_IMPORT=true
 
+
 ```
 
 **.env.development 开发环境适用**
@@ -92,9 +159,7 @@ VITE_DYNAMIC_IMPORT=true
 # 是否开启mock
 VITE_USE_MOCK=true
 
-# 接口地址
-# 如果没有跨域问题，直接在这里配置即可
-VITE_GLOB_API_URL=/app
+
 
 # 接口地址前缀，有些系统所有接口地址都有前缀，可以在这里统一加，方便切换
 VITE_GLOB_API_URL_PREFIX=
@@ -108,7 +173,14 @@ VITE_PUBLIC_PATH=/
 # 本地开发代理，可以解决跨域及多地址代理
 # 如果接口地址匹配到，则会转发到http://localhost:3000，防止本地出现跨域问题
 # 可以有多个
-VITE_PROXY=[["/app","http://localhost:3000"],["api1","http://localhost:3001"]]
+VITE_PROXY=[["/api","http://localhost:3000"],["api1","http://localhost:3001"],["/upload","http://localhost:3001/upload"]]
+
+# 接口地址
+# 如果没有跨域问题，直接在这里配置即可
+VITE_GLOB_API_URL=/api
+
+# 文件上传接口  可选
+VITE_GLOB_UPLOAD_URL=/upload
 
 ```
 
@@ -118,8 +190,11 @@ VITE_PROXY=[["/app","http://localhost:3000"],["api1","http://localhost:3001"]]
 # 是否开启mock
 VITE_USE_MOCK=true
 
-# 接口地址
-VITE_GLOB_API_URL=/app
+# 接口地址 可以由nginx做转发或者直接写实际地址
+VITE_GLOB_API_URL=/api
+
+# 文件上传地址 可以由nginx做转发或者直接写实际地址
+VITE_GLOB_UPLOAD_URL=/upload
 
 # 接口地址前缀，有些系统所有接口地址都有前缀，可以在这里统一加，方便切换
 VITE_GLOB_API_URL_PREFIX=
@@ -173,7 +248,7 @@ window.__PRODUCTION__VUE_VBEN_ADMIN__CONF__ = {
 
 2. `VITE_GLOB_`开头的变量会自动加入环境变量，通过在 `src/types/config.d.ts`内修改 `GlobEnvConfig`和`GlobConfig`两个环境变量的值来定义新添加的类型
 
-3. [useSetting](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/core/useSetting.ts)函数新增你刚才新增的返回值即可
+3. [useGlobSetting](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/setting/index.ts)函数新增你刚才新增的返回值即可
 
 ```js
 // useSetting
@@ -184,17 +259,15 @@ const {
   VITE_GLOB_API_URL_PREFIX,
 } = ENV;
 
-export const useSetting = (): SettingWrap => {
+export const useGlobSetting = (): SettingWrap => {
+  // Take global configuration
   const glob: Readonly<GlobConfig> = {
     title: VITE_GLOB_APP_TITLE,
     apiUrl: VITE_GLOB_API_URL,
     shortName: VITE_GLOB_APP_SHORT_NAME,
     urlPrefix: VITE_GLOB_API_URL_PREFIX,
   };
-  return {
-    globSetting: glob as Readonly<GlobConfig>,
-    projectSetting,
-  };
+  return glob as Readonly<GlobConfig>;
 };
 
 ```
@@ -232,8 +305,24 @@ const setting: ProjectConfig = {
   contentMode: ContentEnum.FULL,
   // 是否显示logo
   showLogo: true,
+  // 是否显示底部信息 copyright
+  showFooter: true,
+
+  // 多语言配置
+  locale: {
+    // 是否显示
+    show: true,
+    // 当前语言
+    lang: 'zh_CN',
+    // 默认语言
+    fallback: 'zh_CN',
+    //允许的语言
+    availableLocales: ['zh_CN', 'en'],
+  },
   // 头部配置
   headerSetting: {
+    // 背景色
+    bgColor: '#ffffff',
     // 固定头部
     fixed: true,
     // 是否显示顶部
@@ -241,30 +330,30 @@ const setting: ProjectConfig = {
     // 主题
     theme: MenuThemeEnum.LIGHT,
     // 开启锁屏功能
-    useLockPage: isProdMode(),
+    useLockPage: true,
     // 显示刷新按钮
     showRedo: true,
     // 显示全屏按钮
     showFullScreen: true,
     // 显示文档按钮
     showDoc: true,
-    //  是否显示github
-    showGithub: true,
     // 显示消息中心按钮
     showNotice: true,
   },
   // 菜单配置
   menuSetting: {
+    // 背景色
+    bgColor: '#273352',
+    // 是否固定住菜单
+    fixed: true,
     // 菜单折叠
     collapsed: false,
     // 折叠菜单时候是否显示菜单名
     collapsedShowTitle: false,
     // 是否可拖拽
-    hasDrag: true,
+    canDrag: true,
     // 是否显示
     show: true,
-    // 是否显示搜索框
-    showSearch: true,
     // 菜单宽度
     menuWidth: 180,
     // 菜单模式
@@ -281,15 +370,8 @@ const setting: ProjectConfig = {
     collapsedShowSearch: false,
     // 折叠触发器的位置
     trigger: TriggerEnum.HEADER,
-  },
-  // 消息配置
-  messageSetting: {
-    // 弹窗title
-    title: '操作提示',
-    // 取消按钮的文子,
-    cancelText: '取消',
-    // 确认按钮的文字
-    okText: '确定',
+    // 手风琴模式，只展示一个菜单
+    accordion: true,
   },
   // 多标签
   multiTabsSetting: {
@@ -297,11 +379,25 @@ const setting: ProjectConfig = {
     show: true,
     // 开启快速操作
     showQuick: true,
-    // 显示icon
-    showIcon: true,
-    // 标签页缓存最大数量
-    max: 12,
+    // 是否可以拖拽
+    canDrag: true,
   },
+
+  // 动画配置
+  transitionSetting: {
+    //  是否开启切换动画
+    enable: true,
+
+    // 动画名
+    basicTransition: RouterTransitionEnum.FADE_SIDE,
+
+    // 是否打开页面切换loading
+    openPageLoading: true,
+
+    //是否打开页面切换顶部进度条
+    openNProgress: false,
+  },
+
   // 是否开启KeepAlive缓存  开发时候最好关闭,不然每次都需要清除缓存
   openKeepAlive: true,
 
@@ -317,20 +413,8 @@ const setting: ProjectConfig = {
   // 路由切换动画
   routerTransition: RouterTransitionEnum.ZOOM_FADE,
 
-  // 是否开启登录安全校验
-  openLoginVerify: true,
-
-  // 是否监听网络变化
-  listenNetWork: false,
-
-  // 是否开启页面切换loading
-  openPageLoading: true,
-
   // 是否开启回到顶部
   useOpenBackTop: true,
-
-  // 开启顶部进度条
-  openNProgress: isProdMode(),
 
   //  是否可以嵌入iframe页面
   canEmbedIFramePage: true,
@@ -342,4 +426,38 @@ const setting: ProjectConfig = {
   // 如果开启,想对单独接口覆盖。可以在单独接口设置
   removeAllHttpPending: true,
 };
+```
+
+## 颜色配置
+
+用于预设一些颜色数组
+
+```ts
+// 顶部背景色预设
+export const HEADER_PRESET_BG_COLOR_LIST: string[] = [
+  '#ffffff',
+  '#009688',
+  '#18bc9c',
+  '#1E9FFF',
+  '#018ffb',
+  '#409eff',
+  '#4e73df',
+  '#e74c3c',
+  '#24292e',
+  '#394664',
+  '#001529',
+];
+
+//左侧菜单背景色预设
+export const SIDE_BAR_BG_COLOR_LIST: string[] = [
+  '#273352',
+  '#ffffff',
+  '#191b24',
+  '#191a23',
+  '#001529',
+  '#304156',
+  '#001628',
+  '#28333E',
+  '#344058',
+];
 ```

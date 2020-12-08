@@ -71,10 +71,6 @@ register 用于注册 useDrawer，如果需要使用`useDrawer`提供的 api，�
 <BasicDrawer v-bind="$attrs"> Drawer Info. </BasicDrawer>
 ```
 
-**transferDrawerData(已不推荐)**
-
-用于向内部组件发送数据
-
 **openDrawer**
 
 用于打开/关闭弹窗
@@ -148,10 +144,6 @@ openDrawer((data: any) => {
 // true or false
 closeDrawer();
 ```
-
-**receiveDrawerDataRef（已不推荐）**
-
-用于接收外部组件通过`transferDrawerData`发送的数据，值为 Ref 类型
 
 **changeOkLoading**
 

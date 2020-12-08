@@ -328,6 +328,7 @@ export interface ButtonProps extends BasicButtonProps {
 | --- | --- | --- | --- | --- |
 | field | `string` | - | - | 字段名 |
 | label | `string` | - | - | 标签名 |
+| subLabel | `string` | - | - | 二级标签名灰色 |
 | changeEvent | `string` | - | - | 表单更新事件名称 |
 | helpMessage | `string | string[]` | - | - | 标签名右侧温馨提示 |
 | helpComponentProps | `HelpComponentProps` | - | - | 标签名右侧温馨提示组件 props,见下方 HelpComponentProps |
@@ -430,8 +431,11 @@ export type ComponentType =
   | 'InputNumber'
   | 'InputCountDown'
   | 'Select'
+  | 'SelectOptGroup'
+  | 'SelectOption'
   | 'TreeSelect'
-  | 'RadioButton'
+  | 'Transfer'
+  | 'RadioButtonGroup'
   | 'RadioGroup'
   | 'Checkbox'
   | 'CheckboxGroup'
@@ -442,7 +446,10 @@ export type ComponentType =
   | 'RangePicker'
   | 'WeekPicker'
   | 'TimePicker'
+  | 'ImageUpload'
   | 'Switch'
+  | 'StrengthMeter'
+  | 'Upload'
   | 'Render';
 ```
 

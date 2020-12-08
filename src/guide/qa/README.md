@@ -14,6 +14,21 @@
 
 我觉得唯一需要注意的只有浏览器兼容,目前还不能兼容`IE11`,如果你需要兼容低版本浏览器。建议还是使用 Vue2.6
 
+## 我的代码本地开发可以，打包就不行了
+
+目前发现这个原因可能有以下，可以从以下原因来排查，如果还有别的可能，可以提交 pr 来告诉我
+
+1. 使用了 ctx 这个变量,ctx 本身未暴露出在实例类型内，尤大也是说了不要用这个属性。这个属性只是用于内部使用。
+
+```ts
+import { getCurrentInstance } from 'vue';
+getCurrentInstance().ctx.xxxx;
+```
+
+## safari 问题
+
+目前在 safari 上面运行样式会有问题，还未找到原因，有知道的也可以告诉我。
+
 ## 模版区别
 
 - [Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin) - 是包含 Demo 示例的,个人建议不要在这上面进行开发。当然,你如果动手能力强的话可以直接改。
@@ -28,6 +43,8 @@
 - Yarn 最新版
 
 ## 依赖安装问题
+
+如果依赖安装不了或者启动报错可以先尝试 删除`yarn.lock`和`node_modules`，然后重新运行 `yarn install`
 
 如果依赖安装不了或者报错,可以尝试切换手机热点来进行依赖安装。如果还是不行,可以自行配置国内镜像安装。
 
@@ -82,24 +99,6 @@ git pull origin main
 
 :::
 
-## 关于 Transition mode 的问题
-
-如果 Transition 不加 mode，页面切换会有明显的从下到上替换的过程。
-
-```vue
-<Transition mode="out-in"></Transition>
-```
-
-目前加了这个 mode 会造成页面切换后整个页面渲染失效或者错误。
-
-如何解决:
-
-1. 如果希望自己的页面有动画。在路由对应的 component 组件的`<template>`内就不能存在多个根组件。只能有一个根组件。类似与 vue2.6
-2. 加了 mode 不能后组件也不能有多个根组件。外层最好用`div`嵌套。
-3. 不能在根组件使用`<></>`,这点是对于 tsx 文件的。
-
-该问题可能是`vue3.0`的问题。后续持续跟进该问题
-
 ## 关于为什么删除 Tailwind CSS
 
 目前 vite 跟 Tailwind CSS 配合在本地开发的时候。控制台会出现假死状态，严重影响开发效率。
@@ -126,7 +125,9 @@ vite 别名在`vite.config.ts`内配置,需要以 `/`开头
 
 ## 打包文件过大
 
-建议开启 gzip，使用之后体积会只有原先 1/3 左右。
+首先 完整版由于引用了比较多的库文件，所以打包会比较大。可以使用精简版来进行开发
+
+其次建议开启 gzip，使用之后体积会只有原先 1/3 左右。
 
 gzip 可以由服务器直接开启。如果是这样，前端不需要构建`.gz`格式的文件
 
@@ -272,7 +273,9 @@ import _ from 'lodash-es';
 const countRef = ref(0);
 // bad
 const count = ref(0);
-const getCountRef = computed(() => 0);
+
+// 一般习惯性在computed前面加 get
+const getCount = computed(() => 0);
 ```
 
 这样就不会是使用的取值忘记 xxx.value 来进行数据获取
