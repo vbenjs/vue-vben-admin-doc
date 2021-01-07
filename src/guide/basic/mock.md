@@ -44,13 +44,13 @@ VITE_GLOB_API_URL=/api
 
 **本地开发代理示例**
 
-如果你在**src/api/**下面的接口为下方代码，且 **.env.development**文件配置如下注释
+如果你在 **src/api/** 下面的接口为下方代码，且 **.env.development**文件配置如下注释
 
 则在控制台看到的地址为 http://localhost:3100/api/login
 
-由于 /app 匹配到了我们设置的 VUE_APP_PROXY
+由于 /api 匹配到了我们设置的 VUE_APP_PROXY
 
-所以上方的请求实际是请求 http://localhost:3100/login,这样同时也解决了跨域问题
+所以上方的请求实际是请求 **http://localhost:3100/login**,这样同时也解决了跨域问题
 
 ::: tip
 
@@ -89,9 +89,9 @@ export function loginApi(params: LoginParams) {
 
 打包后如何进行地址修改
 
-**VITE*GLOB*\***开头的变量会在打包的时候注入`_app.config.js`文件内
+**VITE_GLOB\_\*** 开头的变量会在打包的时候注入 **\_app.config.js** 文件内
 
-只需要在`dist/_app.config.js`修改相应的接口地址然后刷新页面即可，不需要在根据不同环境打包多次,一次打包，可以用于多个不同接口环境的部署
+只需要在 **dist/\_app.config.js** 修改相应的接口地址然后刷新页面即可，不需要在根据不同环境打包多次,一次打包，可以用于多个不同接口环境的部署
 
 :::
 
@@ -187,6 +187,8 @@ const axios = new VAxios({
     errorMessageMode: 'none',
     // 接口地址,
     apiUrl: globSetting.apiUrl,
+    //  是否加入时间戳
+    joinTime: true,
   },
 });
 ```

@@ -20,6 +20,16 @@ export interface Menu {
 
   // 子菜单
   children?: Menu[];
+
+  // 菜单标签设置
+  tag: {
+    // 为true则显示小圆点
+    dot: true;
+    // 内容
+    content: '12';
+    // 类型
+    type: 'error' | 'primary' | 'warn' | 'success';
+  };
 }
 ```
 

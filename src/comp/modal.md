@@ -206,6 +206,8 @@ props 内容可以见下方
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
 | --- | --- | --- | --- | --- |
 | title | `string` | - | - | modal 标题 |
+| height | `number` | - | - | 固定 modal 的高度 |
+| minHeight | `number` | - | - | 设置 modal 的最小高度 |
 | draggable | `boolean` | true | true/false | 是否开启拖拽 |
 | useWrapper | `boolean` | true | true/false | 是否开启自适应高度，开启后会跟随屏幕变化自适应内容，并出现滚动条 |
 | wrapperFooterOffset | `number` | 0 | - | 开启是适应高度后，如果超过屏幕高度，底部和顶部会保持一样的间距，该参数可以用来缩小底部的间距 |

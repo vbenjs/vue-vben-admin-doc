@@ -194,7 +194,8 @@
 
 ```vue
 <style lang="less" scoped>
-  @import (reference) '../../design/index.less';
+/* 该行代码已全局引用。可以不用单独引入 */
+  @import (reference) '../../design/config.less';
 <style>
 
 ```

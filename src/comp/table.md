@@ -253,6 +253,36 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 说明: 获取当前分页信息
 
+**getShowPagination**
+
+类型：`() => boolean`
+
+说明: 获取当前是否显示分页
+
+**setShowPagination**
+
+类型：`(show: boolean) => Promise<void>`
+
+说明: 设置当前是否显示分页
+
+**getRowSelection**
+
+类型：`() => TableRowSelection`
+
+说明: 获取勾选框信息
+
+**updateTableData**
+
+类型：`(index: number, key: string, value: any)=>void`
+
+说明: 更新表格数据
+
+**getForm**
+
+类型：`() => FormActionType
+
+说明: 如果开启了搜索区域。可以通过该函数获取表单对象函数进行操作
+
 ## Props
 
 ::: tip 温馨提醒
@@ -263,12 +293,15 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
 | --- | --- | --- | --- | --- |
+| clickToRowSelect | `boolean` | true | - | 点击行是否选中 checkbox 或者 radio。需要开启 |
 | sortFn | `(sortInfo: SorterResult<any>) => any` | - | - | 自定义排序方法。见下方全局配置说明 |
+| filterFn | `(sortInfo: Partial<Recordable<string[]>>) => any` | - | - | 自定义过滤方法。见下方全局配置说明 |
 | showTableSetting | `boolean` | false | - | 显示表格设置工具 |
 | tableSetting | `TableSetting` | - | - | 表格设置工具配置，见下方 TableSetting |
 | striped | `boolean` | true | - | 斑马纹 |
 | autoCreateKey | `boolean` | true | - | 是否自动生成 key |
 | showSummary | `boolean` | false | - | 是否显示合计行 |
+| summaryData | `any[]` | - | - | 自定义合计数据。如果有则显示该数据 |
 | emptyDataIsShowTable | `boolean` | true | - | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格 |
 | summaryFunc | `(...arg) => any[]` | - | - | 计算合计行的方法 |
 | canRowDrag | `boolean` | false | - | 是否可拖拽行排序 |
@@ -303,7 +336,42 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 ## BasicColumn
 
-参考官方 [Column 配置](https://2x.antdv.com/components/table-cn/#Column)
+除 参考官方 [Column 配置](https://2x.antdv.com/components/table-cn/#Column)外，扩展以下参数
+
+| 属性 | 类型 | 默认值 | 可选值 | 说明 |
+| --- | --- | --- | --- | --- |
+| defaultHidden | `boolean` | false | - | 默认隐藏，可在列配置显示 |
+| helpMessage | `string｜string[]` | - | - | 列头右侧帮助文本 |
+| edit | `boolean` | - | - | 是否开启单元格编辑 |
+| editRow | `boolean` | - | - | 是否开启行编辑 |
+| editable | `boolean` | false | - | 是否处于编辑状态 |
+| editComponent | `ComponentType` | `Input` | - | 编辑组件 |
+| editComponentProps | `any` | - | - | 对应编辑组件的 props |
+| editRule | `((text: string, record: Recordable) => Promise<string>)` | - | - | 对应编辑组件的表单校验 |
+| editValueMap | `(value: any) => string` | - | - | 对应单元格值枚举 |
+| onEditRow | `（）=>void` | - | - | 触发行编辑 |
+| format | `CellFormat` | - | - | 单元格格式化 |
+
+### EditComponentType
+
+```ts
+export type ComponentType =
+  | 'Input'
+  | 'InputNumber'
+  | 'Select'
+  | 'ApiSelect'
+  | 'Checkbox'
+  | 'Switch';
+```
+
+### CellFormat
+
+```ts
+export type CellFormat =
+  | string
+  | ((text: string, record: Recordable, index: number) => string | number)
+  | Map<string | number, any>;
+```
 
 ## 事件
 
@@ -313,11 +381,19 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 :::
 
-| 事件             | 回调参数                  | 说明               |
-| ---------------- | ------------------------- | ------------------ |
-| fetch-success    | `Function({items,total})` | 接口请求成功后触发 |
-| fetch-error      | `Function(error)`         | 错误信息           |
-| selection-change | `Function({keys，rows})`  | 勾选事件触发       |
+| 事件             | 回调参数                               | 说明               |
+| ---------------- | -------------------------------------- | ------------------ |
+| fetch-success    | `Function({items,total})`              | 接口请求成功后触发 |
+| fetch-error      | `Function(error)`                      | 错误信息           |
+| selection-change | `Function({keys，rows})`               | 勾选事件触发       |
+| row-click        | `Function(record, index, event)`       | 行点击触发         |
+| row-dbClick      | `Function(record, index, event)`       | 行双击触发         |
+| row-contextmenu  | `Function(record, index, event)`       | 行右键触发         |
+| row-mouseenter   | `Function(record, index, event)`       | 行移入触发         |
+| row-mouseleave   | `Function(record, index, event)`       | 行移出触发         |
+| edit-end         | `Function(record, index, key, value )` | 单元格编辑完成触发 |
+| edit-cancel      | `Function(record, index, key, value )` | 单元格取消编辑触发 |
+| edit-row-end     | `Function()`                           | 行编辑结束触发     |
 
 ## Slots
 
@@ -395,36 +471,4 @@ export interface PopConfirm {
 
 ## 全局配置
 
-在[@/components/Table/src/const.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Table/src/const.ts) 可以配置全局参数。用于统一整个项目的风格。可以通过 props 传值覆盖
-
-```ts
-// 可选的每页显示条数
-export const PAGE_SIZE_OPTIONS = ['10', '50', '80', '100'];
-
-// 每页显示条数
-export const PAGE_SIZE = ~~PAGE_SIZE_OPTIONS[0];
-
-// 通用接口字段设置
-// 支持 xxx.xxx.xxx格式
-export const FETCH_SETTING = {
-  // 传给后台的当前页字段名
-  pageField: 'page',
-  // 传给后台的每页显示记录数字段名
-  sizeField: 'pageSize',
-  // 接口返回的表格数据字段名
-  listField: 'items',
-  // 接口返回的表格总数字段名
-  totalField: 'total',
-};
-
-// 配置通用排序函数
-export function DEFAULT_SORT_FN(sortInfo: SorterResult<any>) {
-  const { field, order } = sortInfo;
-  return {
-    // 传给后台的排序字段你
-    field,
-    // 传给后台的排序方式  asc/desc
-    order,
-  };
-}
-```
+在[componentsSettings](../../src/guide/basic/setting.md) 可以配置全局参数。用于统一整个项目的风格。可以通过 props 传值覆盖

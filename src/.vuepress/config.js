@@ -165,7 +165,7 @@ function getGlobDirectives(type = '') {
   return arr.map((item) => type + item);
 }
 function getBasicDirectives(type = '') {
-  const arr = ['/directives/repeatClick'];
+  const arr = ['/directives/repeatClick', '/directives/clickOutside'];
   return arr.map((item) => type + item);
 }
 
@@ -192,6 +192,8 @@ function getFnComp(type = '') {
 function getComp(type = '') {
   const arr = [
     '/comp/basic',
+    '/comp/page',
+    '/comp/popConfirmButton',
     '/comp/auth',
     '/comp/form',
     '/comp/table',

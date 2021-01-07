@@ -34,6 +34,8 @@
 
 - [Es6](https://es6.ruanyifeng.com/)
 
+- [Vite 文档](https://vitejs.dev/guide/)
+
 ## 模版
 
 - [Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)
@@ -97,10 +99,17 @@
 ```
  主题配置
  黑暗主题
-  打包 CDN
+ 打包 CDN
 ```
 
 更多组件/功能/建议/bug/欢迎提交 pr 或者 issue
+
+## 生态
+
+如果这些插件对你有帮助，可以给一个 star 支持下
+
+- [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)
+- [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html)
 
 ## 目录结构
 
@@ -121,6 +130,7 @@
 │   ├── design  # 样式
 │   ├── enums # 常量，枚举
 │   ├── hooks # hooks
+│   ├── logics # 逻辑相关
 │   ├── layouts # 布局
 │   ├── main.ts # 入口文件
 │   ├── router #路由，菜单等

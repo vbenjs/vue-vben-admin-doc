@@ -159,6 +159,8 @@ form 组件还提供了 useForm，方便调用函数内部方法
 const [register, methods] = useForm(props);
 ```
 
+**参数 props 内的值可以时 computed 或者 ref 类型**
+
 **register**
 
 register 用于注册 useForm，如果需要使用`useForm`提供的 api，必须将 register 传入组件的 onRegister
@@ -203,6 +205,12 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 
 说明: 校验表单
 
+**submit**
+
+类型: `() => Promise<void>`
+
+说明: 提交表单
+
 **scrollToField**
 
 类型: `(fields?: NamePath[]) => void`
@@ -235,9 +243,9 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 
 **appendSchemaByField**
 
-类型: `(schema: FormSchema, prefixField?: string) => void`
+类型: `(schema: FormSchema, prefixField: string|undefined,first:boolean) => void`
 
-说明: 插入到指定 filed 后面，如果没传指定 field，则插入到最后
+说明: 插入到指定 filed 后面，如果没传指定 field，则插入到最后.当 first=true 时插入到第一个位置
 
 **updateSchema**
 
@@ -256,11 +264,14 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
 | --- | --- | --- | --- | --- |
 | schemas | `Schema[]` | - | - | 表单配置，见下方 FormSchema 配置 |
-| submitOnReset | `boolean` | - | - | 重置时是否提交表单 |
+| submitOnReset | `boolean` | true | - | 重置时是否提交表单 |
 | labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |
 | wrapperCol | `Partial<ColEx>` | - | - | 整个表单通用 wrapperCol 配置 |
 | baseColProps | `Partial<ColEx>` | - | - | 配置所有选子项的 ColProps，不需要逐个配置，子项也可单独配置优先与全局 |
+| baseRowStyle | `object` | - | - | 配置所有 Row 的 style 样式 |
 | labelWidth | `number | string` | - | - | 扩展 form 组件，增加 label 宽度，表单内所有组件适用，可以单独在某个项覆盖或者禁用 |
+| mergeDynamicData | `object` | - | - | 额外传递到子组件的参数 values |
+| autoFocusFirstItem | `boolean` | false | - | 是否聚焦第一个输入框，只在第一个表单项为 input 的时候作用 |
 | compact | `boolean` | false | true/false | 紧凑类型表单，减少 margin-bottom |
 | size | `string` | default | `'default' | 'small' | 'large'` | 向表单内所有组件传递 size 参数,自定义组件需自行实现 size 接收 |
 | disabled | `boolean` | false | true/false | 向表单内所有组件传递 disabled 属性，自定义组件需自行实现 disabled 接收 |
@@ -329,6 +340,7 @@ export interface ButtonProps extends BasicButtonProps {
 | field | `string` | - | - | 字段名 |
 | label | `string` | - | - | 标签名 |
 | subLabel | `string` | - | - | 二级标签名灰色 |
+| suffix | `string | number | ((values: RenderCallbackParams) => string | number);` | - | - | 组件后面的内容 |
 | changeEvent | `string` | - | - | 表单更新事件名称 |
 | helpMessage | `string | string[]` | - | - | 标签名右侧温馨提示 |
 | helpComponentProps | `HelpComponentProps` | - | - | 标签名右侧温馨提示组件 props,见下方 HelpComponentProps |
@@ -431,6 +443,7 @@ export type ComponentType =
   | 'InputNumber'
   | 'InputCountDown'
   | 'Select'
+  | 'ApiSelect'
   | 'SelectOptGroup'
   | 'SelectOption'
   | 'TreeSelect'
@@ -676,7 +689,8 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 | ------------- | ------------ |
 | formFooter    | 表单底部区域 |
 | formHeader    | 表单顶部区域 |
-| advanceBefore | 展开按钮前   |
 | resetBefore   | 重置按钮前   |
 | submitBefore  | 提交按钮前   |
 | submitAfter   | 提交按钮后   |
+| advanceBefore | 展开按钮前   |
+| advanceAfter  | 展开按钮后   |

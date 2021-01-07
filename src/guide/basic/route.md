@@ -45,8 +45,6 @@ export default dashboard;
 
 ### 多级路由
 
-**项目中是放弃多级路由的**
-
 多级路由通过跟 ParentLayout 来实现
 
 ::: tip 注意事项
@@ -146,16 +144,21 @@ export interface RouteMeta {
   icon?: string;
   // 内嵌iframe的地址
   frameSrc?: string;
-  // 标记是否为外部链接，为true则会跳转path对应的地址
-  externalLink?: boolean;
   // 指定该路由切换的动画名
   transitionName?: string;
   // 隐藏该路由在面包屑上面的显示
   hideBreadcrumb?: boolean;
-  // 禁止在面包屑点击跳转
-  disabledRedirect?: boolean;
   // 如果该路由会携带参数，且需要在tab页上面显示。则需要设置为true
   carryParam?: boolean;
+
+  // 当前激活的菜单。用于配置详情页时左侧激活的菜单路径
+  currentActiveMenu?: string;
+
+  // 当前路由不再标签页显示
+  hideTab?: boolean;
+
+  // 当前路由不再菜单显示
+  hideMenu?: boolean;
 }
 ```
 
@@ -186,7 +189,6 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
     name: 'DocExternal',
     component: IFrame,
     meta: {
-      externalLink: true,
       title: '项目文档(外链)',
     },
   },
@@ -196,7 +198,7 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 
 这里的 icon 配置，会同步到 **菜单**
 
-icon 的值可以查看
+icon 的值可以查看 [Icon](../../comp/glob/icon.md)
 
 ## 新增路由
 

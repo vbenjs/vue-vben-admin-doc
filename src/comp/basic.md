@@ -53,7 +53,7 @@
   </div>
 </template>
 <script>
-  import { BaseArrow } from '/@/components/Baisc/index';
+  import { BasicArrow } from '/@/components/Baisc/index';
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: { BasicArrow },
@@ -82,8 +82,8 @@
 ```vue
 <template>
   <div>
-    <BaseHelp text="['提示1', '提示2']" />
-    <BaseHelp text="提示" />
+    <BasicHelp text="['提示1', '提示2']" />
+    <BasicHelp text="提示" />
   </div>
 </template>
 <script>

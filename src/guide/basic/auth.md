@@ -133,19 +133,17 @@ export default permission;
 
 ```ts
 // 这里只列举了主要代码
-export function createPermissionGuard(router: Router) {
-  router.beforeEach(async (to, from, next) => {
-    const routes = await permissionStore.buildRoutesAction();
-    routes.forEach((route) => {
-      router.addRoute(RootRoute.name!, route as RouteRecordRaw);
-    });
-    const redirectPath = (from.query.redirect || to.path) as string;
-    const redirect = decodeURIComponent(redirectPath);
-    const nextData = to.path === redirect ? { ...to, replace: true } : { path: redirect };
-    permissionStore.commitDynamicAddedRouteState(true);
-    next(nextData);
-  });
-}
+const routes = await permissionStore.buildRoutesAction();
+routes.forEach((route) => {
+  // router.addRoute(RootRoute.name!, route as RouteRecordRaw);
+  router.addRoute(route as RouteRecordRaw);
+});
+
+const redirectPath = (from.query.redirect || to.path) as string;
+const redirect = decodeURIComponent(redirectPath);
+const nextData = to.path === redirect ? { ...to, replace: true } : { path: redirect };
+permissionStore.commitDynamicAddedRouteState(true);
+next(nextData);
 ```
 
 **permissionStore.buildRoutesAction**
@@ -157,8 +155,8 @@ export function createPermissionGuard(router: Router) {
 if (permissionMode === PermissionModeEnum.ROLE) {
   // 遍历动态路由，过滤出符合条件的路由
   routes = filter(asyncRoutes, (route) => {
-    const { meta } = route;
-    const { roles } = meta!;
+    const { meta } = route as AppRouteRecordRaw;
+    const { roles } = meta || {};
     if (!roles) return true;
     return roleList.some((role) => roles.includes(role));
   });
@@ -259,20 +257,22 @@ const setting: ProjectConfig = {
 ```ts
 // 主要代码
 if (permissionMode === PermissionModeEnum.BACK) {
-      // 这里获取后台路由菜单逻辑自行修改
-      const paramId = id || userStore.getUserInfoState.userId;
-      let routeList: any[] = await getMenuListById({ id: paramId });
-      // 动态引入组件
-      routeList = transformObjToRoute(routeList);
-      //  后台路由转菜单结构
-      const backMenuList = transformRouteToMenu(routeList);
-      this.commitBackMenuListState(backMenuList);
-      // 生成路由
-      routes = genRouteModule(routeList) as AppRouteRecordRaw[];
-      routes.push(REDIRECT_ROUTE);
-    }
-    return routes;
+  // 这里获取后台路由菜单逻辑自行修改
+  const paramId = id || userStore.getUserInfoState.userId;
+  if (!paramId) {
+    throw new Error('paramId is undefined!');
   }
+  let routeList = (await getMenuListById({ id: paramId })) as AppRouteRecordRaw[];
+
+  // 动态引入组件
+  routeList = transformObjToRoute(routeList);
+  //  后台路由转菜单结构
+  const backMenuList = transformRouteToMenu(routeList);
+
+  this.commitBackMenuListState(backMenuList);
+
+  routes = [PAGE_NOT_FOUND_ROUTE, ...routeList];
+}
 ```
 
 **getMenuListById 返回值格式**

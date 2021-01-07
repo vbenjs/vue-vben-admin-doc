@@ -57,16 +57,13 @@ export default {
 
 **在 css 内**
 
-```css
-
+```vue
 <style lang="less" scoped>
-  @import (reference) '../../../design/index.less';
   @prefix-cls: ~'@{namespace}-app-logo';
   .@{prefix-cls} {
-    width: 100%
+    width: 100%;
   }
 </style>
-
 ```
 
 **在 js 内**
@@ -229,6 +226,7 @@ window.__PRODUCTION__VUE_VBEN_ADMIN__CONF__ = {
   VITE_GLOB_APP_SHORT_NAME: 'vue_vben_admin',
   VITE_GLOB_API_URL: '/app',
   VITE_GLOB_API_URL_PREFIX: '/',
+  VITE_GLOB_UPLOAD_URL: '/upload',
 };
 ```
 
@@ -257,6 +255,7 @@ const {
   VITE_GLOB_API_URL,
   VITE_GLOB_APP_SHORT_NAME,
   VITE_GLOB_API_URL_PREFIX,
+  VITE_GLOB_UPLOAD_URL,
 } = ENV;
 
 export const useGlobSetting = (): SettingWrap => {
@@ -266,6 +265,7 @@ export const useGlobSetting = (): SettingWrap => {
     apiUrl: VITE_GLOB_API_URL,
     shortName: VITE_GLOB_APP_SHORT_NAME,
     urlPrefix: VITE_GLOB_API_URL_PREFIX,
+    uploadUrl: VITE_GLOB_UPLOAD_URL
   };
   return glob as Readonly<GlobConfig>;
 };
@@ -293,8 +293,10 @@ export const useGlobSetting = (): SettingWrap => {
 const setting: ProjectConfig = {
   // 是否显示SettingButton
   showSettingButton: true,
-  // 权限模式
+  // 权限模式,默认前端角色权限模式
   permissionMode: PermissionModeEnum.ROLE,
+  // 权限缓存存放位置。默认存放于localStorage
+  permissionCacheType: CacheTypeEnum.LOCAL,
   // 网站灰色模式，用于可能悼念的日期开启
   grayMode: false,
   // 色弱模式
@@ -339,6 +341,8 @@ const setting: ProjectConfig = {
     showDoc: true,
     // 显示消息中心按钮
     showNotice: true,
+    // 显示菜单搜索按钮
+    showSearch: true,
   },
   // 菜单配置
   menuSetting: {
@@ -366,12 +370,16 @@ const setting: ProjectConfig = {
     split: false,
     // 顶部菜单布局
     topMenuAlign: 'start',
-    // 折叠菜单时候隐藏搜索框
-    collapsedShowSearch: false,
     // 折叠触发器的位置
     trigger: TriggerEnum.HEADER,
     // 手风琴模式，只展示一个菜单
     accordion: true,
+    // 在路由切换的时候关闭左侧混合菜单展开菜单
+    closeMixSidebarOnChange: false,
+    // 左侧混合菜单模块切换触发方式
+    mixSideTrigger: MixSidebarTriggerEnum.CLICK,
+    // 是否固定左侧混合菜单
+    mixSideFixed: false,
   },
   // 多标签
   multiTabsSetting: {
@@ -381,6 +389,11 @@ const setting: ProjectConfig = {
     showQuick: true,
     // 是否可以拖拽
     canDrag: true,
+
+    // 是否显示刷新那妞
+    showRedo: true,
+    // 是否显示折叠按钮
+    showFold: true,
   },
 
   // 动画配置
@@ -432,12 +445,14 @@ const setting: ProjectConfig = {
 
 用于预设一些颜色数组
 
+[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/colorSetting.ts)
+
 ```ts
 // 顶部背景色预设
 export const HEADER_PRESET_BG_COLOR_LIST: string[] = [
   '#ffffff',
   '#009688',
-  '#18bc9c',
+  '#5172DC',
   '#1E9FFF',
   '#018ffb',
   '#409eff',
@@ -446,18 +461,71 @@ export const HEADER_PRESET_BG_COLOR_LIST: string[] = [
   '#24292e',
   '#394664',
   '#001529',
+  '#383f45',
 ];
 
 //左侧菜单背景色预设
 export const SIDE_BAR_BG_COLOR_LIST: string[] = [
+  '#001529',
   '#273352',
   '#ffffff',
   '#191b24',
   '#191a23',
-  '#001529',
   '#304156',
   '#001628',
   '#28333E',
   '#344058',
+  '#383f45',
 ];
+```
+
+## 组件设置
+
+[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentsSetting.ts)
+
+```ts
+// 用于配置某些组件的常规配置，而无需修改组件
+import type { SorterResult } from '../components/Table';
+
+export default {
+  // 表格配置
+  table: {
+    // 表格接口请求通用配置，可在组件prop覆盖
+    // 支持 xxx.xxx.xxx格式
+    fetchSetting: {
+      // 传给后台的当前页字段
+      pageField: 'page',
+      // 传给后台的每页显示多少条的字段
+      sizeField: 'pageSize',
+      // 接口返回表格数据的字段
+      listField: 'items',
+      // 接口返回表格总数的字段
+      totalField: 'total',
+    },
+    // 可选的分页选项
+    pageSizeOptions: ['10', '50', '80', '100'],
+    //默认每页显示多少条
+    defaultPageSize: 10,
+    // 默认排序方法
+    defaultSortFn: (sortInfo: SorterResult) => {
+      const { field, order } = sortInfo;
+      return {
+        // 排序字段
+        field,
+        // 排序方式 asc/desc
+        order,
+      };
+    },
+    // 自定义过滤方法
+    defaultFilterFn: (data: Partial<Recordable<string[]>>) => {
+      return data;
+    },
+  },
+  // 滚动组件配置
+  scrollbar: {
+    // 是否使用原生滚动样式
+    // 开启后，菜单，弹窗，抽屉会使用原生滚动条组件
+    native: false,
+  },
+};
 ```
