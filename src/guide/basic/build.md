@@ -121,7 +121,7 @@ npm run report
 
 运行之后你就可以在会自动打开页面看到具体的体积分布,分析哪些体积有问题
 
-[![](/img/build/report.png)](https://github.com/vbenjs/static/blob/main/doc/report.png)
+![](https://github.com/vbenjs/static/blob/main/doc/report.png?raw=true)
 
 # 前端路由与服务端的结合
 
