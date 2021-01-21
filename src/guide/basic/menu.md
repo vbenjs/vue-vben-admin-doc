@@ -24,9 +24,9 @@ export interface Menu {
   // 菜单标签设置
   tag: {
     // 为true则显示小圆点
-    dot: true;
+    dot: boolean;
     // 内容
-    content: '12';
+    content: string';
     // 类型
     type: 'error' | 'primary' | 'warn' | 'success';
   };
@@ -100,7 +100,6 @@ export default menu;
 ::: tip 注意
 
 - 菜单添加完成需要刷新页面或者重新运行项目(vite 重新运行项目很快)可以触发热更新。
-- 自动导入的模块在删除后必须重新运行
 
 :::
 

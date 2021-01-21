@@ -92,10 +92,20 @@ gzip 开启后，打包速度会比平时慢 2 倍左右，这是因为打包的
 ```bash
 
 # 根据自己路径来配置更改
-VITE_PUBLIC_PATH=./
+VITE_PUBLIC_PATH=/
 ```
 
 :::
+
+## 旧版浏览器兼容
+
+在**.env.production**内
+
+设置`VITE_LEGACY=true`即可打包出兼容旧版浏览器的代码
+
+```bash
+VITE_LEGACY = true
+```
 
 ## 分析构建文件体积
 
@@ -111,7 +121,7 @@ npm run report
 
 运行之后你就可以在会自动打开页面看到具体的体积分布,分析哪些体积有问题
 
-![](/img/build/report.png)
+[![](/img/build/report.png)](https://github.com/vbenjs/static/blob/main/doc/report.png)
 
 # 前端路由与服务端的结合
 

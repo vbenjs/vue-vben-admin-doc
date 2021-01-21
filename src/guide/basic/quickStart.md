@@ -118,14 +118,6 @@ yarn serve
 yarn build
 ```
 
-**打包项目部署站点**
-
-用于 Vue Vben Admni 打包部署预览使用
-
-```bash
-yarn build:site
-```
-
 **清空缓存后构建**
 
 ```bash

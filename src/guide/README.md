@@ -110,6 +110,7 @@
 
 - [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)
 - [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html)
+- [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import)
 
 ## 目录结构
 
@@ -136,7 +137,7 @@
 │   ├── router #路由，菜单等
 │   ├── locale #多语言文件
 │   ├── settings # 配置文件
-│   ├── setup # 第三方库配置
+│   ├── plugin # 插件
 │   ├── store # vuex
 │   ├── types # 类型定义
 │   ├── utils # 工具类

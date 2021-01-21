@@ -90,8 +90,8 @@ export const DEFAULT_CACHE_TIME = 60 * 60 * 24 * 7;
 
 // 开启缓存加密后，加密密钥。采用aes加密
 export const cacheCipher = {
-  key: '_12345678901234@',
-  iv: '@12345678901234_',
+  key: '_11111000001111@',
+  iv: '@11111000001111_',
 };
 
 // 是否加密缓存，默认生产环境加密
@@ -157,7 +157,6 @@ VITE_DYNAMIC_IMPORT=true
 VITE_USE_MOCK=true
 
 
-
 # 接口地址前缀，有些系统所有接口地址都有前缀，可以在这里统一加，方便切换
 VITE_GLOB_API_URL_PREFIX=
 
@@ -207,6 +206,10 @@ VITE_BUILD_GZIP = false
 
 # 打包是否开启pwa功能
 VITE_USE_PWA = false
+
+# 是否兼容旧版浏览器。开启后打包时间会慢一倍左右。会多打出旧浏览器兼容包,且会根据浏览器兼容性自动使用相应的版本
+VITE_LEGACY = false
+
 
 ```
 
@@ -312,7 +315,7 @@ const setting: ProjectConfig = {
 
   // 多语言配置
   locale: {
-    // 是否显示
+    // 是否显示,这里显示只的是是否显示切换语言的按钮
     show: true,
     // 当前语言
     lang: 'zh_CN',
@@ -445,7 +448,7 @@ const setting: ProjectConfig = {
 
 用于预设一些颜色数组
 
-[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/colorSetting.ts)
+[src/settings/designSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/designSetting.ts)
 
 ```ts
 // 顶部背景色预设
@@ -481,7 +484,7 @@ export const SIDE_BAR_BG_COLOR_LIST: string[] = [
 
 ## 组件设置
 
-[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentsSetting.ts)
+[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentSetting.ts)
 
 ```ts
 // 用于配置某些组件的常规配置，而无需修改组件

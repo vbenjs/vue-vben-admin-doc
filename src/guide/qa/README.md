@@ -46,7 +46,7 @@ getCurrentInstance().ctx.xxxx;
 
 如果出现依赖安装报错,启动报错等。先检查电脑环境有没有安装齐全。
 
-- Node 版本必须大于`12.0.0` 推荐 12 版本。
+- Node 版本必须大于`12.0.0`不支持 13， 推荐 14 版本。
 - Git
 - Yarn 最新版
 
@@ -113,19 +113,9 @@ git pull origin main
 
 **补充**
 
-谷歌浏览器下一个版本修复。如果需要使用，请使用[chrome canary](https://www.google.com/intl/zh-CN/chrome/canary/)进行开发
-
-## Vite 别名问题
-
-vite 引入模块的时候 如果不是以`./`或者`/`开头的会被视为依赖，在前面加上`/@modules/xxx`来进行请求
-
-vite 别名在`vite.config.ts`内配置,需要以 `/`开头
-
-```ts
- alias: {
-    '/@/': pathResolve('src'),
-  },
-```
+- 谷歌浏览器下一个版本修复。如果需要使用，请使用[chrome canary](https://www.google.com/intl/zh-CN/chrome/canary/)进行开发
+- 使用后本地加载明显变慢
+- 打包速度慢一倍
 
 ## 启动慢
 
@@ -164,7 +154,7 @@ gzip_static: 这个模块需要 nginx 另外安装,默认的 nginx 没有安装�
 1. 当修改了 [/@/design](https://github.com/anncwb/vue-vben-admin/tree/main/src/design)内的样式。有时候会出现样式不起作用
 2. 修改了代码，但是界面并没有改变。刷新也是一样。
 
-以上可能是 vite 缓存的问题,只需要删除`node_modules/.vite_opt_cache `这个文件夹重新运行即可。
+以上可能是 vite 缓存的问题,只需要删除`node_modules/.vite_opt_cache`这个文件夹重新运行即可。
 
 ## 为什么要 TSX 和 Vue 文件混合使用呢
 
@@ -219,7 +209,7 @@ because "echarts" has been pre-optimized by vite into a single file.
 Prefer importing directly from the module entry:
 ```
 
-这样出现了以上警告,意思是让你用 ` import {xxx} from 'echarts'`的方式来引入
+这样出现了以上警告,意思是让你用 `import {xxx} from 'echarts'`的方式来引入
 
 但是`echarts`没有导出这个变量。此时只需再次把`echarts/map/js/china`加入 optimizeDeps 即可，如下
 
