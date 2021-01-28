@@ -484,7 +484,7 @@ export const SIDE_BAR_BG_COLOR_LIST: string[] = [
 
 ## 组件设置
 
-[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentSetting.ts)
+[src/settings/componentSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentSetting.ts)
 
 ```ts
 // 用于配置某些组件的常规配置，而无需修改组件
