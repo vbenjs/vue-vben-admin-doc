@@ -10,7 +10,7 @@
 
 ## 工具配置
 
-如果您使用的 IDE 是[vscode](https://code.visualstudio.com/)的话,可以安装以下工具来提高开发效率就代码格式化
+如果您使用的 IDE 是[vscode](https://code.visualstudio.com/)的话,可以安装以下工具来提高开发效率及代码格式化
 
 - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Iconify 图标插件
 - [I18n-ally](https://marketplace.visualstudio.com/items?itemName=antfu.i18n-ally) - i18n 插件
