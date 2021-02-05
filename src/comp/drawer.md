@@ -182,7 +182,7 @@ props 内容可以见下方
 | isDetail       | `boolean`             | false  | -      | 是否为详情模式                       |
 | loading        | `boolean`             | false  | -      | loading 状态                         |
 | showDetailBack | `boolean`             | true   | -      | isDetail=true 状态下是否显示返回按钮 |
-| closeFunc      | `() => Promise<void>` | -      | -      | 自定义关闭函数                       |
+| closeFunc      | `() => Promise<any>` | -      | -      | 自定义关闭函数                       |
 
 ## Events
 
