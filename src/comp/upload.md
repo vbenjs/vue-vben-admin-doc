@@ -48,14 +48,14 @@ VITE_GLOB_UPLOAD_URL=/upload
 
 ## Props
 
-| 属性              | 类型      | 默认值   | 可选值 | 说明                            |
-| ----------------- | --------- | -------- | ------ | ------------------------------- |
-| showPreviewNumber | `boolean` | true     | -      | 是否显示预览按钮                |
-| emptyHidePreview  | `boolean` | false    | -      | 没有上传文件时是否隐藏预览      |
-| helpText          | `string`  | -        | -      | 帮助文本                        |
-| maxSize           | `number`  | 2        | -      | 单个文件最大体积，单位 M        |
-| maxNumber         | `number`  | Infinity | -      | 最大上传数量，Infinity 则不限制 |
-| accept            | `string`  | -        | -      | 限制上传格式 `.doc,docx,xlsx`   |
-| multiple          | `boolean` | -        | -      | 开启多文件上传                  |
-| uploadParams      | `any`     | -        | -      | 上传携带的参数                  |
-| api               | `Fn`      | -        | -      | 上传接口，为上面配置的接口      |
+| 属性              | 类型       | 默认值   | 可选值 | 说明                                     |
+| ----------------- | ---------- | -------- | ------ | ---------------------------------------- |
+| showPreviewNumber | `boolean`  | true     | -      | 是否显示预览按钮                         |
+| emptyHidePreview  | `boolean`  | false    | -      | 没有上传文件时是否隐藏预览               |
+| helpText          | `string`   | -        | -      | 帮助文本                                 |
+| maxSize           | `number`   | 2        | -      | 单个文件最大体积，单位 M                 |
+| maxNumber         | `number`   | Infinity | -      | 最大上传数量，Infinity 则不限制          |
+| accept            | `string[]` | -        | -      | 限制上传格式 `['.doc,','.docx','.xlsx']` |
+| multiple          | `boolean`  | -        | -      | 开启多文件上传                           |
+| uploadParams      | `any`      | -        | -      | 上传携带的参数                           |
+| api               | `Fn`       | -        | -      | 上传接口，为上面配置的接口               |

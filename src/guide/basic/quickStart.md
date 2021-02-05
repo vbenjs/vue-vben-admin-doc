@@ -98,6 +98,30 @@ yarn -v # 出现对应版本号即代表安装成功
 yarn install
 ```
 
+::: tip imagemin 依赖安装失败
+
+由于 imagemin 在中国不好安装。现提供几个解决方案
+
+1. 使用 yarn 在 package.json 内配置(推荐,项目内已集成，前提是必须使用 yarn)
+
+```json
+"resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
+  },
+
+```
+
+2. 使用 npm,在电脑 host 文件加上如下配置即可
+
+```bash
+
+199.232.4.133 raw.githubusercontent.com
+```
+
+3. 使用 cnpm 安装(不推荐)
+
+:::
+
 ## npm Script
 
 **安装依赖**

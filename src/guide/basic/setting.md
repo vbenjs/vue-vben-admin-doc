@@ -2,7 +2,7 @@
 
 ## 主题色配置
 
-默认全局主题色配置位于[build/config/glob/lessModifyVars.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/glob/lessModifyVars.ts)内
+默认全局主题色配置位于[build/config/glob/lessModifyVars.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts)内
 
 只需要修改 primaryColor 为您需要的配色，然后重新执行`yarn serve`即可
 
@@ -10,27 +10,7 @@
 /**
  * less global variable
  */
-const primaryColor = '#018ffb';
-//{
-const modifyVars = {
-  'primary-color': primaryColor, //  Global dominant color
-  'info-color': primaryColor, //  Default color
-  'success-color': '#55D187', //  Success color
-  'error-color': '#ED6F6F', //  False color
-  'warning-color': '#EFBD47', //   Warning color
-  'link-color': primaryColor, //   Link color
-  'disabled-color': '#C2C2CC', //  Failure color
-  'heading-color': '#2C3A61', //  Title color
-  'text-color': '#2C3A61', //  Main text color
-  'text-color-secondary ': '#606266', // Subtext color
-  'background-color-base': '#F0F2F5', // background color
-  'font-size-base': '14px', //  Main font size
-  'box-shadow-base': '0 2px 8px rgba(0, 0, 0, 0.15)', //  Floating shadow
-  'border-color-base': '#cececd', //  Border color,
-  'border-color-split': '#cececd', //  Border color,
-  'border-radius-base': '2px', //  Component/float fillet
-};
-//}
+export const primaryColor = '#0084f4';
 
 export { modifyVars, primaryColor };
 ```
@@ -203,6 +183,9 @@ VITE_PUBLIC_PATH=./
 
 # 打包是否输出gz文件
 VITE_BUILD_GZIP = false
+
+# 打包是否压缩图片
+VITE_USE_IMAGEMIN = false
 
 # 打包是否开启pwa功能
 VITE_USE_PWA = false

@@ -97,7 +97,6 @@
 ### 正在开发的功能
 
 ```
- 主题配置
  黑暗主题
  打包 CDN
 ```
@@ -108,9 +107,11 @@
 
 如果这些插件对你有帮助，可以给一个 star 支持下
 
-- [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock)
-- [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html)
-- [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import)
+- [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock) - 用于本地及开发环境数据 mock
+- [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html) - 用于 html 模版转换
+- [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import) - 用于组件库样式按需引入
+- [vite-plugin-imagemin](https://github.com/vbenjs/vite-plugin-imagemin) - 用于打包压缩图片资源
+- [vite-plugin-theme](https://github.com/vbenjs/vite-plugin-theme) - 用于在线切换主题色等颜色相关配置
 
 ## 目录结构
 
@@ -137,7 +138,7 @@
 │   ├── router #路由，菜单等
 │   ├── locale #多语言文件
 │   ├── settings # 配置文件
-│   ├── plugin # 插件
+│   ├── plugins # 插件
 │   ├── store # vuex
 │   ├── types # 类型定义
 │   ├── utils # 工具类
