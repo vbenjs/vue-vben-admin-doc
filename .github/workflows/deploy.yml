@@ -12,15 +12,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+
+      - name: Replace Config Base
+        shell: bash
+        run: |
+          sed -i '.bak' 's/doc-next/doc-next/g' ./src/.vuepress/config.js
+
       - name: use Node.js 14
         uses: actions/setup-node@v1
         with:
           registry-url: https://registry.npmjs.org/
           node-version: 14
+
       - name: Build
         run: |
           npm install
           npm run build
+
       - name: Deploy
         uses: SamKirkland/FTP-Deploy-Action@2.0.0
         env:
@@ -32,3 +40,35 @@ jobs:
           LOCAL_DIR: dist
           REMOTE_DIR: /srv/www/vben-admin-doc
           ARGS: --delete --verbose --parallel=80
+
+push-to-gh-page:
+  if: "contains(github.event.head_commit.message, '[deploy]')"
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Replace Config Base
+      shell: bash
+      run: |
+        sed -i '.bak' 's/doc-next/vben-admin-doc/g' ./src/.vuepress/config.js
+
+    - name: use Node.js 14
+      uses: actions/setup-node@v1
+      with:
+        registry-url: https://registry.npmjs.org/
+        node-version: 14
+
+    - name: Build
+      run: |
+        npm install
+        npm run build
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
+      env:
+        ACTIONS_DEPLOY_KEY: ${{secrets.OPER_TOKEN}}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./dist
+      with:
+        forceOrphan: true
