@@ -6,17 +6,29 @@ on:
       - main
 
 jobs:
-  build-deploy:
+  push-to-ftp:
+    if: "contains(github.event.head_commit.message, '[deploy]')"
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v1
-      - run: npm install
-      - run: npm run build
-
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          registry-url: https://registry.npmjs.org/
+          node-version: 14
+      - name: Build
+        run: |
+          npm install
+          npm run build
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
         env:
-          ACTIONS_DEPLOY_KEY: ${{secrets.GITHUB_TOKEN}}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: dist
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          METHOD: sftp
+          PORT: ${{ secrets.FTP_PORT }}
+          LOCAL_DIR: dist
+          REMOTE_DIR: /srv/www/vben-admin-doc
+          ARGS: --delete --verbose --parallel=80

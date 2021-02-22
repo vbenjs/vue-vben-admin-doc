@@ -7,15 +7,19 @@
   "license": "MIT",
   "scripts": {
     "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "build": "vuepress build src",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s "
   },
   "devDependencies": {
-    "@vuepress/plugin-active-header-links": "^1.8.0",
-    "@vuepress/plugin-back-to-top": "^1.8.0",
-    "@vuepress/plugin-medium-zoom": "^1.8.0",
-    "@vuepress/plugin-nprogress": "^1.8.0",
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "@vuepress/plugin-nprogress": "^1.8.2",
+    "conventional-changelog-cli": "^2.1.1",
     "prettier": "^2.2.1",
-    "vuepress": "^1.8.0",
+    "vuepress": "^1.8.2",
     "vuepress-plugin-smooth-scroll": "^0.0.10",
     "vuepress-plugin-typescript": "^0.3.1",
     "vuepress-plugin-zooming": "^1.1.8"
