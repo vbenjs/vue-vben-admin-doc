@@ -6,6 +6,14 @@
 
 :::
 
+## 首先
+
+遇到问题,可以先从以下几个方面查找
+
+1. 对应模块的 github 仓库[issue](https://github.com/anncwb/vue-vben-admin/issues)搜索
+2. 从[google](https://www.google.com)搜索问题
+3. 从[百度](https://www.百度.com)搜索问题
+
 ## imagemin 依赖安装失败
 
 由于 imagemin 在中国不好安装。现提供几个解决方案
@@ -27,14 +35,6 @@
 ```
 
 3. 使用 cnpm 安装(不推荐)
-
-## 是否可以在生产环境中使用
-
-虽然 Vue3 及其配套还不是很完善。且大部分处于`beta`|`rc`状态。但是我觉得可以尝试，我个人是已经有部分用于生产环境了。生产环境代码真正实现了按需引入。总体感觉会比 webpack 打包体积小了很多。
-
-**注意**
-
-我觉得唯一需要注意的只有浏览器兼容,目前还不能兼容`IE11`,如果你需要兼容低版本浏览器。建议还是使用 Vue2.6
 
 ## 本地运行报错
 
@@ -143,6 +143,8 @@ git pull origin main
 - 使用后本地加载明显变慢
 - 打包速度慢一倍
 
+**2.0.0 版本补充 引入了 Windi Css 完美解决上面问题**
+
 ## 打包文件过大
 
 首先 完整版由于引用了比较多的库文件，所以打包会比较大。可以使用精简版来进行开发
@@ -164,12 +166,6 @@ gzip_static: 这个模块需要 nginx 另外安装,默认的 nginx 没有安装�
 ```ts
 [vite] Failed to resolve module import "ant-design-vue/dist/antd.css-vben-adminode_modulesant-design-vuedistantd.css". (imported by /@/setup/ant-design-vue/index.ts)
 ```
-
-## 本地开发卡顿
-
-本地开发建议在`Chrome`浏览器上面进行开发。vite 是需要用到文件的时候才会去加载 js 和 css 等文件资源。所以有时候本地点击后要稍微等待一会才能跳转。这是因为你第一次请求这些文件，浏览器还未对这些文件进行缓存。所以需要一些时间来加载。下次进行请求的时候会从缓存直接取，速度会变快。**注意：浏览器控制台->NetWork->Disable cache 不要勾选**否则没有缓存每次加载都会很慢
-
-目前在火狐浏览器本地开发会有一些卡顿，还未找到是哪方面的原因。知道的也可以跟我说一声。
 
 ## 为什么要 TSX 和 Vue 文件混合使用呢
 
@@ -229,35 +225,11 @@ import _ from 'lodash-es';
 3. 检查样式是否使用变量及有没有引入对应的变量文件
 4. 检查代码明显的语法错误
 
-## ref 类型问题
-
-遇到很多人在学习 vue3 的时候，常常会将 ref，computed 等类型混淆
-
-建议在命名的时候，变量名有一定的规范
-
-例如：
-
-```ts
-// good
-const countRef = ref(0);
-// bad
-const count = ref(0);
-
-// 一般习惯性在computed前面加 get
-const getCount = computed(() => 0);
-```
-
 这样就不会是使用的取值忘记 xxx.value 来进行数据获取
 
 ## 跨域问题
 
 参考[跨域问题](/guide/dep/cors)
-
-## 热更新问题
-
-目前 Vite 对于热更新还存在许多问题。目前只能支持`.vue`文件的热更新。
-
-对`.tsx`,`.ts`文件还不能进行热更新
 
 ## 接口请求问题
 
@@ -268,11 +240,3 @@ proxy 代理不成功,没有代理到实际地址？
 ## 组件库问题
 
 跟组件库相关的问题可以查看[常见问题](https://2x.antdv.com/docs/vue/faq-cn/)
-
-## 最后
-
-遇到问题,可以先从以下几个方面查找
-
-1. 对应模块的 github 仓库[issue](https://github.com/anncwb/vue-vben-admin/issues)搜索
-2. 从[google](https://www.google.com)搜索问题
-3. 从[百度](https://www.百度.com)搜索问题

@@ -2,6 +2,12 @@
 
 项目菜单配置存放于[/@/router/menus](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus) 下面
 
+::: warning 注意
+
+菜单必须和路由匹配才能显示
+
+:::
+
 ## 菜单项
 
 ```ts

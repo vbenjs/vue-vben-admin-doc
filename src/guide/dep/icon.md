@@ -19,7 +19,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons-vue';
 
 ## 如何在 vite 内引入 iconify 组件
 
-项目中使用到的是`vite-plugin-purge-icons`这个插件来进行图标实现。
+项目中使用到的是[vite-plugin-purge-icons](https://github.com/antfu/purge-icons/blob/main/packages/vite-plugin-purge-icons/README.md)这个插件来进行图标实现。
 
 1. 安装依赖
 

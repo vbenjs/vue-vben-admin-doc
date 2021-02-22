@@ -39,6 +39,7 @@ http {
                 add_header Access-Control-Allow-Headers X-Requested-With;
                 add_header Access-Control-Allow-Methods GET,POST,OPTIONS;
           }
+
           # 静态资源部署
         location /web {
             # 不缓存html，防止程序更新后缓存继续生效
@@ -51,6 +52,7 @@ http {
               root   /usr/local/nginx/html/web;
               index  index.html index.htm;
         }
+
         location / {
            # 当路由为history模式时，需要的配置
            try_files $uri $uri/ /index.html;

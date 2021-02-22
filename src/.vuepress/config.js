@@ -153,8 +153,9 @@ function getGuide(type = '') {
     '/guide/basic/auth',
     '/guide/basic/mock',
     '/guide/basic/style',
+    '/guide/basic/windicss',
     '/guide/basic/build',
-    '/guide/basic/lib',
+    // '/guide/basic/lib',
     '/guide/basic/comp',
   ];
   return arr.map((item) => type + item);
@@ -172,6 +173,7 @@ function getBasicDirectives(type = '') {
 function getDeps(type = '') {
   const arr = [
     '/guide/dep/cors',
+    '/guide/dep/deploy',
     '/guide/dep/nginx',
     '/guide/dep/icon',
     '/guide/dep/i18n',

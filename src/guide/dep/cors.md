@@ -24,7 +24,7 @@
 
 本地开发一般使用下面 3 种方式进行处理
 
-1. webpack-dev-serve 的 proxy 进行代理
+1. vite 的 proxy 进行代理
 2. 后台开启 cors
 3. 使用 nginx 转发请求
 

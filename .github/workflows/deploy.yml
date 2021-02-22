@@ -13,10 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Replace Config Base
+      - name: Sed Config Base
         shell: bash
         run: |
-          sed -i '.bak' 's/doc-next/doc-next/g' ./src/.vuepress/config.js
+          sed -i  's/doc-next/doc-next/g' ./src/.vuepress/config.js
 
       - name: use Node.js 14
         uses: actions/setup-node@v1
@@ -48,10 +48,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: Replace Config Base
+      - name: Sed Config Base
         shell: bash
         run: |
-          sed -i '.bak' 's/doc-next/vben-admin-doc/g' ./src/.vuepress/config.js
+          sed -i  's/doc-next/vben-admin-doc/g' ./src/.vuepress/config.js
 
       - name: use Node.js 14
         uses: actions/setup-node@v1

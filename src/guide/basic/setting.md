@@ -2,7 +2,7 @@
 
 ## 主题色配置
 
-默认全局主题色配置位于[build/config/glob/lessModifyVars.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts)内
+默认全局主题色配置位于[build/config/glob/themeConfig.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts)内
 
 只需要修改 primaryColor 为您需要的配色，然后重新执行`yarn serve`即可
 
@@ -10,9 +10,7 @@
 /**
  * less global variable
  */
-export const primaryColor = '#0084f4';
-
-export { modifyVars, primaryColor };
+export const primaryColor = '#0960bd';
 ```
 
 ## 样式配置
@@ -124,8 +122,6 @@ VITE_GLOB_APP_TITLE=vben admin
 # 简称，用于配置文件名字 不要出现空格等特殊字符
 VITE_GLOB_APP_SHORT_NAME=vben_admin
 
-# 是否开启动态引入。开启后src/views所有`.vue`和`.tsx`文件都会被打包
-VITE_DYNAMIC_IMPORT=true
 
 
 ```
@@ -181,8 +177,10 @@ VITE_DROP_CONSOLE=true
 # 资源公共路径
 VITE_PUBLIC_PATH=./
 
-# 打包是否输出gz文件
-VITE_BUILD_GZIP = false
+# 打包是否输出gz｜br文件
+# 可选: gzip | brotli | none
+# 也可以有多个, 例如 ‘gzip’|'brotli',这样会同时生成 .gz和.br文件
+VITE_BUILD_COMPRESS = 'gzip'
 
 # 打包是否压缩图片
 VITE_USE_IMAGEMIN = false
@@ -279,6 +277,11 @@ export const useGlobSetting = (): SettingWrap => {
 const setting: ProjectConfig = {
   // 是否显示SettingButton
   showSettingButton: true,
+
+  // 设置按钮位置 可选项
+  // SettingButtonPositionEnum.AUTO: 自动选择  SettingButtonPositionEnum.HEADER:位于头部 SettingButtonPositionEnum.FIXED 固定在右侧
+  settingButtonPosition: SettingButtonPositionEnum.AUTO,
+
   // 权限模式,默认前端角色权限模式
   permissionMode: PermissionModeEnum.ROLE,
   // 权限缓存存放位置。默认存放于localStorage

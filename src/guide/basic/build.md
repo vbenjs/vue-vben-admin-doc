@@ -4,8 +4,6 @@
 
 由于是展示项目，所以打包后相对较大，如果项目中没有用到的插件，可以删除对应的文件或者路由不引用即可，没有引用就不会打包
 
-如果路由是动态由后台生成，`src/views`下面的文件不管有没有用到都会进行打包，这点需要注意
-
 当然，你也可以使用精简版 [vue-vben-admin-thin](https://github.com/anncwb/vben-admin-thin-next)进行开发
 
 :::
@@ -63,21 +61,16 @@ yarn preview:dist
 
 ::: tip
 
-只需开启 BUILD_ON_GZIP=true 即可在打包的同时生成.gz 文件
+只需开启 `VITE_BUILD_COMPRESS='gzip'` 即可在打包的同时生成.gz 文件
 
 nginx 配置文件可以查看[nginx 配置](/guide/dep/nginx)
 
 ```bash
 
 # 根据自己路径来配置更改
-VITE_PUBLIC_PATH=./
+# 例如部署在nginx /next/路径下  则VITE_PUBLIC_PATH=/next/
+VITE_PUBLIC_PATH=/
 ```
-
-:::
-
-::: danger 注意
-
-gzip 开启后，打包速度会比平时慢 2 倍左右，这是因为打包的同时还需要生成 `.gz`文件
 
 :::
 
@@ -121,7 +114,7 @@ npm run report
 
 运行之后你就可以在会自动打开页面看到具体的体积分布,分析哪些体积有问题
 
-![](https://github.com/vbenjs/static/blob/main/doc/report.png?raw=true)
+![](../../images/report.png)
 
 # 前端路由与服务端的结合
 

@@ -4,7 +4,7 @@
 
 ::: tip 为什么是 Vite
 
-很多人都觉得用[Vite](https://github.com/vitejs/vite)可能是感觉她的速度快。确实，速度跟 webpack 项目相比快了很多。同时我自己也是比较喜欢尝试新的技术，虽然她还不成熟。很多插件生态都需要完善，但是该项目会尽量将 vue-cli 的功能迁移过来。
+很多人都觉得用[Vite](https://github.com/vitejs/vite)可能是感觉它的速度快。确实，速度跟 webpack 项目相比快了很多。同时我自己也是比较喜欢尝试新的技术，虽然还不成熟。很多插件生态都需要完善，但是该项目会尽量将 vue-cli 的功能迁移过来。
 
 :::
 
@@ -20,7 +20,7 @@
 
 整个项目需要一定基础才能理解，所以在开发前可以先学一下以下内容,方便对项目的理解,提前了解和学习这些知识会非常有帮助:
 
-- [Vue3 文档](https://v3.cn.vuejs.org/guide/installation.html#%E4%BD%BF%E7%94%A8-cdn-%E6%88%96%E6%B2%A1%E6%9C%89%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7)
+- [Vue3 文档](https://v3.cn.vuejs.org/)
 
 - [Vue-RFCS](https://github.com/vuejs/rfcs)
 
@@ -34,7 +34,7 @@
 
 - [Es6](https://es6.ruanyifeng.com/)
 
-- [Vite 文档](https://vitejs.dev/guide/)
+- [Vite 文档](https://cn.vitejs.dev/)
 
 ## 模版
 
@@ -92,6 +92,7 @@
  全局错误处理
  系统性能优化
  上传组件
+ 主题色修改
 ```
 
 ### 正在开发的功能
@@ -112,6 +113,7 @@
 - [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import) - 用于组件库样式按需引入
 - [vite-plugin-imagemin](https://github.com/vbenjs/vite-plugin-imagemin) - 用于打包压缩图片资源
 - [vite-plugin-theme](https://github.com/vbenjs/vite-plugin-theme) - 用于在线切换主题色等颜色相关配置
+- [vite-plugin-compression](https://github.com/vbenjs/vite-plugin-theme) - 用于打包输入`.gz`|`.br`文件
 
 ## 目录结构
 

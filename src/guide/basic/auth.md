@@ -234,11 +234,7 @@ export default defineComponent({
 
 ### 实现流程
 
-1.  在 `.env`文件内开启 `VITE_DYNAMIC_IMPORT=true`
-
-该操作用于全量引入`src/views`下所有`.vue`和`.tsx`文件
-
-2.  在[项目配置](./setting.md#项目配置)将系统内权限模式改为`BACK`模式
+1.  在[项目配置](./setting.md#项目配置)将系统内权限模式改为`BACK`模式
 
 ```ts
 // ! 改动后需要清空浏览器缓存
@@ -248,7 +244,7 @@ const setting: ProjectConfig = {
 };
 ```
 
-3. 路由拦截，与角色权限模式一致
+2. 路由拦截，与角色权限模式一致
 
 **permissionStore.buildRoutesAction**
 

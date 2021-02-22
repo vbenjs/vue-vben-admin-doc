@@ -12,12 +12,9 @@
 .
 ├── ant # ant design 一些样式覆盖
 ├── color.less # 颜色
-├── global.less # 全局class
-├── helper # 辅助工具
 ├── index.less # 入口
-├── mixins.less # mixin函数
 ├── public.less # 公共类
-├── reset.less  # 重置样式
+├── config.less  # 每个组件都会自动引入样式
 ├── transition # 动画相关
 └── var # 变量
 
@@ -96,30 +93,6 @@
 .foo {}
 ```
 
-### less
-
-```vue
-<style scoped lang="less">
-  .a {
-    /deep/ .b {
-      // ...
-    }
-  }
-</style>
-```
-
-### scss
-
-```vue
-<style scoped lang="scss">
-  .a {
-    ::v-deep .b {
-      // ...
-    }
-  }
-</style>
-```
-
 ## CSS Modules
 
 针对样式覆盖问题，还有一种方案是使用 CSS Modules 模块化方案
@@ -161,36 +134,13 @@
 </style>
 ```
 
-## 常用全局 css 类
-
-步长默认是 `4`，可以在[/@/design/helper/distance.less](https://github.com/anncwb/vue-vben-admin/tree/main/src/design/helper/distance.less)内修改
-
-数值最大是 10，可以在[/@/design/helper/distance.less](https://github.com/anncwb/vue-vben-admin/tree/main/src/design/helper/distance.less)内修改
-
-```ts
-// m-1 表示 margin: 4px
-// mr-1 表示 margin-right: 4px
-// ml-1 表示 margin-left: 4px
-// mt-1 表示 margin-top: 4px
-// mb-1 表示 margin-bottom: 4px
-<div class="m-1"/>
-
-
-// p-1 表示 padding: 4px
-// pr-1 表示 padding-right: 4px
-// pl-1 表示 padding-left: 4px
-// pt-1 表示 padding-top: 4px
-// pb-1 表示 padding-bottom: 4px
-<div class="p-1">
-
-
-```
-
 ## 页面使用
 
 **reference**
 
 可以解决页面内重复引用导致实际生成的 style 样式表重复的问题
+
+这步已经全局引入了。所以**可以不写**,直接使用变量
 
 ```vue
 <style lang="less" scoped>

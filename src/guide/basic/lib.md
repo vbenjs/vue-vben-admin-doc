@@ -10,59 +10,6 @@
 yarn add echarts
 ```
 
-2. 在`vite.config.ts`内配置
-
 ```ts
-{
-  optimizeDeps: {
-    include: [
-      'echarts',
-    ],
-  },
-}
+import { init } from 'echarts';
 ```
-
-这样才能在 vite 内中使用 echarts 模块。
-
-如果我们需要引入`echarts`的地图模块，以前的做法是
-
-```ts
-import echarts from 'echarts';
-import 'echarts/map/js/china';
-```
-
-控制台会抛出如下错误
-
-```bash
-[vite] Avoid deep import "echarts/map/js/china" (imported by /@/views/demo/echarts/Map.vue)
-because "echarts" has been pre-optimized by vite into a single file.
-Prefer importing directly from the module entry:
-```
-
-因为我们无法从 echarts 内直接导出 china 变量。所以需要单独引入指定包
-
-```ts
-// 是没有这个变量的。所以这样写行不通
-import { china } from 'echarts';
-```
-
-此时我们在`vite.config.ts`内加入`echarts/map/js/china`重新运行即可。
-
-```bash
-{
-  optimizeDeps: {
-    include: [
-      'echarts',
-      'echarts/map/js/china',
-    ],
-  },
-}
-```
-
-::: tip
-
-optimizeDeps 是用于优化依赖配置。
-
-如果你发现你使用的依赖在 vite 报错，可以往`optimizeDeps.include`添加相应的包即可
-
-:::

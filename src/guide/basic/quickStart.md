@@ -2,7 +2,7 @@
 
 ::: tip 前提条件
 
-[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)需要 [Node.js](https://nodejs.org/en/)版本>=`12`
+[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)需要 [Node.js](https://nodejs.org/en/)版本>=`12`且不能为`13`版本
 
 :::
 
@@ -124,16 +124,12 @@ yarn install
 
 ## npm Script
 
-**安装依赖**
-
-```bash
-yarn bootstrap
-```
-
 **运行项目**
 
 ```bash
 yarn serve
+# or
+yarn dev
 ```
 
 **打包项目**
@@ -196,6 +192,22 @@ yarn clean:lib
 
 ```bash
 yarn reinstall
+```
+
+**执行 eslint 校验**
+
+该命令会对项目进行 eslint 校验,并修复部分问题
+
+```bash
+yarn lint:eslint
+```
+
+**执行 prettier 格式化代码**
+
+该命令会对项目**所有代码** 进行 prettier 格式化.**谨慎执行**
+
+```bash
+yarn lint:prettier
 ```
 
 接下来你可以修改代码进行业务开发了，我们内建了模拟数据、HMR 实时预览、状态管理、国际化、全局路由等等各种实用的功能辅助开发，你可以继续阅读其他文档进行了解。
