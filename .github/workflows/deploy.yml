@@ -19,14 +19,25 @@ jobs:
           sed -i  's/doc-next/doc-next/g' ./src/.vuepress/config.js
 
       - name: use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
-          registry-url: https://registry.npmjs.org/
-          node-version: 14
+          node-version: '14.x'
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Build
         run: |
-          yarn install
+          yarn install --frozen-lockfile
           yarn run build
 
       - name: Deploy
@@ -40,6 +51,7 @@ jobs:
           LOCAL_DIR: dist
           REMOTE_DIR: /srv/www/vben-admin-doc
           ARGS: --delete --verbose --parallel=80
+
   push-to-gh-page:
     if: "contains(github.event.head_commit.message, '[deploy]')"
     runs-on: ubuntu-latest
@@ -53,21 +65,30 @@ jobs:
           sed -i  's/doc-next/vue-vben-admin-doc/g' ./src/.vuepress/config.js
 
       - name: use Node.js 14
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v2.1.2
         with:
-          registry-url: https://registry.npmjs.org/
-          node-version: 14
+          node-version: '14.x'
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Build
         run: |
-          yarn install
+          yarn install --frozen-lockfile
           yarn run build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          ACTIONS_DEPLOY_KEY: ${{secrets.DEPLOY_TOKEN}}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./dist
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          forceOrphan: true
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          publish_dir: ./dist
+          allow_empty_commit: true
