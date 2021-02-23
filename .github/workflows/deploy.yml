@@ -46,18 +46,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Sed Config Base
         shell: bash
         run: |
-          sed -i  's/doc-next/vben-admin-doc/g' ./src/.vuepress/config.js
+          sed -i  's/doc-next/vue-vben-admin-doc/g' ./src/.vuepress/config.js
 
       - name: use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           registry-url: https://registry.npmjs.org/
-          node-version: 14
+          node-version: '14'
+       - name: Get yarn cache directory path
+          id: yarn-cache-dir-path
+          run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache node modules
+        - uses: actions/cache@v2
+          id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+          with:
+            path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+            restore-keys: |
+              ${{ runner.os }}-yarn-
 
       - name: Build
         run: |
