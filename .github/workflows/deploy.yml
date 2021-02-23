@@ -86,9 +86,27 @@ jobs:
           yarn install --frozen-lockfile
           yarn run build
 
+      - name: Set SSH Environment
+        env:
+          DOCS_DEPLOY_KEY: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$DEPLOY_TOKEN" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com > ~/.ssh/known_hosts
+          chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
+          git config --global user.email "vbenadmin@163.com"
+          git config --global user.name "vbenAdmin"
+
+      - name: Delete gh-pages branch
+        run: |
+          git push origin --delete gh-pages
+
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{secrets.DEPLOY_TOKEN}}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./dist
         with:
-          github_token: ${{ secrets.DEPLOY_TOKEN }}
-          publish_dir: ./dist
-          allow_empty_commit: true
+          forceOrphan: true
