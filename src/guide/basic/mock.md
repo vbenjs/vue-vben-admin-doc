@@ -519,6 +519,12 @@ export default [
 
 ### 线上如何开启 mock
 
+::: warning 注意
+
+线上开启 mock 只适用于一些简单的示例网站及预览网站。**一定不要在正式的生产环境开启！！！**
+
+:::
+
 1. 修改 .env.production 文件内的 VITE_USE_MOCK 的值为 true
 
 ```ts

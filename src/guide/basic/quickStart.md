@@ -13,8 +13,9 @@
 如果您使用的 IDE 是[vscode](https://code.visualstudio.com/)的话,可以安装以下工具来提高开发效率及代码格式化
 
 - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Iconify 图标插件
+- [windicss IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - windicss 提示插件
 - [I18n-ally](https://marketplace.visualstudio.com/items?itemName=antfu.i18n-ally) - i18n 插件
-- [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue 开发必备
+- [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue 开发必备 （也可以选择 Volar）
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 脚本代码检查
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
 - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css 格式化
@@ -142,6 +143,16 @@ yarn build
 
 ```bash
 yarn build:no-cache
+```
+
+**生成图标集**
+
+该命令会生成所选择的图标集，提供给图标选择器使用
+
+具体使用方式请查看 // TODO
+
+```bash
+yarn gen:icon
 ```
 
 **生成打包分析**

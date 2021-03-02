@@ -22,10 +22,18 @@ http {
     gzip_disable "MSIE [1-6]\.";
 
 
+    # 开启 brotli压缩
+    # 需要安装对应的nginx模块,具体安装方式可以自行查询
+    # 可以与gzip共存不会冲突
+    brotli on;
+    brotli_comp_level 6;
+    brotli_buffers 16 8k;
+    brotli_min_length 20;
+    brotli_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;
+
     server {
         listen       8080;
         server_name  localhost;
-
 
         # 接口代理，用于解决跨域问题
     		location /api {

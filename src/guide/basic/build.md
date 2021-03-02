@@ -74,6 +74,29 @@ VITE_PUBLIC_PATH=/
 
 :::
 
+## 开启 brotli
+
+brotli 是比 gzip 压缩率更高的算法，可以与 gzip 共存不会冲突。需要 nginx 安装指定模块并开启即可
+
+::: tip
+
+只需开启 `VITE_BUILD_COMPRESS='brotli'` 即可在打包的同时生成.br 文件
+
+nginx 配置文件可以查看[nginx 配置](/guide/dep/nginx)
+
+```bash
+
+# 根据自己路径来配置更改
+# 例如部署在nginx /next/路径下  则VITE_PUBLIC_PATH=/next/
+VITE_PUBLIC_PATH=/
+```
+
+:::
+
+## 同时开启 gzip 与 brotli
+
+只需开启 `VITE_BUILD_COMPRESS='brotli,gzip'` 即可在打包的同时生成.gz 和.br 文件
+
 ## 发布
 
 只需要将最终生成的静态文件，dist 文件夹的静态文件发布到你的 cdn 或者静态服务器即可，需要注意的是其中的 index.html 通常会是你后台服务的入口页面，在确定了 js 和 css 的静态之后可能需要改变页面的引入路径。
@@ -112,7 +135,13 @@ npm run report
 
 ```
 
-运行之后你就可以在会自动打开页面看到具体的体积分布,分析哪些体积有问题
+运行之后你就可以在会自动打开页面看到具体的体积分布,分析哪些体积有问题.
+
+::: tip
+
+左上角可以切换 显示 gzip/或者 brotli
+
+:::
 
 ![](../../images/report.png)
 

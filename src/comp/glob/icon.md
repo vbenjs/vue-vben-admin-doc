@@ -16,8 +16,16 @@ icon 的值可以在[Iconify](https://iconify.design) 上面查询
 
 ```vue
 <template>
-  <g-icon icon="gg:loadbar-doc"></g-icon>
+  <Icon icon="gg:loadbar-doc"></Icon>
 </template>
+
+<script>
+  import { defineComponent } from 'vue';
+  import { Icon } from '/@/components/Icon';
+  export default defineComponent({
+    components: { Icon },
+  });
+</script>
 ```
 
 ## Props

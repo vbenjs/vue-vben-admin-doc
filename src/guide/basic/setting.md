@@ -298,18 +298,6 @@ const setting: ProjectConfig = {
   showLogo: true,
   // 是否显示底部信息 copyright
   showFooter: true,
-
-  // 多语言配置
-  locale: {
-    // 是否显示,这里显示只的是是否显示切换语言的按钮
-    show: true,
-    // 当前语言
-    lang: 'zh_CN',
-    // 默认语言
-    fallback: 'zh_CN',
-    //允许的语言
-    availableLocales: ['zh_CN', 'en'],
-  },
   // 头部配置
   headerSetting: {
     // 背景色
@@ -430,6 +418,42 @@ const setting: ProjectConfig = {
 };
 ```
 
+## 多语言配置
+
+用于配置多语言信息
+
+[src/settings/localeSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/localeSetting.ts)
+
+```ts
+export const LOCALE: { [key: string]: LocaleType } = {
+  ZH_CN: 'zh_CN',
+  EN_US: 'en',
+};
+
+export const localeSetting: LocaleSetting = {
+  // 是否显示语言选择器
+  showPicker: true,
+  // 当前语言
+  locale: LOCALE.ZH_CN,
+  // 默认语言
+  fallback: LOCALE.ZH_CN,
+  // 允许的语言
+  availableLocales: [LOCALE.ZH_CN, LOCALE.EN_US],
+};
+
+// 语言列表
+export const localeList: DropMenu[] = [
+  {
+    text: '简体中文',
+    event: LOCALE.ZH_CN,
+  },
+  {
+    text: 'English',
+    event: LOCALE.EN_US,
+  },
+];
+```
+
 ## 颜色配置
 
 用于预设一些颜色数组
@@ -437,6 +461,24 @@ const setting: ProjectConfig = {
 [src/settings/designSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/designSetting.ts)
 
 ```ts
+// 样式前缀
+export default {
+  prefixCls: 'vben',
+};
+
+//  app主题色预设
+export const APP_PRESET_COLOR_LIST: string[] = [
+  '#0960bd',
+  '#0084f4',
+  '#009688',
+  '#536dfe',
+  '#ff5c93',
+  '#ee4f12',
+  '#0096c7',
+  '#9c27b0',
+  '#ff9800',
+];
+
 // 顶部背景色预设
 export const HEADER_PRESET_BG_COLOR_LIST: string[] = [
   '#ffffff',

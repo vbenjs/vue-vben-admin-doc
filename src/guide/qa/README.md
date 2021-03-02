@@ -14,6 +14,22 @@
 2. 从[google](https://www.google.com)搜索问题
 3. 从[百度](https://www.百度.com)搜索问题
 
+## ant-design-vue 控制台警告
+
+在控制台看到以下警告的原因是 ant-design-vue 会检测是否使用了 babel-plugin-import 来判断是否进行了组件库的按需引入。
+
+但是项目使用的是 vite 的插件[vite-plugin-style-import](https://github.com/anncwb/vite-plugin-style-import)来进行按需引入。在 vite 内没必要使用 babel 在转换一次代码了。
+
+所以想关闭这个警告，得等 ant-design-vue 提供可以关闭该警告的配置。
+
+```bash
+You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size. Not support Vite !!!
+```
+
+## 添加菜单后没显示
+
+菜单必须和路由匹配才会显示在界面上，所以得确保菜单和对应的路由存在即可显示.
+
 ## imagemin 依赖安装失败
 
 由于 imagemin 在中国不好安装。现提供几个解决方案
@@ -147,17 +163,21 @@ git pull origin main
 
 ## 打包文件过大
 
-首先 完整版由于引用了比较多的库文件，所以打包会比较大。可以使用精简版来进行开发
+- 首先 完整版由于引用了比较多的库文件，所以打包会比较大。可以使用精简版来进行开发
 
-其次建议开启 gzip，使用之后体积会只有原先 1/3 左右。
+- 其次建议开启 gzip，使用之后体积会只有原先 1/3 左右。
 
 gzip 可以由服务器直接开启。如果是这样，前端不需要构建`.gz`格式的文件
 
 如果前端构建了`.gz`文件,以 nginx 为例,nginx 需要开启`gzip_static: on`这个选项。
 
+- 开启 gzip 的同时还可以同时开启`brotli`，比 gzip 更好的压缩。两者可以共存
+
 **注意**
 
-gzip_static: 这个模块需要 nginx 另外安装,默认的 nginx 没有安装这个模块。
+- gzip_static: 这个模块需要 nginx 另外安装,默认的 nginx 没有安装这个模块。
+
+- 开启`brotli`页需要 nginx 另外安装模块
 
 ## 运行错误
 
