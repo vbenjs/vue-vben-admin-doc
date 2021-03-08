@@ -149,7 +149,7 @@ yarn build:no-cache
 
 该命令会生成所选择的图标集，提供给图标选择器使用
 
-具体使用方式请查看 // TODO
+具体使用方式请查看 [图标集生成](../dep/icon.md#图标集预生成)
 
 ```bash
 yarn gen:icon

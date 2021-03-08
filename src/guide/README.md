@@ -1,40 +1,33 @@
 # 介绍
 
-[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)是一个基于[Vue3.0](https://github.com/vuejs/vue-next)、[Vite](https://github.com/vitejs/vite)、 [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/)、[TypeScript](https://www.typescriptlang.org/)的后台解决方案，目标是为中大型项目开发,提供现成的开箱解决方案，二次封装组件、utils、hooks、动态菜单、权限校验、按钮级别权限控制等功能。项目所使用的技术都是前端较新的技术栈，可以用来作为项目的启动模版，可以帮助你快速搭建企业级中后台产品原型。也可以作为一个示例，用于学习`vue3`，`vite`，`ts`等等主流技术。尽管还有很多使用到的技术处于`beta`|`rc`状态，但是该项目会一直持续跟进,将最新的东西应用与项目之中。
-
-::: tip 为什么是 Vite
-
-很多人都觉得用[Vite](https://github.com/vitejs/vite)可能是感觉它的速度快。确实，速度跟 webpack 项目相比快了很多。同时我自己也是比较喜欢尝试新的技术，虽然还不成熟。很多插件生态都需要完善，但是该项目会尽量将 vue-cli 的功能迁移过来。
-
-:::
+[Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin)是一个基于[Vue3.0](https://github.com/vuejs/vue-next)、[Vite](https://github.com/vitejs/vite)、 [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/)、[TypeScript](https://www.typescriptlang.org/)的后台解决方案，目标是为中大型项目开发,提供现成的开箱解决方案，二次封装组件、utils、hooks、动态菜单、权限校验、按钮级别权限控制等功能。项目所使用的技术都是前端较新的技术栈，可以用来作为项目的启动模版，可以帮助你快速搭建企业级中后台产品原型。也可以作为一个示例，用于学习`vue3`，`vite`，`ts`等等主流技术。该项目会一直持续跟进最新技术,将最新的东西应用与项目之中。
 
 ## 前言
 
 ::: tip 关于组件
 
-项目虽然封装了一些组件，但是可能不能满足大部分的要求。所以，如果组件不满足你的要求，完全可以不用甚至删除代码自己写。不必坚持使用项目自带的组件
+项目虽然二次封装了一些组件，但是可能不能满足大部分的要求。所以，如果组件不满足你的要求，完全可以不用甚至删除代码自己写。不必坚持使用项目自带的组件
 
 :::
 
+## 环境准备
+
 你的本地环境需要安装 [yarn](https://yarnpkg.com/)、[node](http://nodejs.org/) 和 [git](https://git-scm.com/)
+
+## 掌握知识
 
 整个项目需要一定基础才能理解，所以在开发前可以先学一下以下内容,方便对项目的理解,提前了解和学习这些知识会非常有帮助:
 
-- [Vue3 文档](https://v3.cn.vuejs.org/)
+- [Vue3 文档](https://v3.vuejs.org/)
 
 - [Vue-RFCS](https://github.com/vuejs/rfcs)
-
-- [Vue2 迁移到 3](https://v3.cn.vuejs.org/guide/migration/introduction.html#%E6%A6%82%E8%A7%88)
-
+- [Vue2 迁移到 3](https://v3.vuejs.org/guide/migration/introduction.html)
 - [TypeScript](https://www.typescriptlang.org/)
-
 - [Vue-Router-Next](https://next.router.vuejs.org/)
-
 - [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/)
-
 - [Es6](https://es6.ruanyifeng.com/)
-
-- [Vite 文档](https://cn.vitejs.dev/)
+- [Vite](https://vitejs.dev/)
+- [WindiCss](https://windicss.netlify.app/)
 
 ## 模版
 
@@ -114,6 +107,7 @@
 - [vite-plugin-imagemin](https://github.com/vbenjs/vite-plugin-imagemin) - 用于打包压缩图片资源
 - [vite-plugin-theme](https://github.com/vbenjs/vite-plugin-theme) - 用于在线切换主题色等颜色相关配置
 - [vite-plugin-compression](https://github.com/vbenjs/vite-plugin-theme) - 用于打包输入`.gz`|`.br`文件
+- [vite-plugin-svg-icons](https://github.com/vbenjs/vite-plugin-svg-icons) - 快速生成 svg 雪碧图
 
 ## 目录结构
 
@@ -121,11 +115,7 @@
 
 .
 ├── build # 构建相关脚本
-├── commitlint.config.js # git message配置文件
-├── lint-staged.config.js # lint-staged配置文件
 ├── mock # 模拟数据
-├── postcss.config.js # postcss配置文件呢
-├── prettier.config.js # prettier配置文件
 ├── public # 静态资源
 ├── src # 项目代码
 │   ├── api #请求相关
@@ -142,20 +132,16 @@
 │   ├── settings # 配置文件
 │   ├── plugins # 插件
 │   ├── store # vuex
-│   ├── types # 类型定义
 │   ├── utils # 工具类
 │   └── views # 页面
-├── stylelint.config.js # stylelint配置文件
-├── tsconfig.json # ts配置文件呢
-├── vite.config.ts # vite配置文件
-└── yarn.lock
+└── types # 类型定义
 ```
 
 ## 浏览器支持
 
-本地开发推荐使用`Chrome`浏览器,在火狐浏览器进行开发相对卡顿。
+本地开发推荐使用`Chrome 80+`浏览器,在火狐浏览器进行开发相对卡顿。
 
-支持现代浏览器, IE 暂不支持，后续考虑支持 ie11
+支持现代浏览器, IE 不支持
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
 | :-: | :-: | :-: | :-: | :-: |

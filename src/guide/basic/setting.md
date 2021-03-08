@@ -1,5 +1,13 @@
 # 项目配置项
 
+::: tip
+
+/@/ 是 vite 内配置 的别名
+
+/@/settings 等同于 src/settings
+
+:::
+
 ## 主题色配置
 
 默认全局主题色配置位于[build/config/glob/themeConfig.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts)内
@@ -155,6 +163,14 @@ VITE_GLOB_API_URL=/api
 VITE_GLOB_UPLOAD_URL=/upload
 
 ```
+
+::: warning 注意
+
+这里配置的`VITE_PROXY`以及`VITE_GLOB_API_URL`, /api 需要是唯一的，不要和接口有的名字冲突
+
+如果你的接口是`http://localhost:3000/api`之类的，请考虑将`VITE_GLOB_API_URL=/xxxx` 换成别的名字
+
+:::
 
 **.env.production 生产环境适用**
 

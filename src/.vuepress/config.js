@@ -54,6 +54,10 @@ module.exports = {
             link: 'https://github.com/anncwb/vue-vben-admin/blob/main/CHANGELOG.zh_CN.md',
           },
           {
+            text: '赞助',
+            link: '/guide/donate',
+          },
+          {
             text: '预览',
             items: [
               {

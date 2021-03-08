@@ -841,15 +841,15 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@commitlint/cli@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/cli/download/@commitlint/cli-12.0.1.tgz#8960e34e8f1aed8b2ea50f223ee817fdf2264ffb"
-  integrity sha1-iWDjTo8a7YsupQ8iPugX/fImT/s=
+"@commitlint/cli@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/cli/download/@commitlint/cli-12.1.0.tgz#6f960b7f89a15ffdbabb2cbecc45514944218906"
+  integrity sha1-b5YLf4mhX/26uyy+zEVRSUQhiQY=
   dependencies:
     "@commitlint/format" "^12.0.1"
-    "@commitlint/lint" "^12.0.1"
-    "@commitlint/load" "^12.0.1"
-    "@commitlint/read" "^12.0.1"
+    "@commitlint/lint" "^12.1.0"
+    "@commitlint/load" "^12.1.0"
+    "@commitlint/read" "^12.1.0"
     "@commitlint/types" "^12.0.1"
     get-stdin "8.0.0"
     lodash "^4.17.19"
@@ -857,10 +857,10 @@
     resolve-global "1.0.0"
     yargs "^16.2.0"
 
-"@commitlint/config-conventional@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/config-conventional/download/@commitlint/config-conventional-12.0.1.tgz#7bf3bbf68bda967c5165135ebe8f2055decf1a83"
-  integrity sha1-e/O79ovalnxRZRNevo8gVd7PGoM=
+"@commitlint/config-conventional@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/config-conventional/download/@commitlint/config-conventional-12.1.0.tgz#be8c8b150d6dd7bd81f59b6def39d1f938fff53c"
+  integrity sha1-voyLFQ1t172B9Ztt7znR+Tj/9Tw=
   dependencies:
     conventional-changelog-conventionalcommits "^4.3.1"
 
@@ -885,28 +885,28 @@
     "@commitlint/types" "^12.0.1"
     chalk "^4.0.0"
 
-"@commitlint/is-ignored@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/is-ignored/download/@commitlint/is-ignored-12.0.1.tgz#0e59b0524e16300b1d9d62f8c138f083f22ebf9a"
-  integrity sha1-DlmwUk4WMAsdnWL4wTjwg/Iuv5o=
+"@commitlint/is-ignored@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/is-ignored/download/@commitlint/is-ignored-12.1.0.tgz#26f0d9fb14dff50e66f6ffedc9408dee513783ac"
+  integrity sha1-JvDZ+xTf9Q5m9v/tyUCN7lE3g6w=
   dependencies:
     "@commitlint/types" "^12.0.1"
     semver "7.3.4"
 
-"@commitlint/lint@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/lint/download/@commitlint/lint-12.0.1.tgz#a88b01c81cb6ca1867bd3d8fd288ba30017c2b7d"
-  integrity sha1-qIsByBy2yhhnvT2P0oi6MAF8K30=
+"@commitlint/lint@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/lint/download/@commitlint/lint-12.1.0.tgz#11b1d72982a67575ea2f666ec1fd88c3f193e925"
+  integrity sha1-EbHXKYKmdXXqL2Zuwf2Iw/GT6SU=
   dependencies:
-    "@commitlint/is-ignored" "^12.0.1"
-    "@commitlint/parse" "^12.0.1"
-    "@commitlint/rules" "^12.0.1"
+    "@commitlint/is-ignored" "^12.1.0"
+    "@commitlint/parse" "^12.1.0"
+    "@commitlint/rules" "^12.1.0"
     "@commitlint/types" "^12.0.1"
 
-"@commitlint/load@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/load/download/@commitlint/load-12.0.1.tgz#4d180fc88e5b4cfcb476a245d899f85154137502"
-  integrity sha1-TRgPyI5bTPy0dqJF2Jn4UVQTdQI=
+"@commitlint/load@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/load/download/@commitlint/load-12.1.0.tgz#ac18ad1b80e239551ad63209d660a04f3950cb58"
+  integrity sha1-rBitG4DiOVUa1jIJ1mCgTzlQy1g=
   dependencies:
     "@commitlint/execute-rule" "^12.0.1"
     "@commitlint/resolve-extends" "^12.0.1"
@@ -916,24 +916,24 @@
     lodash "^4.17.19"
     resolve-from "^5.0.0"
 
-"@commitlint/message@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/message/download/@commitlint/message-12.0.1.tgz?cache=0&sync_timestamp=1614046781732&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40commitlint%2Fmessage%2Fdownload%2F%40commitlint%2Fmessage-12.0.1.tgz#caff6743db78c30a063809501cf4b835c3ce7fa6"
-  integrity sha1-yv9nQ9t4wwoGOAlQHPS4NcPOf6Y=
+"@commitlint/message@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/message/download/@commitlint/message-12.1.0.tgz#661d92715dafa2251d9c46563a243acc2bbd286c"
+  integrity sha1-Zh2ScV2voiUdnEZWOiQ6zCu9KGw=
 
-"@commitlint/parse@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/parse/download/@commitlint/parse-12.0.1.tgz?cache=0&sync_timestamp=1614046719207&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40commitlint%2Fparse%2Fdownload%2F%40commitlint%2Fparse-12.0.1.tgz#ba8641f53e15b523808ba2eaa48c1bf0129c91c4"
-  integrity sha1-uoZB9T4VtSOAi6LqpIwb8BKckcQ=
+"@commitlint/parse@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/parse/download/@commitlint/parse-12.1.0.tgz#0bb7169e261af070190077a4aca367373c37f7a0"
+  integrity sha1-C7cWniYa8HAZAHekrKNnNzw396A=
   dependencies:
     "@commitlint/types" "^12.0.1"
     conventional-changelog-angular "^5.0.11"
     conventional-commits-parser "^3.0.0"
 
-"@commitlint/read@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/read/download/@commitlint/read-12.0.1.tgz#41f3295ed9f451d4c65223cd37ddd59ef714bddb"
-  integrity sha1-QfMpXtn0UdTGUiPNN93VnvcUvds=
+"@commitlint/read@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/read/download/@commitlint/read-12.1.0.tgz#5d691e7fdc6397dd3dbc1ee8cb16b4d4f25a55d2"
+  integrity sha1-XWkef9xjl909vB7oyxa01PJaVdI=
   dependencies:
     "@commitlint/top-level" "^12.0.1"
     "@commitlint/types" "^12.0.1"
@@ -950,13 +950,13 @@
     resolve-from "^5.0.0"
     resolve-global "^1.0.0"
 
-"@commitlint/rules@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/rules/download/@commitlint/rules-12.0.1.tgz#1c81345f468597656141338a493d5e426e44dab9"
-  integrity sha1-HIE0X0aFl2VhQTOKST1eQm5E2rk=
+"@commitlint/rules@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.npm.taobao.org/@commitlint/rules/download/@commitlint/rules-12.1.0.tgz#da612ffda4992ac1c30589f777f92b73f97460cd"
+  integrity sha1-2mEv/aSZKsHDBYn3d/krc/l0YM0=
   dependencies:
     "@commitlint/ensure" "^12.0.1"
-    "@commitlint/message" "^12.0.1"
+    "@commitlint/message" "^12.1.0"
     "@commitlint/to-lines" "^12.0.1"
     "@commitlint/types" "^12.0.1"
 
