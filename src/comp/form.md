@@ -199,7 +199,7 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 
 说明: 校验指定表单项
 
-**validateFields**
+**validate**
 
 类型: `(nameList?: NamePath[]) => Promise<any>`
 
@@ -262,7 +262,7 @@ register 用于注册 useForm，如果需要使用`useForm`提供的 api，必�
 :::
 
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | schemas | `Schema[]` | - | - | 表单配置，见下方 FormSchema 配置 |
 | submitOnReset | `boolean` | true | - | 重置时是否提交表单 |
 | labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |
@@ -336,7 +336,7 @@ export interface ButtonProps extends BasicButtonProps {
 ## FormSchema
 
 | 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | field | `string` | - | - | 字段名 |
 | label | `string` | - | - | 标签名 |
 | subLabel | `string` | - | - | 二级标签名灰色 |

@@ -151,6 +151,9 @@ export interface RouteMeta {
   // 如果该路由会携带参数，且需要在tab页上面显示。则需要设置为true
   carryParam?: boolean;
 
+  // 隐藏所有子菜单
+  hideChildrenInMenu?: boolean;
+
   // 当前激活的菜单。用于配置详情页时左侧激活的菜单路径
   currentActiveMenu?: string;
 

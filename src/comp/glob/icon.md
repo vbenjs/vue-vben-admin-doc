@@ -30,6 +30,9 @@ icon 的值可以在[Iconify](https://iconify.design) 上面查询
 
 ## Props
 
-| 属性 | 类型     | 默认值 | 说明   |
-| ---- | -------- | ------ | ------ |
-| icon | `string` | -      | 图标名 |
+| 属性   | 类型     | 默认值 | 说明     |
+| ------ | -------- | ------ | -------- |
+| icon   | `string` | -      | 图标名   |
+| color  | `string` | -      | 图标颜色 |
+| size   | `number` | 16     | 图标大小 |
+| prefix | `string` | -      | 图标前缀 |

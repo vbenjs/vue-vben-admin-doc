@@ -148,9 +148,21 @@ npm run ls-lint
 
 ```
 
-### 注意
+::: warning 注意
 
-在最新版的 macbook pro M1 中不能使用
+在最新版的 macbook pro M1 中不能使用,在关闭的同时还需要删除依赖
+
+在 package.json 内删除下面依赖
+
+```bash
+
+@ls-lint/ls-lint
+
+```
+
+删除后才可以正确安装
+
+:::
 
 ### 如何关闭
 

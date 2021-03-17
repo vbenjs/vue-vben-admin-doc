@@ -50,7 +50,7 @@ VITE_GLOB_UPLOAD_URL=/upload
 
 | 属性              | 类型       | 默认值   | 可选值 | 说明                                     |
 | ----------------- | ---------- | -------- | ------ | ---------------------------------------- |
-| showPreviewNumber | `boolean`  | true     | -      | 是否显示预览按钮                         |
+| showPreviewNumber | `boolean`  | true     | -      | 是否显示预览数量                         |
 | emptyHidePreview  | `boolean`  | false    | -      | 没有上传文件时是否隐藏预览               |
 | helpText          | `string`   | -        | -      | 帮助文本                                 |
 | maxSize           | `number`   | 2        | -      | 单个文件最大体积，单位 M                 |

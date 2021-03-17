@@ -2,7 +2,9 @@
 
 项目中有两种图标使用方式。
 
-1. 使用`ant-design-vue`提供的图标
+## 组件库图标
+
+使用`ant-design-vue`提供的图标
 
 ```vue
 <template>
@@ -24,7 +26,31 @@
 
 使用方式请参考 [Icon 组件](../../comp/glob/icon.md)
 
-## 如何在 vite 内引入 iconify 组件
+## Svg Sprite 图标
+
+1. 使用
+
+将需要的 svg 图标放到`src/assets/icons`内
+
+例: test.svg
+
+2. 使用`SvgIcon`组件进行展示
+
+```vue
+<template>
+  <SvgIcon name="test" />
+</template>
+
+<script>
+  import { defineComponent } from 'vue';
+  import { SvgIcon } from '/@/components/Icon';
+  export default defineComponent({
+    components: { SvgIcon },
+  });
+</script>
+```
+
+## iconify 图标
 
 项目中使用到的是[vite-plugin-purge-icons](https://github.com/antfu/purge-icons/blob/main/packages/vite-plugin-purge-icons/README.md)这个插件来进行图标实现。
 
@@ -127,11 +153,11 @@ export default defineComponent({
 });
 ```
 
-## 使用组件
+### 使用组件
 
 使用方式请参考 [Icon 组件](../../comp/glob/icon.md)
 
-## 图标集预生成
+## 图标选择器-图标集预生成
 
 由于图标选择器这个比较特殊的存在,项目会打包一些比较多的图标。图标选择器的图标需要事先指定并生成相应的文件
 

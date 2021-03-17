@@ -13,6 +13,26 @@
 1. 对应模块的 github 仓库[issue](https://github.com/anncwb/vue-vben-admin/issues)搜索
 2. 从[google](https://www.google.com)搜索问题
 3. 从[百度](https://www.百度.com)搜索问题
+4. 在下面列表找不到问题可以到 issue 提问 [issues](https://github.com/anncwb/vue-vben-admin/issues)
+5. 如果不是问题类型的，需要讨论的,请到[discussions](https://github.com/anncwb/vue-vben-admin/discussions)讨论
+
+## 关于缓存更新问题
+
+vben-admin 的项目配置默认是缓存在`localStorage`内，所以版本更新后可能有些配置没改变。
+
+解决方式是每次更新代码的时候修改 package.json 内的 version 版本号. 因为 localStorage 的 key 是根据版本号来的。所以更新后版本不同前面的配置会失效。重新登录即可
+
+`VUE_VBEN_ADMIN__DEVELOPMENT__2.0.3__COMMON__LOCAL__KEY__` key 的组成是 [项目名]+[开发环境]+[版本号]+[key]
+
+## 关于修改配置文件的问题
+
+当修改`.env`等环境文件及`vite.config.ts`文件时。vite 会自动重启服务。
+
+自动重启有几率出现问题，请重新运行项目即可解决.
+
+## esbuild 模式下开启 LEGACY 打包失败
+
+如果将  build.minify 设置为'esbuild',且不能启用 LEGACY,否则打包将会报错,两者选其一即可打包.
 
 ## ant-design-vue 控制台警告
 

@@ -99,7 +99,7 @@ module.exports = {
             {
               title: '其他(更新中...)',
               collapsable: false,
-              children: ['/guide/qa/'],
+              children: ['/guide/qa/other', '/guide/qa/'],
             },
           ],
           '/comp/': [
@@ -198,6 +198,8 @@ function getFnComp(type = '') {
 function getComp(type = '') {
   const arr = [
     '/comp/basic',
+    '/comp/svgIcon',
+    '/comp/iconPicker',
     '/comp/page',
     '/comp/popConfirmButton',
     '/comp/auth',
