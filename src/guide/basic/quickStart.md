@@ -44,12 +44,12 @@ git clone https://github.com/anncwb/vue-vben-admin
 也可以通过下方地址进行 clone
 
 ```bash
-git clone https://gitee.com/annsion/vue-vben-admin-next
+git clone https://gitee.com/annsion/vue-vben-admin
 ```
 
 ::: tip 注意
 
-[vue-vben-admin-next](https://gitee.com/annsion/vue-vben-admin-next)在 gitee 的代码可能不是最新的
+[vue-vben-admin](https://gitee.com/annsion/vue-vben-admin)在 gitee 的代码可能不是最新的
 
 :::
 

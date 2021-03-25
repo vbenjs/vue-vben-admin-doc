@@ -100,7 +100,7 @@ git commit -m 'feat(home): add home page'
 
 ```
 
-## Ls-Lint
+## Ls-Lint (2.1.1+已移除)
 
 ls-lint 用于校验项目内文件及文件夹的命名风格，可以统一项目文件命名风格
 

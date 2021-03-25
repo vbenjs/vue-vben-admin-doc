@@ -182,6 +182,7 @@ function getDeps(type = '') {
     '/guide/dep/icon',
     '/guide/dep/i18n',
     '/guide/dep/lint',
+    '/guide/dep/server',
   ];
   return arr.map((item) => type + item);
 }
