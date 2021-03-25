@@ -47,26 +47,23 @@ children 的 path 字段不需要以`/`开头
 
 :::
 
-```ts
-import type { MenuModule } from '/@/router/types.d';
+````ts
+import type { MenuModule } from '/@/router/types';
+import { t } from '/@/hooks/web/useI18n';
 const menu: MenuModule = {
-  // 菜单排序。越大排名越后面
-  orderNo: 50,
+  orderNo: 10,
   menu: {
-    path: '/tree',
-    name: 'Tree',
+    name: t('routes.dashboard.dashboard'),
+    path: '/dashboard',
+
     children: [
       {
-        path: 'basic',
-        name: '基础示例',
+        path: 'analysis',
+        name: t('routes.dashboard.analysis'),
       },
       {
-        path: 'editTree',
-        name: '右键示例',
-      },
-      {
-        path: 'actionTree',
-        name: '函数操作示例',
+        path: 'workbench',
+        name: t('routes.dashboard.workbench'),
       },
     ],
   },
@@ -76,27 +73,22 @@ export default menu;
 
 以上模块会转化成以下结构
 
-```ts
 
+```ts
 [
-  path: '/tree',
-  name: 'Tree',
+  path: '/dashboard',
+  name: t('routes.dashboard.dashboard'),
   children: [
     {
-      path: 'tree/basic',
-      name: '基础示例',
+      path: 'dashboard/analysis',
+      name: t('routes.dashboard.analysis'),
     },
     {
-      path: 'tree/editTree',
-      name: '右键示例',
-    },
-    {
-      path: 'tree/actionTree',
-      name: '函数操作示例',
+      path: 'dashboard/workbench',
+      name: t('routes.dashboard.workbench'),
     },
   ],
 ]
-
 ```
 
 ## 新增菜单
@@ -120,3 +112,4 @@ export default menu;
 orderNo 越大，排序越靠后
 
 :::
+````

@@ -10,14 +10,11 @@
 
 ## 主题色配置
 
-默认全局主题色配置位于[build/config/glob/themeConfig.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts)内
+默认全局主题色配置位于[build/config/themeConfig.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts)内
 
-只需要修改 primaryColor 为您需要的配色，然后重新执行`yarn serve`即可
+只需要修改 `primaryColor` 为您需要的配色，然后重新执行`yarn serve`即可
 
 ```js
-/**
- * less global variable
- */
 export const primaryColor = '#0960bd';
 ```
 

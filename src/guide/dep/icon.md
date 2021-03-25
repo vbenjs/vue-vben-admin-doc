@@ -78,44 +78,69 @@ export default {
 
 完整代码 [/@/components/Icon/index.tsx](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Icon/index.tsx)
 
-```tsx
-export default defineComponent({
-  name: 'Icon',
-  props: {
-    // icon name
-    icon: {
-      type: String as PropType<string>,
-      required: true,
-    },
-    // icon color
-    color: {
-      type: String as PropType<string>,
-    },
-    // icon size
-    size: {
-      type: [String, Number] as PropType<string | number>,
-      default: 14,
-    },
-    prefix: {
-      type: String as PropType<string>,
-      default: '',
-    },
-  },
-  setup(props, { attrs }) {
-    const elRef = ref<Nullable<HTMLElement>>(null);
+```vue
+<template>
+  <SvgIcon :size="size" :name="getSvgIcon" v-if="isSvgIcon" :class="[$attrs.class]" :spin="spin" />
+  <span
+    v-else
+    ref="elRef"
+    :class="[$attrs.class, 'app-iconify anticon', spin && 'app-iconify-spin']"
+    :style="getWrapStyle"
+  ></span>
+</template>
+<script lang="ts">
+  import type { PropType } from 'vue';
+  import {
+    defineComponent,
+    ref,
+    watch,
+    onMounted,
+    nextTick,
+    unref,
+    computed,
+    CSSProperties,
+  } from 'vue';
 
-    const getIconRef = computed(() => {
-      const { icon, prefix } = props;
-      return `${prefix ? prefix + ':' : ''}${icon}`;
-    });
-    const update = async () => {
-      const el = unref(elRef);
-      if (el) {
+  import SvgIcon from './SvgIcon.vue';
+  import Iconify from '@purge-icons/generated';
+  import { isString } from '/@/utils/is';
+  import { propTypes } from '/@/utils/propTypes';
+
+  const SVG_END_WITH_FLAG = '|svg';
+  export default defineComponent({
+    name: 'GIcon',
+    components: { SvgIcon },
+    props: {
+      // icon name
+      icon: propTypes.string,
+      // icon color
+      color: propTypes.string,
+      // icon size
+      size: {
+        type: [String, Number] as PropType<string | number>,
+        default: 16,
+      },
+      spin: propTypes.bool.def(false),
+      prefix: propTypes.string.def(''),
+    },
+    setup(props) {
+      const elRef = ref<ElRef>(null);
+
+      const isSvgIcon = computed(() => props.icon?.endsWith(SVG_END_WITH_FLAG));
+      const getSvgIcon = computed(() => props.icon.replace(SVG_END_WITH_FLAG, ''));
+      const getIconRef = computed(() => `${props.prefix ? props.prefix + ':' : ''}${props.icon}`);
+
+      const update = async () => {
+        if (unref(isSvgIcon)) return;
+
+        const el = unref(elRef);
+        if (!el) return;
+
         await nextTick();
         const icon = unref(getIconRef);
+        if (!icon) return;
 
         const svg = Iconify.renderSVG(icon, {});
-
         if (svg) {
           el.textContent = '';
           el.appendChild(svg);
@@ -126,42 +151,65 @@ export default defineComponent({
           el.textContent = '';
           el.appendChild(span);
         }
-      }
-    };
-
-    watch(() => props.icon, update, { flush: 'post' });
-
-    const wrapStyleRef = computed((): any => {
-      const { size, color } = props;
-      let fs = size;
-      if (isString(size)) {
-        fs = parseInt(size, 10);
-      }
-      return {
-        fontSize: `${fs}px`,
-        color,
-        display: 'inline-flex',
       };
-    });
 
-    onMounted(update);
+      const getWrapStyle = computed(
+        (): CSSProperties => {
+          const { size, color } = props;
+          let fs = size;
+          if (isString(size)) {
+            fs = parseInt(size, 10);
+          }
 
-    return () => (
-      <div ref={elRef} class={[attrs.class, 'app-iconify']} style={unref(wrapStyleRef)} />
-    );
-  },
-});
+          return {
+            fontSize: `${fs}px`,
+            color: color,
+            display: 'inline-flex',
+          };
+        }
+      );
+
+      watch(() => props.icon, update, { flush: 'post' });
+
+      onMounted(update);
+
+      return { elRef, getWrapStyle, isSvgIcon, getSvgIcon };
+    },
+  });
+</script>
+<style lang="less">
+  .app-iconify {
+    display: inline-block;
+    // vertical-align: middle;
+
+    &-spin {
+      svg {
+        animation: loadingCircle 1s infinite linear;
+      }
+    }
+  }
+
+  span.iconify {
+    display: block;
+    min-width: 1em;
+    min-height: 1em;
+    background-color: @iconify-bg-color;
+    border-radius: 100%;
+  }
+</style>
 ```
 
 ### 使用组件
 
 使用方式请参考 [Icon 组件](../../comp/glob/icon.md)
 
-## 图标选择器-图标集预生成
+## 图标选择器
 
-由于图标选择器这个比较特殊的存在,项目会打包一些比较多的图标。图标选择器的图标需要事先指定并生成相应的文件
+### 图标集预生成
 
-### 生成图标集
+由于图标选择器这个比较特殊的存在,项目会打包一些比较多的图标，图标选择器的图标需要事先指定并生成相应的文件。
+
+### 生成
 
 - 执行图标生成命令
 
@@ -173,29 +221,27 @@ yarn gen:icon
 
 local 表示本地 online 表示在线,回车确认
 
-![](../../images/genIcon.png)
+![](/images/genIcon.png)
 
 - 选择你要生成的图标集,回车确认
 
-![](../../images/selectIconSet.png)
+![](/images/selectIconSet.png)
 
 - 选择图标输出的目录(项目默认 src/components/Icon/data)，可以直接回车选择默认
 
-![](../../images/outDir.png)
+![](/images/outDir.png)
 
 到这里图标集已经生成完成了，此时你的图标选择器已经是你所选的的图标集的图标了。
 
-**注意不要频繁更新**
-
-::: warning 注意
+::: danger 注意不要频繁更新
 
 如果前面选择的是本地生成的话，频繁更换图标集，可能会导致图标丢失或者显示不出来
 
 :::
 
-## 本地图标集和在线图标集优缺点
+### 优缺点
 
-### 在线(项目默认,推荐)
+#### 在线(项目默认,推荐)
 
 该方式会在图标选择器使用到图标的时候进行在线请求,然后缓存对应的图标到浏览器。可以有效减少代码打包体积。
 
@@ -203,7 +249,7 @@ local 表示本地 online 表示在线,回车确认
 
 **缺点：** 在局域网或者无法访问到外网的环境中图标显示不出来
 
-### 本地
+#### 本地
 
 该方式会在打包的时候将图标选择器的图标全部打包到 js 内。在使用的时候不会额外的请求在线图标
 

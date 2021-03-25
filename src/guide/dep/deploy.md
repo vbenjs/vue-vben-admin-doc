@@ -76,7 +76,7 @@ gpgcheck=0
 1. 删除`vite-plugin-imagemin`这个依赖。这会导致图片没有压缩。但是可以手动到在线网站进行压缩。这里推荐[tinypng](https://tinypng.com/)
 2. 注释`vite-plugin-imagemin`插件引用
 
-在项目`/build/vite/plugin/index.ts`内删除以下代码即可
+在项目`/build/vite/plugin/index.ts`内注释以下代码即可
 
 ```ts
 import { configImageminPlugin } from './imagemin';
