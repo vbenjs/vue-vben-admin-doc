@@ -140,7 +140,7 @@
 </script>
 ```
 
-## useTable
+## useTable 说明
 
 用于调用 Table 内部方法及 table 参数配置
 
