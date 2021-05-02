@@ -146,7 +146,7 @@
 
 ```ts
 // 表格的props也可以直接注册到useForm内部
-const [register, methods] = useForm(props);
+const [register, methods] = useTable(props);
 ```
 
 **register**
