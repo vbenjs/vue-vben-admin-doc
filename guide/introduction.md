@@ -74,5 +74,5 @@ yarn dev
 
 ## 如何加入我们
 
-- [Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin) 还在持续更新中,本项目欢迎您的参与，共同维护,逐步完善，将项目做得更强。同时整个项目本着一切免费的原则，原则上不会收取任何费用及版权，请可以放心使用。
+- [Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin) 还在持续更新中,本项目欢迎您的参与，共同维护,逐步完善，将项目做得更强。同时整个项目本着一切免费的原则，原则上不会收取任何费用及版权，可以放心使用。
 - 如果你想加入我们，可以多提供一些好的建议或者 提交 pull request, 会根据你的活跃度邀请你加入我们。
