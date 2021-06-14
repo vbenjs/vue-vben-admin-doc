@@ -1,0 +1,112 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push-to-ftp:
+    # if: "contains(github.event.head_commit.message, '[deploy]')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Sed Config Base
+        shell: bash
+        run: |
+          sed -i  's/doc-next/doc-next/g' ./.vitepress/config.js
+
+      - name: use Node.js 15
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '15.x'
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Build
+        run: |
+          yarn install --frozen-lockfile
+          yarn run build
+
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@2.0.0
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          METHOD: sftp
+          PORT: ${{ secrets.FTP_PORT }}
+          LOCAL_DIR: ./.vitepress/dist
+          REMOTE_DIR: /srv/www/vben-admin-doc
+          ARGS: --delete --verbose --parallel=80
+
+  push-to-gh-page:
+    # if: "contains(github.event.head_commit.message, '[deploy]')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Sed Config Base
+        shell: bash
+        run: |
+          sed -i  's/doc-next/vue-vben-admin-doc/g' ./.vitepress/config.js
+
+      - name: use Node.js 14
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '14.x'
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Build
+        run: |
+          yarn install --frozen-lockfile
+          yarn run build
+
+      - name: Set SSH Environment
+        env:
+          DOCS_DEPLOY_KEY: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$DEPLOY_TOKEN" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com > ~/.ssh/known_hosts
+          chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
+          git config --global user.email "vbenadmin@163.com"
+          git config --global user.name "vbenAdmin"
+
+      - name: Delete gh-pages branch
+        run: |
+          git push origin --delete gh-pages
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          ACTIONS_DEPLOY_KEY: ${{secrets.DEPLOY_TOKEN}}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./.vitepress/dist
+        with:
+          forceOrphan: true

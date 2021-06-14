@@ -1,0 +1,125 @@
+.home-hero .image {
+  width: 100px;
+  height: 100px;
+}
+
+.nav-bar .logo {
+  height: 26px;
+  margin-right: 8px;
+}
+
+.nav-bar .nav-bar-title {
+  display: flex;
+  align-items: center;
+}
+
+.content img {
+  border-radius: 10px;
+}
+
+.nav-dropdown-link-item .icon {
+  display: none;
+}
+
+.action.alt .icon.outbound {
+  color: currentColor;
+}
+
+.action .item.item.item {
+  border-color: var(--c-brand);
+  background-color: var(--c-brand);
+}
+
+.action.alt .item.item.item {
+  background-color: transparent;
+}
+
+.action .item.item.item,
+.action .item.item.item:hover {
+  color: var(--c-brand-text);
+}
+
+.action.alt .item.item.item {
+  color: var(--c-text);
+  border-color: var(--c-brand);
+  /* transition when toggling dark mode */
+  transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out,
+    color 150ms ease-in-out;
+}
+
+html.dark .action.alt .item.item.item {
+  border-color: var(--c-text);
+}
+
+.action.alt .item.item.item:hover {
+  background-color: var(--c-brand-light);
+  border-color: var(--c-brand-light);
+  color: var(--c-brand-text);
+}
+
+.nav-bar.nav-bar {
+  background-color: var(--c-bg);
+}
+
+.content img {
+  border-radius: 10px;
+}
+
+/* hide external links icons in menus */
+.nav-dropdown-link-item .icon {
+  display: none;
+}
+
+.custom-block.tip {
+  border-color: var(--c-brand-light);
+  background-color: var(--c-bg-accent);
+}
+
+.carbon-ads {
+  /* display space with the background in mobile too */
+  padding: 8px;
+}
+
+.carbon-ads,
+.bsa-cpc {
+  background-color: var(--c-bg-accent) !important;
+}
+
+html:not(.light) .custom-block.warning {
+  color: var(--c-text);
+}
+
+html:not(.light) .custom-block.warning a {
+  color: var(--c-brand);
+}
+
+body,
+.nav-bar,
+.carbon-ads,
+.bsa-cpc,
+.custom-block.tip,
+code,
+div[class*='language-'],
+.action.alt .item.item {
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.sidebar.sidebar.sidebar,
+.DocSearch,
+.DocSearch-Search-Icon,
+.DocSearch-Form {
+  /* transition when toggling dark mode */
+  transition: transform 250ms ease, background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.DocSearch-Button-Key,
+.DocSearch-Footer,
+.DocSearch-Modal {
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out,
+    box-shadow 250ms ease-in-out;
+}
+
+code {
+  font-size: 0.95em;
+  padding: 0.175em 0.35em;
+}
