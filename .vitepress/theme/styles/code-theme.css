@@ -146,6 +146,10 @@ code .token.inserted {
   font-weight: bold;
 }
 
+html.dark tr:nth-child(2n) {
+  background-color: transparent !important;
+}
+
 /* LIGHT THEME */
 
 html.light code[class*='language-'],
