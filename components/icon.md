@@ -41,7 +41,7 @@ icon 的值可以在[Iconify](https://iconify.design) 上面查询
 
 ::: tip 提示
 
-如果`icon`值以`｜svg`结尾，则会渲染成[SvgIcon 组件](#SvgIcon)
+如果`icon`值以`|svg`结尾，则会渲染成[SvgIcon 组件](#SvgIcon)
 
 :::
 

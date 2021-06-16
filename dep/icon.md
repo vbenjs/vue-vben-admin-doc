@@ -52,7 +52,7 @@
 
 ```vue
 <template>
-  <Icon name="test｜svg" />
+  <Icon name="test|svg" />
 </template>
 
 <script>

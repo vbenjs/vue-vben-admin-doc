@@ -15,7 +15,7 @@
 
 ```bash
 # 拉取代码
-git clone https://github.com/vbenjs/vben-admin-docs-cn.git
+git clone https://github.com/anncwb/vue-vben-admin-doc
 
 # 安装依赖
 yarn
