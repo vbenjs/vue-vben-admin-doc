@@ -200,6 +200,10 @@ const setting: ProjectConfig = {
   permissionMode: PermissionModeEnum.ROLE,
   // 权限缓存存放位置。默认存放于localStorage
   permissionCacheType: CacheTypeEnum.LOCAL,
+  // 会话超时处理方案
+  // SessionTimeoutProcessingEnum.ROUTE_JUMP: 路由跳转到登录页
+  // SessionTimeoutProcessingEnum.PAGE_COVERAGE: 生成登录弹窗，覆盖当前页面
+  sessionTimeoutProcessing: SessionTimeoutProcessingEnum.ROUTE_JUMP,
   // 项目主题色
   themeColor: primaryColor,
   // 网站灰色模式，用于可能悼念的日期开启
