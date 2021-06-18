@@ -23,7 +23,7 @@
 
 ## 工具配置
 
-如果您使用的 IDE 是[vscode](https://code.visualstudio.com/)(推荐)的话,可以安装以下工具来提高开发效率及代码格式化
+如果您使用的 IDE 是[vscode](https://code.visualstudio.com/)(推荐)的话，可以安装以下工具来提高开发效率及代码格式化
 
 - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Iconify 图标插件
 - [windicss IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - windicss 提示插件
@@ -52,7 +52,7 @@ git clone https://github.com/anncwb/vue-vben-admin
 
 ### 从 Gitee 获取代码
 
-如果从 github clone 代码较慢的话，可以尝试用 [Gitee](https://gitee.com/annsion/vue-vben-admin) 同步代码到自己的仓库，在 clone 下来即可。
+如果从 github clone 代码较慢的话，可以尝试用 [Gitee](https://gitee.com/annsion/vue-vben-admin) 同步代码到自己的仓库，再 clone 下来即可。
 
 也可以通过下方地址进行 clone
 
@@ -103,7 +103,7 @@ yarn -v # 出现对应版本号即代表安装成功
 
 #### 依赖安装命令
 
-在项目根目录下,打开命令窗口执行,耐心等待安装完成即可
+在项目根目录下，打开命令窗口执行，耐心等待安装完成即可
 
 ```bash
 # 安装依赖
@@ -114,7 +114,7 @@ yarn
 
 由于 imagemin 在中国不好安装。现提供几个解决方案
 
-1. 使用 yarn 在 package.json 内配置(推荐,项目内已集成，前提是必须使用 yarn)
+1. 使用 yarn 在 package.json 内配置(推荐，项目内已集成，前提是必须使用 yarn)
 
 ```json
 "resolutions": {
@@ -122,7 +122,7 @@ yarn
 }
 ```
 
-2. 使用 npm,在电脑 host 文件加上如下配置即可
+2. 使用 npm, 在电脑 host 文件加上如下配置即可
 
 ```bash
 199.232.4.133 raw.githubusercontent.com
