@@ -51,8 +51,7 @@ children 的 path 字段不需要以`/`开头
 
 :::
 
-`````ts
-````ts
+```ts
 import type { MenuModule } from '/@/router/types';
 import { t } from '/@/hooks/web/useI18n';
 const menu: MenuModule = {
@@ -74,7 +73,7 @@ const menu: MenuModule = {
   },
 };
 export default menu;
-`````
+```
 
 以上模块会转化成以下结构
 
