@@ -310,53 +310,54 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 ::: tip 温馨提醒
 
-除以下参数外，官方文档内的 props 也都支持，具体可以参考 [antv table](https://2x.antdv.com/components/table-cn/#API)
+- 除以下参数外，官方文档内的 props 也都支持，具体可以参考 [antv table](https://2x.antdv.com/components/table-cn/#API)
+- 注意：`defaultExpandAllRows`、`defaultExpandedRowKeys` 属性在basicTable中不受支持，并且在`antv table` v2.2.0之后也被移除。
 
 :::
 
-| 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
-| clickToRowSelect | `boolean` | `true` | - | 点击行是否选中 checkbox 或者 radio。需要开启 |
-| sortFn | `(sortInfo: SorterResult<any>) => any` | - | - | 自定义排序方法。见下方全局配置说明 |
-| filterFn | `(sortInfo: Partial<Recordable<string[]>>) => any` | - | - | 自定义过滤方法。见下方全局配置说明 |
-| showTableSetting | `boolean` | `false` | - | 显示表格设置工具 |
-| tableSetting | `TableSetting` | - | - | 表格设置工具配置，见下方 TableSetting |
-| striped | `boolean` | `true` | - | 斑马纹 |
-| inset | `boolean` | `false` | - | 取消表格的默认 padding |
-| autoCreateKey | `boolean` | `true` | - | 是否自动生成 key |
-| showSummary | `boolean` | `false` | - | 是否显示合计行 |
-| summaryData | `any[]` | - | - | 自定义合计数据。如果有则显示该数据 |
-| emptyDataIsShowTable | `boolean` | `true` | - | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格 |
-| summaryFunc | `(...arg) => any[]` | - | - | 计算合计行的方法 |
-| canRowDrag | `boolean` | `false` | - | 是否可拖拽行排序 |
-| canColDrag | `boolean` | `false` | - | 是否可拖拽列 |
-| isTreeTable | `boolean` | `false` | - | 是否树表 |
-| api | `(...arg: any) => Promise<any>` | - | - | 请求接口，可以直接将`src/api内的函数直接传入` |
-| beforeFetch | `(T)=>T` | - | - | 请求之前对参数进行处理 |
-| afterFetch | `(T)=>T` | - | - | 请求之后对返回值进行处理 |
-| handleSearchInfoFn | `(T)=>T` | - | - | 开启表单后，在请求之前处理搜索条件参数 |
-| fetchSetting | `FetchSetting` | - | - | 接口请求配置，可以配置请求的字段和响应的字段名，见下方全局配置说明 |
-| immediate | `boolean` | `true` | - | 组件加载后是否立即请求接口，在 api 有传的情况下，如果为 false，需要自行使用 reload 加载表格数据 |
+| 属性 | 类型 | 默认值 | 可选值 | 说明 | 版本 |
+| --- | --- | --- | --- | --- | -- |
+| clickToRowSelect | `boolean` | `true` | - | 点击行是否选中 checkbox 或者 radio。需要开启 |  |
+| sortFn | `(sortInfo: SorterResult<any>) => any` | - | - | 自定义排序方法。见下方全局配置说明 |  |
+| filterFn | `(sortInfo: Partial<Recordable<string[]>>) => any` | - | - | 自定义过滤方法。见下方全局配置说明 |  |
+| showTableSetting | `boolean` | `false` | - | 显示表格设置工具 |  |
+| tableSetting | `TableSetting` | - | - | 表格设置工具配置，见下方 TableSetting |  |
+| striped | `boolean` | `true` | - | 斑马纹 |  |
+| inset | `boolean` | `false` | - | 取消表格的默认 padding |  |
+| autoCreateKey | `boolean` | `true` | - | 是否自动生成 key |  |
+| showSummary | `boolean` | `false` | - | 是否显示合计行 |  |
+| summaryData | `any[]` | - | - | 自定义合计数据。如果有则显示该数据 |  |
+| emptyDataIsShowTable | `boolean` | `true` | - | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格 |  |
+| summaryFunc | `(...arg) => any[]` | - | - | 计算合计行的方法 |  |
+| ~~canRowDrag~~ | `boolean` | `false` | - | ~~是否可拖拽行排序~~ |  |
+| ~~canColDrag~~ | `boolean` | `false` | - | ~~是否可拖拽列~~ |  |
+| isTreeTable | `boolean` | `false` | - | 是否树表 |  |
+| api | `(...arg: any) => Promise<any>` | - | - | 请求接口，可以直接将`src/api内的函数直接传入` |  |
+| beforeFetch | `(T)=>T` | - | - | 请求之前对参数进行处理 |  |
+| afterFetch | `(T)=>T` | - | - | 请求之后对返回值进行处理 |  |
+| handleSearchInfoFn | `(T)=>T` | - | - | 开启表单后，在请求之前处理搜索条件参数 |  |
+| fetchSetting | `FetchSetting` | - | - | 接口请求配置，可以配置请求的字段和响应的字段名，见下方全局配置说明 |  |
+| immediate | `boolean` | `true` | - | 组件加载后是否立即请求接口，在 api 有传的情况下，如果为 false，需要自行使用 reload 加载表格数据 |  |
 | searchInfo | `any` | - | - | 额外的请求参数 |
-| useSearchForm | `boolean` | false | - | 使用搜索表单 |
-| formConfig | `any` | - | - | 表单配置，参考表单组件的 Props |
-| columns | `any` | - | - | 表单列信息 BasicColumn[] |
-| showIndexColumn | `boolean` | ture | - | 是否显示序号列 |
-| indexColumnProps | `any` | - | - | 序号列配置 BasicColumn |
-| actionColumn | `any` | - | - | 表格右侧操作列配置 BasicColumn |
-| ellipsis | `boolean` | `true` | - | 文本超过宽度是否显示... |
-| canResize | `boolean` | `true` | - | 是否可以自适应高度 |
-| clearSelectOnPageChange | `boolean` | false | - | 切换页码是否重置勾选状态 |
-| resizeHeightOffset | `number` | 0 | - | 表格自适应高度计算结果会减去这个值 |
-| rowSelection | `any` | - | - | 选择列配置 |
-| title | `string` | - | - | 表格标题 |
-| titleHelpMessage | `string ｜ string[]` | - | - | 表格标题右侧温馨提醒 |
-| maxHeight | `number` | - | - | 表格最大高度，超出会显示滚动条 |
-| dataSource | `any[]` | - | - | 表格数据，非 api 加载情况 |
-| bordered | `boolean` | `false` | - | 是否显示表格边框 |
-| pagination | `any` | - | - | 分页信息配置，为 `false` 不显示分页 |
-| loading | `boolean` | `false` | - | 表格 loading 状态 |
-| scroll | `any` | - | - | 参考官方文档 scroll |
+| useSearchForm | `boolean` | false | - | 使用搜索表单 |  |
+| formConfig | `any` | - | - | 表单配置，参考表单组件的 Props |  |
+| columns | `any` | - | - | 表单列信息 BasicColumn[] |  |
+| showIndexColumn | `boolean` | ture | - | 是否显示序号列 |  |
+| indexColumnProps | `any` | - | - | 序号列配置 BasicColumn |  |
+| actionColumn | `any` | - | - | 表格右侧操作列配置 BasicColumn |  |
+| ellipsis | `boolean` | `true` | - | 文本超过宽度是否显示... |  |
+| canResize | `boolean` | `true` | - | 是否可以自适应高度 |  |
+| clearSelectOnPageChange | `boolean` | false | - | 切换页码是否重置勾选状态 |  |
+| resizeHeightOffset | `number` | 0 | - | 表格自适应高度计算结果会减去这个值 |  |
+| rowSelection | `any` | - | - | 选择列配置 |  |
+| title | `string` | - | - | 表格标题 |  |
+| titleHelpMessage | `string ｜ string[]` | - | - | 表格标题右侧温馨提醒 |  |
+| maxHeight | `number` | - | - | 表格最大高度，超出会显示滚动条 |  |
+| dataSource | `any[]` | - | - | 表格数据，非 api 加载情况 |  |
+| bordered | `boolean` | `false` | - | 是否显示表格边框 |  |
+| pagination | `any` | - | - | 分页信息配置，为 `false` 不显示分页 |  |
+| loading | `boolean` | `false` | - | 表格 loading 状态 |  |
+| scroll | `any` | - | - | 参考官方文档 scroll |  |
 
 ## BasicColumn
 
@@ -385,7 +386,9 @@ export type ComponentType =
   | 'Select'
   | 'ApiSelect'
   | 'Checkbox'
-  | 'Switch';
+  | 'Switch'
+  | 'DatePicker'  // v2.5.0 以上
+  | 'TimePicker'; // v2.5.0 以上
 ```
 
 ### CellFormat
@@ -453,10 +456,11 @@ form-submitBefore
 
 #### Props
 
-| 属性            | 类型           | 默认值 | 可选值 | 说明                       |
-| --------------- | -------------- | ------ | ------ | -------------------------- |
-| actions         | `ActionItem[]` | -      | -      | 右侧操作列按钮列表         |
-| dropDownActions | `ActionItem[]` | -      | -      | 右侧操作列更多下拉按钮列表 |
+| 属性            | 类型           | 默认值 | 可选值 | 说明                       | 版本 |
+| --------------- | -------------- | ------ | ------ | -------------------------- | - |
+| actions         | `ActionItem[]` | -      | -      | 右侧操作列按钮列表         | |
+| dropDownActions | `ActionItem[]` | -      | -      | 右侧操作列更多下拉按钮列表 | |
+| stopButtonPropagation | `boolean` | `false` | `true/false` | 是否阻止操作按钮的click事件冒泡| 2.5.0 |
 
 **ActionItem**
 
@@ -476,6 +480,14 @@ export interface ActionItem {
   icon?: string;
   // 气泡确认框
   popConfirm?: PopConfirm;
+  // 是否显示分隔线，v2.0.0+
+  divider?: boolean;
+  // 权限编码控制是否显示，v2.4.0+
+  auth?: RoleEnum | RoleEnum[] | string | string[];
+  // 业务控制是否显示，v2.4.0+
+  ifShow?: boolean | ((action: ActionItem) => boolean);
+  // 点击回调
+  onClick?: Fn;
 }
 
 export interface PopConfirm {
@@ -494,10 +506,14 @@ export interface PopConfirm {
 
 #### Props
 
-| 属性    | 类型       | 默认值 | 可选值 | 说明         |
-| ------- | ---------- | ------ | ------ | ------------ |
-| imgList | `string[]` | -      | -      | 图片地址列表 |
-| size    | `number`   | -      | -      | 图片大小     |
+| 属性    | 类型       | 默认值 | 可选值 | 说明         | 版本 |
+| ------- | ---------- | ------ | ------ | ------------ | -- |
+| imgList | `string[]` | -      | -      | 图片地址列表 |   |
+| size    | `number`   | -      | -      | 图片大小     |   |
+| simpleShow    | `boolean`   | `false` | `true/false`      | 简单显示模式（只显示第一张图片）     | 2.5.0 |
+| showBadge    | `boolean`   | `true`      | `true/false`      | 简单模式下是否显示计数Badge     | 2.5.0 |
+| margin    | `number`   | 4      | -      | 常规模式下的图片间距     | 2.5.0 |
+| srcPrefix    | `string`   | -      | -      | 在每一个图片src前插入的内容   | 2.5.0 |
 
 ## 全局配置
 
