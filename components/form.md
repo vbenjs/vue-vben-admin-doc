@@ -286,36 +286,36 @@ updateSchema([
 
 :::
 
-| 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
-| schemas | `Schema[]` | - | - | 表单配置，见下方 `FormSchema` 配置 |
-| submitOnReset | `boolean` | `true` | - | 重置时是否提交表单 |
-| labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |
-| wrapperCol | `Partial<ColEx>` | - | - | 整个表单通用 wrapperCol 配置 |
-| baseColProps | `Partial<ColEx>` | - | - | 配置所有选子项的 ColProps，不需要逐个配置，子项也可单独配置优先与全局 |
-| baseRowStyle | `object` | - | - | 配置所有 Row 的 style 样式 |
-| labelWidth | `number , string` | - | - | 扩展 form 组件，增加 label 宽度，表单内所有组件适用，可以单独在某个项覆盖或者禁用 |
-| labelAlign | `string` | - | `left`,`right` | label 布局 |
-| mergeDynamicData | `object` | - | - | 额外传递到子组件的参数 values |
-| autoFocusFirstItem | `boolean` | `false` | - | 是否聚焦第一个输入框，只在第一个表单项为 input 的时候作用 |
-| compact | `boolean` | `false` | `true/false` | 紧凑类型表单，减少 margin-bottom |
-| size | `string` | `default` | `'default' , 'small' , 'large'` | 向表单内所有组件传递 size 参数,自定义组件需自行实现 size 接收 |
-| disabled | `boolean` | `false` | `true/false` | 向表单内所有组件传递 disabled 属性，自定义组件需自行实现 disabled 接收 |
-| autoSetPlaceHolder | `boolean` | `true` | ` true/false` | 自动设置表单内组件的 placeholder，自定义组件需自行实现 |
-| autoSubmitOnEnter | `boolean` | `false` | ` true/false` | 输入时按回车自动提交 |
-| rulesMessageJoinLabel | `boolean` | `false` | `true/false` | 如果表单项有校验，会自动生成校验信息，该参数控制是否将字段中文名字拼接到自动生成的信息后方 |
-| showAdvancedButton | `boolean` | `false` | `true/false` | 是否显示收起展开按钮 |
-| emptySpan | `number , Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |
-| autoAdvancedLine | `number` | 3 | - | 如果 showAdvancedButton 为 true，超过指定行数行默认折叠 |
-| showActionButtonGroup | `boolean` | `true` | `true/false` | 是否显示操作按钮(重置/提交) |
-| actionColOptions | `Partial<ColEx>` | - | - | 操作按钮外层 Col 组件配置，如果开启 showAdvancedButton，则不用设置，具体见下方 actionColOptions |
-| showResetButton | `boolean` | `true` | - | 是否显示重置按钮 |
-| resetButtonOptions | `object` |  | - | 重置按钮配置见下方 ActionButtonOption |
-| showSubmitButton | `boolean` | `true` | - | 是否显示提交按钮 |
-| submitButtonOptions | `object` |  | - | 确认按钮配置见下方 ActionButtonOption |
-| resetFunc | ` () => Promise<void>` |  | - | 自定义重置按钮逻辑`() => Promise<void>;` |
-| submitFunc | ` () => Promise<void>` |  | - | 自定义提交按钮逻辑`() => Promise<void>;` |
-| fieldMapToTime | `[string, [string, string], string?][]` |  | - | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |
+| 属性 | 类型 | 默认值 | 可选值 | 说明 | 版本 |
+| --- | --- | --- | --- | --- | -- |
+| schemas | `Schema[]` | - | - | 表单配置，见下方 `FormSchema` 配置 |  |
+| submitOnReset | `boolean` | `true` | - | 重置时是否提交表单 |  |
+| labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |  |
+| wrapperCol | `Partial<ColEx>` | - | - | 整个表单通用 wrapperCol 配置 |  |
+| baseColProps | `Partial<ColEx>` | - | - | 配置所有选子项的 ColProps，不需要逐个配置，子项也可单独配置优先与全局 |  |
+| baseRowStyle | `object` | - | - | 配置所有 Row 的 style 样式 |  |
+| labelWidth | `number , string` | - | - | 扩展 form 组件，增加 label 宽度，表单内所有组件适用，可以单独在某个项覆盖或者禁用 |  |
+| labelAlign | `string` | - | `left`,`right` | label 布局 |  |
+| mergeDynamicData | `object` | - | - | 额外传递到子组件的参数 values |  |
+| autoFocusFirstItem | `boolean` | `false` | - | 是否聚焦第一个输入框，只在第一个表单项为 input 的时候作用 |  |
+| compact | `boolean` | `false` | `true/false` | 紧凑类型表单，减少 margin-bottom |  |
+| size | `string` | `default` | `'default' , 'small' , 'large'` | 向表单内所有组件传递 size 参数,自定义组件需自行实现 size 接收 |  |
+| disabled | `boolean` | `false` | `true/false` | 向表单内所有组件传递 disabled 属性，自定义组件需自行实现 disabled 接收 |  |
+| autoSetPlaceHolder | `boolean` | `true` | ` true/false` | 自动设置表单内组件的 placeholder，自定义组件需自行实现 |  |
+| autoSubmitOnEnter | `boolean` | `false` | ` true/false` | 在input中输入时按回车自动提交 | 2.4.0  |
+| rulesMessageJoinLabel | `boolean` | `false` | `true/false` | 如果表单项有校验，会自动生成校验信息，该参数控制是否将字段中文名字拼接到自动生成的信息后方 |  |
+| showAdvancedButton | `boolean` | `false` | `true/false` | 是否显示收起展开按钮 |  |
+| emptySpan | `number , Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |  |
+| autoAdvancedLine | `number` | 3 | - | 如果 showAdvancedButton 为 true，超过指定行数行默认折叠 |  |
+| showActionButtonGroup | `boolean` | `true` | `true/false` | 是否显示操作按钮(重置/提交) | |
+| actionColOptions | `Partial<ColEx>` | - | - | 操作按钮外层 Col 组件配置，如果开启 showAdvancedButton，则不用设置，具体见下方 actionColOptions |  |
+| showResetButton | `boolean` | `true` | - | 是否显示重置按钮 |  |
+| resetButtonOptions | `object` |  | - | 重置按钮配置见下方 ActionButtonOption |  |
+| showSubmitButton | `boolean` | `true` | - | 是否显示提交按钮 |  |
+| submitButtonOptions | `object` |  | - | 确认按钮配置见下方 ActionButtonOption |  |
+| resetFunc | ` () => Promise<void>` |  | - | 自定义重置按钮逻辑`() => Promise<void>;` |  |
+| submitFunc | ` () => Promise<void>` |  | - | 自定义提交按钮逻辑`() => Promise<void>;` |  |
+| fieldMapToTime | `[string, [string, string], string?][]` |  | - | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |  |
 
 ### ColEx
 
