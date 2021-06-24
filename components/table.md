@@ -315,67 +315,67 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 :::
 
-| 属性 | 类型 | 默认值 | 可选值 | 说明 | 版本 |
-| --- | --- | --- | --- | --- | -- |
-| clickToRowSelect | `boolean` | `true` | - | 点击行是否选中 checkbox 或者 radio。需要开启 |  |
-| sortFn | `(sortInfo: SorterResult<any>) => any` | - | - | 自定义排序方法。见下方全局配置说明 |  |
-| filterFn | `(sortInfo: Partial<Recordable<string[]>>) => any` | - | - | 自定义过滤方法。见下方全局配置说明 |  |
-| showTableSetting | `boolean` | `false` | - | 显示表格设置工具 |  |
-| tableSetting | `TableSetting` | - | - | 表格设置工具配置，见下方 TableSetting |  |
-| striped | `boolean` | `true` | - | 斑马纹 |  |
-| inset | `boolean` | `false` | - | 取消表格的默认 padding |  |
-| autoCreateKey | `boolean` | `true` | - | 是否自动生成 key |  |
-| showSummary | `boolean` | `false` | - | 是否显示合计行 |  |
-| summaryData | `any[]` | - | - | 自定义合计数据。如果有则显示该数据 |  |
-| emptyDataIsShowTable | `boolean` | `true` | - | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格 |  |
-| summaryFunc | `(...arg) => any[]` | - | - | 计算合计行的方法 |  |
-| ~~canRowDrag~~ | `boolean` | `false` | - | ~~是否可拖拽行排序~~ |  |
-| ~~canColDrag~~ | `boolean` | `false` | - | ~~是否可拖拽列~~ |  |
-| isTreeTable | `boolean` | `false` | - | 是否树表 |  |
-| api | `(...arg: any) => Promise<any>` | - | - | 请求接口，可以直接将`src/api内的函数直接传入` |  |
-| beforeFetch | `(T)=>T` | - | - | 请求之前对参数进行处理 |  |
-| afterFetch | `(T)=>T` | - | - | 请求之后对返回值进行处理 |  |
-| handleSearchInfoFn | `(T)=>T` | - | - | 开启表单后，在请求之前处理搜索条件参数 |  |
-| fetchSetting | `FetchSetting` | - | - | 接口请求配置，可以配置请求的字段和响应的字段名，见下方全局配置说明 |  |
-| immediate | `boolean` | `true` | - | 组件加载后是否立即请求接口，在 api 有传的情况下，如果为 false，需要自行使用 reload 加载表格数据 |  |
-| searchInfo | `any` | - | - | 额外的请求参数 |
-| useSearchForm | `boolean` | false | - | 使用搜索表单 |  |
-| formConfig | `any` | - | - | 表单配置，参考表单组件的 Props |  |
-| columns | `any` | - | - | 表单列信息 BasicColumn[] |  |
-| showIndexColumn | `boolean` | ture | - | 是否显示序号列 |  |
-| indexColumnProps | `any` | - | - | 序号列配置 BasicColumn |  |
-| actionColumn | `any` | - | - | 表格右侧操作列配置 BasicColumn |  |
-| ellipsis | `boolean` | `true` | - | 文本超过宽度是否显示... |  |
-| canResize | `boolean` | `true` | - | 是否可以自适应高度 |  |
-| clearSelectOnPageChange | `boolean` | false | - | 切换页码是否重置勾选状态 |  |
-| resizeHeightOffset | `number` | 0 | - | 表格自适应高度计算结果会减去这个值 |  |
-| rowSelection | `any` | - | - | 选择列配置 |  |
-| title | `string` | - | - | 表格标题 |  |
-| titleHelpMessage | `string ｜ string[]` | - | - | 表格标题右侧温馨提醒 |  |
-| maxHeight | `number` | - | - | 表格最大高度，超出会显示滚动条 |  |
-| dataSource | `any[]` | - | - | 表格数据，非 api 加载情况 |  |
-| bordered | `boolean` | `false` | - | 是否显示表格边框 |  |
-| pagination | `any` | - | - | 分页信息配置，为 `false` 不显示分页 |  |
-| loading | `boolean` | `false` | - | 表格 loading 状态 |  |
-| scroll | `any` | - | - | 参考官方文档 scroll |  |
+| 属性                    | 类型                                               | 默认值  | 可选值 | 说明                                                                                            | 版本 |
+| ----------------------- | -------------------------------------------------- | ------- | ------ | ----------------------------------------------------------------------------------------------- | ---- |
+| clickToRowSelect        | `boolean`                                          | `true`  | -      | 点击行是否选中 checkbox 或者 radio。需要开启                                                    |      |
+| sortFn                  | `(sortInfo: SorterResult<any>) => any`             | -       | -      | 自定义排序方法。见下方全局配置说明                                                              |      |
+| filterFn                | `(sortInfo: Partial<Recordable<string[]>>) => any` | -       | -      | 自定义过滤方法。见下方全局配置说明                                                              |      |
+| showTableSetting        | `boolean`                                          | `false` | -      | 显示表格设置工具                                                                                |      |
+| tableSetting            | `TableSetting`                                     | -       | -      | 表格设置工具配置，见下方 TableSetting                                                           |      |
+| striped                 | `boolean`                                          | `true`  | -      | 斑马纹                                                                                          |      |
+| inset                   | `boolean`                                          | `false` | -      | 取消表格的默认 padding                                                                          |      |
+| autoCreateKey           | `boolean`                                          | `true`  | -      | 是否自动生成 key                                                                                |      |
+| showSummary             | `boolean`                                          | `false` | -      | 是否显示合计行                                                                                  |      |
+| summaryData             | `any[]`                                            | -       | -      | 自定义合计数据。如果有则显示该数据                                                              |      |
+| emptyDataIsShowTable    | `boolean`                                          | `true`  | -      | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格                                        |      |
+| summaryFunc             | `(...arg) => any[]`                                | -       | -      | 计算合计行的方法                                                                                |      |
+| ~~canRowDrag~~          | `boolean`                                          | `false` | -      | ~~是否可拖拽行排序~~                                                                            |      |
+| ~~canColDrag~~          | `boolean`                                          | `false` | -      | ~~是否可拖拽列~~                                                                                |      |
+| isTreeTable             | `boolean`                                          | `false` | -      | 是否树表                                                                                        |      |
+| api                     | `(...arg: any) => Promise<any>`                    | -       | -      | 请求接口，可以直接将`src/api内的函数直接传入`                                                   |      |
+| beforeFetch             | `(T)=>T`                                           | -       | -      | 请求之前对参数进行处理                                                                          |      |
+| afterFetch              | `(T)=>T`                                           | -       | -      | 请求之后对返回值进行处理                                                                        |      |
+| handleSearchInfoFn      | `(T)=>T`                                           | -       | -      | 开启表单后，在请求之前处理搜索条件参数                                                          |      |
+| fetchSetting            | `FetchSetting`                                     | -       | -      | 接口请求配置，可以配置请求的字段和响应的字段名，见下方全局配置说明                              |      |
+| immediate               | `boolean`                                          | `true`  | -      | 组件加载后是否立即请求接口，在 api 有传的情况下，如果为 false，需要自行使用 reload 加载表格数据 |      |
+| searchInfo              | `any`                                              | -       | -      | 额外的请求参数                                                                                  |
+| useSearchForm           | `boolean`                                          | false   | -      | 使用搜索表单                                                                                    |      |
+| formConfig              | `any`                                              | -       | -      | 表单配置，参考表单组件的 Props                                                                  |      |
+| columns                 | `any`                                              | -       | -      | 表单列信息 BasicColumn[]                                                                        |      |
+| showIndexColumn         | `boolean`                                          | ture    | -      | 是否显示序号列                                                                                  |      |
+| indexColumnProps        | `any`                                              | -       | -      | 序号列配置 BasicColumn                                                                          |      |
+| actionColumn            | `any`                                              | -       | -      | 表格右侧操作列配置 BasicColumn                                                                  |      |
+| ellipsis                | `boolean`                                          | `true`  | -      | 文本超过宽度是否显示...                                                                         |      |
+| canResize               | `boolean`                                          | `true`  | -      | 是否可以自适应高度                                                                              |      |
+| clearSelectOnPageChange | `boolean`                                          | false   | -      | 切换页码是否重置勾选状态                                                                        |      |
+| resizeHeightOffset      | `number`                                           | 0       | -      | 表格自适应高度计算结果会减去这个值                                                              |      |
+| rowSelection            | `any`                                              | -       | -      | 选择列配置                                                                                      |      |
+| title                   | `string`                                           | -       | -      | 表格标题                                                                                        |      |
+| titleHelpMessage        | `string ｜ string[]`                               | -       | -      | 表格标题右侧温馨提醒                                                                            |      |
+| maxHeight               | `number`                                           | -       | -      | 表格最大高度，超出会显示滚动条                                                                  |      |
+| dataSource              | `any[]`                                            | -       | -      | 表格数据，非 api 加载情况                                                                       |      |
+| bordered                | `boolean`                                          | `false` | -      | 是否显示表格边框                                                                                |      |
+| pagination              | `any`                                              | -       | -      | 分页信息配置，为 `false` 不显示分页                                                             |      |
+| loading                 | `boolean`                                          | `false` | -      | 表格 loading 状态                                                                               |      |
+| scroll                  | `any`                                              | -       | -      | 参考官方文档 scroll                                                                             |      |
 
 ## BasicColumn
 
 除 参考官方 [Column 配置](https://2x.antdv.com/components/table-cn/#Column)外，扩展以下参数
 
-| 属性 | 类型 | 默认值 | 可选值 | 说明 |
-| --- | --- | --- | --- | --- |
-| defaultHidden | `boolean` | false | - | 默认隐藏，可在列配置显示 |
-| helpMessage | `string｜string[]` | - | - | 列头右侧帮助文本 |
-| edit | `boolean` | - | - | 是否开启单元格编辑 |
-| editRow | `boolean` | - | - | 是否开启行编辑 |
-| editable | `boolean` | false | - | 是否处于编辑状态 |
-| editComponent | `ComponentType` | `Input` | - | 编辑组件 |
-| editComponentProps | `any` | - | - | 对应编辑组件的 props |
-| editRule | `((text: string, record: Recordable) => Promise<string>)` | - | - | 对应编辑组件的表单校验 |
-| editValueMap | `(value: any) => string` | - | - | 对应单元格值枚举 |
-| onEditRow | `（）=>void` | - | - | 触发行编辑 |
-| format | `CellFormat` | - | - | 单元格格式化 |
+| 属性               | 类型                                                      | 默认值  | 可选值 | 说明                     |
+| ------------------ | --------------------------------------------------------- | ------- | ------ | ------------------------ |
+| defaultHidden      | `boolean`                                                 | false   | -      | 默认隐藏，可在列配置显示 |
+| helpMessage        | `string｜string[]`                                        | -       | -      | 列头右侧帮助文本         |
+| edit               | `boolean`                                                 | -       | -      | 是否开启单元格编辑       |
+| editRow            | `boolean`                                                 | -       | -      | 是否开启行编辑           |
+| editable           | `boolean`                                                 | false   | -      | 是否处于编辑状态         |
+| editComponent      | `ComponentType`                                           | `Input` | -      | 编辑组件                 |
+| editComponentProps | `any`                                                     | -       | -      | 对应编辑组件的 props     |
+| editRule           | `((text: string, record: Recordable) => Promise<string>)` | -       | -      | 对应编辑组件的表单校验   |
+| editValueMap       | `(value: any) => string`                                  | -       | -      | 对应单元格值枚举         |
+| onEditRow          | `（）=>void`                                              | -       | -      | 触发行编辑               |
+| format             | `CellFormat`                                              | -       | -      | 单元格格式化             |
 
 ### EditComponentType
 
@@ -404,23 +404,40 @@ export type CellFormat =
 
 ::: tip 温馨提醒
 
-除以下参数外，官方文档内的 event 也都支持，具体可以参考 [antv table](https://2x.antdv.com/components/table-cn/#API)
+除以下事件外，官方文档内的 event 也都支持，具体可以参考 [antv table](https://2x.antdv.com/components/table-cn/#API)
 
 :::
 
-| 事件             | 回调参数                               | 说明               |
-| ---------------- | -------------------------------------- | ------------------ |
-| fetch-success    | `Function({items,total})`              | 接口请求成功后触发 |
-| fetch-error      | `Function(error)`                      | 错误信息           |
-| selection-change | `Function({keys，rows})`               | 勾选事件触发       |
-| row-click        | `Function(record, index, event)`       | 行点击触发         |
-| row-dbClick      | `Function(record, index, event)`       | 行双击触发         |
-| row-contextmenu  | `Function(record, index, event)`       | 行右键触发         |
-| row-mouseenter   | `Function(record, index, event)`       | 行移入触发         |
-| row-mouseleave   | `Function(record, index, event)`       | 行移出触发         |
-| edit-end         | `Function(record, index, key, value )` | 单元格编辑完成触发 |
-| edit-cancel      | `Function(record, index, key, value )` | 单元格取消编辑触发 |
-| edit-row-end     | `Function()`                           | 行编辑结束触发     |
+| 事件             | 回调参数                                | 说明                                |
+| ---------------- | --------------------------------------- | ----------------------------------- |
+| fetch-success    | `Function({items,total})`               | 接口请求成功后触发                  |
+| fetch-error      | `Function(error)`                       | 错误信息                            |
+| selection-change | `Function({keys，rows})`                | 勾选事件触发                        |
+| row-click        | `Function(record, index, event)`        | 行点击触发                          |
+| row-dbClick      | `Function(record, index, event)`        | 行双击触发                          |
+| row-contextmenu  | `Function(record, index, event)`        | 行右键触发                          |
+| row-mouseenter   | `Function(record, index, event)`        | 行移入触发                          |
+| row-mouseleave   | `Function(record, index, event)`        | 行移出触发                          |
+| edit-end         | `Function({record, index, key, value})` | 单元格编辑完成触发                  |
+| edit-cancel      | `Function({record, index, key, value})` | 单元格取消编辑触发                  |
+| edit-row-end     | `Function()`                            | 行编辑结束触发                      |
+| edit-change      | `Function({column,value,record})`       | 单元格编辑组件的value发生变化时触发 |
+
+::: edit-change 说明
+
+从版本`2.4.2`起，对于edit-change事件，record中的editValueRefs装载了当前行的所有编辑组件（如果有的话）的值的ref对象，可用于处理同一行中的编辑组件的联动。请看下面的例子
+
+:::
+
+```javascript
+      function onEditChange({ column, record }) {
+        // 当同一行的单价或者数量发生变化时，更新合计金额（三个数据均为当前行编辑组件的值）
+        if (column.dataIndex === 'qty' || column.dataIndex === 'price') {
+          const { editValueRefs: { total, qty, price } } = record;
+          total.value = unref(qty) * unref(price);
+        }
+      }
+```
 
 ## Slots
 
@@ -456,11 +473,11 @@ form-submitBefore
 
 #### Props
 
-| 属性            | 类型           | 默认值 | 可选值 | 说明                       | 版本 |
-| --------------- | -------------- | ------ | ------ | -------------------------- | - |
-| actions         | `ActionItem[]` | -      | -      | 右侧操作列按钮列表         | |
-| dropDownActions | `ActionItem[]` | -      | -      | 右侧操作列更多下拉按钮列表 | |
-| stopButtonPropagation | `boolean` | `false` | `true/false` | 是否阻止操作按钮的click事件冒泡| 2.5.0 |
+| 属性                  | 类型           | 默认值  | 可选值       | 说明                            | 版本  |
+| --------------------- | -------------- | ------- | ------------ | ------------------------------- | ----- |
+| actions               | `ActionItem[]` | -       | -            | 右侧操作列按钮列表              |       |
+| dropDownActions       | `ActionItem[]` | -       | -            | 右侧操作列更多下拉按钮列表      |       |
+| stopButtonPropagation | `boolean`      | `false` | `true/false` | 是否阻止操作按钮的click事件冒泡 | 2.5.0 |
 
 **ActionItem**
 
@@ -506,14 +523,14 @@ export interface PopConfirm {
 
 #### Props
 
-| 属性    | 类型       | 默认值 | 可选值 | 说明         | 版本 |
-| ------- | ---------- | ------ | ------ | ------------ | -- |
-| imgList | `string[]` | -      | -      | 图片地址列表 |   |
-| size    | `number`   | -      | -      | 图片大小     |   |
-| simpleShow    | `boolean`   | `false` | `true/false`      | 简单显示模式（只显示第一张图片）     | 2.5.0 |
-| showBadge    | `boolean`   | `true`      | `true/false`      | 简单模式下是否显示计数Badge     | 2.5.0 |
-| margin    | `number`   | 4      | -      | 常规模式下的图片间距     | 2.5.0 |
-| srcPrefix    | `string`   | -      | -      | 在每一个图片src前插入的内容   | 2.5.0 |
+| 属性       | 类型       | 默认值  | 可选值       | 说明                             | 版本  |
+| ---------- | ---------- | ------- | ------------ | -------------------------------- | ----- |
+| imgList    | `string[]` | -       | -            | 图片地址列表                     |       |
+| size       | `number`   | -       | -            | 图片大小                         |       |
+| simpleShow | `boolean`  | `false` | `true/false` | 简单显示模式（只显示第一张图片） | 2.5.0 |
+| showBadge  | `boolean`  | `true`  | `true/false` | 简单模式下是否显示计数Badge      | 2.5.0 |
+| margin     | `number`   | 4       | -            | 常规模式下的图片间距             | 2.5.0 |
+| srcPrefix  | `string`   | -       | -            | 在每一个图片src前插入的内容      | 2.5.0 |
 
 ## 全局配置
 
