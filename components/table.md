@@ -288,6 +288,12 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 说明: 更新表格数据
 
+**updateTableDataRecord**
+
+类型： `(rowKey: string | number, record: Recordable) => Recordable | void`
+
+说明： 根据唯一的rowKey更新指定行的数据.可用于不刷新整个表格而局部更新数据
+
 **getForm**
 
 类型：`() => FormActionType`
@@ -423,7 +429,7 @@ export type CellFormat =
 | edit-row-end     | `Function()`                            | 行编辑结束触发                      |
 | edit-change      | `Function({column,value,record})`       | 单元格编辑组件的value发生变化时触发 |
 
-::: edit-change 说明
+::: tip edit-change 说明
 
 从版本`2.4.2`起，对于edit-change事件，record中的editValueRefs装载了当前行的所有编辑组件（如果有的话）的值的ref对象，可用于处理同一行中的编辑组件的联动。请看下面的例子
 
@@ -511,8 +517,8 @@ export interface PopConfirm {
   title: string;
   okText?: string;
   cancelText?: string;
-  confirm: any;
-  cancel?: any;
+  confirm: Fn;
+  cancel?: Fn;
   icon?: string;
 }
 ```
