@@ -42,10 +42,10 @@
 ## Props
 
 | 属性    | 类型                     | 默认值 | 可选值  | 说明                                  |
-| ------- | ------------------------ | ------ | ------- | ------------------------------------- | ------------------- |
+| ------- | ------------------------ | ------ | ------- | ------------------------------------- |
 | value   | `string`                 | -      | -       | 二维码地址                            |
 | options | `QRCodeRenderersOptions` | -      | -       | 二维码配置 ,见 QRCodeRenderersOptions |
-| width   | `number`                 | 2--    | -       | 宽度                                  |
+| width   | `number`                 | 2    | -       | 宽度                                  |
 | logo    | `string｜LogoType`       | -      | -       | 中间 logo 配置，见 LogoType           |
 | tag     | `渲染标签`               | canvas | `canvas | img`                                  | img 不支持内嵌 logo |
 
@@ -104,3 +104,39 @@
 | 名称     | 回调参数                    | 说明 |
 | -------- | --------------------------- | ---- |
 | download | `Function(fileName:string)` | 下载 |
+
+## 事件
+
+| 名称     | 回调参数                    | 说明 |
+| -------- | --------------------------- | ---- |
+| done | `(data: QrcodeDoneEventParams)=>void` | 绘制完成 |
+| error | `(error)=>void` | 生成二维码时发生错误 |
+
+QrcodeDoneEventParams
+```js
+{
+  url: string;  // 二维码DataURL数据
+  ctx?: CanvasRenderingContext2D;  // 该对象为画布的2D渲染上下文，仅在tag为canvas时有效，可用于自定义绘制
+}
+```
+`done`事件回调中可以对二维码进行自定义的绘制，示例代码如下：
+```
+<QrCode
+    :value="qrCodeUrl"
+    :width="200"
+    @done="onQrcodeDone"
+  />
+```
+```js
+function onQrcodeDone({ ctx }) {
+    if (ctx instanceof CanvasRenderingContext2D) {
+      // 额外绘制
+      ctx.fillStyle = 'black';
+      ctx.font = '16px "微软雅黑"';
+      ctx.textBaseline = 'bottom';
+      ctx.textAlign = 'center';
+      ctx.fillText('你帅你先扫', 100, 195, 200);
+    }
+  }
+```
+有关`CanvasRenderingContext2D`的更多资料以及绘制方法，请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D)
