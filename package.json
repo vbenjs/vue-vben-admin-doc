@@ -2,7 +2,7 @@
   "name": "vben-admin-docs",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/vbenjs/vben-admin-docs-cn",
+  "repository": "https://github.com/anncwb/vue-vben-admin-doc",
   "author": "Vben <anncwb@126.com>",
   "license": "MIT",
   "scripts": {

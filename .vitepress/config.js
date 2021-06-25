@@ -10,7 +10,7 @@ module.exports = {
   head: createHead(),
   themeConfig: {
     repo: 'anncwb/vue-vben-admin',
-    docsRepo: 'vbenjs/vben-admin-docs-cn',
+    docsRepo: 'anncwb/vue-vben-admin-doc',
     logo: '/logo.png',
     docsBranch: 'main',
     editLinks: true,
