@@ -68,15 +68,17 @@
 
 :::
 
-| 属性             | 类型                      | 默认值 | 可选值 | 说明                         |
-| ---------------- | ------------------------- | ------ | ------ | ---------------------------- |
-| treeData         | `TreeItem[]`              | -      | -      | 树组件数据                   |
-| rightMenuList    | `ContextMenuItem[]`       | -      | -      | 右键菜单列表                 |
-| beforeRightClick | `（）=>ContextMenuItem[]` | -      | -      | 点击右键之前生成右键菜单     |
-| checkedKeys      | `string[]`                | -      | -      | 勾选的节点                   |
-| selectedKeys     | `string[]`                | -      | -      | 选中的节点                   |
-| expandedKeys     | `string[]`                | -      | -      | 展开的节点                   |
-| actionList       | `ActionItem[]`            | -      | -      | 鼠标移动上去右边操作按钮列表 |
+| 属性             | 类型                      | 默认值 | 可选值 | 说明                         | 版本 |
+| ---------------- | ------------------------- | ------ | ------ | ---------------------------- |   |
+| treeData         | `TreeItem[]`              | -      | -      | 树组件数据                   |   |
+| rightMenuList    | `ContextMenuItem[]`       | -      | -      | 右键菜单列表                 |   |
+| beforeRightClick | `（）=>ContextMenuItem[]` | -      | -      | 点击右键之前生成右键菜单     |   |
+| checkedKeys      | `string[]`                | -      | -      | 勾选的节点                   |   |
+| selectedKeys     | `string[]`                | -      | -      | 选中的节点                   |   |
+| expandedKeys     | `string[]`                | -      | -      | 展开的节点                   |  |
+| actionList       | `ActionItem[]`            | -      | -      | 鼠标移动上去右边操作按钮列表 |  |
+| defaultExpandLevel | `string | number`       | -      | -      | 初次渲染后默认展开的层级     | 2.4.1 |
+| defaultExpandAll | `boolean`       | `false`  | `true/false`      | 初次渲染后默认全部     | 2.4.1 |
 
 **ActionItem**
 
