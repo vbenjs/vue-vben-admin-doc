@@ -33,7 +33,17 @@ config.less 这个文件会被全局注入到所有文件，所以在页面内�
 </style>
 ```
 
-## Css 库 - windicss
+## tailwindcss(2.5.0+)
+
+项目中引用到了 [tailwindcss](https://tailwindcss.com/docs),具体可以见文件使用说明。
+
+语法如下:
+
+```html
+<div class="relative w-full h-full px-4"></div>
+```
+
+## windicss(2.5.0 已弃用)
 
 项目中引用到了 [windicss](https://windicss.org/),具体可以见文件使用说明。
 
@@ -51,7 +61,7 @@ windcss 目前会造成本地开发内存溢出，所以后续可能会考虑切
 
 :::
 
-### 为什么使用 Less
+## 为什么使用 Less
 
 主要是因为 Ant Design 默认使用 less 作为样式语言，使用 Less 可以跟其保持一致。
 

@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <svg
     class="icon outbound"
     xmlns="http://www.w3.org/2000/svg"
@@ -21,11 +21,11 @@
 </template>
 
 <style>
-.icon.outbound {
-  position: relative;
-  top: -1px;
-  display: inline-block;
-  vertical-align: middle;
-  color: var(--c-text-lighter);
-}
+  .icon.outbound {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--c-text-lighter);
+  }
 </style>

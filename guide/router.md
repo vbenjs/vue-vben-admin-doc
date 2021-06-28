@@ -143,6 +143,8 @@ export interface RouteMeta {
   hideTab?: boolean;
   // 当前路由不再菜单显示
   hideMenu?: boolean;
+  // 菜单排序，只对第一级有效
+  orderNo?: number;
 }
 ```
 
