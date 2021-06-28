@@ -98,6 +98,120 @@
 </script>
 ```
 
+### BasicColumn 和 tableAction 通过权限和业务控制显示隐藏 示例
+```vue
+<template>
+  <div class="p-4">
+    <BasicTable @register="registerTable">
+      <template #action="{ record }">
+        <TableAction
+          :actions="[
+            {
+              label: '编辑',
+              onClick: handleEdit.bind(null, record),
+              auth: 'other', // 根据权限控制是否显示: 无权限，不显示
+            },
+            {
+              label: '删除',
+              icon: 'ic:outline-delete-outline',
+              onClick: handleDelete.bind(null, record),
+              auth: 'super', // 根据权限控制是否显示: 有权限，会显示
+            },
+          ]"
+          :dropDownActions="[
+            {
+              label: '启用',
+              popConfirm: {
+                title: '是否启用？',
+                confirm: handleOpen.bind(null, record),
+              },
+              ifShow: (_action) => {
+                return record.status !== 'enable'; // 根据业务控制是否显示: 非enable状态的不显示启用按钮
+              },
+            },
+            {
+              label: '禁用',
+              popConfirm: {
+                title: '是否禁用？',
+                confirm: handleOpen.bind(null, record),
+              },
+              ifShow: () => {
+                return record.status === 'enable'; // 根据业务控制是否显示: enable状态的显示禁用按钮
+              },
+            },
+            {
+              label: '同时控制',
+              popConfirm: {
+                title: '是否动态显示？',
+                confirm: handleOpen.bind(null, record),
+              },
+              auth: 'super', // 同时根据权限和业务控制是否显示
+              ifShow: () => {
+                return true; // 根据业务控制是否显示
+              },
+            },
+          ]"
+        />
+      </template>
+    </BasicTable>
+  </div>
+</template>
+<script lang="ts">
+  import { defineComponent } from 'vue';
+  import { BasicTable, useTable, BasicColumn, TableAction } from '/@/components/Table';
+
+  import { demoListApi } from '/@/api/demo/table';
+  const columns: BasicColumn[] = [
+    {
+      title: '姓名',
+      dataIndex: 'name',
+      auth: 'test', // 根据权限控制是否显示: 无权限，不显示
+    },
+    {
+      title: '地址',
+      dataIndex: 'address',
+      auth: 'super', // 同时根据权限控制是否显示
+      ifShow: (_column) => {
+        return true; // 根据业务控制是否显示
+      },
+    },
+  ];
+  export default defineComponent({
+    components: { BasicTable, TableAction },
+    setup() {
+      const [registerTable] = useTable({
+        title: 'TableAction组件及固定列示例',
+        api: demoListApi,
+        columns: columns,
+        bordered: true,
+        actionColumn: {
+          width: 250,
+          title: 'Action',
+          dataIndex: 'action',
+          slots: { customRender: 'action' },
+        },
+      });
+      function handleEdit(record: Recordable) {
+        console.log('点击了编辑', record);
+      }
+      function handleDelete(record: Recordable) {
+        console.log('点击了删除', record);
+      }
+      function handleOpen(record: Recordable) {
+        console.log('点击了启用', record);
+      }
+      return {
+        registerTable,
+        handleEdit,
+        handleDelete,
+        handleOpen,
+      };
+    },
+  });
+</script>
+```
+
+
 ## useTable
 
 使用组件自带的**useTable**可以方便使用表单
@@ -380,8 +494,10 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | editComponentProps | `any`                                                     | -       | -      | 对应编辑组件的 props     |
 | editRule           | `((text: string, record: Recordable) => Promise<string>)` | -       | -      | 对应编辑组件的表单校验   |
 | editValueMap       | `(value: any) => string`                                  | -       | -      | 对应单元格值枚举         |
-| onEditRow          | `（）=>void`                                              | -       | -      | 触发行编辑               |
+| onEditRow          | `（）=>void`                                               | -       | -      | 触发行编辑               |
 | format             | `CellFormat`                                              | -       | -      | 单元格格式化             |
+| auth               | `RoleEnum` ｜ `RoleEnum[]` ｜ `string` ｜ `string[]`       | -       | -      | 根据权限编码来控制当前列是否显示    |
+| ifShow             | `boolean ｜ ((action: ActionItem) => boolean)`            | -       | -      | 根据业务状态来控制当前列是否显示    |
 
 ### EditComponentType
 
@@ -505,9 +621,9 @@ export interface ActionItem {
   popConfirm?: PopConfirm;
   // 是否显示分隔线，v2.0.0+
   divider?: boolean;
-  // 权限编码控制是否显示，v2.4.0+
+  // 根据权限编码来控制当前列是否显示，v2.4.0+
   auth?: RoleEnum | RoleEnum[] | string | string[];
-  // 业务控制是否显示，v2.4.0+
+  // 根据业务状态来控制当前列是否显示，v2.4.0+
   ifShow?: boolean | ((action: ActionItem) => boolean);
   // 点击回调
   onClick?: Fn;
