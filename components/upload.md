@@ -61,8 +61,8 @@ VITE_GLOB_UPLOAD_URL=/upload
 
 ## Events
 
-| 事件   | 回调参数           | 返回值 | 说明                     |
-| ------ | ------------------ | ------ | ------------------------ |
-| change | `(fileList)=>void` |        | 文件列表内容改变触发事件 |
-| delete | `(record)=>void`   |        | 在上传列表中删除文件的事件                 |
-| preview-delete | `(url:string)=>void`   |        | 在预览列表中删除文件的事件                 |
+| 事件   | 回调参数           | 返回值 | 说明                     | 版本 |
+| ------ | ------------------ | ------ | ------------------------ | - |
+| change | `(fileList)=>void` |        | 文件列表内容改变触发事件 | |
+| delete | `(record)=>void`   |        | 在上传列表中删除文件的事件                 | |
+| preview-delete | `(url:string)=>void`   |        | 在预览列表中删除文件的事件                 | 2.5.3 |
