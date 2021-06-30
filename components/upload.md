@@ -48,6 +48,7 @@ VITE_GLOB_UPLOAD_URL=/upload
 
 | 属性              | 类型       | 默认值   | 可选值 | 说明                                     |
 | ----------------- | ---------- | -------- | ------ | ---------------------------------------- |
+| value             | `string[]` | -        | -      | 已上传的文件列表，支持v-model           |
 | showPreviewNumber | `boolean`  | true     | -      | 是否显示预览数量                         |
 | emptyHidePreview  | `boolean`  | false    | -      | 没有上传文件时是否隐藏预览               |
 | helpText          | `string`   | -        | -      | 帮助文本                                 |
@@ -63,4 +64,5 @@ VITE_GLOB_UPLOAD_URL=/upload
 | 事件   | 回调参数           | 返回值 | 说明                     |
 | ------ | ------------------ | ------ | ------------------------ |
 | change | `(fileList)=>void` |        | 文件列表内容改变触发事件 |
-| delete | `(record)=>void`   |        | 删除事件                 |
+| delete | `(record)=>void`   |        | 在上传列表中删除文件的事件                 |
+| preview-delete | `(url:string)=>void`   |        | 在预览列表中删除文件的事件                 |
