@@ -55,7 +55,6 @@ export default dashboard;
 - 整个项目所有路由 name 不能重复
 - 所有的多级路由最终都会转成二级路由，所以不能内嵌子路由
 - 除了 layout 对应的 path 前面需要加 `/`，其余子路由都不要以`/`开头
-- `path`中包含冒号的路由会被其子路由在构造完整path时忽略(2.5.3版本以上有效)
 
 :::
 
@@ -77,14 +76,15 @@ const permission: AppRouteModule = {
 
   children: [
     {
-      path: 'tabs/:id', // 本路由path中包含冒号，其子路由合成完整path时会忽略这一层级
+      path: 'tabs/:id', 
       name: 'TabsParams',
       component: getParentLayout('TabsParams'),
       meta: {
         carryParam: true,
+        hidePathForChildren: true, // 本级path将会在子级菜单中合成完整path时会忽略这一层级
       },
       children: [
-        path: 'tabs/id1', // 其上级路由的path包含冒号，所以本路由最终的path为  /level/tabs/id1
+        path: 'tabs/id1', // 其上级有标记hidePathForChildren，所以本级在生成菜单时最终的path为  /level/tabs/id1
         name: 'TabsParams',
         component: getParentLayout('TabsParams'),
         meta: {
@@ -163,8 +163,10 @@ export interface RouteMeta {
   hideMenu?: boolean;
   // 菜单排序，只对第一级有效
   orderNo?: number;
-  // 忽略路由。用于在ROUTE_MAPPING以及BACK权限模式下，生成对应的菜单而忽略路由。2.5.3版本以上有效
-  ignoreRoute?: boolean
+  // 忽略路由。用于在ROUTE_MAPPING以及BACK权限模式下，生成对应的菜单而忽略路由。2.5.3以上版本有效
+  ignoreRoute?: boolean;
+  // 是否在子级菜单的完整path中忽略本级path。2.5.3以上版本有效
+  hidePathForChildren?: boolean;
 }
 ```
 
