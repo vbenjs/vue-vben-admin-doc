@@ -376,7 +376,7 @@ export interface ButtonProps extends BasicButtonProps {
 | component | `string` | - | - | 组件类型，见下方 ComponentType |
 | componentProps | `any,()=>{}` | - | - | 所渲染的组件的 props |
 | rules | `ValidationRule[]` | - | - | 校验规则,见下方 ValidationRule |
-| required | `boolean` | - | - | 简化 rules 配置，为 true 则转化成 [{required:true}] |
+| required | `boolean` | - | - | 简化 rules 配置，为 true 则转化成 [{required:true}]。`2.4.0`之前的版本只支持string类型的值 |
 | rulesMessageJoinLabel | `boolean` | false | - | 校验信息是否加入 label |
 | itemProps | `any` | - | - | 参考下方 FormItem |
 | colProps | `ColEx` | - | - | 参考上方 actionColOptions |
