@@ -627,8 +627,14 @@ export interface ActionItem {
   ifShow?: boolean | ((action: ActionItem) => boolean);
   // 点击回调
   onClick?: Fn;
+  // Tooltip配置,2.5.3以上版本支持，可以配置为string，或者完整的tooltip属性
+  tooltip?: string | TooltipProps
 }
+```
+有关TooltipProps的说明，请参考[tooltip](https://2x.antdv.com/components/tooltip-cn#API)
 
+**PopConfirm**
+```ts
 export interface PopConfirm {
   title: string;
   okText?: string;
