@@ -76,6 +76,24 @@ const permission: AppRouteModule = {
 
   children: [
     {
+      path: 'tabs/:id', 
+      name: 'TabsParams',
+      component: getParentLayout('TabsParams'),
+      meta: {
+        carryParam: true,
+        hidePathForChildren: true, // 本级path将会在子级菜单中合成完整path时会忽略这一层级
+      },
+      children: [
+        path: 'tabs/id1', // 其上级有标记hidePathForChildren，所以本级在生成菜单时最终的path为  /level/tabs/id1
+        name: 'TabsParams',
+        component: getParentLayout('TabsParams'),
+        meta: {
+          carryParam: true,
+          ignoreRoute: true,  // 本路由仅用于菜单生成，不会在实际的路由表中出现
+        },
+      ]
+    },
+    {
       path: 'menu1',
       name: 'Menu1Demo',
       component: getParentLayout('Menu1Demo'),
@@ -145,6 +163,10 @@ export interface RouteMeta {
   hideMenu?: boolean;
   // 菜单排序，只对第一级有效
   orderNo?: number;
+  // 忽略路由。用于在ROUTE_MAPPING以及BACK权限模式下，生成对应的菜单而忽略路由。2.5.3以上版本有效
+  ignoreRoute?: boolean;
+  // 是否在子级菜单的完整path中忽略本级path。2.5.3以上版本有效
+  hidePathForChildren?: boolean;
 }
 ```
 
