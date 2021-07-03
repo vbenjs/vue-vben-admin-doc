@@ -118,7 +118,7 @@ function createNav() {
         },
         {
           text: '文档源码',
-          link: 'https://github.com/anncwb/vben-admin-docs-cn',
+          link: 'https://github.com/anncwb/vue-vben-admin-doc',
         },
         {
           text: '更新日志',
