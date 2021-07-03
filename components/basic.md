@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-  import { BasicTitle } from '/@/components/Baisc/index';
+  import { BasicTitle } from '/@/components/Basic/index';
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: { BasicTitle },
