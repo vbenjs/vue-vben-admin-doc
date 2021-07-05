@@ -242,6 +242,6 @@ changeLoading(true);
 | ------- | -------- |
 | default | 默认区域 |
 | footer | 底部区域(会替换掉默认的按钮) |
-|insertFooter|关闭按钮的左边 |
-|centerFooter| 关闭按钮和确认按钮的中间 |
-|appendFooter| 确认按钮的右边 |
+|insertFooter|关闭按钮的左边(不使用footer插槽时有效) |
+|centerFooter| 关闭按钮和确认按钮的中间(不使用footer插槽时有效) |
+|appendFooter| 确认按钮的右边(不使用footer插槽时有效) |
