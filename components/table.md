@@ -479,6 +479,21 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | loading                 | `boolean`                                          | `false` | -      | 表格 loading 状态                                                                               |      |
 | scroll                  | `any`                                              | -       | -      | 参考官方文档 scroll                                                                             |      |
 
+### TableSetting
+```ts
+{
+  // 是否显示刷新按钮
+  redo?: boolean;
+  // 是否显示尺寸调整按钮
+  size?: boolean;
+  // 是否显示字段调整按钮
+  setting?: boolean;
+  // 是否显示全屏按钮
+  fullScreen?: boolean;
+}
+```
+
+
 ## BasicColumn
 
 除 参考官方 [Column 配置](https://2x.antdv.com/components/table-cn/#Column)外，扩展以下参数
