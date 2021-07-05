@@ -241,3 +241,7 @@ changeLoading(true);
 | 名称    | 说明     |
 | ------- | -------- |
 | default | 默认区域 |
+| footer | 底部区域(会替换掉默认的按钮) |
+|insertFooter|关闭按钮的左边 |
+|centerFooter| 关闭按钮和确认按钮的中间 |
+|appendFooter| 确认按钮的右边 |
