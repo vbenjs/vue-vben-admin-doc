@@ -80,6 +80,12 @@
 | defaultExpandLevel | `string ｜ number`        | -      | -      | 初次渲染后默认展开的层级     | 2.4.1 |
 | defaultExpandAll | `boolean`       | `false`  | `true/false`      | 初次渲染后默认全部     | 2.4.1 |
 
+::: tip 注意
+
+`defaultExpandLevel`、`defaultExpandAll` 仅在**初次渲染**时生效。如果`basicTree`是在创建完毕之后才设置的`treeData`(如异步数据)，需要在更新后自己调用`basicTree`提供的`expandAll`、`filterByLevel`来执行展开
+
+:::
+
 **ActionItem**
 
 ```ts
