@@ -77,6 +77,12 @@
 | selectedKeys     | `string[]`                | -      | -      | 选中的节点                   |   |
 | expandedKeys     | `string[]`                | -      | -      | 展开的节点                   |  |
 | actionList       | `ActionItem[]`            | -      | -      | 鼠标移动上去右边操作按钮列表 |  |
+| title            | `string`                  | -      | -      | 定制标题字符串              |  |
+| toolbar            | `boolean`                  | -      | -      | 是否显示工具栏             |  |
+| search            | `boolean`                  | -      | -      | 显示搜索框             |  |
+| clickRowToExpand            | `boolean`                  | -      | -      | 是否在点击行时自动展开             |  |
+| beforeRightClick            | `(node, event)=>ContextMenuItem[]`                  | -      | -      | 右键点击回调，可返回右键菜单列表数据来生成右键菜单 |  |
+| rightMenuList            | `ContextMenuItem[]`                  | -      | -      | 右键菜单列表数据             |  |
 | defaultExpandLevel | `string ｜ number`        | -      | -      | 初次渲染后默认展开的层级     | 2.4.1 |
 | defaultExpandAll | `boolean`       | `false`  | `true/false`      | 初次渲染后默认全部     | 2.4.1 |
 
@@ -92,6 +98,8 @@
 {
   // 渲染的图标
   render: (record: any) => any;
+  // 是否显示
+  show?: boolean | ((record: Recordable) => boolean);
 }
 ```
 
@@ -107,6 +115,10 @@
   disabled?: boolean;
   // 事件
   handler?: (...arg) => any;
+  // 是否显示分隔线
+  divider?: boolean;
+  // 子级菜单数据
+  children?: ContextMenuItem[];
 }
 ```
 
