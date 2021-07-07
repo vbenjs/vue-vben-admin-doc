@@ -72,7 +72,6 @@
 | ---------------- | ------------------------- | ------ | ------ | ---------------------------- | - |
 | treeData         | `TreeItem[]`              | -      | -      | 树组件数据                   |   |
 | rightMenuList    | `ContextMenuItem[]`       | -      | -      | 右键菜单列表                 |   |
-| beforeRightClick | `（）=>ContextMenuItem[]` | -      | -      | 点击右键之前生成右键菜单     |   |
 | checkedKeys      | `string[]`                | -      | -      | 勾选的节点                   |   |
 | selectedKeys     | `string[]`                | -      | -      | 选中的节点                   |   |
 | expandedKeys     | `string[]`                | -      | -      | 展开的节点                   |  |
