@@ -89,7 +89,7 @@ function createNav() {
         },
         {
           text: '函数式组件',
-          link: '/components/context-menu',
+          link: '/components/functional/context-menu',
         },
       ],
     },
