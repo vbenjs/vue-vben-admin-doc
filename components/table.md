@@ -584,11 +584,12 @@ export type CellFormat =
 
 :::
 
-| 名称              | 说明             |
-| ----------------- | ---------------- |
-| tableTitle        | 表格顶部左侧区域 |
-| toolbar           | 表格顶部右侧区域 |
-| expandedRowRender | 展开行区域       |
+| 名称              | 说明             |  版本  |
+| ----------------- | ---------------- | -- |
+| tableTitle        | 表格顶部左侧区域 |  |
+| toolbar           | 表格顶部右侧区域 |  |
+| expandedRowRender | 展开行区域       |  |
+| headerTop | 表格顶部区域（标题上方）       |  2.6.1 |
 
 ## Form-Slots
 
