@@ -248,7 +248,7 @@ if (permissionMode === PermissionModeEnum.BACK) {
 
 返回值是有多个路由模块所组成
 
-::: 注意
+::: warning 注意
 
 后端接口返回的数据中必须包含`PageEnum.BASE_HOME`指定的路由（path定义于`src/enums/pageEnum.ts`）
 
