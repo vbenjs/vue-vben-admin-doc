@@ -1,10 +1,10 @@
 # 权限
 
-项目中集成了两种权限处理方式：
+项目中集成了三种权限处理方式：
 
-1. 通过用户角色来过滤菜单(前端方式控制)
-
-2. 通过后台来动态生成路由表(后台方式控制)
+1. 通过用户角色来过滤菜单(前端方式控制)，菜单和路由分开配置
+2. 通过用户角色来过滤菜单(前端方式控制)，菜单由路由配置自动生成
+3. 通过后台来动态生成路由表(后台方式控制)
 
 ## 前端角色权限
 
@@ -228,15 +228,21 @@ if (permissionMode === PermissionModeEnum.BACK) {
 }
 ```
 
-**getMenuListById 返回值格式**
+**getMenuList 返回值格式**
 
 返回值由多个路由模块组成
+
+::: warning 注意
+
+后端接口返回的数据中必须包含`PageEnum.BASE_HOME`指定的路由（path定义于`src/enums/pageEnum.ts`）
+
+:::
 
 ```ts
 [
   {
-    path: '/home',
-    name: 'Home',
+    path: '/dashboard',
+    name: 'Dashboard',
     component: '/dashboard/welcome/index',
     meta: {
       title: 'routes.dashboard.welcome',

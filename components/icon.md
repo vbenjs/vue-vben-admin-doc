@@ -8,7 +8,7 @@ icon 组件位于 [src/components/Icon](https://github.com/anncwb/vue-vben-admin
 
 ::: tip
 
-icon 的值可以在 [Iconify](https://iconify.design) 上查询
+icon 的值可以在 [Iconify](https://iconify.design) 或 [Netlify](https://icones.netlify.app/collection/ant-design) 上查询
 
 :::
 
@@ -73,7 +73,7 @@ icon 的值可以在 [Iconify](https://iconify.design) 上查询
 
 ## IconPicker
 
-图标选择器
+本组件详细说明请参阅[图标选择器](../dep/icon.html#图标选择器)
 
 ### Usage
 
@@ -99,4 +99,12 @@ icon 的值可以在 [Iconify](https://iconify.design) 上查询
 | width    | `string`  | 100%      | 宽度                                          |
 | pageSize | `number`  | 140       | 每页显示的图标数                              |
 | copy     | `boolean` | false     | 是否可以复制                                  |
-| mode     | `string`  | `iconify` | 图标来源，为 svg 时，会读取所有 svg sprite 图标 |
+| mode     | `string`  | `iconify` | 备选图标池，为 svg 时，会读取所有 svg sprite 图标。详见下方说明 |
+
+
+::: tip mode 说明
+
+- `mode`为`iconify`时，会使用预生成的[图标集数据](../dep/icon.html#图标集预生成)作为备选图标池
+- `mode`为`svg`时，会使用 `/src/assets/icons` 下的所有svg图标（可包含一级子目录）作为备选图标池，详见[vite-plugin-svg-icons](https://github.com/anncwb/vite-plugin-svg-icons/blob/main/README.zh_CN.md#vite-plugin-svg-icons)。
+
+:::
