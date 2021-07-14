@@ -1,6 +1,6 @@
 # FlowChart
 
-流程图组件，基于`didi/LogicFlow`的简单封装。详细配置请参考文档[FlowChart](http://logic-flow.org/guide/start.html)
+流程图组件，基于 `didi/LogicFlow` 的简单封装。详细配置请参考文档 [FlowChart](http://logic-flow.org/guide/start.html)
 
 ## Usage
 

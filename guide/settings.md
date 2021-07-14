@@ -1,12 +1,12 @@
 # 项目配置项
 
-用于修改项目的配色、布局、缓存、多语言、组件默认配置以适配自身项目需求
+用于修改项目的配色、布局、缓存、多语言、组件默认配置
 
 ## 环境变量配置
 
-项目的环境变量配置位于 项目根目录 [.env](https://github.com/anncwb/vue-vben-admin/blob/main/.env)、[.env.development](https://github.com/anncwb/vue-vben-admin/blob/main/.env.development)、[.env.production](https://github.com/anncwb/vue-vben-admin/blob/main/.env.production)
+项目的环境变量配置位于项目根目录下的 [.env](https://github.com/anncwb/vue-vben-admin/blob/main/.env)、[.env.development](https://github.com/anncwb/vue-vben-admin/blob/main/.env.development)、[.env.production](https://github.com/anncwb/vue-vben-admin/blob/main/.env.production)
 
-具体可以参考[Vite 文档](https://github.com/vitejs/vite#modes-and-environment-variables)
+具体可以参考 [Vite 文档](https://github.com/vitejs/vite#modes-and-environment-variables)
 
 ```bash
 .env                # 在所有的环境中被载入
@@ -18,7 +18,7 @@
 
 ::: tip 温馨提醒
 
-- 只有以 `VITE_ `开头的变量会被嵌入到客户端侧的包中，你可以在应用的代码中这样访问它们：
+- 只有以 `VITE_ ` 开头的变量会被嵌入到客户端侧的包中，你可以项目代码中这样访问它们：
 
 ```js
 console.log(import.meta.env.VITE_PROT);
@@ -69,9 +69,9 @@ VITE_GLOB_API_URL_PREFIX=
 
 ::: warning 注意
 
-这里配置的`VITE_PROXY`以及`VITE_GLOB_API_URL`, /api 需要是唯一的，不要和接口有的名字冲突
+这里配置的 `VITE_PROXY` 以及 `VITE_GLOB_API_URL`, /api 需要是唯一的，不要和接口有的名字冲突
 
-如果你的接口是`http://localhost:3000/api`之类的，请考虑将`VITE_GLOB_API_URL=/xxxx` 换成别的名字
+如果你的接口是 `http://localhost:3000/api` 之类的，请考虑将 `VITE_GLOB_API_URL=/xxxx` 换成别的名字
 
 :::
 
@@ -108,9 +108,9 @@ VITE_LEGACY = false
 
 ### 说明
 
-当执行`yarn build`构建项目之后，会自动生成`_app.config.js`文件并插入`index.html`。
+当执行`yarn build`构建项目之后，会自动生成 `_app.config.js` 文件并插入 `index.html`。
 
-**注意:开发环境不会生成**
+**注意: 开发环境不会生成**
 
 ```js
 // _app.config.js
@@ -126,21 +126,19 @@ window.__PRODUCTION__VUE_VBEN_ADMIN__CONF__ = {
 
 ### 作用
 
-`_app.config.js` 用于项目在打包后需要动态修改的需求，如接口地址, 不用重新进行打包，可在打包后通过修改`/dist/_app.config.js`内的变量,刷新即可更新代码内的局部变量
+`_app.config.js` 用于项目在打包后，需要动态修改配置的需求，如接口地址。不用重新进行打包，可在打包后修改 `/dist/_app.config.js` 内的变量，刷新即可更新代码内的局部变量。
 
 ### 如何获取全局变量
 
-想要获取 `_app.config.js` 内的变量
-
-可以使用[src/hooks/setting/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/setting/index.ts)提供的函数来进行获取
+想要获取 `_app.config.js` 内的变量，可以使用 [src/hooks/setting/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/setting/index.ts) 提供的函数来进行获取
 
 ### 如何新增(新增一个可动态修改的配置项)
 
-1. 首先在`.env`或者对应的开发环境配置文件内新增需要可动态配置的变量 需要以 `VITE_GLOB_`开头
+1. 首先在 `.env` 或者对应的开发环境配置文件内，新增需要可动态配置的变量，需要以 `VITE_GLOB_`开头
 
-2. `VITE_GLOB_`开头的变量会自动加入环境变量，通过在 `src/types/config.d.ts`内修改 `GlobEnvConfig`和`GlobConfig`两个环境变量的值来定义新添加的类型
+2. `VITE_GLOB_` 开头的变量会自动加入环境变量，通过在 `src/types/config.d.ts` 内修改 `GlobEnvConfig` 和 `GlobConfig` 两个环境变量的值来定义新添加的类型
 
-3. [useGlobSetting](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/setting/index.ts)函数新增你刚才新增的返回值即可
+3. [useGlobSetting](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/setting/index.ts) 函数中添加刚新增的返回值即可
 
 ```js
 const {
@@ -169,9 +167,7 @@ export const useGlobSetting = (): SettingWrap => {
 
 ::: warning
 
-项目配置文件用于配置项目内展示的内容、布局、文本等效果，存于`localStorage`中,在代码内更改之后需要清空`localStorage`缓存
-
-如果更改了项目配置，需要手动**清空**`localStorage`缓存刷新重新登录后方可生效
+项目配置文件用于配置项目内展示的内容、布局、文本等效果，存于`localStorage`中。如果更改了项目配置，需要手动**清空** `localStorage` 缓存，刷新重新登录后方可生效。
 
 :::
 
@@ -332,9 +328,9 @@ const setting: ProjectConfig = {
 
 用于配置缓存内容加密信息，对缓存到浏览器的信息进行 AES 加密
 
-在[/@/settings/encryptionSetting.ts](https://github.com/anncwb/vue-vben-admin/blob/main/src/settings/encryptionSetting.ts)内可以配置 `localStorage` 及 `sessionStorage` 缓存信息
+在 [/@/settings/encryptionSetting.ts](https://github.com/anncwb/vue-vben-admin/blob/main/src/settings/encryptionSetting.ts) 内可以配置 `localStorage` 及 `sessionStorage` 缓存信息
 
-**前提** 使用项目自带的缓存工具类 [/@/utils/cache](https://github.com/anncwb/vue-vben-admin/blob/main/src/utils/cache/index.ts)来进行缓存操作
+**前提:** 使用项目自带的缓存工具类 [/@/utils/cache](https://github.com/anncwb/vue-vben-admin/blob/main/src/utils/cache/index.ts) 来进行缓存操作
 
 ```ts
 import { isDevMode } from '/@/utils/env';
@@ -356,7 +352,7 @@ export const enableStorageEncryption = !isDevMode();
 
 用于配置多语言信息
 
-在[src/settings/localeSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/localeSetting.ts)内配置
+在 [src/settings/localeSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/localeSetting.ts) 内配置
 
 ```ts
 export const LOCALE: { [key: string]: LocaleType } = {
@@ -390,9 +386,9 @@ export const localeList: DropMenu[] = [
 
 ## 主题色配置
 
-默认全局主题色配置位于[build/config/glob/themeConfig.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts)内
+默认全局主题色配置位于 [build/config/glob/themeConfig.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/config/themeConfig.ts) 内
 
-只需要修改 primaryColor 为您需要的配色，然后重新执行`yarn serve`即可
+只需要修改 primaryColor 为您需要的配色，然后重新执行 `yarn serve` 即可
 
 ```js
 /**
@@ -407,13 +403,13 @@ export const primaryColor = '#0960bd';
 
 用于修改项目内组件 class 的统一前缀
 
-- 在 [src/settings/designSetting.ts](https://github.com/anncwb/vue-vben-admin/blob/main/src/settings/designSetting.ts)内配置
+- 在 [src/settings/designSetting.ts](https://github.com/anncwb/vue-vben-admin/blob/main/src/settings/designSetting.ts) 内配置
 
 ```ts
 export const prefixCls = 'vben';
 ```
 
-- 在[src/design/var/index.less](https://github.com/anncwb/vue-vben-admin/blob/main/src/design/var/index.less)配置 css 前缀
+- 在 [src/design/var/index.less](https://github.com/anncwb/vue-vben-admin/blob/main/src/design/var/index.less) 配置 css 前缀
 
 ```less
 @namespace: vben;
@@ -448,7 +444,7 @@ const { prefixCls } = useDesign('app-logo');
 
 用于预设一些颜色数组
 
-在[src/settings/designSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/designSetting.ts)内配置
+在 [src/settings/designSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/designSetting.ts) 内配置
 
 ```ts
 //  app主题色预设
@@ -480,7 +476,7 @@ export const HEADER_PRESET_BG_COLOR_LIST: string[] = [
   '#383f45',
 ];
 
-//左侧菜单背景色预设
+// 左侧菜单背景色预设
 export const SIDE_BAR_BG_COLOR_LIST: string[] = [
   '#001529',
   '#273352',
@@ -497,7 +493,7 @@ export const SIDE_BAR_BG_COLOR_LIST: string[] = [
 
 ## 组件默认参数配置
 
-在[src/settings/componentSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentSetting.ts)内配置
+在 [src/settings/componentSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentSetting.ts) 内配置
 
 ```ts
 // 用于配置某些组件的常规配置，而无需修改组件

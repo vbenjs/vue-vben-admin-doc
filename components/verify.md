@@ -1,6 +1,6 @@
 # BasicDragVerify
 
-:::
+拖动校验组件
 
 ## BasicDragVerify
 

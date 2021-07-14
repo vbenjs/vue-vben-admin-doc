@@ -1,6 +1,6 @@
 # Markdown
 
-基于[Vditor](https://github.com/Vanessa219/vditor)的 MarkDown 编辑器
+基于 [Vditor](https://github.com/Vanessa219/vditor) 的 MarkDown 编辑器
 
 ## Usage
 
@@ -44,7 +44,7 @@
 
 ::: tip
 
-除以下两个外,props 还可以传入 vidtor 的所有属性。可用 v-bind 统一绑定
+除以下两个外，props 还可以传入 vidtor 的所有属性。可用 v-bind 统一绑定
 
 :::
 

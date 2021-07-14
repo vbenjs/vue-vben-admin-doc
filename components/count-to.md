@@ -1,8 +1,8 @@
 # CountTo
 
-该组件是 [vue-countTo](https://github.com/PanJiaChen/vue-countTo) 进行重构，改造成适配 vue3 语法的组件。
-
 数字动画组件
+
+该组件对 [vue-countTo](https://github.com/PanJiaChen/vue-countTo) 进行了重构，改造成适配 vue3 语法的组件。
 
 ## Usage
 

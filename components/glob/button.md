@@ -1,11 +1,11 @@
 # button 按钮
 
-二次封装按钮组件，且使用相同的组件名替换全局的`a-button`组件
+二次封装按钮组件，且使用相同的组件名替换全局的 `a-button` 组件
 
 ::: tip
 
-- 按钮不需要 import ,已经全局注册，直接使用 a-button 标签即可
-- 如果是 Tsx 文件,需要手动 import
+- 按钮不需要 import，已经全局注册，直接使用 `a-button` 标签即可
+- 如果是 Tsx 文件，需要手动 import
 
 :::
 

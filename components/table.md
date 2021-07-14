@@ -1,8 +1,8 @@
 # Table 表格
 
-对`antv`的 table 组件进行封装
+对 `antv` 的 table 组件进行封装
 
-如果文档内没有，可以尝试在在线示例内寻找
+> 如果文档内没有，可以尝试在在线示例内寻找
 
 ## Usage
 
@@ -47,7 +47,7 @@
 
 ### template 示例
 
-所有可调用函数见下方`Methods`说明
+所有可调用函数见下方 `Methods` 说明
 
 ```vue
 <template>
@@ -98,7 +98,7 @@
 </script>
 ```
 
-### BasicColumn 和 tableAction 通过权限和业务控制显示隐藏 示例
+### BasicColumn 和 tableAction 通过权限和业务控制显示隐藏的示例
 ```vue
 <template>
   <div class="p-4">
@@ -214,7 +214,7 @@
 
 ## useTable
 
-使用组件自带的**useTable**可以方便使用表单
+使用组件自带的 **useTable** 可以方便使用表单
 
 下面是一个使用简单表格的示例，
 
@@ -558,11 +558,11 @@ export type CellFormat =
 | edit-end         | `Function({record, index, key, value})` | 单元格编辑完成触发                  |
 | edit-cancel      | `Function({record, index, key, value})` | 单元格取消编辑触发                  |
 | edit-row-end     | `Function()`                            | 行编辑结束触发                      |
-| edit-change      | `Function({column,value,record})`       | 单元格编辑组件的value发生变化时触发 |
+| edit-change      | `Function({column,value,record})`       | 单元格编辑组件的 value 发生变化时触发 |
 
 ::: tip edit-change 说明
 
-从版本`2.4.2`起，对于edit-change事件，record中的editValueRefs装载了当前行的所有编辑组件（如果有的话）的值的ref对象，可用于处理同一行中的编辑组件的联动。请看下面的例子
+从版本 `2.4.2` 起，对于 `edit-change` 事件，`record` 中的 `editValueRefs` 装载了当前行的所有编辑组件（如果有的话）的值的 `ref` 对象，可用于处理同一行中的编辑组件的联动。请看下面的例子
 
 :::
 
@@ -643,7 +643,7 @@ export interface ActionItem {
   ifShow?: boolean | ((action: ActionItem) => boolean);
   // 点击回调
   onClick?: Fn;
-  // Tooltip配置,2.5.3以上版本支持，可以配置为string，或者完整的tooltip属性
+  // Tooltip配置，2.5.3以上版本支持，可以配置为string，或者完整的tooltip属性
   tooltip?: string | TooltipProps
 }
 ```

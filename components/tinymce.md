@@ -1,10 +1,10 @@
 # Tinymce
 
-富文本组件位于 [src/components/TinyMce](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Tinymce))
+富文本组件位于 [src/components/TinyMce](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Tinymce)
 
-::: tip 富文本组件使用的是 CDN 方式引入。可以自行更改 CDN 地址
+::: tip 富文本组件使用的是 CDN 方式引入
 
-在 [/@/components/TinyMce/src/Editor.vue](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Tinymce/src/Editor.vue)更改下面 CDN 地址即可
+可在 [/@/components/TinyMce/src/Editor.vue](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Tinymce/src/Editor.vue) 更改下面 CDN 地址
 
 ```ts
 const CDN_URL = 'https://cdn.bootcdn.net/ajax/libs/tinymce/5.5.1';

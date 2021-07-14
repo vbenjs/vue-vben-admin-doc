@@ -1,6 +1,6 @@
 # Tree
 
-对`antv`的 tree 组件进行封装
+对 `antv` 的 tree 组件进行封装
 
 ## Usage
 

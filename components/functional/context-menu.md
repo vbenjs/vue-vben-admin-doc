@@ -54,7 +54,7 @@
 | 属性  | 类型                | 默认值 | 可选值 | 说明                                     |
 | ----- | ------------------- | ------ | ------ | ---------------------------------------- |
 | event | `Event`             | -      | -      | 需要创建的 dom 的 `Event` 对象           |
-| items | `ContextMenuItem[]` | -      | -      | 右键菜单列表,`ContextMenuItem`见下方说明 |
+| items | `ContextMenuItem[]` | -      | -      | 右键菜单列表，`ContextMenuItem`见下方说明 |
 
 **ContextMenuItem**
 

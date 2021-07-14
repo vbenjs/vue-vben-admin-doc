@@ -1,6 +1,6 @@
 # Upload
 
-用于项目文件上传
+文件上传组件
 
 ## Usage
 
@@ -29,7 +29,7 @@
 
 ## Config
 
-`.env.development` 和`.env.production` 配置开发和生产的文件上传地址
+`.env.development` 和 `.env.production` 配置开发和生产的文件上传地址
 
 ```bash
 # .env.development

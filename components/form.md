@@ -1,8 +1,8 @@
 # Form 表单组件
 
-对`antv`的 form 组件进行封装，扩展一些常用的功能
+对 `antv` 的 form 组件进行封装，扩展一些常用的功能
 
-如果文档内没有，可以尝试在在线示例内寻找
+> 如果文档内没有，可以尝试在在线示例内寻找
 
 ## Usage
 
@@ -61,7 +61,7 @@
 
 ### template 方式
 
-所有可调用函数见下方`Methods`说明
+所有可调用函数见下方 `Methods` 说明
 
 ```vue
 <template>
@@ -102,7 +102,7 @@
 
 ## useForm
 
-form 组件还提供了 useForm，方便调用函数内部方法
+form 组件还提供了 `useForm`，方便调用函数内部方法
 
 ### 示例
 
@@ -159,15 +159,14 @@ form 组件还提供了 useForm，方便调用函数内部方法
 ### 参数介绍
 
 ```ts
-//
 const [register, methods] = useForm(props);
 ```
 
-**参数 props 内的值可以时 computed 或者 ref 类型**
+**参数 props 内的值可以是 computed 或者 ref 类型**
 
 **register**
 
-register 用于注册 useForm，如果需要使用`useForm`提供的 api，必须将 register 传入组件的 onRegister
+register 用于注册 `useForm`，如果需要使用 `useForm` 提供的 api，必须将 register 传入组件的 `onRegister`
 
 ```vue
 <template>
@@ -338,26 +337,26 @@ export interface ButtonProps extends BasicButtonProps {
 如果表单内有时间区间组件，获取到的值是一个数组，但是往往我们传递到后台需要是 2 个字段
 
 ```ts
-      useForm({
-        fieldMapToTime: [
-          // data为时间组件在表单内的字段，startTime，endTime为转化后的开始时间于结束时间
-          // 'YYYY-MM-DD'为时间格式，参考moment
-          ['datetime', ['startTime', 'endTime'], 'YYYY-MM-DD'],
-          // 支持多个字段
-          ['datetime1', ['startTime1', 'endTime1'], 'YYYY-MM-DD HH:mm:ss'],
-      ],
-    });
+useForm({
+  fieldMapToTime: [
+    // data为时间组件在表单内的字段，startTime，endTime为转化后的开始时间于结束时间
+    // 'YYYY-MM-DD'为时间格式，参考moment
+    ['datetime', ['startTime', 'endTime'], 'YYYY-MM-DD'],
+    // 支持多个字段
+    ['datetime1', ['startTime1', 'endTime1'], 'YYYY-MM-DD HH:mm:ss'],
+  ],
+});
 
-    // fieldMapToTime没写的时候表单获取到的值
-    {
-      datetime: [Date(),Date()]
-    }
-    //  ['datetime', ['startTime', 'endTime'], 'YYYY-MM-DD'],之后
-    {
-       datetime: [Date(),Date()],
-       startTime: '2020-08-12',
-       endTime: '2020-08-15',
-    }
+// fieldMapToTime没写的时候表单获取到的值
+{
+  datetime: [Date(),Date()]
+}
+//  ['datetime', ['startTime', 'endTime'], 'YYYY-MM-DD'],之后
+{
+    datetime: [Date(),Date()],
+    startTime: '2020-08-12',
+    endTime: '2020-08-15',
+}
 ```
 
 ### FormSchema
@@ -386,8 +385,8 @@ export interface ButtonProps extends BasicButtonProps {
 | renderComponentContent | `(renderCallbackParams: RenderCallbackParams) => any / string` | - | - | 自定义渲染组内部的 slot |
 | slot | `string` | - | - | 自定义 slot，渲染组件 |
 | colSlot | `string` | - | - | 自定义 slot，渲染组件 （需要自行包含 formItem） |
-| show | ` boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,css 控制，不会删除 dom |
-| ifShow | ` boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示,js 控制，会删除 dom |
+| show | ` boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示，css 控制，不会删除 dom |
+| ifShow | ` boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判断当前组件是否显示，js 控制，会删除 dom |
 | dynamicDisabled | `boolean / ((renderCallbackParams: RenderCallbackParams) => boolean) ` | - | - | 动态判断当前组件是否禁用 |
 | dynamicRules | `boolean / ((renderCallbackParams: RenderCallbackParams) => boolean)` | - | - | 动态判返当前组件你校验规则 |
 
@@ -494,7 +493,7 @@ export type ComponentType =
 
 ## 自行添加需要的组件类型
 
-在 `src/components/Form/src/componentMap.ts`内，添加需要的组件，并在上方**ComponentType**添加相应的类型 key
+在 `src/components/Form/src/componentMap.ts` 内，添加需要的组件，并在上方 **ComponentType** 添加相应的类型 key
 
 ### 方式 1
 
@@ -509,7 +508,7 @@ export type ComponentType = xxxx | 'componentName';
 
 ### 方式 2
 
-使用**useComponentRegister**进行注册
+使用 **useComponentRegister** 进行注册
 
 这种写法只能在当前页使用，页面销毁之后会从 componentMap 删除相应的组件
 
@@ -713,7 +712,7 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 
 ---
 
-见[antv form](https://2x.antdv.com/components/form-cn/#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99)
+见 [antv form](https://2x.antdv.com/components/form-cn/#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99)
 
 ## Slots
 

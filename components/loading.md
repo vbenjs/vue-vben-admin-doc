@@ -56,5 +56,5 @@
 | size | `default, small , large` | `default` | - | 大小 |
 | absolute | `boolean` | false | - | 绝对定位，为 `false` 时可以全屏 |
 | loading | `boolean` | - | - | 当前加载状态 |
-| background | `string` | - | - | 背景色， |
-| theme | `'dark' or 'light'` | `light` | - | 背景色主题 ，当背景色不为空时使用背景色 |
+| background | `string` | - | - | 背景色 |
+| theme | `'dark' or 'light'` | `light` | - | 背景色主题，当背景色不为空时使用背景色 |

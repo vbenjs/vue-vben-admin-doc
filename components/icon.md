@@ -2,15 +2,13 @@
 
 ## Icon
 
-用于项目内组件的展示,基本支持所有图标库
+用于项目内组件的展示，基本支持所有图标库（支持按需加载，只打包所用到的图标）
 
-支持按需加载,只打包所用到的图标
-
-icon 组件位于 [src/components/Icon](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Icon)内
+icon 组件位于 [src/components/Icon](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Icon) 内
 
 ::: tip
 
-icon 的值可以在[Iconify](https://iconify.design) 上面查询
+icon 的值可以在 [Iconify](https://iconify.design) 上查询
 
 :::
 
@@ -41,7 +39,7 @@ icon 的值可以在[Iconify](https://iconify.design) 上面查询
 
 ::: tip 提示
 
-如果`icon`值以`|svg`结尾，则会渲染成[SvgIcon 组件](#SvgIcon)
+如果 `icon` 值以 `|svg` 结尾，则会渲染成 [SvgIcon 组件](#SvgIcon)
 
 :::
 
@@ -101,4 +99,4 @@ icon 的值可以在[Iconify](https://iconify.design) 上面查询
 | width    | `string`  | 100%      | 宽度                                          |
 | pageSize | `number`  | 140       | 每页显示的图标数                              |
 | copy     | `boolean` | false     | 是否可以复制                                  |
-| mode     | `string`  | `iconify` | 图标来源,为 svg 时,会读取所有 svg sprite 图标 |
+| mode     | `string`  | `iconify` | 图标来源，为 svg 时，会读取所有 svg sprite 图标 |

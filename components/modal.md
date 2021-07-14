@@ -2,17 +2,15 @@
 
 对 antv 的 modal 组件进行封装，扩展拖拽，全屏，自适应高度等功能
 
-代码路径[src/components/Modal](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Modal)
+代码路径 [src/components/Modal](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Modal)
 
 ## Usage
 
-**由于弹窗内部代码一般独立成单独文件，也推荐独立成组件来进行开发，所以示例都是以独立的文件来进行说明**
-
-**独立组件代码，用于写组件内部的内容**
+**由于弹窗内代码一般作为单文件组件存在，也推荐这样做，所以示例都为单文件组件形式**
 
 ::: tip
 
-注意 `v-bind="$attrs"`记得写
+注意 `v-bind="$attrs"`记得写，用于将弹窗组件的 `attribute` 传入 `BasicModal` 组件
 
 :::
 
@@ -65,7 +63,7 @@
 
 用于外部组件调用
 
-**useModal**用于操作组件
+**useModal** 用于操作组件
 
 ```ts
 const [register, { openModal, setModalProps }] = useModal();
@@ -73,11 +71,11 @@ const [register, { openModal, setModalProps }] = useModal();
 
 **register**
 
-register 用于注册 useModal，如果需要使用`useModal`提供的 api，必须将 register 传入组件的 onRegister
+register 用于注册 `useModal`，如果需要使用 `useModal` 提供的 api，必须将 `register` 传入组件的 `onRegister`。
 
-原理其实很简单，就是 vue 的组件子传父通信，内部通过 emit("register"，instance)实现
+原理其实很简单，就是 vue 的组件子传父通信，内部通过 `emit("register"，instance)` 实现。
 
-同时独立出去的组件需要将 `attrs` 绑定到 BasicModal 上面
+同时独立出去的组件需要将 `attrs` 绑定到 `BasicModal` 上面。
 
 ```vue
 <template>
@@ -105,7 +103,7 @@ closeDrawer();
 
 **setModalProps**
 
-用于更改 modal 的 props 参数因为 modal 内容独立成组件，如果在外部页面需要更改 props 可能比较麻烦，所以提供**setModalProps** 方便更改内部 modal 的 props
+用于更改 modal 的 props 参数因为 modal 内容独立成组件，如果在外部页面需要更改 props 可能比较麻烦，所以提供 **setModalProps** 方便更改内部 modal 的 props
 
 [Props](#Props) 内容可以见下方
 
@@ -196,7 +194,7 @@ changeLoading(true);
 
 **setModalProps**
 
-用于更改 modal 的 props 参数因为 modal 内容独立成组件，如果在外部页面需要更改 props 可能比较麻烦，所以提供**setModalProps** 方便更改内部 modal 的 props
+用于更改 modal 的 props 参数因为 modal 内容独立成组件，如果在外部页面需要更改 props 可能比较麻烦，所以提供 **setModalProps** 方便更改内部 modal 的 props
 
 [Props](#Props) 内容可以见下方
 

@@ -4,7 +4,7 @@
 
 ## 组件库图标
 
-使用`ant-design-vue`提供的图标
+使用 `ant-design-vue` 提供的图标
 
 ```vue
 <template>
@@ -46,9 +46,9 @@
 </script>
 ```
 
-1. 使用`Icon`组件进行展示
+2. 使用`Icon`组件进行展示
 
-以`｜svg`结尾会自动使用`SvgIcon`组件
+以 `｜svg` 结尾会自动使用`SvgIcon`组件
 
 ```vue
 <template>
@@ -68,7 +68,7 @@
 
 使用方式请参考 [Icon 组件](../components/icon.md)
 
-项目中使用到的是[vite-plugin-purge-icons](https://github.com/antfu/purge-icons/blob/main/packages/vite-plugin-purge-icons/README.md)这个插件来进行图标实现。
+项目中使用到的是 [vite-plugin-purge-icons](https://github.com/antfu/purge-icons/blob/main/packages/vite-plugin-purge-icons/README.md) 这个插件来进行图标实现。
 
 1. 安装依赖
 
@@ -217,7 +217,7 @@ export default {
 
 ### 图标集预生成
 
-由于图标选择器这个比较特殊的存在,项目会打包一些比较多的图标，图标选择器的图标需要事先指定并生成相应的文件。
+由于图标选择器这个比较特殊的存在，项目会打包一些比较多的图标，图标选择器的图标需要事先指定并生成相应的文件。
 
 ### 生成
 
@@ -227,9 +227,9 @@ export default {
 yarn gen:icon
 ```
 
-- 这里会让你选择 本地还是在线生成,两种方式各有利弊，下面会说如图所示,
+- 这里会让你选择本地还是在线生成，两种方式各有利弊。如下图所示
 
-local 表示本地 online 表示在线,回车确认
+local 表示本地，online 表示在线，回车确认
 
 ![](/images/genIcon.png)
 
@@ -251,15 +251,15 @@ local 表示本地 online 表示在线,回车确认
 
 ### 优缺点
 
-**在线图标(项目默认,推荐)**
+- **在线图标(项目默认,推荐)**
 
 该方式会在图标选择器使用到图标的时候进行在线请求,然后缓存对应的图标到浏览器。可以有效减少代码打包体积。
 
 如果你的项目可以访问外网，建议可以使用这种方式
 
-**缺点** 是在局域网或者无法访问到外网的环境中图标显示不出来
+**缺点：** 在局域网或者无法访问到外网的环境中图标显示不出来
 
-**本地图标**
+- **本地图标**
 
 该方式会在打包的时候将图标选择器的图标全部打包到 js 内。在使用的时候不会额外的请求在线图标
 
