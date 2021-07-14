@@ -8,7 +8,7 @@
 
 ### 从 GitHub 获取代码
 
-**Electron**代码在**electron-main**分支
+**Electron** 代码在 **electron-main** 分支
 
 ```bash
 # clone electron-main分支代码

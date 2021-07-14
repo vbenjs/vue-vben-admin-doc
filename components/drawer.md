@@ -1,6 +1,6 @@
 # Drawer 抽屉组件
 
-对`antv`的 drawer 组件进行封装，扩展拖拽，全屏，自适应高度等功能。
+对 `antv` 的 drawer 组件进行封装，扩展拖拽，全屏，自适应高度等功能。
 
 ## Usage
 
@@ -50,7 +50,7 @@
 
 ## useDrawer
 
-**useDrawer**用于操作组件
+**useDrawer** 用于操作组件
 
 ```ts
 const [register, { openDrawer, setDrawerProps }] = useModal();
@@ -58,11 +58,11 @@ const [register, { openDrawer, setDrawerProps }] = useModal();
 
 **register**
 
-register 用于注册 useDrawer，如果需要使用`useDrawer`提供的 api，必须将 register 传入组件的 onRegister
+register 用于注册 `useDrawer`，如果需要使用 `useDrawer` 提供的 api，必须将 `register` 传入组件的 `onRegister`。
 
-原理其实很简单，就是 vue 的组件子传父通信，内部通过 emit("register"，instance)实现
+原理其实很简单，就是 vue 的组件子传父通信，内部通过 `emit("register"，instance)` 实现。
 
-同时独立出去的组件需要将 `attrs` 绑定到 Drawer 的上面
+同时，独立出去的组件需要将 `attrs` 绑定到 Drawer 的上面。
 
 ```tsx
 <BasicDrawer v-bind="$attrs"> Drawer Info. </BasicDrawer>
@@ -88,7 +88,7 @@ closeDrawer();
 
 **setDrawerProps**
 
-用于更改 drawer 的 props 参数因为 drawer 内容独立成组件，如果在外部页面需要更改 props 可能比较麻烦，所以提供**setDrawerProps** 方便更改内部 drawer 的 props
+用于更改 drawer 的 props 参数因为 drawer 内容独立成组件，如果在外部页面需要更改 props 可能比较麻烦，所以提供 **setDrawerProps** 方便更改内部 drawer 的 props
 
 [Props](#Props) 内容可以见下方
 

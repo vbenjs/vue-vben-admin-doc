@@ -1,6 +1,6 @@
 # ScrollContainer
 
-参考`element-ui`的 el-scrollbar 组件实现
+参考 `element-ui` 的 el-scrollbar 组件实现
 
 滚动容器组件
 

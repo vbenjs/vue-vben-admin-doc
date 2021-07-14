@@ -1,12 +1,12 @@
 # 路由
 
-项目路由配置存放于[src/router/routes](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes) 下面。 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块,在该文件下内的文件会自动注册
+项目路由配置存放于 [src/router/routes](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes) 下面。 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块，在该目录下的文件会自动注册。
 
 ## 配置
 
 ### 模块说明
 
-在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)内的一个`.ts`文件会被视为一个路由模块。
+在 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules) 内的 `.ts` 文件会被视为一个路由模块。
 
 一个路由模块包含以下结构
 
@@ -50,9 +50,9 @@ export default dashboard;
 
 ### 多级路由
 
-::: tip 注意事项
+::: warning 注意事项
 
-- 整个项目所有路由 name 不能重复
+- 整个项目所有路由 `name` 不能重复
 - 所有的多级路由最终都会转成二级路由，所以不能内嵌子路由
 - 除了 layout 对应的 path 前面需要加 `/`，其余子路由都不要以`/`开头
 
@@ -172,7 +172,7 @@ export interface RouteMeta {
 
 ### 外部页面嵌套
 
-只需要将 frameSrc 设置为需要跳转的地址即可
+只需要将 `frameSrc` 设置为需要跳转的地址即可
 
 ```ts
 const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
@@ -189,7 +189,7 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 
 ### 外链
 
-只需要将 path 设置为需要跳转的**HTTP 地址**即可
+只需要将 `path` 设置为需要跳转的**HTTP 地址**即可
 
 ```ts
 {
@@ -204,17 +204,15 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 
 ## 图标
 
-这里的 icon 配置，会同步到 **菜单**
-
-icon 的值可以查看 [Icon](../components/icon.md)
+这里的 `icon` 配置，会同步到 **菜单**（icon 的值可以查看[此处](../components/icon.md)）。
 
 ## 新增路由
 
 ### 如何新增一个路由模块
 
-1. 在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)内新增一个模块文件
+1. 在 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules) 内新增一个模块文件。
 
-示例,在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)下新增 test.ts 文件
+示例，新增 test.ts 文件
 
 ```ts
 import type { AppRouteModule } from '/@/router/types';
@@ -246,11 +244,11 @@ const dashboard: AppRouteModule = {
 export default dashboard;
 ```
 
-到这里你路由已经添加完成，不需要手动引入，放在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)内的文件会自动被加载
+此时路由已添加完成，不需要手动引入，放在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules) 内的文件会自动被加载。
 
 ### 验证
 
-您可以尝试访问 **ip:端口/about/index**出现对应组件内容即代表成功
+访问 **ip:端口/about/index** 出现对应组件内容即代表成功
 
 ## 路由刷新
 
@@ -296,7 +294,7 @@ export default defineComponent({
 
 ## 页面跳转
 
-页面跳转建议采用项目提供的 **useGo**
+页面跳转建议采用项目提供的 `useGo`
 
 ### 方式
 
@@ -317,15 +315,15 @@ export default defineComponent({
 
 ## 多标签页
 
-标签页使用的是` keep-alive` 和 `router-view` 实现，实现切换 tab 后还能保存切换之前的状态。
+标签页使用的是 `keep-alive` 和 `router-view` 实现，实现切换 tab 后还能保存切换之前的状态。
 
 ### 如何开启页面缓存
 
 开启缓存有 3 个条件
 
-1. 在[src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/projectSetting.ts)内将`openKeepAlive`设置为`true`
-2. 路由设置 name,且**不能重复**
-3. 路由对应的组件加上 name,与路由设置的 name 保持一致
+1. 在 [src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/projectSetting.ts) 内将`openKeepAlive` 设置为 `true`
+2. 路由设置 `name`，且**不能重复**
+3. 路由对应的组件加上 `name`，与路由设置的 `name` 保持一致
 
 ```ts
  {
@@ -344,21 +342,18 @@ export default defineComponent({
   });
 ```
 
-:::tip 注意
+:::warning 注意
 
-keep-alive 生效的前提是
+keep-alive 生效的前提是：需要将路由的 `name` 属性及对应的页面的 `name` 设置成一样。因为：
 
 **include - 字符串或正则表达式，只有名称匹配的组件会被缓存**
-
-所以需要将路由的 name 属性及对应的页面的 name 设置成一样
-
 :::
 
 ### 如何让某个页面不缓存
 
 **可在 router.meta 下配置**
 
-可以将 `ignoreKeepAlive`配置成`true`即可关闭缓存。
+可以将 `ignoreKeepAlive` 配置成 `true` 即可关闭缓存。
 
 ```ts
 export interface RouteMeta {

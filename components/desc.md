@@ -1,6 +1,6 @@
 # Description 详情组件
 
-对`antv`的 Descriptions 组件进行封装,
+对 `antv` 的 Descriptions 组件进行封装
 
 ## Usage
 

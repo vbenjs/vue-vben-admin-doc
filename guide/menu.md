@@ -1,6 +1,6 @@
 # 菜单
 
-项目菜单配置存放于[src/router/menus](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus) 下面
+项目菜单配置存放于 [src/router/menus](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus) 下面
 
 ::: tip 提示
 
@@ -14,19 +14,14 @@
 export interface Menu {
   //  菜单名
   name: string;
-
   // 菜单图标,如果没有，则会尝试使用route.meta.icon
   icon?: string;
-
   // 菜单路径
   path: string;
-
   // 是否禁用
   disabled?: boolean;
-
   // 子菜单
   children?: Menu[];
-
   // 菜单标签设置
   tag: {
     // 为true则显示小圆点
@@ -96,16 +91,10 @@ export default menu;
 
 ## 新增菜单
 
-直接在[src/router/menus/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus/modules)内新增一个模块文件即可。
+直接在 [src/router/menus/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus/modules) 内新增一个模块文件即可。
 
-到这里你菜单已经添加完成，不需要手动引入，放在[src/router/routes/menus/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus/modules)内的文件会自动被加载。
+不需要手动引入，放在[src/router/routes/menus/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus/modules) 内的文件会自动被加载。
 
 ## 菜单排序
 
-在菜单模块内，可以设置`orderNo` 变量
-
-::: tip
-
-orderNo 越大，排序越靠后
-
-:::
+在菜单模块内，设置 `orderNo` 变量，数值越大，排序越靠后

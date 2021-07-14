@@ -8,17 +8,9 @@
 
 ## 前端角色权限
 
-::: tip
+**实现原理:** 在前端固定写死路由的权限，指定路由有哪些权限可以查看。只初始化通用的路由，需要权限才能访问的路由没有被加入路由表内。在登陆后或者其他方式获取用户角色后，通过角色去遍历路由表，获取该角色可以访问的路由表，生成路由表，再通过 `router.addRoutes` 添加到路由实例，实现权限的过滤。
 
-该方式实现的原理是在前端固定写死路由的权限，指定路由有哪些权限可以查看，一开始只初始化通用的路由，需要权限才能访问的路由没有被加入路由表内，在登陆后或者其他方式获取用户角色后，通过角色去遍历路由表，获取该角色可以访问的路由表，生成路由表，在通过 router.addRoutes 添加到路由实例，实现权限的过滤
-
-:::
-
-::: warning
-
-缺点权限相对不自由，如果后台改动角色，前台也需要跟着改动。适合角色较固定的系统
-
-:::
+**缺点:** 权限相对不自由，如果后台改动角色，前台也需要跟着改动。适合角色较固定的系统
 
 ### 实现
 
@@ -105,9 +97,7 @@ permissionStore.setDynamicAddedRoute(true);
 next(nextData);
 ```
 
-**permissionStore.buildRoutesAction**
-
-**过滤动态路由** 详细代码见 [src/store/modules/permission.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/store/modules/permission.ts)
+**permissionStore.buildRoutesAction** 用于**过滤动态路由**，详细代码见 [src/store/modules/permission.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/store/modules/permission.ts)
 
 ```ts
 // 主要代码
@@ -127,7 +117,7 @@ if (permissionMode === PermissionModeEnum.ROLE) {
 
 ### 动态更换角色
 
-系统提供[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts)方便角色相关操作
+系统提供 [usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 方便角色相关操作
 
 ```ts
 import { usePermission } from '/@/hooks/web/usePermission';
@@ -148,7 +138,7 @@ export default defineComponent({
 
 **函数方式**
 
-[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts)还提供了按钮级别的权限控制。
+[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 还提供了按钮级别的权限控制。
 
 ```vue
 <template>
@@ -188,15 +178,11 @@ export default defineComponent({
 
 ## 后台动态获取
 
-::: tip
-
-该方式的实现原理是通过后台动态生成路由表，且遵循一定的结构返回给前端，如果不是前端需要自行转化为可识别的结构，在通过 router.addRoutes 添加到路由实例，实现权限的动态生成
-
-:::
+**实现原理:** 是通过接口动态生成路由表，且遵循一定的数据结构返回。前端根据需要处理该数据为可识别的结构，再通过 `router.addRoutes` 添加到路由实例，实现权限的动态生成。
 
 ### 实现
 
-1.  在[项目配置](./settings.md#项目配置)将系统内权限模式改为`BACK`模式
+1.  在[项目配置](./settings.md#项目配置)将系统内权限模式改为 `BACK` 模式
 
 ```ts
 // ! 改动后需要清空浏览器缓存
@@ -208,9 +194,7 @@ const setting: ProjectConfig = {
 
 2. 路由拦截，与角色权限模式一致
 
-**permissionStore.buildRoutesAction**
-
-**过滤动态路由** 详细代码见 [/@/store/modules/permission.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/store/modules/permission.ts)
+**permissionStore.buildRoutesAction** 用于**过滤动态路由**，详细代码见 [/@/store/modules/permission.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/store/modules/permission.ts)
 
 ```ts
 // 主要代码
@@ -246,7 +230,7 @@ if (permissionMode === PermissionModeEnum.BACK) {
 
 **getMenuList 返回值格式**
 
-返回值是有多个路由模块所组成
+返回值由多个路由模块组成
 
 ::: warning 注意
 
@@ -309,7 +293,7 @@ if (permissionMode === PermissionModeEnum.BACK) {
 
 ### 动态更换菜单
 
-系统提供[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts)方便角色相关操作
+系统提供 [usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 方便角色相关操作
 
 ```ts
 import { usePermission } from '/@/hooks/web/usePermission';
@@ -330,7 +314,7 @@ export default defineComponent({
 
 **函数方式**
 
-[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts)还提供了按钮级别的权限控制。
+[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 还提供了按钮级别的权限控制。
 
 ```vue
 <template>
@@ -369,9 +353,7 @@ export default defineComponent({
 
 ### 如何初始化 code
 
-一般如果需要做按钮级别权限。后台会提供相应的 code。或者类型的判断标识
-
-一般获取这些编码只需要在登录后获取一次即可。
+通常，如需做按钮级别权限，后台会提供相应的 code，或者类型的判断标识。这些编码只需要在登录后获取一次即可。
 
 ```ts
 import { getPermCodeByUserId } from '/@/api/sys/user';

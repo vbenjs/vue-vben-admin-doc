@@ -23,7 +23,7 @@
 
 ::: warning
 
-lint 不是必须的，但是很有必要，一个项目做大了以后或者参与人员过多后，就会出现各种个样的代码封装，对后续的管理造成了一定的麻烦
+lint 不是必须的，但是很有必要，一个项目做大了以后或者参与人员过多后，就会出现各种风格迥异的代码，对后续的维护造成了一定的麻烦
 
 :::
 
@@ -44,25 +44,21 @@ yarn run lint:eslint
 
 ### 配置项
 
-项目的 eslint 配置位于根目录下 **.eslintrc.js**内，可以根据团队自行修改代码规范
+项目的 eslint 配置位于根目录下 **.eslintrc.js** 内，可以根据团队自行修改代码规范
 
 ### 编辑器配合
 
-推荐使用 vscode 进行开发，vscode 自带 eslint 插件，可以自动修改一些错误
+推荐使用 vscode 进行开发，vscode 自带 eslint 插件，可以自动修改一些错误。
 
-同时项目内也自带了 vscode eslint 配置，具体在`.vscode/setting.json`文件夹内部
-
-只要使用 vscode 开发就可以不用任何设置即可使用
+同时项目内也自带了 vscode eslint 配置，具体在 `.vscode/setting.json` 文件夹内部。只要使用 vscode 开发不用任何设置即可使用
 
 ## CommitLint
 
-在一个团队中，每个人的 git 的 commit 信息都不一样，五花八门，没有一个机制很难保证规范化，如何才能规范化呢？可能你想到的是 git 的 hook 机制，去写 shell 脚本去实现。这当然可以，其实 JavaScript 有一个很好的工具可以实现这个模板，它就是 commitlint。
-
-commitlint 主要用于校验 git 提交信息规范
+在一个团队中，每个人的 git 的 commit 信息都不一样，五花八门，没有一个机制很难保证规范化，如何才能规范化呢？可能你想到的是 git 的 hook 机制，去写 shell 脚本去实现。这当然可以，其实 JavaScript 有一个很好的工具可以实现这个模板，它就是 commitlint（用于校验 git 提交信息规范）。
 
 ### 配置
 
-commit-lint 的配置位于项目根目录下**commitlint.config.js**
+commit-lint 的配置位于项目根目录下 **commitlint.config.js**
 
 ### Git 提交规范
 
@@ -85,7 +81,7 @@ commit-lint 的配置位于项目根目录下**commitlint.config.js**
 
 ### 如何关闭
 
-在`.husky/commit-msg`内注释以下代码即可
+在 `.husky/commit-msg` 内注释以下代码即可
 
 ```bash
 # npx --no-install commitlint --edit "$1"
@@ -105,7 +101,7 @@ stylelint 用于校验项目内部 css 的风格,加上编辑器的自动修复�
 
 ### 配置
 
-stylelint 配置位于根目录下**stylelint.config.js**
+stylelint 配置位于根目录下 **stylelint.config.js**
 
 ### 编辑器配合
 
@@ -117,11 +113,11 @@ stylelint 配置位于根目录下**stylelint.config.js**
 
 ## Prettier
 
-prettier 可以用于统一项目代码风格,统一的缩进，单双引号，尾逗号等等风格
+prettier 可以用于统一项目代码风格，统一的缩进，单双引号，尾逗号等等风格
 
 ### 配置
 
-prettier 配置文件位于项目根目录下**prettier.config.js**
+prettier 配置文件位于项目根目录下 **prettier.config.js**
 
 ### 编辑器配合
 
@@ -151,10 +147,10 @@ yarn remove huksy
 
 ```
 
-### 如果跳过某一个检查
+### 如何跳过某一个检查
 
 ```bash
-# 加上 --no-verify即可跳过git hook校验
+# 加上 --no-verify即可跳过git hook校验（--no-verify 简写为 -n）
 git commit -m "xxx" --no-verify
 ```
 
@@ -162,7 +158,7 @@ git commit -m "xxx" --no-verify
 
 用于自动修复提交文件风格问题
 
-**lint-staged** 配置位于项目`.husky`目录下 **lintstagedrc.js**
+**lint-staged** 配置位于项目 `.husky` 目录下 **lintstagedrc.js**
 
 ```js
 module.exports = {

@@ -52,35 +52,35 @@
 **QRCodeRenderersOptions**
 
 ```ts
-    /**
-     * 定义margin的宽度。.
-     * Default: 4
-     */
-    margin?: number;
-    /**
-     * 比例因子。值1表示每个模块1像素（黑点）。
-     * Default: 4
-     */
-    scale?: number;
-    /**
-     * 为输出图像强制指定宽度。
-     * 如果宽度太小而不能包含qr符号，则此选项将被忽略。
-     * 优先于规模。
-     */
-    width?: number;
-    color?: {
-        /**
-         * 暗模块的颜色。值必须为十六进制格式（RGBA）.
-         * 注意：深色应始终比color.light暗。.
-         * Default: #000000ff
-         */
-        dark?: string;
-        /**
-         * 照明模块的颜色。值必须为十六进制格式（RGBA）.
-         * Default: #ffffffff
-         */
-        light?: string;
-    };
+/**
+ * 定义margin的宽度。.
+ * Default: 4
+ */
+margin?: number;
+/**
+ * 比例因子。值1表示每个模块1像素（黑点）。
+ * Default: 4
+ */
+scale?: number;
+/**
+ * 为输出图像强制指定宽度。
+ * 如果宽度太小而不能包含qr符号，则此选项将被忽略。
+ * 优先于规模。
+ */
+width?: number;
+color?: {
+  /**
+   * 暗模块的颜色。值必须为十六进制格式（RGBA）.
+   * 注意：深色应始终比color.light暗。.
+   * Default: #000000ff
+   */
+  dark?: string;
+  /**
+   * 照明模块的颜色。值必须为十六进制格式（RGBA）.
+   * Default: #ffffffff
+   */
+  light?: string;
+};
 
 ```
 
@@ -113,30 +113,34 @@
 | error | `(error)=>void` | 生成二维码时发生错误 |
 
 QrcodeDoneEventParams
+
 ```js
 {
   url: string;  // 二维码DataURL数据
   ctx?: CanvasRenderingContext2D;  // 该对象为画布的2D渲染上下文，仅在tag为canvas时有效，可用于自定义绘制
 }
 ```
-`done`事件回调中可以对二维码进行自定义的绘制，示例代码如下：
-```
+
+`done` 事件回调中可以对二维码进行自定义的绘制，示例代码如下：
+
+```vue
 <QrCode
-    :value="qrCodeUrl"
-    :width="200"
-    @done="onQrcodeDone"
-  />
+  :value="qrCodeUrl"
+  :width="200"
+  @done="onQrcodeDone"
+/>
 ```
 ```js
 function onQrcodeDone({ ctx }) {
-    if (ctx instanceof CanvasRenderingContext2D) {
-      // 额外绘制
-      ctx.fillStyle = 'black';
-      ctx.font = '16px "微软雅黑"';
-      ctx.textBaseline = 'bottom';
-      ctx.textAlign = 'center';
-      ctx.fillText('你帅你先扫', 100, 195, 200);
-    }
+  if (ctx instanceof CanvasRenderingContext2D) {
+    // 额外绘制
+    ctx.fillStyle = 'black';
+    ctx.font = '16px "微软雅黑"';
+    ctx.textBaseline = 'bottom';
+    ctx.textAlign = 'center';
+    ctx.fillText('你帅你先扫', 100, 195, 200);
   }
+}
 ```
-有关`CanvasRenderingContext2D`的更多资料以及绘制方法，请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D)
+
+有关 `CanvasRenderingContext2D` 的更多资料以及绘制方法，请参考[MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D)
