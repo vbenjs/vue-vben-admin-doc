@@ -603,6 +603,12 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 
 自定义渲染内容
 
+::: tip 提示
+
+使用插槽自定义表单域时，请注意antdv有关FormItem的[相关说明](https://2x.antdv.com/components/form-cn#API)。
+
+:::
+
 ```vue
 <template>
   <div class="m-4">
