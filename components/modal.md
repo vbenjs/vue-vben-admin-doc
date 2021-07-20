@@ -93,12 +93,12 @@ register 用于注册 `useModal`，如果需要使用 `useModal` 提供的 api�
 openDrawer(true, data);
 ```
 
-**closeDrawer**
+**closeModal**
 
 用于关闭弹窗
 
 ```ts
-closeDrawer();
+closeModal();
 ```
 
 **setModalProps**
