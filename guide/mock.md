@@ -30,7 +30,7 @@ VITE_GLOB_API_URL=/api
 
 如果你在 `src/api/` 下面的接口为下方代码，且 **.env.development** 文件配置如下注释，则在控制台看到的地址为 `http://localhost:3100/basic-api/login`。
 
-由于 `/basic-api` 匹配到了设置的 `VITE_PROXY`，所以上方实际是请求 **http://localhost:3100/login**，这样同时也解决了跨域问题。（**3100 为项目端口号**）
+由于 `/basic-api` 匹配到了设置的 `VITE_PROXY`，所以上方实际是请求 **http://localhost:3000/login**，这样同时也解决了跨域问题。（**3100**为项目端口号，**http://localhost:3000**为PROXY代理的目标地址）
 
 ```ts
 // .env.development
