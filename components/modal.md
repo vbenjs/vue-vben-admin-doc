@@ -90,15 +90,15 @@ register 用于注册 `useModal`，如果需要使用 `useModal` 提供的 api�
 ```tsx
 // true/false: 打开关闭弹窗
 // data: 传递到子组件的数据
-openDrawer(true, data);
+openModal(true, data);
 ```
 
-**closeDrawer**
+**closeModal**
 
 用于关闭弹窗
 
 ```ts
-closeDrawer();
+closeModal();
 ```
 
 **setModalProps**
