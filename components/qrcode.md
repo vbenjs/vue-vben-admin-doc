@@ -47,7 +47,7 @@
 | options | `QRCodeRenderersOptions` | -      | -       | 二维码配置 ,见 QRCodeRenderersOptions |
 | width   | `number`                 | 2    | -       | 宽度                                  |
 | logo    | `string｜LogoType`       | -      | -       | 中间 logo 配置，见 LogoType           |
-| tag     | `渲染标签`               | canvas | `canvas | img`                                  | img 不支持内嵌 logo |
+| tag     | `渲染标签`               | canvas | `canvas \| img`                                  | img 不支持内嵌 logo |
 
 **QRCodeRenderersOptions**
 
