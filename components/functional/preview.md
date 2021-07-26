@@ -40,8 +40,35 @@
 </script>
 ```
 
-## createImgPreview Options
+## createImgPreview
+
+### 参数/Options
 
 | 属性    | 类型       | 默认值 | 可选值 | 说明     |
 | ------- | ---------- | ------ | ------ | -------- |
 | imgList | `string[]` | -      | -      | 图片列表 |
+| index | `number` | 0      | -      | 初始预览时的图片索引 |
+| scaleStep | `number` | -      | -      | 缩放步进值（每次缩放的幅度）。默认为自动（当前缩放值的10%） |
+| defaultWidth | `number` | -      | -      | 默认宽度（单位px）。当提供此值时，所有图片初始时都会被缩放值此宽度 |
+| maskClosable | `boolean` | false      | `true/false`     | 点击遮罩时是否自动关闭预览 |
+| rememberState | `boolean` | false | `true/false` | 是否自动记住每张图片各自的缩放状态 |
+
+### 返回值/PreviewActions
+
+可用于控制当前预览状态
+```typescript
+interface PreviewActions {
+  // 重置状态
+  resume: () => void;
+  // 关闭预览
+  close: () => void;
+  // 显示前一张
+  prev: () => void;
+  // 显示后一张
+  next: () => void;
+  // 设置缩放比例(针对当前图片)
+  setScale: (scale: number) => void;
+  // 设置旋转角度(针对当前图片)
+  setRotate: (rotate: number) => void;
+}
+```
