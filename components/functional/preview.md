@@ -49,9 +49,11 @@
 | imgList | `string[]` | -      | -      | 图片列表 |
 | index | `number` | 0      | -      | 初始预览时的图片索引 |
 | scaleStep | `number` | -      | -      | 缩放步进值（每次缩放的幅度）。默认为自动（当前缩放值的10%） |
-| defaultWidth | `number` | -      | -      | 默认宽度（单位px）。当提供此值时，所有图片初始时都会被缩放值此宽度 |
+| defaultWidth | `number` | -      | -      | 默认宽度（单位px）。当提供此值时，所有图片初始时都会被缩放至此宽度 |
 | maskClosable | `boolean` | false      | `true/false`     | 点击遮罩时是否自动关闭预览 |
-| rememberState | `boolean` | false | `true/false` | 是否自动记住每张图片各自的缩放状态 |
+| rememberState | `boolean` | false | `true/false` | 是否记住每张图片各自的缩放状态 |
+| onImgLoad | `({ index: number, url: string, dom: HTMLImageElement }) => void` | - | - | 图片加载成功时的回调函数 |
+| onImgError | `({ index: number, url: string, dom: HTMLImageElement }) => void` | - | - | 图片加载失败时的回调函数 |
 
 ### 返回值/PreviewActions
 
