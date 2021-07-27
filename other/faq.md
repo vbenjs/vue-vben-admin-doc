@@ -284,6 +284,8 @@ gzip 可以由服务器直接开启。如果是这样，前端不需要构建 `.
 
 后续 `vue-router` 可能会提供配置项来关闭警告
 
+**2.6.1及以上版本已移除此警告**
+
 ```ts
 [Vue Router warn]: No match found for location with path "xxxx"
 ```
