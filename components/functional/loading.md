@@ -62,7 +62,7 @@
 ```ts
 import { useLoading } from '/@/components/Loading';
 
-const [open, close] = useLoading(opt: Partial<LoadingProps> | Partial<UseLoadingOptions>);
+const [open, close, setTip] = useLoading(opt: Partial<LoadingProps> | Partial<UseLoadingOptions>);
 ```
 
 ### UseLoadingOptions
@@ -92,3 +92,7 @@ const [open, close] = useLoading(opt: Partial<LoadingProps> | Partial<UseLoading
 **close**
 
 关闭 loading
+
+**setTip**
+
+设置加在提示文案(v2.6.2以上版本)
