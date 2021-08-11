@@ -84,6 +84,7 @@
 | rightMenuList            | `ContextMenuItem[]`                  | -      | -      | 右键菜单列表数据             |  |
 | defaultExpandLevel | `string ｜ number`        | -      | -      | 初次渲染后默认展开的层级     | 2.4.1 |
 | defaultExpandAll | `boolean`       | `false`  | `true/false`      | 初次渲染后默认全部     | 2.4.1 |
+| searchValue(v-model)       | `string`  | -   | - | 当前搜索词 | 2.7.1 |
 
 ::: tip 注意
 
@@ -125,7 +126,7 @@
 
 ::: tip 温馨提醒
 
-除以下参数外，官方文档内的 slot 也都支持，具体可以参考 [antv tree](https://2x.antdv.com/components/tree-cn/#Tree-props)
+官方文档内的 slot 都支持，具体可以参考 [antv tree](https://2x.antdv.com/components/tree-cn/#Tree-props)
 
 :::
 
@@ -145,3 +146,5 @@
 | insertNodeByKey | `(opt: InsertNodeParams) => void`                    | 插入子节点到指定节点内 |
 | deleteNodeByKey | `(key: string) => void`                              | 根据 key 删除节点      |
 | updateNodeByKey | `(key: string, node: Omit<TreeItem, 'key'>) => void` | 根据 key 更新节点      |
+| setSearchValue | `(value: string) => void` | 设置当前搜索词（v2.7.1）      |
+| getSearchValue | `() => string` | 获取当前搜索词(v2.7.1)      |
