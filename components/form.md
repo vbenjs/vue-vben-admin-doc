@@ -306,6 +306,7 @@ updateSchema([
 | showAdvancedButton | `boolean` | `false` | `true/false` | 是否显示收起展开按钮 |  |
 | emptySpan | `number , Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |  |
 | autoAdvancedLine | `number` | 3 | - | 如果 showAdvancedButton 为 true，超过指定行数行默认折叠 |  |
+| alwaysShowLines  | `number` | 1 | - | 折叠时始终保持显示的行数  | 2.7.1 |
 | showActionButtonGroup | `boolean` | `true` | `true/false` | 是否显示操作按钮(重置/提交) | |
 | actionColOptions | `Partial<ColEx>` | - | - | 操作按钮外层 Col 组件配置，如果开启 showAdvancedButton，则不用设置，具体见下方 actionColOptions |  |
 | showResetButton | `boolean` | `true` | - | 是否显示重置按钮 |  |
