@@ -449,8 +449,8 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | summaryData             | `any[]`                                            | -       | -      | 自定义合计数据。如果有则显示该数据                                                              |      |
 | emptyDataIsShowTable    | `boolean`                                          | `true`  | -      | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格                                        |      |
 | summaryFunc             | `(...arg) => any[]`                                | -       | -      | 计算合计行的方法                                                                                |      |
-| ~~canRowDrag~~          | `boolean`                                          | `false` | -      | ~~是否可拖拽行排序~~                                                                            |      |
-| ~~canColDrag~~          | `boolean`                                          | `false` | -      | ~~是否可拖拽列~~                                                                                |      |
+| ~~canRowDrag          | `boolean`                                          | `false` | -      | 是否可拖拽行排序~~                                                                            |      |
+| ~~canColDrag          | `boolean`                                          | `false` | -      | 是否可拖拽列~~                                                                                |      |
 | isTreeTable             | `boolean`                                          | `false` | -      | 是否树表                                                                                        |      |
 | api                     | `(...arg: any) => Promise<any>`                    | -       | -      | 请求接口，可以直接将`src/api内的函数直接传入`                                                   |      |
 | beforeFetch             | `(T)=>T`                                           | -       | -      | 请求之前对参数进行处理                                                                          |      |
@@ -466,7 +466,7 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | indexColumnProps        | `any`                                              | -       | -      | 序号列配置 BasicColumn                                                                          |      |
 | actionColumn            | `any`                                              | -       | -      | 表格右侧操作列配置 BasicColumn                                                                  |      |
 | ellipsis                | `boolean`                                          | `true`  | -      | 文本超过宽度是否显示...                                                                         |      |
-| canResize               | `boolean`                                          | `true`  | -      | 是否可以自适应高度                                                                              |      |
+| canResize               | `boolean`                                          | `true`  | -      | 是否可以自适应高度(如果置于PageWrapper组件内，请勿启用PageWrapper的fixedHeight属性，二者不可同时使用)                                                                              |      |
 | clearSelectOnPageChange | `boolean`                                          | false   | -      | 切换页码是否重置勾选状态                                                                        |      |
 | resizeHeightOffset      | `number`                                           | 0       | -      | 表格自适应高度计算结果会减去这个值                                                              |      |
 | rowSelection            | `any`                                              | -       | -      | 选择列配置                                                                                      |      |
