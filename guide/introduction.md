@@ -58,7 +58,7 @@ yarn dev
 - [vite-plugin-style-import](https://github.com/anncwb/vite-plugin-style-import) - 用于组件库样式按需引入
 - [vite-plugin-imagemin](https://github.com/anncwb/vite-plugin-imagemin) - 用于打包压缩图片资源
 - [vite-plugin-theme](https://github.com/anncwb/vite-plugin-theme) - 用于在线切换主题色/黑暗主题适配等主题相关配置
-- [vite-plugin-compression](https://github.com/anncwb/vite-plugin-theme) - 用于打包输出`.gz`|`.br`文件
+- [vite-plugin-compression](https://github.com/anncwb/vite-plugin-compression) - 用于打包输出`.gz`|`.br`文件
 - [vite-plugin-svg-icons](https://github.com/anncwb/vite-plugin-svg-icons) - 快速生成 `svg sprite`
 
 ## 浏览器支持
