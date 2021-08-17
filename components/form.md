@@ -495,9 +495,9 @@ export type ComponentType =
 ### Divider schema说明
 `Divider`类型用于在`schemas`中占位，将会渲染成一个分割线（始终占一整行的版面），可以用于较长表单的版面分隔。请只将Divider类型的schema当作一个分割线，而不是一个常规的表单字段。
 - **`Divider`仅在`showAdvancedButton`为false时才会显示**（也就是说如果启用了表单收起和展开功能，`Divider`将不会显示）
-- `Divider` 使用`schema.label`作为分割线文本
+- `Divider` 使用`schema`中的`label`以及`helpMessage`来渲染分割线中的提示内容
 - `Divider` 可以使用`componentProps`来设置除`type`之外的props
-- `Divider` 不会渲染`FormItem`，因此`schema`中除`label`、`componentProps`以外的属性不会被用到
+- `Divider` 不会渲染`AFormItem`，因此`schema`中除`label`、`componentProps`、`helpMessage`、`helpComponentProps`以外的属性不会被用到
 
 ## 自行添加需要的组件类型
 
