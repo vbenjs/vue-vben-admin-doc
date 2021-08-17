@@ -318,6 +318,14 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 说明: 获取表格数据
 
+**getRawDataSource**
+
+获取后端接口原始数据
+
+类型：`<T = Recordable>() => T`
+
+说明: 获取后端接口原始数据
+
 **getColumns**
 
 类型：`(opt?: GetColumnsParams) => BasicColumn[]`
