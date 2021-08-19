@@ -457,8 +457,8 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | summaryData             | `any[]`                                            | -       | -      | 自定义合计数据。如果有则显示该数据                                                              |      |
 | emptyDataIsShowTable    | `boolean`                                          | `true`  | -      | 在启用搜索表单的前提下，是否在表格没有数据的时候显示表格                                        |      |
 | summaryFunc             | `(...arg) => any[]`                                | -       | -      | 计算合计行的方法                                                                                |      |
-| ~~canRowDrag          | `boolean`                                          | `false` | -      | 是否可拖拽行排序~~                                                                            |      |
-| ~~canColDrag          | `boolean`                                          | `false` | -      | 是否可拖拽列~~                                                                                |      |
+| ~~canRowDrag~~          | ~~`boolean`~~                                          | ~~`false`~~ | -      | ~~是否可拖拽行排序~~                                                                            |      |
+| ~~canColDrag~~          | ~~`boolean`~~                                          | ~~`false`~~ | -      | ~~是否可拖拽列~~                                                                                |      |
 | isTreeTable             | `boolean`                                          | `false` | -      | 是否树表                                                                                        |      |
 | api                     | `(...arg: any) => Promise<any>`                    | -       | -      | 请求接口，可以直接将`src/api内的函数直接传入`                                                   |      |
 | beforeFetch             | `(T)=>T`                                           | -       | -      | 请求之前对参数进行处理                                                                          |      |
@@ -486,6 +486,7 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | pagination              | `any`                                              | -       | -      | 分页信息配置，为 `false` 不显示分页                                                             |      |
 | loading                 | `boolean`                                          | `false` | -      | 表格 loading 状态                                                                               |      |
 | scroll                  | `any`                                              | -       | -      | 参考官方文档 scroll                                                                             |      |
+| beforeEditSubmit | `(data: {record: Recordable;index: number;key: string | number;value: any;}) => Promise<any>`                                              | -       | -      | 单元格编辑状态提交回调，返回false将阻止单元格提交数据到table。该回调在行编辑模式下无效。   | 2.7.2 |
 
 ### TableSetting
 ```ts
