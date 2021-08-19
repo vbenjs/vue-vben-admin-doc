@@ -486,7 +486,7 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | pagination              | `any`                                              | -       | -      | 分页信息配置，为 `false` 不显示分页                                                             |      |
 | loading                 | `boolean`                                          | `false` | -      | 表格 loading 状态                                                                               |      |
 | scroll                  | `any`                                              | -       | -      | 参考官方文档 scroll                                                                             |      |
-| beforeEditSubmit | `(data: {record: Recordable;index: number;key: string | number;value: any;}) => Promise<any>`                                              | -       | -      | 单元格编辑状态提交回调，返回false将阻止单元格提交数据到table。该回调在行编辑模式下无效。   | 2.7.2 |
+| beforeEditSubmit | `({record: Recordable,index: number,key: string \| number,value: any}) => Promise<any>`                                              | -       | -      | 单元格编辑状态提交回调，返回false将阻止单元格提交数据到table。该回调在行编辑模式下无效。   | 2.7.2 |
 
 ### TableSetting
 ```ts
