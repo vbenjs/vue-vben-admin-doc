@@ -54,7 +54,7 @@ VITE_GLOB_UPLOAD_URL=/upload
 | helpText          | `string`   | -        | -      | 帮助文本                                 |
 | maxSize           | `number`   | 2        | -      | 单个文件最大体积，单位 M                 |
 | maxNumber         | `number`   | Infinity | -      | 最大上传数量，Infinity 则不限制          |
-| accept            | `string[]` | -        | -      | 限制上传格式，可使用文件后缀名(点号可选)或MIME字符串。例如 `['.doc,','docx','application/msword']` |
+| accept            | `string[]` | -        | -      | 限制上传格式，可使用文件后缀名(点号可选)或MIME字符串。例如 `['.doc,','docx','application/msword','image/*']` |
 | multiple          | `boolean`  | -        | -      | 开启多文件上传                           |
 | uploadParams      | `any`      | -        | -      | 上传携带的参数                           |
 | api               | `Fn`       | -        | -      | 上传接口，为上面配置的接口               |
