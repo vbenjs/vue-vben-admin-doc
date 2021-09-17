@@ -53,7 +53,7 @@
 **useDrawer** 用于操作组件
 
 ```ts
-const [register, { openDrawer, setDrawerProps }] = useModal();
+const [register, { openDrawer, setDrawerProps }] = useDrawer();
 ```
 
 **register**
