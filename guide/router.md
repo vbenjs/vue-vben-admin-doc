@@ -135,6 +135,10 @@ export default permission;
 export interface RouteMeta {
   // 路由title  一般必填
   title: string;
+  // 动态路由可打开Tab页数
+  dynamicLevel?: number;
+  // 动态路由的实际Path, 即去除路由的动态部分;
+  realPath?: string;
   // 是否忽略权限，只在权限模式为Role的时候有效
   ignoreAuth?: boolean;
   // 可以访问的角色，只在权限模式为Role的时候有效
@@ -202,6 +206,25 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 }
 ```
 
+### 动态路由Tab自动关闭功能
+若需要开启该功能，需要在动态路由的`meta`中设置如下两个参数：
+- `dynamicLevel` 最大能打开的Tab标签页数
+- `realPath` 动态路由实际路径(考虑到动态路由有时候可能存在N层的情况, 例：`/:id/:subId/:...`), 为了减少计算开销, 使用配置方式事先规定好路由的实际路径(注意: 该参数若不设置，将无法使用该功能)
+
+```ts
+{
+  path: 'detail/:id',
+  name: 'TabDetail',
+  component: () => import('/@/views/demo/feat/tabs/TabDetail.vue'),
+  meta: {
+    currentActiveMenu: '/feat/tabs',
+    title: t('routes.demo.feat.tabDetail'),
+    hideMenu: true,
+    dynamicLevel: 3,
+    realPath: '/feat/tabs/detail',
+  },
+}
+```
 ## 图标
 
 这里的 `icon` 配置，会同步到 **菜单**（icon 的值可以查看[此处](../components/icon.md)）。
