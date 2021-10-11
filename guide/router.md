@@ -384,3 +384,20 @@ export interface RouteMeta {
   ignoreKeepAlive?: boolean;
 }
 ```
+
+## 如何更改首页路由
+
+首页路由指的是应用程序中的默认路由，当不输入其他任何路由时，会自动重定向到该路由下，并且该路由在Tab上是固定的，即使设置`affix: false`也不允许关闭
+
+例：首页路由配置的是`/dashboard/analysis`，那么当直接访问 `http://localhost:3100/` 会自动跳转到`http://localhost:3100/#/dashboard/analysis` 上(用户已登录的情况下)
+
+
+可以将`pageEnum.ts`中的`BASE_HOME`更改为需要你想设置的首页即可
+```ts
+export enum PageEnum {
+    // basic home path
+    // 更改此处即可
+    BASE_HOME = '/dashboard',
+}
+
+```
