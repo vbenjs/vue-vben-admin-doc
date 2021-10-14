@@ -224,7 +224,7 @@ changeLoading(true);
 | centered | `boolean` | false | true/false | 是否居中弹窗 |
 | cancelText | `string` | '关闭' | - | 关闭按钮文本 |
 | okText | `string` | '保存' | - | 确认按钮文本 |
-| closeFunc | `() => Promise<boolean>` | 关闭函数 | - | 关闭前执行，返回 true 则不关闭 |
+| closeFunc | `() => Promise<boolean>` | 关闭函数 | - | 关闭前执行，返回 true 则关闭，否则不关闭 |
 
 ## Events
 
