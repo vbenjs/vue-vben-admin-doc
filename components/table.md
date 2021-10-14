@@ -418,9 +418,9 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 **deleteTableDataRecord**
 
-类型： `(record: Recordable | Recordable[]) => Recordable | void`
+类型： `(rowKey: string | number | string[] | number[]) => void`
 
-说明： 根据 `record` 动态删除指定行的数据.可用于不刷新整个表格而局部更新数据
+说明： 根据唯一的`rowKey` 动态删除指定行的数据.可用于不刷新整个表格而局部更新数据
 
 **insertTableDataRecord**
 
