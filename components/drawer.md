@@ -184,7 +184,7 @@ changeLoading(true);
 | loading        | `boolean`            | `false` | -      | loading 状态                         |
 | loadingText    | `string`             | ``      | -      | loading 文本 s                       |
 | showDetailBack | `boolean`            | `true`  | -      | isDetail=true 状态下是否显示返回按钮 |
-| closeFunc      | `() => Promise<any>` | -       | -      | 自定义关闭函数                       |
+| closeFunc      | `() => Promise<boolean>` | -       | -      | 自定义关闭函数，返回`true`关闭，否则不关闭                     |
 | showFooter     | `boolean`            | -       | -      | 是否显示底部                         |
 | footerHeight   | `number`             | `60`    | -      | 底部区域高度                         |
 
