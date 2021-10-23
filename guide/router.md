@@ -135,6 +135,10 @@ export default permission;
 export interface RouteMeta {
   // 路由title  一般必填
   title: string;
+  // 动态路由可打开Tab页数
+  dynamicLevel?: number;
+  // 动态路由的实际Path, 即去除路由的动态部分;
+  realPath?: string;
   // 是否忽略权限，只在权限模式为Role的时候有效
   ignoreAuth?: boolean;
   // 可以访问的角色，只在权限模式为Role的时候有效
@@ -202,6 +206,25 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 }
 ```
 
+### 动态路由Tab自动关闭功能
+若需要开启该功能，需要在动态路由的`meta`中设置如下两个参数：
+- `dynamicLevel` 最大能打开的Tab标签页数
+- `realPath` 动态路由实际路径(考虑到动态路由有时候可能存在N层的情况, 例：`/:id/:subId/:...`), 为了减少计算开销, 使用配置方式事先规定好路由的实际路径(注意: 该参数若不设置，将无法使用该功能)
+
+```ts
+{
+  path: 'detail/:id',
+  name: 'TabDetail',
+  component: () => import('/@/views/demo/feat/tabs/TabDetail.vue'),
+  meta: {
+    currentActiveMenu: '/feat/tabs',
+    title: t('routes.demo.feat.tabDetail'),
+    hideMenu: true,
+    dynamicLevel: 3,
+    realPath: '/feat/tabs/detail',
+  },
+}
+```
 ## 图标
 
 这里的 `icon` 配置，会同步到 **菜单**（icon 的值可以查看[此处](../components/icon.md)）。
@@ -360,4 +383,21 @@ export interface RouteMeta {
   // 是否忽略KeepAlive缓存
   ignoreKeepAlive?: boolean;
 }
+```
+
+## 如何更改首页路由
+
+首页路由指的是应用程序中的默认路由，当不输入其他任何路由时，会自动重定向到该路由下，并且该路由在Tab上是固定的，即使设置`affix: false`也不允许关闭
+
+例：首页路由配置的是`/dashboard/analysis`，那么当直接访问 `http://localhost:3100/` 会自动跳转到`http://localhost:3100/#/dashboard/analysis` 上(用户已登录的情况下)
+
+
+可以将`pageEnum.ts`中的`BASE_HOME`更改为需要你想设置的首页即可
+```ts
+export enum PageEnum {
+    // basic home path
+    // 更改此处即可
+    BASE_HOME = '/dashboard',
+}
+
 ```
