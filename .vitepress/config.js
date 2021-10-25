@@ -400,6 +400,10 @@ function createSidebar() {
             text: '测试服务',
             link: '/other/server',
           },
+          {
+            text: '相关项目',
+            link: '/other/project',
+          },
         ],
       },
     ],
