@@ -11,6 +11,7 @@
 1. **后端**：https://gitee.com/skysong/bluesky-api
 2. **后端**：https://gitee.com/battcn/wemirr-platform **前端**：https://gitee.com/battcn/wemirr-platform-ui
 3. **后端**：https://gitee.com/zsvg/vboot-java **前端**：https://gitee.com/zsvg/vboot-vben
+4. **后端**：https://github.com/ecnice/flow **前端**：https://github.com/ecnice/flow/tree/master/flow-admin-ui
 
 ## .net
 1. 对接Osharp **前端**：https://github.com/zionLZH/osharp-vben-admin 
