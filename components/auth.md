@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-  import Authority from '/@/components/Authority';
+  import { Authority } from '/@/components/Authority';
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: { Authority },
