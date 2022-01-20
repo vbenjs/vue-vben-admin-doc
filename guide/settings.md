@@ -421,7 +421,7 @@ export const prefixCls = 'vben';
 
 ```vue
 <style lang="less" scoped>
-  /* namespace已经全局注入，不需要额外在引入 */
+  /* namespace已经全局注入，不需要额外再引入 */
   @prefix-cls: ~'@{namespace}-app-logo';
 
   .@{prefix-cls} {
