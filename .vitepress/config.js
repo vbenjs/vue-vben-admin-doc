@@ -5,8 +5,8 @@
 module.exports = {
   base: '/doc-next/',
   title: 'Vben Admin',
-  lang: 'zh-CN',
-  description: '一个开箱即用的前端框架',
+  lang: 'en',
+  description: 'A front-end framework right out of the box',
   head: createHead(),
   themeConfig: {
     repo: 'anncwb/vue-vben-admin',
@@ -14,7 +14,7 @@ module.exports = {
     logo: '/logo.png',
     docsBranch: 'main',
     editLinks: true,
-    editLinkText: '为此页提供修改建议',
+    editLinkText: 'Edit this page on GitHub',
     nav: createNav(),
     sidebar: createSidebar(),
   },
@@ -54,80 +54,80 @@ function createHead() {
 function createNav() {
   return [
     {
-      text: '指南',
+      text: 'Guide',
       link: '/guide/',
       items: [
         {
-          text: '指南',
+          text: 'Introduction',
           link: '/guide/introduction',
         },
         {
-          text: '深入',
+          text: 'Deep',
           link: '/dep/icon',
         },
         {
-          text: '其他',
+          text: 'Other',
           link: '/other/faq',
         },
       ],
     },
     {
-      text: '组件',
+      text: 'Component',
       link: '/components/',
       items: [
         {
-          text: '介绍',
+          text: 'Introduction',
           link: '/components/introduction',
         },
         {
-          text: '全局组件',
+          text: 'Global Components',
           link: '/components/glob/button',
         },
         {
-          text: '常用组件',
+          text: 'Basic Components',
           link: '/components/basic',
         },
         {
-          text: '函数式组件',
+          text: 'Functional Components',
           link: '/components/functional/context-menu',
         },
       ],
     },
     {
-      text: '相关链接',
+      text: 'Ecosystem',
       items: [
         {
           text: 'Discord Chat',
           link: 'https://discord.gg/8GuAdwDhj6',
         },
         {
-          text: '完整版预览',
+          text: 'Preview',
           link: 'https://vvbin.cn/next',
         },
         {
-          text: '完整版源码',
+          text: 'vue-vben-admin',
           link: 'https://github.com/anncwb/vue-vben-admin',
         },
         {
-          text: '精简版预览',
+          text: 'Preview Thin',
           link: 'https://vvbin.cn/thin/next',
         },
         {
-          text: '精简版源码',
+          text: 'vben-admin-thin-next',
           link: 'https://github.com/anncwb/vben-admin-thin-next',
         },
         {
-          text: '文档源码',
+          text: 'vue-vben-admin-doc',
           link: 'https://github.com/anncwb/vue-vben-admin-doc',
         },
         {
-          text: '更新日志',
+          text: 'Change Log',
           link: 'https://github.com/anncwb/vue-vben-admin/blob/main/CHANGELOG.md',
         },
       ],
     },
     {
-      text: '赞助',
+      text: 'Donate',
       link: '/other/donate',
     },
   ];
@@ -137,16 +137,16 @@ function createSidebar() {
   return {
     '/components/': [
       {
-        text: '组件',
+        text: 'Component',
         children: [
           {
-            text: '前言',
+            text: 'Introduction',
             link: '/components/introduction',
           },
         ],
       },
       {
-        text: '全局组件',
+        text: 'Global Components',
         children: [
           {
             text: 'Button',
@@ -155,7 +155,7 @@ function createSidebar() {
         ],
       },
       {
-        text: '常用组件',
+        text: 'Basic Components',
         children: [
           {
             text: 'Basic',
@@ -289,7 +289,7 @@ function createSidebar() {
         ],
       },
       {
-        text: '函数式组件',
+        text: 'Functional Components',
         children: [
           {
             text: 'ContextMenu',
@@ -308,50 +308,50 @@ function createSidebar() {
     ],
     '/': [
       {
-        text: '指南',
+        text: 'Essentials',
         children: [
           {
-            text: '介绍',
+            text: 'Introduction',
             link: '/guide/introduction',
           },
           {
-            text: '开始',
+            text: 'Start',
             link: '/guide/',
           },
           {
-            text: '项目配置',
+            text: 'Settings',
             link: '/guide/settings',
           },
           {
-            text: '路由',
+            text: 'Router',
             link: '/guide/router',
           },
           {
-            text: '菜单',
+            text: 'Menu',
             link: '/guide/menu',
           },
           {
-            text: '权限',
+            text: 'Auth',
             link: '/guide/auth',
           },
           {
-            text: 'Mock&联调',
+            text: 'Mock',
             link: '/guide/mock',
           },
           {
-            text: '组件注册',
+            text: 'Register Component',
             link: '/guide/component',
           },
           {
-            text: '样式',
+            text: 'Design',
             link: '/guide/design',
           },
           {
-            text: '外部模块',
+            text: 'Lib',
             link: '/guide/lib',
           },
           {
-            text: '构建&部署',
+            text: 'Deploy',
             link: '/guide/deploy',
           },
           {
@@ -361,47 +361,47 @@ function createSidebar() {
         ],
       },
       {
-        text: '深入',
+        text: 'Deep',
         children: [
           {
-            text: '跨域处理',
+            text: 'Cors',
             link: '/dep/cors',
           },
           {
-            text: '图标',
+            text: 'Icon',
             link: '/dep/icon',
           },
           {
-            text: '国际化',
+            text: 'I18n',
             link: '/dep/i18n',
           },
           {
-            text: '项目规范',
+            text: 'Lint',
             link: '/dep/lint',
           },
           {
-            text: '黑暗主题',
+            text: 'Dark Theme',
             link: '/dep/dark',
           },
         ],
       },
       {
-        text: '其他',
+        text: 'Other',
         children: [
           {
-            text: '常见问题',
+            text: 'Faq',
             link: '/other/faq',
           },
           {
-            text: '常见疑点',
+            text: 'Doubt',
             link: '/other/doubt',
           },
           {
-            text: '测试服务',
+            text: 'Server',
             link: '/other/server',
           },
           {
-            text: '相关项目',
+            text: 'Project',
             link: '/other/project',
           },
         ],
