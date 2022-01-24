@@ -1,6 +1,6 @@
-# 赞助
+# Donate
 
-如果你觉得这个项目对你有帮助，你可以帮作者买一杯咖啡表示支持!
+If you find this project useful, you can buy author a glass of coffee!
 
 ![donate](https://anncwb.github.io/anncwb/images/sponsor.png)
 
