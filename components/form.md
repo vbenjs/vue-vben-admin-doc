@@ -286,7 +286,7 @@ updateSchema([
 :::
 
 | 属性 | 类型 | 默认值 | 可选值 | 说明 | 版本 |
-| --- | --- | --- | --- | --- | -- |
+| --- | --- | --- | --- | --- | --- |
 | schemas | `Schema[]` | - | - | 表单配置，见下方 `FormSchema` 配置 |  |
 | submitOnReset | `boolean` | `true` | - | 重置时是否提交表单 |  |
 | labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |  |
@@ -301,13 +301,13 @@ updateSchema([
 | size | `string` | `default` | `'default' , 'small' , 'large'` | 向表单内所有组件传递 size 参数,自定义组件需自行实现 size 接收 |  |
 | disabled | `boolean` | `false` | `true/false` | 向表单内所有组件传递 disabled 属性，自定义组件需自行实现 disabled 接收 |  |
 | autoSetPlaceHolder | `boolean` | `true` | ` true/false` | 自动设置表单内组件的 placeholder，自定义组件需自行实现 |  |
-| autoSubmitOnEnter | `boolean` | `false` | ` true/false` | 在input中输入时按回车自动提交 | 2.4.0  |
+| autoSubmitOnEnter | `boolean` | `false` | ` true/false` | 在 input 中输入时按回车自动提交 | 2.4.0 |
 | rulesMessageJoinLabel | `boolean` | `false` | `true/false` | 如果表单项有校验，会自动生成校验信息，该参数控制是否将字段中文名字拼接到自动生成的信息后方 |  |
 | showAdvancedButton | `boolean` | `false` | `true/false` | 是否显示收起展开按钮 |  |
 | emptySpan | `number , Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |  |
 | autoAdvancedLine | `number` | 3 | - | 如果 showAdvancedButton 为 true，超过指定行数行默认折叠 |  |
-| alwaysShowLines  | `number` | 1 | - | 折叠时始终保持显示的行数  | 2.7.1 |
-| showActionButtonGroup | `boolean` | `true` | `true/false` | 是否显示操作按钮(重置/提交) | |
+| alwaysShowLines | `number` | 1 | - | 折叠时始终保持显示的行数 | 2.7.1 |
+| showActionButtonGroup | `boolean` | `true` | `true/false` | 是否显示操作按钮(重置/提交) |  |
 | actionColOptions | `Partial<ColEx>` | - | - | 操作按钮外层 Col 组件配置，如果开启 showAdvancedButton，则不用设置，具体见下方 actionColOptions |  |
 | showResetButton | `boolean` | `true` | - | 是否显示重置按钮 |  |
 | resetButtonOptions | `object` |  | - | 重置按钮配置见下方 ActionButtonOption |  |
@@ -316,10 +316,18 @@ updateSchema([
 | resetFunc | ` () => Promise<void>` |  | - | 自定义重置按钮逻辑`() => Promise<void>;` |  |
 | submitFunc | ` () => Promise<void>` |  | - | 自定义提交按钮逻辑`() => Promise<void>;` |  |
 | fieldMapToTime | `[string, [string, string], string?][]` |  | - | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |  |
+| layout | `string` | `horizontal` | `'horizontal', 'vertical', 'inline'` | 表单布局 |  |
+| submitOnChange | `boolean` | `false` | - | formModel 值改变时是否提交表单 |  |
+| rowProps | `RowProps` | - | - | 支持 Row 的所有 Api |  |
+| colon | `boolean` | - | - | 配置 Form.Item 的 colon 的默认值 (只有在属性 layout 为 horizontal 时有效) |  |
 
 ### ColEx
 
 见[src/components/Form/src/types/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Form/src/types/index.ts)
+
+### RowProps
+
+见[antdv/Row](https://next.antdv.com/components/grid-cn)
 
 ### ActionButtonOption
 
@@ -376,7 +384,7 @@ useForm({
 | component | `string` | - | - | 组件类型，见下方 ComponentType |
 | componentProps | `any,()=>{}` | - | - | 所渲染的组件的 props |
 | rules | `ValidationRule[]` | - | - | 校验规则,见下方 ValidationRule |
-| required | `boolean` | - | - | 简化 rules 配置，为 true 则转化成 [{required:true}]。`2.4.0`之前的版本只支持string类型的值 |
+| required | `boolean` | - | - | 简化 rules 配置，为 true 则转化成 [{required:true}]。`2.4.0`之前的版本只支持 string 类型的值 |
 | rulesMessageJoinLabel | `boolean` | false | - | 校验信息是否加入 label |
 | itemProps | `any` | - | - | 参考下方 FormItem |
 | colProps | `ColEx` | - | - | 参考上方 actionColOptions |
@@ -490,13 +498,16 @@ export type ComponentType =
   | 'Render'
   | 'Slider'
   | 'Rate'
-  | 'Divider';  // v2.7.2新增
+  | 'Divider'; // v2.7.2新增
 ```
-### Divider schema说明
-`Divider`类型用于在`schemas`中占位，将会渲染成一个分割线（始终占一整行的版面），可以用于较长表单的版面分隔。请只将Divider类型的schema当作一个分割线，而不是一个常规的表单字段。
-- **`Divider`仅在`showAdvancedButton`为false时才会显示**（也就是说如果启用了表单收起和展开功能，`Divider`将不会显示）
+
+### Divider schema 说明
+
+`Divider`类型用于在`schemas`中占位，将会渲染成一个分割线（始终占一整行的版面），可以用于较长表单的版面分隔。请只将 Divider 类型的 schema 当作一个分割线，而不是一个常规的表单字段。
+
+- **`Divider`仅在`showAdvancedButton`为 false 时才会显示**（也就是说如果启用了表单收起和展开功能，`Divider`将不会显示）
 - `Divider` 使用`schema`中的`label`以及`helpMessage`来渲染分割线中的提示内容
-- `Divider` 可以使用`componentProps`来设置除`type`之外的props
+- `Divider` 可以使用`componentProps`来设置除`type`之外的 props
 - `Divider` 不会渲染`AFormItem`，因此`schema`中除`label`、`componentProps`、`helpMessage`、`helpComponentProps`以外的属性不会被用到
 
 ## 自行添加需要的组件类型
@@ -613,7 +624,7 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 
 ::: tip 提示
 
-使用插槽自定义表单域时，请注意antdv有关FormItem的[相关说明](https://2x.antdv.com/components/form-cn#API)。
+使用插槽自定义表单域时，请注意 antdv 有关 FormItem 的[相关说明](https://2x.antdv.com/components/form-cn#API)。
 
 :::
 
@@ -757,6 +768,12 @@ const schemas: FormSchema[] = [
 
 ### Props
 
+::: tip 温馨提醒
+
+除 参考官方 [Select 配置](https://next.antdv.com/components/select-cn)外，扩展以下参数
+
+:::
+
 | 属性 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
 | numberToString | `boolean` | `false` | 是否将`number`值转化为`string` |
@@ -766,14 +783,31 @@ const schemas: FormSchema[] = [
 | labelField | `string` | `label` | 下拉数组项内`label`显示文本的字段，支持`x.x.x`格式 |
 | valueField | `string` | `value` | 下拉数组项内`value`实际值的字段，支持`x.x.x`格式 |
 | immediate | `boolean` | `true` | 是否立即请求接口，否则将在第一次点击时候触发请求 |
+| alwaysLoad | `boolean` | `false` | 是否每次下拉都请求接口 |
 
+### 事件
+
+::: tip 温馨提醒
+
+除以下事件外，官方文档内的 event 也都支持，具体可以参考 [antv Select](https://next.antdv.com/components/select-cn)
+
+:::
+
+| 事件           | 回调函数           | 说明             |
+| -------------- | ------------------ | ---------------- |
+| options-change | `Function(option)` | 请求数据成功回调 |
 
 ## ApiTreeSelect
 
-远程下拉树加载组件，和`ApiSelect`类似，2.6.1以上版本
-
+远程下拉树加载组件，和`ApiSelect`类似，2.6.1 以上版本
 
 ### Props
+
+::: tip 温馨提醒
+
+除 参考官方 [TreeSelect 配置](https://next.antdv.com/components/tree-select-cn)外，扩展以下参数
+
+:::
 
 | 属性 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
@@ -781,6 +815,18 @@ const schemas: FormSchema[] = [
 | params | `object` | - | 接口参数。此属性改变时会自动重新加载接口数据 |
 | resultField | `string` | - | 接口返回的字段，如果接口返回数组，可以不填。支持`x.x.x`格式 |
 | immediate | `boolean` | `true` | 是否立即请求接口。 |
+
+### 事件
+
+::: tip 温馨提醒
+
+除以下事件外，官方文档内的 event 也都支持，具体可以参考 [antv TreeSelect](https://next.antdv.com/components/tree-select-cn)
+
+:::
+
+| 事件           | 回调函数           | 说明               |
+| -------------- | ------------------ | ------------------ |
+| options-change | `Function(option)` | 请求数据完成后回调 |
 
 ## RadioButtonGroup
 
@@ -803,3 +849,76 @@ const schemas: FormSchema[] = [
 | 属性    | 类型                                                     | 默认值 | 说明     |
 | ------- | -------------------------------------------------------- | ------ | -------- |
 | options | `{ label: string; value: string; disabled?: boolean }[]` | -      | 数据字段 |
+
+## ApiCascader
+
+远程级联选择加载组件
+
+### Usage
+
+```ts
+const schemas: FormSchema[] = [
+  {
+    field: 'field',
+    component: 'ApiCascader',
+    label: '字段',
+  },
+];
+```
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| numberToString | `boolean` | `false` | 是否将`number`值转化为`string` |
+| api | `()=>Promise<{ label: string; value: string; loading?: boolean; isLeaf?: boolean; children?: any[] }[]>` | - | 数据接口，接受一个 Promise 对象 |
+| resultField | `string` | - | 接口返回的字段，如果接口返回数组，可以不填。支持`x.x.x`格式 |
+| labelField | `string` | `label` | 下拉数组项内`label`显示文本的字段，支持`x.x.x`格式 |
+| valueField | `string` | `value` | 下拉数组项内`value`实际值的字段，支持`x.x.x`格式 |
+| childrenField | `string` | `children` | 下拉数组项内`children`实际值的字段 |
+| immediate | `boolean` | `true` | 是否立即请求接口，否则将在第一次点击时候触发请求 |
+| asyncFetchParamKey | `string` | `parentCode` | 用于动态加载选项时，配置的额外参数字段 |
+| initFetchParams | `object` | - | 接口参数。此属性改变时会自动重新加载接口数据 |
+| isLeaf | `(arg: Recordable) => boolean ` | - | 是否有下级 |
+| displayRenderArray | `string[] ` | - | 选择后展示的数据 |
+
+### 事件
+
+| 事件           | 回调函数               | 说明             |
+| -------------- | ---------------------- | ---------------- |
+| default-change | `Function(keys, args)` | 选择完成后的回调 |
+
+## ApiRadioGroup
+
+远程加载 Radio 选择组件
+
+### Usage
+
+```ts
+const schemas: FormSchema[] = [
+  {
+    field: 'field',
+    component: 'ApiRadioGroup',
+    label: '字段',
+  },
+];
+```
+
+### Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| numberToString | `boolean` | `false` | 是否将`number`值转化为`string` |
+| api | `()=>Promise<{ label: string; value: string; disabled?: boolean }[]>` | - | 数据接口，接受一个 Promise 对象 |
+| params | `object` | - | 接口参数。此属性改变时会自动重新加载接口数据 |
+| resultField | `string` | - | 接口返回的字段，如果接口返回数组，可以不填。支持`x.x.x`格式 |
+| labelField | `string` | `label` | 下拉数组项内`label`显示文本的字段，支持`x.x.x`格式 |
+| valueField | `string` | `value` | 下拉数组项内`value`实际值的字段，支持`x.x.x`格式 |
+| immediate | `boolean` | `true` | 是否立即请求接口，否则将在第一次点击时候触发请求 |
+| isBtn | `boolean` | `false` | 是否显示 Button 按钮风格样式 |
+
+### 事件
+
+| 事件           | 回调函数           | 说明             |
+| -------------- | ------------------ | ---------------- |
+| options-change | `Function(option)` | 请求数据成功回调 |
