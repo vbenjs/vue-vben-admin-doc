@@ -8,7 +8,7 @@
 1. **后端**：https://github.com/Joyboo/Joyboo-admin-easyswoole **前端**：https://github.com/Joyboo/Joyboo-vben-admin-thin
 
 ## java
-1. **后端**：https://gitee.com/skysong/bluesky-api
+1. **后端**：https://gitee.com/skysong/coffee-boot
 2. **后端**：https://gitee.com/battcn/wemirr-platform **前端**：https://gitee.com/battcn/wemirr-platform-ui
 3. **后端**：https://gitee.com/zsvg/vboot-java **前端**：https://gitee.com/zsvg/vboot-vben
 
