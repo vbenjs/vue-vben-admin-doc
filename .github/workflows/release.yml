@@ -21,4 +21,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           body: |
-            Please refer to [CHANGELOG.md](https://github.com/anncwb/vue-vben-admin-doc/blob/main/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/vbenjs/vue-vben-admin-doc/blob/main/CHANGELOG.md) for details.

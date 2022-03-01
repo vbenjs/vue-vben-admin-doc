@@ -9,8 +9,8 @@ module.exports = {
   description: '一个开箱即用的前端框架',
   head: createHead(),
   themeConfig: {
-    repo: 'anncwb/vue-vben-admin',
-    docsRepo: 'anncwb/vue-vben-admin-doc',
+    repo: 'vbenjs/vue-vben-admin',
+    docsRepo: 'vbenjs/vue-vben-admin-doc',
     logo: '/logo.png',
     docsBranch: 'main',
     editLinks: true,
@@ -106,7 +106,7 @@ function createNav() {
         },
         {
           text: '完整版源码',
-          link: 'https://github.com/anncwb/vue-vben-admin',
+          link: 'https://github.com/vbenjs/vue-vben-admin',
         },
         {
           text: '精简版预览',
@@ -114,15 +114,15 @@ function createNav() {
         },
         {
           text: '精简版源码',
-          link: 'https://github.com/anncwb/vben-admin-thin-next',
+          link: 'https://github.com/vbenjs/vben-admin-thin-next',
         },
         {
           text: '文档源码',
-          link: 'https://github.com/anncwb/vue-vben-admin-doc',
+          link: 'https://github.com/vbenjs/vue-vben-admin-doc',
         },
         {
           text: '更新日志',
-          link: 'https://github.com/anncwb/vue-vben-admin/blob/main/CHANGELOG.md',
+          link: 'https://github.com/vbenjs/vue-vben-admin/blob/main/CHANGELOG.md',
         },
       ],
     },

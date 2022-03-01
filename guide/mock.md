@@ -10,7 +10,7 @@
 
 开发环境时候，接口地址在项目根目录下
 
-[.env.development](https://github.com/anncwb/vue-vben-admin/tree/main/.env.development) 文件配置
+[.env.development](https://github.com/vbenjs/vue-vben-admin/tree/main/.env.development) 文件配置
 
 ```bash
 # vite 本地跨域代理
@@ -98,7 +98,7 @@ server: {
 
 ## 生产环境
 
-生产环境接口地址在项目根目录下 [.env.production](https://github.com/anncwb/vue-vben-admin/tree/main/.env.production) 文件配置。
+生产环境接口地址在项目根目录下 [.env.production](https://github.com/vbenjs/vue-vben-admin/tree/main/.env.production) 文件配置。
 
 生产环境接口地址值需要修改 **VITE_GLOB_API_URL**，如果出现跨域问题，可以使用 nginx 或者后台开启 cors 进行处理
 
@@ -120,7 +120,7 @@ server: {
 4. 获取服务端返回数据
 5. 更新 data；
 
-接口统一存放于 [src/api/](https://github.com/anncwb/vue-vben-admin/tree/main/src/api) 下面管理
+接口统一存放于 [src/api/](https://github.com/vbenjs/vue-vben-admin/tree/main/src/api) 下面管理
 
 以登陆接口为例:
 
@@ -151,7 +151,7 @@ export function loginApi(params: LoginParams) {
 
 ## axios 配置
 
-**axios** 请求封装存放于 [src/utils/http/axios](https://github.com/anncwb/vue-vben-admin/tree/main/src/utils/http/axios) 文件夹内部
+**axios** 请求封装存放于 [src/utils/http/axios](https://github.com/vbenjs/vue-vben-admin/tree/main/src/utils/http/axios) 文件夹内部
 
 除 `index.ts` 文件内容需要根据项目自行修改外，其余文件无需修改
 
@@ -416,7 +416,7 @@ const transform: AxiosTransform = {
 
 ### 多个接口地址
 
-当项目中需要用到多个接口地址时, 可以在 [src/utils/http/axios/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/utils/http/axios/index.ts) 导出多个 axios 实例
+当项目中需要用到多个接口地址时, 可以在 [src/utils/http/axios/index.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/utils/http/axios/index.ts) 导出多个 axios 实例
 
 ```ts
 // 目前只导出一个默认实例，接口地址对应的是环境变量中的 VITE_GLOB_API_URL 接口地址
@@ -449,7 +449,7 @@ const axios = new VAxios({
 
 Mock 数据是前端开发过程中必不可少的一环，是分离前后端开发的关键链路。通过预先跟服务器端约定好的接口，模拟请求数据甚至逻辑，能够让前端开发独立自主，不会被服务端的开发进程所阻塞。
 
-本项目使用 [vite-plugin-mock](https://github.com/anncwb/vite-plugin-mock) 来进行 mock 数据处理。**项目内 mock 服务分本地和线上**。
+本项目使用 [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock) 来进行 mock 数据处理。**项目内 mock 服务分本地和线上**。
 
 ### 本地 Mock
 
@@ -531,7 +531,7 @@ mock 的值可以直接使用 [mockjs](https://github.com/nuysoft/Mock/wiki) 的
 
 #### util 说明
 
-可在 [代码](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_util.ts) 中查看
+可在 [代码](https://github.com/vbenjs/vue-vben-admin/tree/main/mock/_util.ts) 中查看
 
 ::: tip
 
@@ -618,7 +618,7 @@ export default [
 VITE_USE_MOCK = true;
 ```
 
-2. 在 [mock/\_createProductionServer.ts](https://github.com/anncwb/vue-vben-admin/tree/main/mock/_createProductionServer.ts) 文件中引入需要的 mock 文件
+2. 在 [mock/\_createProductionServer.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/mock/_createProductionServer.ts) 文件中引入需要的 mock 文件
 
 ```ts
 import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer';
@@ -638,7 +638,7 @@ export function setupProdMockServer() {
 }
 ```
 
-3. 在 [build/vite/plugin/mock.ts](https://github.com/anncwb/vue-vben-admin/tree/main/build/vite/plugin/mock.ts) 里面引入
+3. 在 [build/vite/plugin/mock.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/build/vite/plugin/mock.ts) 里面引入
 
 ```ts
 import { viteMockServe } from 'vite-plugin-mock';

@@ -2,7 +2,7 @@
 
 对 antv 的 modal 组件进行封装，扩展拖拽，全屏，自适应高度等功能
 
-代码路径 [src/components/Modal](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Modal)
+代码路径 [src/components/Modal](https://github.com/vbenjs/vue-vben-admin/tree/main/src/components/Modal)
 
 ## Usage
 

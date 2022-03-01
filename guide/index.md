@@ -46,7 +46,7 @@
 
 ```bash
 # clone 代码
-git clone https://github.com/anncwb/vue-vben-admin
+git clone https://github.com/vbenjs/vue-vben-admin
 
 ```
 

@@ -92,7 +92,7 @@ export default {
 
 3. 编写 Icon 组件
 
-完整代码 [src/components/Icon/src/Icon.vue](https://github.com/anncwb/vue-vben-admin/blob/main/src/components/Icon/src/Icon.vue)
+完整代码 [src/components/Icon/src/Icon.vue](https://github.com/vbenjs/vue-vben-admin/blob/main/src/components/Icon/src/Icon.vue)
 
 ```vue
 <template>

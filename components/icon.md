@@ -4,7 +4,7 @@
 
 用于项目内组件的展示，基本支持所有图标库（支持按需加载，只打包所用到的图标）
 
-icon 组件位于 [src/components/Icon](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Icon) 内
+icon 组件位于 [src/components/Icon](https://github.com/vbenjs/vue-vben-admin/tree/main/src/components/Icon) 内
 
 ::: tip
 
@@ -105,6 +105,6 @@ icon 的值可以在 [Iconify](https://iconify.design) 或 [Netlify](https://ico
 ::: tip mode 说明
 
 - `mode`为`iconify`时，会使用预生成的[图标集数据](../dep/icon.html#图标集预生成)作为备选图标池
-- `mode`为`svg`时，会使用 `/src/assets/icons` 下的所有svg图标（可包含一级子目录）作为备选图标池，详见[vite-plugin-svg-icons](https://github.com/anncwb/vite-plugin-svg-icons/blob/main/README.zh_CN.md#vite-plugin-svg-icons)。
+- `mode`为`svg`时，会使用 `/src/assets/icons` 下的所有svg图标（可包含一级子目录）作为备选图标池，详见[vite-plugin-svg-icons](https://github.com/vbenjs/vite-plugin-svg-icons/blob/main/README.zh_CN.md#vite-plugin-svg-icons)。
 
 :::

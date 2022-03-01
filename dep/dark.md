@@ -6,11 +6,11 @@
 
 ## 原理
 
-通过 [vite-plugin-theme](https://github.com/anncwb/vite-plugin-theme) 插件，将所有的颜色变量抽取到独立的 css 文件，并且全部在 html 上面加上 css 选择器。通过改变 html 标签的 `data-theme` 属性来进行黑暗主题切换
+通过 [vite-plugin-theme](https://github.com/vbenjs/vite-plugin-theme) 插件，将所有的颜色变量抽取到独立的 css 文件，并且全部在 html 上面加上 css 选择器。通过改变 html 标签的 `data-theme` 属性来进行黑暗主题切换
 
 ## 配置
 
-黑暗主题颜色配置通过 [vite-plugin-theme](https://github.com/anncwb/vite-plugin-theme) 实现，具体代码在 `build/vite/plugin/theme`
+黑暗主题颜色配置通过 [vite-plugin-theme](https://github.com/vbenjs/vite-plugin-theme) 实现，具体代码在 `build/vite/plugin/theme`
 
 ```ts
 antdDarkThemePlugin({
@@ -29,7 +29,7 @@ antdDarkThemePlugin({
 
 ## 切换
 
-只需要使用 [vite-plugin-theme](https://github.com/anncwb/vite-plugin-theme) 提供的函数来进行切换即可
+只需要使用 [vite-plugin-theme](https://github.com/vbenjs/vite-plugin-theme) 提供的函数来进行切换即可
 
 ```ts
 import { darkCssIsReady, loadDarkThemeCss } from 'vite-plugin-theme/es/client';

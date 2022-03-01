@@ -5,7 +5,7 @@
 1. **后端**：https://github.com/vbenjs/gf-vben **前端**：https://github.com/vbenjs/gf-vben-admin
 
 ## php
-1. **后端**：https://github.com/Joyboo/Joyboo-admin-easyswool **前端**：https://github.com/Joyboo/Joyboo-vben-admin-thin
+1. **后端**：https://github.com/Joyboo/Joyboo-admin-easyswoole **前端**：https://github.com/Joyboo/Joyboo-vben-admin-thin
 
 ## java
 1. **后端**：https://gitee.com/skysong/bluesky-api
