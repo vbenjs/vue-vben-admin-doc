@@ -482,7 +482,7 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 | useSearchForm           | `boolean`                                          | false   | -      | 使用搜索表单                                                                                    |      |
 | formConfig              | `any`                                              | -       | -      | 表单配置，参考表单组件的 Props                                                                  |      |
 | columns                 | `any`                                              | -       | -      | 表单列信息 BasicColumn[]                                                                        |      |
-| showIndexColumn         | `boolean`                                          | ture    | -      | 是否显示序号列                                                                                  |      |
+| showIndexColumn         | `boolean`                                          | `true`    | -      | 是否显示序号列                                                                                  |      |
 | indexColumnProps        | `any`                                              | -       | -      | 序号列配置 BasicColumn                                                                          |      |
 | actionColumn            | `any`                                              | -       | -      | 表格右侧操作列配置 BasicColumn                                                                  |      |
 | ellipsis                | `boolean`                                          | `true`  | -      | 文本超过宽度是否显示...                                                                         |      |
