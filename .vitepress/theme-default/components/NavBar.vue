@@ -17,7 +17,7 @@
       <div v-if="repo" class="item">
         <a
           class="nav-btn"
-          href="https://github.com/anncwb/vue-vben-admin"
+          href="https://github.com/vbenjs/vue-vben-admin"
           target="_blank"
           aria-label="View GitHub Repo"
         >

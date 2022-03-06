@@ -319,11 +319,11 @@ updateSchema([
 
 ### ColEx
 
-见[src/components/Form/src/types/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Form/src/types/index.ts)
+见[src/components/Form/src/types/index.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/components/Form/src/types/index.ts)
 
 ### ActionButtonOption
 
-[BasicButtonProps](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Button/types.ts)
+[BasicButtonProps](https://github.com/vbenjs/vue-vben-admin/tree/main/src/components/Button/types.ts)
 
 ```ts
 export interface ButtonProps extends BasicButtonProps {

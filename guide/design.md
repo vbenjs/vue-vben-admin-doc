@@ -6,7 +6,7 @@
 
 默认使用 less 作为预处理语言，建议在使用前或者遇到疑问时学习一下 [Less](http://lesscss.org/) 的相关特性（如果想获取基础的 CSS 知识或查阅属性，请参考 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)）。
 
-项目中使用的通用样式，都存放于 [src/design/](https://github.com/anncwb/vue-vben-admin/tree/main/src/design) 下面。
+项目中使用的通用样式，都存放于 [src/design/](https://github.com/vbenjs/vue-vben-admin/tree/main/src/design) 下面。
 
 ```bash
 .

@@ -1,12 +1,12 @@
 # 路由
 
-项目路由配置存放于 [src/router/routes](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes) 下面。 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块，在该目录下的文件会自动注册。
+项目路由配置存放于 [src/router/routes](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/routes) 下面。 [src/router/routes/modules](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/routes/modules)用于存放路由模块，在该目录下的文件会自动注册。
 
 ## 配置
 
 ### 模块说明
 
-在 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules) 内的 `.ts` 文件会被视为一个路由模块。
+在 [src/router/routes/modules](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/routes/modules) 内的 `.ts` 文件会被视为一个路由模块。
 
 一个路由模块包含以下结构
 
@@ -233,7 +233,7 @@ const IFrame = () => import('/@/views/sys/iframe/FrameBlank.vue');
 
 ### 如何新增一个路由模块
 
-1. 在 [src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules) 内新增一个模块文件。
+1. 在 [src/router/routes/modules](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/routes/modules) 内新增一个模块文件。
 
 示例，新增 test.ts 文件
 
@@ -267,7 +267,7 @@ const dashboard: AppRouteModule = {
 export default dashboard;
 ```
 
-此时路由已添加完成，不需要手动引入，放在[src/router/routes/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/routes/modules) 内的文件会自动被加载。
+此时路由已添加完成，不需要手动引入，放在[src/router/routes/modules](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/routes/modules) 内的文件会自动被加载。
 
 ### 验证
 
@@ -294,7 +294,7 @@ export default defineComponent({
 
 ### Redirect
 
-[src/views/sys/redirect/index.vue](https://github.com/anncwb/vue-vben-admin/tree/main/src/views/sys/redirect/index.vue)
+[src/views/sys/redirect/index.vue](https://github.com/vbenjs/vue-vben-admin/tree/main/src/views/sys/redirect/index.vue)
 
 ```ts
 import { defineComponent, unref } from 'vue';
@@ -344,7 +344,7 @@ export default defineComponent({
 
 开启缓存有 3 个条件
 
-1. 在 [src/settings/projectSetting.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/projectSetting.ts) 内将`openKeepAlive` 设置为 `true`
+1. 在 [src/settings/projectSetting.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/settings/projectSetting.ts) 内将`openKeepAlive` 设置为 `true`
 2. 路由设置 `name`，且**不能重复**
 3. 路由对应的组件加上 `name`，与路由设置的 `name` 保持一致
 

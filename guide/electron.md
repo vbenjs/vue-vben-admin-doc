@@ -12,7 +12,7 @@
 
 ```bash
 # clone electron-main分支代码
-git clone -b electron-main https://github.com/anncwb/vue-vben-admin vben-admin-electron
+git clone -b electron-main https://github.com/vbenjs/vue-vben-admin vben-admin-electron
 ```
 
 ### 安装依赖

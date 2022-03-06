@@ -2,7 +2,7 @@
 
 ::: tip
 
-列举了一些常见的问题。有问题可以先来这里寻找，如果没有可以在 [issue](https://github.com/anncwb/vue-vben-admin/issues) 提。
+列举了一些常见的问题。有问题可以先来这里寻找，如果没有可以在 [issue](https://github.com/vbenjs/vue-vben-admin/issues) 提。
 
 :::
 
@@ -10,11 +10,11 @@
 
 遇到问题,可以先从以下几个方面查找
 
-1. 对应模块的 GitHub 仓库 [issue](https://github.com/anncwb/vue-vben-admin/issues) 搜索
+1. 对应模块的 GitHub 仓库 [issue](https://github.com/vbenjs/vue-vben-admin/issues) 搜索
 2. 从[google](https://www.google.com)搜索问题
 3. 从[百度](https://www.百度.com)搜索问题
-4. 在下面列表找不到问题可以到 issue 提问 [issues](https://github.com/anncwb/vue-vben-admin/issues)
-5. 如果不是问题类型的，需要讨论的，请到 [discussions](https://github.com/anncwb/vue-vben-admin/discussions) 讨论
+4. 在下面列表找不到问题可以到 issue 提问 [issues](https://github.com/vbenjs/vue-vben-admin/issues)
+5. 如果不是问题类型的，需要讨论的，请到 [discussions](https://github.com/vbenjs/vue-vben-admin/discussions) 讨论
 
 ## 关于缓存更新问题
 
@@ -38,7 +38,7 @@ vben-admin 的项目配置默认是缓存在 `localStorage` 内，所以版本�
 
 在控制台看到以下警告的原因是 `ant-design-vue` 会检测是否使用了 `babel-plugin-import` 来判断是否进行了组件库的按需引入。
 
-但是项目使用的是 vite 的插件 [vite-plugin-style-import](https://github.com/anncwb/vite-plugin-style-import) 来进行按需引入。在 vite 内没必要使用 babel 在转换一次代码了。
+但是项目使用的是 vite 的插件 [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import) 来进行按需引入。在 vite 内没必要使用 babel 在转换一次代码了。
 
 所以想关闭这个警告，得等 ant-design-vue 提供可以关闭该警告的配置。
 
@@ -179,8 +179,8 @@ getCurrentInstance().ctx.xxxx;
 
 ## 模版区别
 
-- [Vue-Vben-Admin](https://github.com/anncwb/vue-vben-admin) - 是包含 Demo 示例的,个人建议不要在这上面进行开发。当然，你如果动手能力强的话可以直接改。
-- [Vue-Vben-Admin-Thin-Next](https://github.com/anncwb/vben-admin-thin-next) 精简了代码后的模版项目。适合在这基础上进行二次开发。
+- [Vue-Vben-Admin](https://github.com/vbenjs/vue-vben-admin) - 是包含 Demo 示例的,个人建议不要在这上面进行开发。当然，你如果动手能力强的话可以直接改。
+- [Vue-Vben-Admin-Thin-Next](https://github.com/vbenjs/vben-admin-thin-next) 精简了代码后的模版项目。适合在这基础上进行二次开发。
 
 ## 环境问题
 
@@ -211,7 +211,7 @@ registry = https://registry.npm.taobao.org
 1. 克隆代码
 
 ```bash
-git clone https://github.com/anncwb/vben-admin-thin-next.git
+git clone https://github.com/vbenjs/vben-admin-thin-next.git
 ```
 
 2. 添加自己的公司 git 源地址

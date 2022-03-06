@@ -1,6 +1,6 @@
 # 菜单
 
-项目菜单配置存放于 [src/router/menus](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus) 下面
+项目菜单配置存放于 [src/router/menus](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/menus) 下面
 
 ::: tip 提示
 
@@ -91,9 +91,9 @@ export default menu;
 
 ## 新增菜单
 
-直接在 [src/router/menus/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus/modules) 内新增一个模块文件即可。
+直接在 [src/router/menus/modules](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/menus/modules) 内新增一个模块文件即可。
 
-不需要手动引入，放在[src/router/routes/menus/modules](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/menus/modules) 内的文件会自动被加载。
+不需要手动引入，放在[src/router/routes/menus/modules](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/menus/modules) 内的文件会自动被加载。
 
 ## 菜单排序
 
