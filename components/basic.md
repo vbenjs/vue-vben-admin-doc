@@ -51,7 +51,7 @@
   </div>
 </template>
 <script>
-  import { BasicArrow } from '/@/components/Baisc/index';
+  import { BasicArrow } from '/@/components/Basic/index';
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: { BasicArrow },
@@ -82,7 +82,7 @@
   </div>
 </template>
 <script>
-  import { BasicHelp } from '/@/components/Baisc/index';
+  import { BasicHelp } from '/@/components/Basic/index';
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: { BasicHelp },
