@@ -46,7 +46,7 @@
 
 ```bash
 # clone 代码
-git clone https://github.com/vbenjs/vue-vben-admin
+git clone https://github.com/vbenjs/vue-vben-admin.git
 
 ```
 
@@ -57,7 +57,7 @@ git clone https://github.com/vbenjs/vue-vben-admin
 也可以通过下方地址进行 clone
 
 ```bash
-git clone https://gitee.com/annsion/vue-vben-admin
+git clone https://gitee.com/annsion/vue-vben-admin.git
 ```
 
 ::: warning 注意
