@@ -97,10 +97,6 @@ function createNav() {
       text: '相关链接',
       items: [
         {
-          text: 'Discord Chat',
-          link: 'https://discord.gg/8GuAdwDhj6',
-        },
-        {
           text: '完整版预览',
           link: 'https://vvbin.cn/next',
         },
@@ -127,9 +123,27 @@ function createNav() {
       ],
     },
     {
-      text: '赞助',
-      link: '/other/donate',
+      text: '社区',
+      items: [
+        {
+          text: '开黑啦(新)',
+          link: 'https://kaihei.co/6ZPFKi',
+        },
+        {
+          text: 'QQ群：569291866',
+          link: 'https://qm.qq.com/cgi-bin/qm/qr?k=VI7WhOn0VeeWnX58eODxzF_X3digtJRL&jump_from=webapi',
+        },
+        {
+          text: 'Discord Chat',
+          link: 'https://discord.gg/VU62jTecad',
+        },
+        {
+          text: '赞助',
+          link: '/other/donate',
+        },
+      ],
     },
+
   ];
 }
 
