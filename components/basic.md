@@ -77,7 +77,7 @@
 ```vue
 <template>
   <div>
-    <BasicHelp text="['提示1', '提示2']" />
+    <BasicHelp :text="['提示1', '提示2']" />
     <BasicHelp text="提示" />
   </div>
 </template>
