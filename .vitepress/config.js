@@ -108,14 +108,14 @@ function createNav() {
           text: '完整版源码',
           link: 'https://github.com/vbenjs/vue-vben-admin',
         },
-        {
-          text: '精简版预览',
-          link: 'https://vvbin.cn/thin/next',
-        },
-        {
-          text: '精简版源码',
-          link: 'https://github.com/vbenjs/vben-admin-thin-next',
-        },
+        // {
+        //   text: '精简版预览',
+        //   link: 'https://vvbin.cn/thin/next',
+        // },
+        // {
+        //   text: '精简版源码',
+        //   link: 'https://github.com/vbenjs/vben-admin-thin-next',
+        // },
         {
           text: '文档源码',
           link: 'https://github.com/vbenjs/vue-vben-admin-doc',
