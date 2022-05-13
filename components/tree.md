@@ -113,6 +113,8 @@
   icon?: string;
   // 是否禁用
   disabled?: boolean;
+  // 是否隐藏
+  hidden?: boolean;
   // 事件
   handler?: (...arg) => any;
   // 是否显示分隔线
