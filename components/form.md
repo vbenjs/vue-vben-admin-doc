@@ -340,7 +340,7 @@ export interface ButtonProps extends BasicButtonProps {
 ```ts
 useForm({
   fieldMapToTime: [
-    // data为时间组件在表单内的字段，startTime，endTime为转化后的开始时间于结束时间
+    // data为时间组件在表单内的字段，startTime，endTime为转化后的开始时间与结束时间
     // 'YYYY-MM-DD'为时间格式，参考moment
     ['datetime', ['startTime', 'endTime'], 'YYYY-MM-DD'],
     // 支持多个字段
