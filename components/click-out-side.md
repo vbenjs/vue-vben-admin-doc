@@ -7,8 +7,8 @@
 ```vue
 <template>
   <div>
-    <ClickOutSide @clickOutside="() => (showRef.value = false)">
-      <div @click="() => (showRef.value = true)">
+    <ClickOutSide @clickOutside="() => (showRef = false)">
+      <div @click="() => (showRef = true)">
         {{ showRef ? '鼠标点击那部（点击边框外可以恢复）' : '点击该区域状态(初始状态)' }}
       </div>
     </ClickOutSide>
@@ -16,7 +16,7 @@
 </template>
 <script>
   import { defineComponent, ref } from 'vue';
-  import { ClickOutSide } from '@/components/ClickOutSide/index.vue';
+  import { ClickOutSide } from '/@/components/ClickOutSide/';
   export default defineComponent({
     components: { ClickOutSide },
     setup() {
