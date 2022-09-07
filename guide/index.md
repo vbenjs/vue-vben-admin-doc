@@ -105,7 +105,7 @@ yarn -v # 出现对应版本号即代表安装成功
 
 ```bash
 # 安装依赖
-yarn
+yarn 或 pnpm install
 ```
 
 ### imagemin 依赖安装失败解决方法
@@ -131,6 +131,18 @@ yarn
 请查看你的源码是否从 github 直接下载的，直接下载是没有 `.git` 文件夹的，而 `husky` 需要依赖 `git` 才能安装。此时需使用 `git init` 初始化项目，再尝试重新安装即可。
 
 :::
+
+#### 项目开发运行命令
+
+在项目根目录下，打开命令窗口执行，耐心等待安装完成即可
+
+```bash
+# 运行项目(以下命令多选一. 如果未部署 mkcert 证书, 可能无法通过 https 方式启动, 此时可追加参数: --https false, 通过 http 方式运行)
+yarn dev
+yarn dev --https false
+pnpm dev
+pnpm dev --https false
+```
 
 ## npm script
 
