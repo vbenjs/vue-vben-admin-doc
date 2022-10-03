@@ -262,7 +262,7 @@ gzip 可以由服务器直接开启。如果是这样，前端不需要构建 `.
 
 - gzip_static: 这个模块需要 nginx 另外安装，默认的 nginx 没有安装这个模块。
 
-- 开启 `brotli` 页需要 nginx 另外安装模块
+- 开启 `brotli` 也需要 nginx 另外安装模块
 
 ## 运行错误
 
