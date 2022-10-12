@@ -49,6 +49,9 @@ yarn dev
 
 `vue-vben-admin` 精简版本。删除了相关示例、无用文件及功能、依赖。可以根据自身需求安装对应的依赖。因为使用的是 `vite`，依赖删除不会导致相关组件或者 `hook` 发出警告。只在需要的时候**安装对应的库**即可。
 
+> **注意**
+> * 由于精力有限，原 [vue-vben-admin-thin](https://github.com/vbenjs/vben-admin-thin-next) 仓库将不再维护。如果需要精简版，请使用 [vue-vben-admin/thin](https://github.com/vbenjs/vue-vben-admin/tree/thin) 分支。
+
 ## vite 插件推荐
 
 如果这些插件对你有帮助，可以给一个 star 支持下
