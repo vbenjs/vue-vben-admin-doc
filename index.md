@@ -5,7 +5,7 @@ actionText: 快速开始 →
 actionLink: /guide/introduction
 
 altActionText: 在线预览
-altActionLink: http://vben.mufei88.com/
+altActionLink: https://vvbin.cn/next/
 
 features:
   - title: 💡 最新技术栈

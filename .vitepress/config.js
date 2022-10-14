@@ -98,7 +98,7 @@ function createNav() {
       items: [
         {
           text: '完整版预览',
-          link: 'http://vben.mufei88.com/',
+          link: 'https://vvbin.cn/next',
         },
         {
           text: '完整版源码',
