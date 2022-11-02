@@ -288,7 +288,7 @@ updateSchema([
 | 属性 | 类型 | 默认值 | 可选值 | 说明 | 版本 |
 | --- | --- | --- | --- | --- | -- |
 | schemas | `Schema[]` | - | - | 表单配置，见下方 `FormSchema` 配置 |  |
-| submitOnReset | `boolean` | `true` | - | 重置时是否提交表单 |  |
+| submitOnReset | `boolean` | `false` | - | 重置时是否提交表单 |  |
 | labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |  |
 | wrapperCol | `Partial<ColEx>` | - | - | 整个表单通用 wrapperCol 配置 |  |
 | baseColProps | `Partial<ColEx>` | - | - | 配置所有选子项的 ColProps，不需要逐个配置，子项也可单独配置优先与全局 |  |
@@ -319,11 +319,11 @@ updateSchema([
 
 ### ColEx
 
-见[src/components/Form/src/types/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Form/src/types/index.ts)
+见[src/components/Form/src/types/index.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/components/Form/src/types/index.ts)
 
 ### ActionButtonOption
 
-[BasicButtonProps](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/Button/types.ts)
+[BasicButtonProps](https://github.com/vbenjs/vue-vben-admin/tree/main/src/components/Button/types.ts)
 
 ```ts
 export interface ButtonProps extends BasicButtonProps {

@@ -51,7 +51,7 @@ export default defineComponent({
 
 只注册需要的组件
 
-代码地址：[src/components/registerGlobComp.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/components/registerGlobComp.ts)
+代码地址：[src/components/registerGlobComp.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/components/registerGlobComp.ts)
 
 ```ts
 import {

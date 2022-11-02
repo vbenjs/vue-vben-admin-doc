@@ -4,7 +4,7 @@
 
 由于是展示项目，所以打包后相对较大，如果项目中没有用到的插件，可以删除对应的文件或者路由，不引用即可，没有引用就不会打包。
 
-当然，你也可以使用精简版 [vue-vben-admin-thin](https://github.com/anncwb/vben-admin-thin-next) 进行开发。
+当然，你也可以使用精简版 [vue-vben-admin-thin](https://github.com/vbenjs/vben-admin-thin-next) 进行开发。
 
 :::
 
@@ -191,7 +191,7 @@ VITE_PUBLIC_PATH=/xxx/
 - **hash** 默认会在 url 后面拼接`#`
 - **history** 则不会，不过 `history` 需要服务器配合
 
-可在 [src/router/index.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/index.ts) 内进行 mode 修改
+可在 [src/router/index.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/index.ts) 内进行 mode 修改
 
 ```ts
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';

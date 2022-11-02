@@ -9,8 +9,8 @@ module.exports = {
   description: '一个开箱即用的前端框架',
   head: createHead(),
   themeConfig: {
-    repo: 'anncwb/vue-vben-admin',
-    docsRepo: 'anncwb/vue-vben-admin-doc',
+    repo: 'vbenjs/vue-vben-admin',
+    docsRepo: 'vbenjs/vue-vben-admin-doc',
     logo: '/logo.png',
     docsBranch: 'main',
     editLinks: true,
@@ -97,39 +97,53 @@ function createNav() {
       text: '相关链接',
       items: [
         {
-          text: 'Discord Chat',
-          link: 'https://discord.gg/8GuAdwDhj6',
-        },
-        {
           text: '完整版预览',
           link: 'https://vvbin.cn/next',
         },
         {
           text: '完整版源码',
-          link: 'https://github.com/anncwb/vue-vben-admin',
+          link: 'https://github.com/vbenjs/vue-vben-admin',
         },
-        {
-          text: '精简版预览',
-          link: 'https://vvbin.cn/thin/next',
-        },
-        {
-          text: '精简版源码',
-          link: 'https://github.com/anncwb/vben-admin-thin-next',
-        },
+        // {
+        //   text: '精简版预览',
+        //   link: 'https://vvbin.cn/thin/next',
+        // },
+        // {
+        //   text: '精简版源码',
+        //   link: 'https://github.com/vbenjs/vben-admin-thin-next',
+        // },
         {
           text: '文档源码',
-          link: 'https://github.com/anncwb/vue-vben-admin-doc',
+          link: 'https://github.com/vbenjs/vue-vben-admin-doc',
         },
         {
           text: '更新日志',
-          link: 'https://github.com/anncwb/vue-vben-admin/blob/main/CHANGELOG.md',
+          link: 'https://github.com/vbenjs/vue-vben-admin/blob/main/CHANGELOG.md',
         },
       ],
     },
     {
-      text: '赞助',
-      link: '/other/donate',
+      text: '社区',
+      items: [
+        {
+          text: '开黑啦(新)',
+          link: 'https://kaihei.co/6ZPFKi',
+        },
+        {
+          text: 'QQ群：569291866',
+          link: 'https://qm.qq.com/cgi-bin/qm/qr?k=VI7WhOn0VeeWnX58eODxzF_X3digtJRL&jump_from=webapi',
+        },
+        {
+          text: 'Discord Chat',
+          link: 'https://discord.gg/VU62jTecad',
+        },
+        {
+          text: '赞助',
+          link: '/other/donate',
+        },
+      ],
     },
+
   ];
 }
 

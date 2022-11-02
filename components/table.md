@@ -699,4 +699,4 @@ export interface PopConfirm {
 
 ## 全局配置
 
-在[componentsSettings](https://github.com/anncwb/vue-vben-admin/tree/main/src/settings/componentSetting.ts) 可以配置全局参数。用于统一整个项目的风格。可以通过 props 传值覆盖
+在[componentsSettings](https://github.com/vbenjs/vue-vben-admin/tree/main/src/settings/componentSetting.ts) 可以配置全局参数。用于统一整个项目的风格。可以通过 props 传值覆盖

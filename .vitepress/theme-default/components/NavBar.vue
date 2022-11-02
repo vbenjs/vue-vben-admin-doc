@@ -17,7 +17,7 @@
       <div v-if="repo" class="item">
         <a
           class="nav-btn"
-          href="https://github.com/anncwb/vue-vben-admin"
+          href="https://github.com/vbenjs/vue-vben-admin"
           target="_blank"
           aria-label="View GitHub Repo"
         >
@@ -30,14 +30,14 @@
 </template>
 
 <script setup lang="ts">
-  import { defineEmit } from 'vue';
+  import { defineEmits } from 'vue';
   import NavBarTitle from './NavBarTitle.vue';
   import NavLinks from './NavLinks.vue';
   import ToggleSideBarButton from './ToggleSideBarButton.vue';
   import DarkModeSwitch from './DarkModeSwitch.vue';
   import { useRepo } from '../composables/repo';
 
-  defineEmit(['toggle']);
+  defineEmits(['toggle']);
 
   const repo = useRepo();
 </script>

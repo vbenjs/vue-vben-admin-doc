@@ -80,7 +80,7 @@ export default permission;
 
 3. 在路由钩子内动态判断
 
-详细代码见 [src/router/guard/permissionGuard.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/router/guard/permissionGuard.ts)
+详细代码见 [src/router/guard/permissionGuard.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/guard/permissionGuard.ts)
 
 ```ts
 // 这里只列举了主要代码
@@ -97,7 +97,7 @@ permissionStore.setDynamicAddedRoute(true);
 next(nextData);
 ```
 
-**permissionStore.buildRoutesAction** 用于**过滤动态路由**，详细代码见 [src/store/modules/permission.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/store/modules/permission.ts)
+**permissionStore.buildRoutesAction** 用于**过滤动态路由**，详细代码见 [src/store/modules/permission.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/store/modules/permission.ts)
 
 ```ts
 // 主要代码
@@ -117,7 +117,7 @@ if (permissionMode === PermissionModeEnum.ROLE) {
 
 ### 动态更换角色
 
-系统提供 [usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 方便角色相关操作
+系统提供 [usePermission](https://github.com/vbenjs/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 方便角色相关操作
 
 ```ts
 import { usePermission } from '/@/hooks/web/usePermission';
@@ -138,7 +138,7 @@ export default defineComponent({
 
 **函数方式**
 
-[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 还提供了按钮级别的权限控制。
+[usePermission](https://github.com/vbenjs/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 还提供了按钮级别的权限控制。
 
 ```vue
 <template>
@@ -194,7 +194,7 @@ const setting: ProjectConfig = {
 
 2. 路由拦截，与角色权限模式一致
 
-**permissionStore.buildRoutesAction** 用于**过滤动态路由**，详细代码见 [/@/store/modules/permission.ts](https://github.com/anncwb/vue-vben-admin/tree/main/src/store/modules/permission.ts)
+**permissionStore.buildRoutesAction** 用于**过滤动态路由**，详细代码见 [/@/store/modules/permission.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/src/store/modules/permission.ts)
 
 ```ts
 // 主要代码
@@ -293,7 +293,7 @@ if (permissionMode === PermissionModeEnum.BACK) {
 
 ### 动态更换菜单
 
-系统提供 [usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 方便角色相关操作
+系统提供 [usePermission](https://github.com/vbenjs/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 方便角色相关操作
 
 ```ts
 import { usePermission } from '/@/hooks/web/usePermission';
@@ -314,7 +314,7 @@ export default defineComponent({
 
 **函数方式**
 
-[usePermission](https://github.com/anncwb/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 还提供了按钮级别的权限控制。
+[usePermission](https://github.com/vbenjs/vue-vben-admin/tree/main/src/hooks/web/usePermission.ts) 还提供了按钮级别的权限控制。
 
 ```vue
 <template>
