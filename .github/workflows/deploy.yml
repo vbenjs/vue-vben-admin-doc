@@ -59,10 +59,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Sed Config Base
-        shell: bash
-        run: |
-          sed -i  's/doc-next/vue-vben-admin-doc/g' ./.vitepress/config.js
+      # - name: Sed Config Base
+      #   shell: bash
+      #   run: |
+      #     sed -i  's/doc-next/vue-vben-admin-doc/g' ./.vitepress/config.js
 
       - name: use Node.js 14
         uses: actions/setup-node@v2.1.2

@@ -3,7 +3,7 @@
  * @type {import('vitepress').UserConfig}
  */
 module.exports = {
-  base: '/doc-next/',
+  base: '/',
   title: 'Vben Admin',
   lang: 'zh-CN',
   description: '一个开箱即用的前端框架',
