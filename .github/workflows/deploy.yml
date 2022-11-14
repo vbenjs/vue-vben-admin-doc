@@ -6,51 +6,51 @@ on:
       - main
 
 jobs:
-  push-to-ftp:
-    # if: "contains(github.event.head_commit.message, '[deploy]')"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
+  # push-to-ftp:
+  #   # if: "contains(github.event.head_commit.message, '[deploy]')"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@master
 
-      - name: Sed Config Base
-        shell: bash
-        run: |
-          sed -i  's/doc-next/doc-next/g' ./.vitepress/config.js
+  #     - name: Sed Config Base
+  #       shell: bash
+  #       run: |
+  #         sed -i  's/doc-next/doc-next/g' ./.vitepress/config.js
 
-      - name: use Node.js 15
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: '15.x'
+  #     - name: use Node.js 15
+  #       uses: actions/setup-node@v2.1.2
+  #       with:
+  #         node-version: '15.x'
 
-      - name: Get yarn cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+  #     - name: Get yarn cache
+  #       id: yarn-cache
+  #       run: echo "::set-output name=dir::$(yarn cache dir)"
 
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+  #     - name: Cache dependencies
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: ${{ steps.yarn-cache.outputs.dir }}
+  #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-yarn-
 
-      - name: Build
-        run: |
-          yarn install --frozen-lockfile
-          yarn run build
+  #     - name: Build
+  #       run: |
+  #         yarn install --frozen-lockfile
+  #         yarn run build
 
-      - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          METHOD: sftp
-          PORT: ${{ secrets.FTP_PORT }}
-          LOCAL_DIR: ./.vitepress/dist
-          REMOTE_DIR: /srv/www/vben-admin-doc
-          ARGS: --delete --verbose --parallel=80
+  #     - name: Deploy
+  #       uses: SamKirkland/FTP-Deploy-Action@2.0.0
+  #       env:
+  #         FTP_SERVER: ${{ secrets.FTP_SERVER }}
+  #         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+  #         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+  #         METHOD: sftp
+  #         PORT: ${{ secrets.FTP_PORT }}
+  #         LOCAL_DIR: ./.vitepress/dist
+  #         REMOTE_DIR: /srv/www/vben-admin-doc
+  #         ARGS: --delete --verbose --parallel=80
 
   push-to-gh-page:
     # if: "contains(github.event.head_commit.message, '[deploy]')"
