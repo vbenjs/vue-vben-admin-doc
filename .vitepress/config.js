@@ -98,7 +98,7 @@ function createNav() {
       items: [
         {
           text: '完整版预览',
-          link: 'https://vvbin.cn/next',
+          link: 'https://vben.vvbin.cn',
         },
         {
           text: '完整版源码',
@@ -109,9 +109,9 @@ function createNav() {
         //   link: 'https://vvbin.cn/thin/next',
         // },
         // {
-        //   text: '精简版源码',
-        //   link: 'https://github.com/vbenjs/vben-admin-thin-next',
-        // },
+          text: '精简版分支',
+          link: 'https://github.com/vbenjs/vue-vben-admin/tree/thin',
+        },
         {
           text: '文档源码',
           link: 'https://github.com/vbenjs/vue-vben-admin-doc',
@@ -126,7 +126,7 @@ function createNav() {
       text: '社区',
       items: [
         {
-          text: '开黑啦(新)',
+          text: 'KOOK(新)',
           link: 'https://kaihei.co/6ZPFKi',
         },
         {
