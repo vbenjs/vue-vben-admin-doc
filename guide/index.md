@@ -12,11 +12,11 @@
 
 ## 环境准备
 
-本地环境需要安装 [Yarn1.x](https://yarnpkg.com/)、[Node.js](http://nodejs.org/) 和 [Git](https://git-scm.com/)
+本地环境需要安装 [pnpm](https://pnpm.io/)、[Node.js](http://nodejs.org/) 和 [Git](https://git-scm.com/)
 
 ::: warning 注意
 
-- 必须使用[Yarn1.x](https://yarnpkg.com/)，否则依赖可能安装不上。
+- 推荐使用[pnpm](https://pnpm.io/)，否则依赖可能安装不上。
 - [Node.js](http://nodejs.org/) 版本要求`12.x`以上，且不能为`13.x`版本，这里推荐 `14.x` 及以上。
 
 :::
@@ -86,17 +86,17 @@ node -v
 
 ### 安装依赖
 
-#### yarn 安装
+#### pnpm 安装
 
-必须使用 [Yarn](https://github.com/yarnpkg/yarn)进行依赖安装（若其他包管理器安装不了需要自行处理）。
+必须使用 [pnpm](https://pnpm.io/)进行依赖安装（若其他包管理器安装不了需要自行处理）。
 
-如果未安装`yarn`，可以用下面命令来进行全局安装
+如果未安装`pnpm`，可以用下面命令来进行全局安装
 
 ```bash
 # 全局安装yarn
-npm i -g yarn
+npm install -g pnpm
 # 验证
-yarn -v # 出现对应版本号即代表安装成功
+pnpm -v # 出现对应版本号即代表安装成功
 ```
 
 #### 依赖安装命令
@@ -105,7 +105,7 @@ yarn -v # 出现对应版本号即代表安装成功
 
 ```bash
 # 安装依赖
-yarn
+pnpm i
 ```
 
 ### imagemin 依赖安装失败解决方法
