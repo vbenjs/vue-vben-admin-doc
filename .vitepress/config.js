@@ -108,7 +108,7 @@ function createNav() {
         //   text: '精简版预览',
         //   link: 'https://vvbin.cn/thin/next',
         // },
-        // {
+        {
           text: '精简版分支',
           link: 'https://github.com/vbenjs/vue-vben-admin/tree/thin',
         },
