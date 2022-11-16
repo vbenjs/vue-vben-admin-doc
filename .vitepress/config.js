@@ -143,7 +143,19 @@ function createNav() {
         },
       ],
     },
-
+    {
+      text: 'vben3',
+      items: [
+        {
+          text: '仓库（alpha）',
+          link: 'https://github.com/jinmao88/vben3',
+        },
+        {
+          text: '文档',
+          link: 'https://vbenjs.github.io/vben3-doc/',
+        },
+        ],
+     }
   ];
 }
 
