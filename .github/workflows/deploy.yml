@@ -103,10 +103,9 @@ jobs:
           git push origin --delete gh-pages
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          ACTIONS_DEPLOY_KEY: ${{secrets.DEPLOY_TOKEN}}
+        uses: peaceiris/actions-gh-pages@v3.9.0
+        with:
+          deploy_key: ${{secrets.DEPLOY_TOKEN}}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./.vitepress/dist
-        with:
-          forceOrphan: true
+          CNAME: doc.vvbin.cn
