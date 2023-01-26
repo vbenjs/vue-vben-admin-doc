@@ -6,6 +6,7 @@
 
 ## php
 1. **后端**：https://github.com/Joyboo/Joyboo-admin-easyswoole **前端**：https://github.com/Joyboo/Joyboo-vben-admin-thin
+2. **后端**: https://github.com/wcz0/laravel-vben **前端**: https://github.com/wcz0/laravel-vben-admin
 
 ## java
 1. **后端SpringCloud**：https://github.com/zuihou/lamp-cloud  **后端SpringBoot**：https://github.com/zuihou/lamp-boot   **前端**：https://github.com/zuihou/lamp-web-plus
