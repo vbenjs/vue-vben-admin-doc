@@ -136,7 +136,7 @@ window.__PRODUCTION__VUE_VBEN_ADMIN__CONF__ = {
 
 1. 首先在 `.env` 或者对应的开发环境配置文件内，新增需要可动态配置的变量，需要以 `VITE_GLOB_`开头
 
-2. `VITE_GLOB_` 开头的变量会自动加入环境变量，通过在 `src/types/config.d.ts` 内修改 `GlobEnvConfig` 和 `GlobConfig` 两个环境变量的值来定义新添加的类型
+2. `VITE_GLOB_` 开头的变量会自动加入环境变量，通过在 `types/config.d.ts` 内修改 `GlobEnvConfig` 和 `GlobConfig` 两个环境变量的值来定义新添加的类型
 
 3. [useGlobSetting](https://github.com/vbenjs/vue-vben-admin/tree/main/src/hooks/setting/index.ts) 函数中添加刚新增的返回值即可
 
