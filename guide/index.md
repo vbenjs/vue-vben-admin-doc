@@ -93,7 +93,7 @@ node -v
 如果未安装`pnpm`，可以用下面命令来进行全局安装
 
 ```bash
-# 全局安装yarn
+# 全局安装pnpm
 npm install -g pnpm
 # 验证
 pnpm -v # 出现对应版本号即代表安装成功
