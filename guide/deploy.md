@@ -37,7 +37,7 @@ VITE_LEGACY = true
 - 使用项目自定的命令进行预览(推荐)
 
 ```bash
-# 先打包在进行预览
+# 先打包再进行预览
 yarn preview
 # 直接预览本地 dist 文件目录
 yarn preview:dist
