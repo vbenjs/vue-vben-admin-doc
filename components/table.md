@@ -624,6 +624,29 @@ e.g
 form-submitBefore
 ```
 
+## ColumnSetting组件
+
+> 字段调整组件
+
+提供了可视化操作表格每一列的是否展示、位置、固定；包括序号列、勾选列。会响应`tableMethods`中`setColumns`和`setProps`方法的更改内容。
+
+:::warning 值得注意的是
+
+`序号列`和`勾选列`是在table的props中定义的，对应的字段分别是`showIndexColumn`、`rowSelection`。因此在**动态改变表格列配置**的时候，建议使用**setProps**方法，并显式地设置这两个字段的值来保证达到预期效果
+
+:::
+
+```ts
+// ...
+const [registerTable, { setProps }] = useTable({...})
+
+setProps({
+  columns: [], // 表格的列配置 BasicColumn[]
+  showIndexColumn: false, // 是否展示序号列
+  rowSelection: false // 勾选列配置
+})
+```
+
 ## 内置组件（只能用于表格内部）
 
 ### TableAction
