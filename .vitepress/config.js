@@ -125,29 +125,33 @@ function createNav() {
     {
       text: '社区',
       items: [
+         {
+          text: 'QQ频道【vben admin】',
+          link: 'https://pd.qq.com/s/ahgh62mni',
+        },
         {
           text: 'KOOK(新)',
           link: 'https://kaihei.co/6ZPFKi',
         },
-        {
-          text: 'QQ群：569291866',
-          link: 'https://qm.qq.com/cgi-bin/qm/qr?k=VI7WhOn0VeeWnX58eODxzF_X3digtJRL&jump_from=webapi',
-        },
+        // {
+        //   text: 'QQ群：569291866',
+        //   link: 'https://qm.qq.com/cgi-bin/qm/qr?k=VI7WhOn0VeeWnX58eODxzF_X3digtJRL&jump_from=webapi',
+        // },
         {
           text: 'Discord Chat',
           link: 'https://discord.gg/VU62jTecad',
         },
-        {
-          text: '赞助',
-          link: '/other/donate',
-        },
+        // {
+        //   text: '赞助',
+        //   link: '/other/donate',
+        // },
       ],
     },
     {
       text: 'vben3',
       items: [
         {
-          text: '仓库（alpha）',
+          text: '仓库（beta-1）',
           link: 'https://github.com/jinmao88/vben3',
         },
         {
