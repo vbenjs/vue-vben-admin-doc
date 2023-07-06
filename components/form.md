@@ -73,7 +73,7 @@
         @submit="handleSubmit"
         :actionColOptions="{ span: 24 }"
       />
-  <div>
+  </div>
 </template>
 <script lang="ts">
   import { defineComponent, ref } from 'vue';
