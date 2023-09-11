@@ -66,21 +66,20 @@
 ```vue
 <template>
   <div class="m-4">
-      <BasicForm
-        :schemas="schemas"
-        ref="formElRef"
-        :labelWidth="100"
-        @submit="handleSubmit"
-        :actionColOptions="{ span: 24 }"
-      />
+    <BasicForm
+      :schemas="schemas"
+      ref="formElRef"
+      :labelWidth="100"
+      @submit="handleSubmit"
+      :actionColOptions="{ span: 24 }"
+    />
   </div>
 </template>
 <script lang="ts">
   import { defineComponent, ref } from 'vue';
   import { BasicForm, FormSchema, FormActionType, FormProps } from '/@/components/Form';
   import { CollapseContainer } from '/@/components/Container';
-  const schemas: FormSchema[] = [
-  ];
+  const schemas: FormSchema[] = [];
 
   export default defineComponent({
     components: { BasicForm, CollapseContainer },
@@ -286,7 +285,7 @@ updateSchema([
 :::
 
 | 属性 | 类型 | 默认值 | 可选值 | 说明 | 版本 |
-| --- | --- | --- | --- | --- | -- |
+| --- | --- | --- | --- | --- | --- |
 | schemas | `Schema[]` | - | - | 表单配置，见下方 `FormSchema` 配置 |  |
 | submitOnReset | `boolean` | `false` | - | 重置时是否提交表单 |  |
 | labelCol | `Partial<ColEx>` | - | - | 整个表单通用 LabelCol 配置 |  |
@@ -301,13 +300,13 @@ updateSchema([
 | size | `string` | `default` | `'default' , 'small' , 'large'` | 向表单内所有组件传递 size 参数,自定义组件需自行实现 size 接收 |  |
 | disabled | `boolean` | `false` | `true/false` | 向表单内所有组件传递 disabled 属性，自定义组件需自行实现 disabled 接收 |  |
 | autoSetPlaceHolder | `boolean` | `true` | ` true/false` | 自动设置表单内组件的 placeholder，自定义组件需自行实现 |  |
-| autoSubmitOnEnter | `boolean` | `false` | ` true/false` | 在input中输入时按回车自动提交 | 2.4.0  |
+| autoSubmitOnEnter | `boolean` | `false` | ` true/false` | 在 input 中输入时按回车自动提交 | 2.4.0 |
 | rulesMessageJoinLabel | `boolean` | `false` | `true/false` | 如果表单项有校验，会自动生成校验信息，该参数控制是否将字段中文名字拼接到自动生成的信息后方 |  |
 | showAdvancedButton | `boolean` | `false` | `true/false` | 是否显示收起展开按钮 |  |
 | emptySpan | `number , Partial<ColEx>` | 0 | - | 空白行格,可以是数值或者 col 对象 数 |  |
 | autoAdvancedLine | `number` | 3 | - | 如果 showAdvancedButton 为 true，超过指定行数行默认折叠 |  |
-| alwaysShowLines  | `number` | 1 | - | 折叠时始终保持显示的行数  | 2.7.1 |
-| showActionButtonGroup | `boolean` | `true` | `true/false` | 是否显示操作按钮(重置/提交) | |
+| alwaysShowLines | `number` | 1 | - | 折叠时始终保持显示的行数 | 2.7.1 |
+| showActionButtonGroup | `boolean` | `true` | `true/false` | 是否显示操作按钮(重置/提交) |  |
 | actionColOptions | `Partial<ColEx>` | - | - | 操作按钮外层 Col 组件配置，如果开启 showAdvancedButton，则不用设置，具体见下方 actionColOptions |  |
 | showResetButton | `boolean` | `true` | - | 是否显示重置按钮 |  |
 | resetButtonOptions | `object` |  | - | 重置按钮配置见下方 ActionButtonOption |  |
@@ -315,7 +314,7 @@ updateSchema([
 | submitButtonOptions | `object` |  | - | 确认按钮配置见下方 ActionButtonOption |  |
 | resetFunc | ` () => Promise<void>` |  | - | 自定义重置按钮逻辑`() => Promise<void>;` |  |
 | submitFunc | ` () => Promise<void>` |  | - | 自定义提交按钮逻辑`() => Promise<void>;` |  |
-| fieldMapToTime | `[string, [string, string], string?][]` |  | - | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |  |
+| fieldMapToTime | `[string, [string, string], string?][]` |  | 'timestamp' ,'timestampStartDay' ,momentjs 时间格式 | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |  |
 
 ### ColEx
 
@@ -352,11 +351,22 @@ useForm({
 {
   datetime: [Date(),Date()]
 }
-//  ['datetime', ['startTime', 'endTime'], 'YYYY-MM-DD'],之后
+//  ['datetime', ['startTime', 'endTime'], 'YYYY-MM-DD'],等同于 dayjs(Date()).format('YYYY-MM-DD'). 之后
 {
-    datetime: [Date(),Date()],
     startTime: '2020-08-12',
     endTime: '2020-08-15',
+}
+
+// ['datetime', ['startTime', 'endTime'], 'timestamp'],等同于 dayjs(Date()).unix(). 之后
+{
+    startTime: 1597190400,
+    endTime: 1597449600,
+}
+
+// ['datetime', ['startTime', 'endTime'], 'timestampStartDay'],等同于 dayjs(Date()).startOf('day').unix(). 之后
+{
+    startTime: 1597190400,
+    endTime: 1597449600,
 }
 ```
 
@@ -376,7 +386,7 @@ useForm({
 | component | `string` | - | - | 组件类型，见下方 ComponentType |
 | componentProps | `any,()=>{}` | - | - | 所渲染的组件的 props |
 | rules | `ValidationRule[]` | - | - | 校验规则,见下方 ValidationRule |
-| required | `boolean` | - | - | 简化 rules 配置，为 true 则转化成 [{required:true}]。`2.4.0`之前的版本只支持string类型的值 |
+| required | `boolean` | - | - | 简化 rules 配置，为 true 则转化成 [{required:true}]。`2.4.0`之前的版本只支持 string 类型的值 |
 | rulesMessageJoinLabel | `boolean` | false | - | 校验信息是否加入 label |
 | itemProps | `any` | - | - | 参考下方 FormItem |
 | colProps | `ColEx` | - | - | 参考上方 actionColOptions |
@@ -490,13 +500,16 @@ export type ComponentType =
   | 'Render'
   | 'Slider'
   | 'Rate'
-  | 'Divider';  // v2.7.2新增
+  | 'Divider'; // v2.7.2新增
 ```
-### Divider schema说明
-`Divider`类型用于在`schemas`中占位，将会渲染成一个分割线（始终占一整行的版面），可以用于较长表单的版面分隔。请只将Divider类型的schema当作一个分割线，而不是一个常规的表单字段。
-- **`Divider`仅在`showAdvancedButton`为false时才会显示**（也就是说如果启用了表单收起和展开功能，`Divider`将不会显示）
+
+### Divider schema 说明
+
+`Divider`类型用于在`schemas`中占位，将会渲染成一个分割线（始终占一整行的版面），可以用于较长表单的版面分隔。请只将 Divider 类型的 schema 当作一个分割线，而不是一个常规的表单字段。
+
+- **`Divider`仅在`showAdvancedButton`为 false 时才会显示**（也就是说如果启用了表单收起和展开功能，`Divider`将不会显示）
 - `Divider` 使用`schema`中的`label`以及`helpMessage`来渲染分割线中的提示内容
-- `Divider` 可以使用`componentProps`来设置除`type`之外的props
+- `Divider` 可以使用`componentProps`来设置除`type`之外的 props
 - `Divider` 不会渲染`AFormItem`，因此`schema`中除`label`、`componentProps`、`helpMessage`、`helpComponentProps`以外的属性不会被用到
 
 ## 自行添加需要的组件类型
@@ -613,7 +626,7 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 
 ::: tip 提示
 
-使用插槽自定义表单域时，请注意antdv有关FormItem的[相关说明](https://2x.antdv.com/components/form-cn#API)。
+使用插槽自定义表单域时，请注意 antdv 有关 FormItem 的[相关说明](https://2x.antdv.com/components/form-cn#API)。
 
 :::
 
@@ -767,11 +780,9 @@ const schemas: FormSchema[] = [
 | valueField | `string` | `value` | 下拉数组项内`value`实际值的字段，支持`x.x.x`格式 |
 | immediate | `boolean` | `true` | 是否立即请求接口，否则将在第一次点击时候触发请求 |
 
-
 ## ApiTreeSelect
 
-远程下拉树加载组件，和`ApiSelect`类似，2.6.1以上版本
-
+远程下拉树加载组件，和`ApiSelect`类似，2.6.1 以上版本
 
 ### Props
 
