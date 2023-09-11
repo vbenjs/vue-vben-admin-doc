@@ -203,7 +203,7 @@ register 用于注册 `useForm`，如果需要使用 `useForm` 提供的 api，�
 
 **resetFields**
 
-类型: `()=> Promise<any>`
+类型: `()=> Promise<void>`
 
 说明: 重置表单值
 
