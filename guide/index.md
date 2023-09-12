@@ -237,11 +237,6 @@ pnpm i
 │   ├── store # 数据仓库
 │   ├── utils # 工具类
 │   └── views # 页面
-├── test # 测试
-│   └── server # 测试用到的服务
-│       ├── api # 测试服务器
-│       ├── upload # 测试上传服务器
-│       └── websocket # 测试ws服务器
 ├── types # 类型文件
 ├── vite.config.ts # vite配置文件
 └── windi.config.ts # windcss配置文件
