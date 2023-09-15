@@ -30,14 +30,14 @@
 </template>
 
 <script setup lang="ts">
-  import { defineEmits } from 'vue';
+  import { defineEmit } from 'vue';
   import NavBarTitle from './NavBarTitle.vue';
   import NavLinks from './NavLinks.vue';
   import ToggleSideBarButton from './ToggleSideBarButton.vue';
   import DarkModeSwitch from './DarkModeSwitch.vue';
   import { useRepo } from '../composables/repo';
 
-  defineEmits(['toggle']);
+  defineEmit(['toggle']);
 
   const repo = useRepo();
 </script>
