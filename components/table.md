@@ -450,7 +450,7 @@ register 用于注册 useTable，如果需要使用`useTable`提供的 api，必
 
 ::: tip 温馨提醒
 
-- 除以下参数外，官方文档内的 props 也都支持，具体可以参考 [antv table](https://2x.antdv.com/components/table-cn/#API)
+- 除以下参数外，官方文档内的 props 也都支持，具体可以参考 [antv table](https://www.antdv.com/components/table-cn/#api)
 - 注意：`defaultExpandAllRows`、`defaultExpandedRowKeys` 属性在basicTable中不受支持，并且在`antv table` v2.2.0之后也被移除。
 
 :::
@@ -562,7 +562,7 @@ export type CellFormat =
 
 ::: tip 温馨提醒
 
-除以下事件外，官方文档内的 event 也都支持，具体可以参考 [antv table](https://2x.antdv.com/components/table-cn/#API)
+除以下事件外，官方文档内的 event 也都支持，具体可以参考 [antv table](https://www.antdv.com/components/table-cn/#api)
 
 :::
 
@@ -601,7 +601,7 @@ export type CellFormat =
 
 ::: tip 温馨提醒
 
-除以下参数外，官方文档内的 slot 也都支持，具体可以参考 [antv table](https://2x.antdv.com/components/table-cn/#API)
+除以下参数外，官方文档内的 slot 也都支持，具体可以参考 [antv table](https://www.antdv.com/components/table-cn/#api)
 
 :::
 
