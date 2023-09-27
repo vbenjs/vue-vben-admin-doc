@@ -274,7 +274,7 @@ gzip 可以由服务器直接开启。如果是这样，前端不需要构建 `.
 
 ## 为什么是 moment.js
 
-很多人问为什么不用`dayjs`。在项目依赖中可以看到，它是 [Ant-Design-Vue](https://2x.antdv.com/docs/vue/introduce-cn/) 内部自带的。
+很多人问为什么不用`dayjs`。在项目依赖中可以看到，它是 [Ant-Design-Vue](https://www.antdv.com/components/overview-cn) 内部自带的。
 
 目前还没有基于 Vite 的 dayjs 替换 momentjs 方案，webpack 已经有了。等以后出现了在进行替换。
 
@@ -284,7 +284,7 @@ gzip 可以由服务器直接开启。如果是这样，前端不需要构建 `.
 
 后续 `vue-router` 可能会提供配置项来关闭警告
 
-**2.6.1及以上版本已移除此警告**
+**2.6.1 及以上版本已移除此警告**
 
 ```ts
 [Vue Router warn]: No match found for location with path "xxxx"
