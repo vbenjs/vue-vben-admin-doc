@@ -16,31 +16,31 @@
   </div>
 </template>
 
-<script>
-export default {
-  emits: ['toggle']
-}
+<script lang="ts">
+  export default {
+    emits: ['toggle'],
+  };
 </script>
 
 <style>
-.sidebar-button {
-  position: absolute;
-  top: 0.6rem;
-  left: 1rem;
-  display: none;
-  padding: 0.6rem;
-  cursor: pointer;
-}
-
-.sidebar-button .icon {
-  display: block;
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-@media screen and (max-width: 719px) {
   .sidebar-button {
-    display: block;
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    display: none;
+    padding: 0.6rem;
+    cursor: pointer;
   }
-}
+
+  .sidebar-button .icon {
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  @media screen and (max-width: 719px) {
+    .sidebar-button {
+      display: block;
+    }
+  }
 </style>
