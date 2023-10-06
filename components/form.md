@@ -248,7 +248,7 @@ register 用于注册 `useForm`，如果需要使用 `useForm` 提供的 api，�
 
 说明: 设置表单 Props
 
-**removeSchemaByFiled**
+**removeSchemaByField**
 
 类型: `(field: string | string[]) => Promise<void>`
 
