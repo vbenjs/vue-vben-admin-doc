@@ -23,7 +23,7 @@
 
 ::: tip 提示
 
-**保持** [anv design button 组件](https://2x.antdv.com/components/button-cn/) **原有功能**的情况下扩展以下属性
+**保持** [ant design button 组件](https://www.antdv.com/components/button-cn) **原有功能**的情况下扩展以下属性
 
 :::
 
