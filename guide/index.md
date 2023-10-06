@@ -17,7 +17,8 @@
 ::: warning 注意
 
 - 推荐使用[pnpm](https://pnpm.io/)，否则依赖可能安装不上。
-- [Node.js](http://nodejs.org/) 版本要求`12.x`以上，且不能为`13.x`版本，这里推荐 `14.x` 及以上。
+- [Node.js](http://nodejs.org/) 版本要求`14.x`以上，这里推荐 `20.x` 及以上。
+- 推荐安装 [nvm](https://github.com/nvm-sh/nvm/tree/master) 来管理 `Node.js` 版本。
 
 :::
 
