@@ -109,24 +109,6 @@ pnpm -v # 出现对应版本号即代表安装成功
 pnpm i
 ```
 
-### imagemin 依赖安装失败解决方法
-
-由于 imagemin 在国内安装困难，提供以下几个解决方案：
-
-1. 使用 yarn 在 package.json 内配置(推荐，项目内已集成，前提是必须使用 yarn)
-
-```json
-"resolutions": {
-  "bin-wrapper": "npm:bin-wrapper-china"
-}
-```
-
-2. 使用 npm，在电脑 host 文件加上如下配置即可
-
-```bash
-199.232.4.133 raw.githubusercontent.com
-```
-
 ::: tip 安装依赖时 husky 安装失败
 
 请查看你的源码是否从 github 直接下载的，直接下载是没有 `.git` 文件夹的，而 `husky` 需要依赖 `git` 才能安装。此时需使用 `git init` 初始化项目，再尝试重新安装即可。
