@@ -36,6 +36,10 @@
 
 VITE_PROXY=[["/upload","http://localhost:3001/upload"]]
 
+::: tip
+v3.0.0开始，作者重构了vite.config.ts，新版本不再支持VITE_PROXY环境变量。
+:::
+
 # 如果没有跨域问题，则直接使用真实上传地址
 VITE_GLOB_UPLOAD_URL=/upload
 
