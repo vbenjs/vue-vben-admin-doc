@@ -58,6 +58,11 @@ VITE_DROP_CONSOLE=false
 # 如果接口地址匹配到，则会转发到http://localhost:3000，防止本地出现跨域问题
 # 可以有多个，注意多个不能换行，否则代理将会失效
 VITE_PROXY=[["/api","http://localhost:3000"],["api1","http://localhost:3001"],["/upload","http://localhost:3001/upload"]]
+
+::: tip
+v3.0.0开始，作者重构了vite.config.ts，新版本不再支持VITE_PROXY环境变量。
+:::
+
 # 接口地址
 # 如果没有跨域问题，直接在这里配置即可
 VITE_GLOB_API_URL=/api

@@ -26,6 +26,10 @@ VITE_GLOB_API_URL=/api
 
 :::
 
+::: tip
+v3.0.0开始，作者重构了vite.config.ts，新版本不再支持VITE_PROXY环境变量。
+:::
+
 ### 跨域处理
 
 如果你在 `src/api/` 下面的接口为下方代码，且 **.env.development** 文件配置如下注释，则在控制台看到的地址为 `http://localhost:3100/basic-api/login`。
