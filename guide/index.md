@@ -216,7 +216,6 @@ pnpm i
 │   ├── utils # 工具类
 │   └── views # 页面
 ├── types # 类型文件
-├── vite.config.ts # vite配置文件
-└── windi.config.ts # windcss配置文件
+└── vite.config.ts # vite配置文件
 
 ```
