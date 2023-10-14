@@ -312,7 +312,7 @@ updateSchema([
 | resetButtonOptions | `object` |  | - | 重置按钮配置见下方 ActionButtonOption |  |
 | showSubmitButton | `boolean` | `true` | - | 是否显示提交按钮 |  |
 | submitButtonOptions | `object` |  | - | 确认按钮配置见下方 ActionButtonOption |  |
-| resetFunc | ` () => Promise<void>` |  | - | 自定义重置按钮逻辑`() => Promise<void>;` |  |
+| resetFunc | ` () => Promise<void>` |  | - | 重置表单行为前执行自定义重置按钮逻辑`() => Promise<void>;` |  |
 | submitFunc | ` () => Promise<void>` |  | - | 自定义提交按钮逻辑`() => Promise<void>;` |  |
 | fieldMapToTime | `[string, [string, string], string?][]` |  | 'timestamp' ,'timestampStartDay' ,momentjs 时间格式 | 用于将表单内时间区域的应设成 2 个字段,见下方说明 |  |
 
