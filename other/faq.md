@@ -269,3 +269,29 @@ proxy 代理不成功，没有代理到实际地址？
 ## 组件库问题
 
 跟组件库相关的问题可以查看[常见问题](https://2x.antdv.com/docs/vue/faq-cn/)
+
+## 动态调整菜单问题
+
+菜单数据的值被存放在 `store/modules/permission` store 中, 你可以在这里进行修改
+
+## 更灵活的菜单路由权限控制
+
+你可以在 `store/modules/permission`下, 修改 `routeFilter` 方法来进行更灵活的菜单路由权限控制
+
+```
+ const routeFilter = (route: AppRouteRecordRaw) => {
+    const { meta } = route;
+    // 抽出角色
+    const { roles } = meta || {};
+
+    // 添加你的自定义逻辑来过滤路由和菜单
+    if (xxx) {
+      return false;
+    }
+
+    if (!roles) return true;
+    // 进行角色权限判断
+    return roleList.some((role) => roles.includes(role));
+  };
+
+```
