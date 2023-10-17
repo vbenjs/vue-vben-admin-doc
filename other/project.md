@@ -14,6 +14,7 @@
 3. **后端**：https://gitee.com/battcn/wemirr-platform **前端**：https://gitee.com/battcn/wemirr-platform-ui
 4. **后端**：https://gitee.com/zsvg/vboot-java **前端**：https://gitee.com/zsvg/vboot-vben
 5. **后端SpringBoot**：https://github.com/uncarbon97/helio-boot   **后端SpringCloud**：https://github.com/uncarbon97/helio-cloud   **前端**：https://github.com/uncarbon97/helio-admin-vue-vben
+6. **后端SpringBoot**：https://gitee.com/zhijiantianya/ruoyi-vue-pro   **后端SpringCloud**：https://gitee.com/zhijiantianya/yudao-cloud   **前端**：https://gitee.com/yudaocode/yudao-ui-admin-vben
 
 ## .net
 1. 对接Osharp **前端**：https://github.com/zionLZH/osharp-vben-admin 
