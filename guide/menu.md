@@ -16,6 +16,8 @@ export interface Menu {
   name: string;
   // 菜单图标,如果没有，则会尝试使用route.meta.icon
   icon?: string;
+  // 菜单图片,如果同时传递了icon和img,则只会显示img
+  img?: string;
   // 菜单路径
   path: string;
   // 是否禁用
