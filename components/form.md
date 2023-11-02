@@ -280,7 +280,7 @@ updateSchema([
 
 ::: tip 温馨提醒
 
-除以下参数外，官方文档内的 props 也都支持，具体可以参考 [antv form](https://2x.antdv.com/components/form-cn/#Form)
+除以下参数外，官方文档内的 props 也都支持，具体可以参考 [antv form](https://antdv.com/components/form-cn#api)
 
 :::
 
@@ -759,7 +759,7 @@ useComponentRegister('StrengthMeter', StrengthMeter);
 
 ---
 
-见 [antv form](https://2x.antdv.com/components/form-cn/#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99)
+见 [antv form](https://antdv.com/components/form-cn/#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99)
 
 ## Slots
 
