@@ -677,6 +677,7 @@ useComponentRegister('StrengthMeter', StrengthMeter);
             field: 'field1',
             label: '字段1',
             slot: 'customSlot',
+            component: 'xxxxx', // 如果这个字段不写将不会渲染slot
           },
         ],
       });
