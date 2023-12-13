@@ -228,18 +228,18 @@ changeLoading(true);
 
 ## Events
 
-| 事件           | 回调参数                | 说明             |
-| -------------- | ----------------------- | ---------------- |
-| ok             | `function(e)`           | 点击确定回调     |
-| cancel         | `function(e)`           | 点击取消回调     |
-| visible-change | `(visible:boolean)=>{}` | 打开或者关闭触发 |
+| 事件        | 回调参数                | 说明             |
+| ----------- | ----------------------- | ---------------- |
+| ok          | `function(e)`           | 点击确定回调     |
+| cancel      | `function(e)`           | 点击取消回调     |
+| open-change | `(visible:boolean)=>{}` | 打开或者关闭触发 |
 
 ## Slots
 
-| 名称    | 说明     |
-| ------- | -------- |
-| default | 默认区域 |
-| footer | 底部区域(会替换掉默认的按钮) |
-|insertFooter|关闭按钮的左边(不使用footer插槽时有效) |
-|centerFooter| 关闭按钮和确认按钮的中间(不使用footer插槽时有效) |
-|appendFooter| 确认按钮的右边(不使用footer插槽时有效) |
+| 名称         | 说明                                               |
+| ------------ | -------------------------------------------------- |
+| default      | 默认区域                                           |
+| footer       | 底部区域(会替换掉默认的按钮)                       |
+| insertFooter | 关闭按钮的左边(不使用 footer 插槽时有效)           |
+| centerFooter | 关闭按钮和确认按钮的中间(不使用 footer 插槽时有效) |
+| appendFooter | 确认按钮的右边(不使用 footer 插槽时有效)           |
