@@ -56,7 +56,7 @@ icon 的值可以在 [Iconify](https://iconify.design) 或 [Netlify](https://ico
   </div>
 </template>
 <script>
-  import { SvgIcon } from '/@/components/Icon';
+  import { SvgIcon } from '/@/components/Icon/Icon.vue';
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: { SvgIcon },
