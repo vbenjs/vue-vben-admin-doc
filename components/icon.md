@@ -21,7 +21,7 @@ icon 的值可以在 [Iconify](https://iconify.design) 或 [Netlify](https://ico
 
 <script>
   import { defineComponent } from 'vue';
-  import { Icon } from '/@/components/Icon';
+  import { Icon } from '/@/components/Icon.vue';
   export default defineComponent({
     components: { Icon },
   });
