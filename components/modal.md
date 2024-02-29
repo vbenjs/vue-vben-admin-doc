@@ -232,7 +232,7 @@ changeLoading(true);
 | ----------- | ----------------------- | ---------------- |
 | ok          | `function(e)`           | 点击确定回调     |
 | cancel      | `function(e)`           | 点击取消回调     |
-| open-change | `(visible:boolean)=>{}` | 打开或者关闭触发 |
+| visible-change | `(visible:boolean)=>{}` | 打开或者关闭触发 |
 
 ## Slots
 
