@@ -36,7 +36,7 @@ yarn dev
 - [Ant-Design-Vue](https://www.antdv.com/components/overview-cn)
 - [Es6](https://es6.ruanyifeng.com/)
 - [Vitejs](https://vitejs.dev/)
-- [WindiCss](https://windicss.netlify.app/)
+- [UnoCss](https://unocss.dev/)
 
 ## 模版
 
