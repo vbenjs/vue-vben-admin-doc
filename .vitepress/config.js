@@ -34,7 +34,7 @@ function createHead() {
         content: 'vben, vitejs, vite, ant-design-vue, vue',
       },
     ],
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.png' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.ico' }],
     [
       'meta',
       {
