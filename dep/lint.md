@@ -143,7 +143,7 @@ git hook 一般结合各种 lint，在 git 提交代码的时候进行代码风�
 
 ```bash
 # 删除husky依赖即可
-yarn remove huksy
+yarn remove husky
 
 ```
 
