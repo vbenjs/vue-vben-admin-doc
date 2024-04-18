@@ -62,6 +62,9 @@ VITE_GLOB_UPLOAD_URL=/upload
 | multiple          | `boolean`  | -        | -      | 开启多文件上传                           |
 | uploadParams      | `any`      | -        | -      | 上传携带的参数                           |
 | api               | `Fn`       | -        | -      | 上传接口，为上面配置的接口               |
+| resultField | `string` | - | 接口返回的字段，如果接口返回数组，可以不填。支持`x.x.x`格式 |
+| previewColumns | `any` | - | - | 预览的表单列信息 BasicColumn[] |  |
+| beforePreviewData | `(fileList)=>any[]` | - | - | 对预览的返回值进行处理 |  |
 
 ## Events
 
