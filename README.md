@@ -7,8 +7,8 @@
 $ git clone git@github.com:vbenjs/vue-vben-admin-doc.git
 
 # 或者使用 yarn
-$ yarn install
+$ pnpm install
 
 # 启动开发服务器
-$ yarn dev
+$ pnpm dev
 ```
