@@ -127,7 +127,7 @@ getCurrentInstance().ctx.xxxx;
 
 ```bash
 # .npmrc
-registry = https://registry.npm.taobao.org
+registry = https://registry.npmmirror.com/
 ```
 
 然后重新执行`yarn run reinstall`等待安装完成即可
