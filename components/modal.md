@@ -162,7 +162,7 @@ type: `(data:any)=>void`
 回调函数用于接收 openModal 第二个参数传递的值
 
 ```ts
-useModal((data: any) => {
+useModalInner((data: any) => {
   console.log(data);
 });
 ```
